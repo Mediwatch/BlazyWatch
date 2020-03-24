@@ -1,0 +1,30 @@
+name: Doxygen Generator
+
+on: push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    
+    - name: Install Doxygen
+      run: |
+        sudo apt-get install doxygen
+        sudo apt-get install graphviz
+    
+    - name: Generate Doc
+      run: doxygen
+    
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add --all
+        git commit -m "Updtate documentation" --allow-empty
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
