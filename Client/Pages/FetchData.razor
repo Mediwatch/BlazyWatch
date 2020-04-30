@@ -1,10 +1,6 @@
-﻿@page "/fetchdata"
-@using Microsoft.AspNetCore.Authorization
-@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
-@inject IAccessTokenProvider AuthenticationService
-@inject NavigationManager Navigation
-@using MediwatchWebsite.Shared
-@attribute [Authorize]
+@page "/fetchdata"
+@using Mediwatch.Shared
+@inject HttpClient Http
 
 <h1>Weather forecast</h1>
 
@@ -44,21 +40,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        var httpClient = new HttpClient();
-        httpClient.BaseAddress = new Uri(Navigation.BaseUri);
-
-        var tokenResult = await AuthenticationService.RequestAccessToken();
-
-        if (tokenResult.TryGetToken(out var token))
-        {
-            httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {token.Value}");
-            forecasts = await httpClient.GetJsonAsync<WeatherForecast[]>("WeatherForecast");
-        }
-        else
-        {
-            Navigation.NavigateTo(tokenResult.RedirectUrl);
-        }
-
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
     }
 
 }

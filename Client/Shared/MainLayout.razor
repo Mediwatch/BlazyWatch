@@ -1,16 +1,111 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="sidebar">
-    <NavMenu />
-</div>
-
-<div class="main">
-    <div class="top-row px-4 auth">
-        <LoginDisplay />
-        <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+<header class="top-bar navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"> <img src="./ressources/MediwatchLogoWhite.svg" alt="mediwatch logo" width="25px" />ediwatch </a>
+    
+    <div class="navbar-nav-scroll ml-auto d-none d-sm-block">
+        <ul class="navbar-nav flex-row">
+            <li class="px-3 nav-item">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Home
+                </NavLink>
+            </li>
+            <li class="px-3 nav-item">
+                <NavLink class="nav-link" href="counter">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Counter
+                </NavLink>
+            </li>
+            <li class="px-3 nav-item">
+                <NavLink class="nav-link" href="fetchdata">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+                </NavLink>
+            </li>
+            <li class="px-3 nav-item dropdown">
+                <DropDownMenu DropDownButtonClass="btn">
+                    <DropDownButton><img class="profile-pic" src="ressources/koko_profile.jpg"/></DropDownButton>
+                    <ReturnButton>&lt; Retour</ReturnButton>
+                    <Content>
+                        <DropDownItemNested>
+                            <Title>
+                                Counter &gt;
+                            </Title>
+                            <Nested>
+                                <a class="dropdown-item selected">Current count: 64</a>
+                                <a class="dropdown-item selected">Current count: 42</a>
+                            </Nested>
+                        </DropDownItemNested>
+                    </Content>
+                </DropDownMenu>
+            </li>
+        </ul>
     </div>
 
-    <div class="content px-4">
-        @Body
+    <button class="btn justify-content-sm-center button" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</header>
+
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <div class="sidebar order-md-2 col-12 col-md-4 col-xl-4 @NavMenuCssClass">
+            <ul class="">
+                <li class=" active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <CalendarWidget/>
+        </div>
+        
+        <div class="main order-md-1">
+            <div class="top-row px-4">
+                <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+            </div>
+
+            <div class="content px-4">
+                @Body
+            </div>
+        </div>
     </div>
 </div>
+
+<nav class="navbar position-sticky fixed-bottom navbar-dark bootom-bar d-block d-sm-none">
+  <ul class="navbar-nav flex-row">
+            <li class="px-3 nav-item">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Home
+                </NavLink>
+            </li>
+            <li class="px-3 nav-item">
+                <NavLink class="nav-link" href="counter">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Counter
+            </NavLink>
+            </li>
+            <li class="px-3 nav-item">
+                <NavLink class="nav-link" href="fetchdata">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+                </NavLink>
+            </li>
+            <img class="profile-pic" src="ressources/koko_profile.jpg"/>
+        </ul>
+</nav>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

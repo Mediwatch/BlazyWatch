@@ -1,0 +1,75 @@
+@using DropDownCompenent
+
+@implements IDisposable
+
+
+<div class="dropdown">
+    <button class="@DropDownButtonClass" @onclick="UpdateOnclickShow">
+        @DropDownButton
+    </button>
+
+    @if(dropdownState.Content.Count < 1) {
+    <div class="dropdown-menu @ShowCSS">
+        <CascadingValue Value="dropdownState" Name="DropdownState">
+            @Content
+        </CascadingValue>
+    </div>
+    } else {
+    <div class="dropdown-menu @ShowCSS">
+        <a class="dropdown-item" @onclick="Previous">@ReturnButton</a>
+        <div class="dropdown-divider"></div>
+        <CascadingValue Value="dropdownState" Name="DropdownState">
+            @dropdownState.Content.Peek()
+        </CascadingValue>
+    </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string DropDownButtonClass {get; set;}
+    [Parameter]
+    public RenderFragment DropDownButton { get; set; }
+    [Parameter]
+    public RenderFragment ReturnButton { get; set; }
+    [Parameter]
+    public RenderFragment Content { get; set; }
+    [Parameter]
+    public bool Show { get; set; } = false;
+    
+    private string ShowCSS => Show ? "show" : null;
+    public DropdownState dropdownState = new DropdownState();
+
+     protected override void OnInitialized()
+    {
+        dropdownState.OnChange += UpdateContent;
+    }
+
+    public void Dispose()
+    {
+        dropdownState.OnChange -= UpdateContent;
+    }
+
+    public void UpdateContent() {
+        if (dropdownState.OpenState == false) {
+            ClearContent();
+            Show = false;
+        }
+        StateHasChanged();
+    }
+
+    public void ClearContent() {
+        dropdownState.ClearContent();
+    }
+
+    public void Previous() {
+        dropdownState.PopRenderFragment();
+        StateHasChanged();
+    }
+
+    private void UpdateOnclickShow() {
+        ClearContent();
+        Show = !Show;
+        dropdownState.OpenState = Show;
+    }
+}

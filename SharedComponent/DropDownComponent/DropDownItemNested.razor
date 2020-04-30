@@ -1,0 +1,24 @@
+@using DropDownCompenent
+
+<a class="dropdown-item" @onclick="SetContent">
+    @Title
+</a>
+
+
+@code {
+    [CascadingParameter(Name="DropdownState")]
+    public  DropdownState State{ get; set; }
+
+
+    [Parameter]
+    public RenderFragment Title { get; set; }
+    [Parameter]
+    public RenderFragment Nested { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    void SetContent() {
+        State.AddRenderfragment(Nested);
+    }
+}

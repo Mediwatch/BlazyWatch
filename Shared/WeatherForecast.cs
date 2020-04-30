@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MediwatchWebsite.Shared
+namespace Mediwatch.Shared
 {
     public class WeatherForecast
     {

@@ -5,30 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (web)",
+            "name": ".NET Core Launch (Blazor Standalone)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/Server/bin/Debug/netcoreapp3.1/MediwatchWebsite.Server.dll",
-            "args": [],
+            "program": "dotnet",
+            "args": [
+                "run"
+            ],
             "cwd": "${workspaceFolder}/Server",
-            "stopAtEntry": false,
-            "serverReadyAction": {
-                "action": "openExternally",
-                "pattern": "^\\s*Now listening on:\\s+(https?://\\S+)"
-            },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
-            },
-            "sourceFileMap": {
-                "/Views": "${workspaceFolder}/Views"
             }
         },
         {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:pickProcess}"
+            "name": ".NET Core Debug Blazor Web Assembly in Chrome",
+            "type": "pwa-chrome",
+            "request": "launch",
+            "timeout": 30000,
+            "url": "https://localhost:5001",
+            "webRoot": "${workspaceFolder}/Server",
+            "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}"
         }
     ]
 }

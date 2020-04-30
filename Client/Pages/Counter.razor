@@ -6,6 +6,24 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<DropDownMenu DropDownButtonClass="btn btn-secondary dropdown-toggle">
+        <DropDownButton>Down Button</DropDownButton>
+        <ReturnButton>&lt; Retour</ReturnButton>
+        <Content>
+            <DropDownItemNested>
+                <Title>
+                    Counter &gt;
+                </Title>
+                <Nested>
+                    <a class="dropdown-item selected">Current count: @currentCount</a>
+                    <a class="dropdown-item selected">Current count: @currentCount</a>
+                </Nested>
+            </DropDownItemNested>
+        </Content>
+</DropDownMenu>
+
+<Component1/>
+
 @code {
     private int currentCount = 0;
 

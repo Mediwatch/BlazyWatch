@@ -1,0 +1,68 @@
+
+<table class="table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th>Lu</th>
+            <th>Ma</th>
+            <th>Me</th>
+            <th>Je</th>
+            <th>Ve</th>
+            <th>Sa</th>
+            <th>Di</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(int week = 0; week < 6; week++) {
+            <tr>
+                @for(int day = 0; day < 7; day++){
+                    <td>
+                        <div>
+                            <div class="">@(1 + day + 7 * week)</div>
+                            <div class="">
+                                <div> </div>
+                            </div>
+                        </div>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+
+    [Parameter]
+    public int Month{get;set;};
+    [Parameter]
+    public int Year{get;set;};
+
+    private int nbDayInMonth;
+    private int nbDayInLastMonth;
+    private int startDay;
+
+    protected override void OnInitialized()
+    {
+        nbDayInLastMonth = NumberOfDayInMonth(Month - 1 < 1 :  )
+    }
+
+    
+
+    public int WhichDayTheMonthStart(int day, int month, int year)
+    {
+        int[]  t=  new int[]{0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
+        year -= month < 3 ? 1 : 0;
+        return (year + year/4 - year/100 + year/400 + t[month-1] + day) % 7;
+    }
+
+    public int NumberOfDayInMonth(int month, int year)
+    {
+        if (month == 3)
+            return IsLeapYear(year) ? 29 : 28;
+        return 30 + month % 2;
+    }
+
+    public bool IsLeapYear(int year) {
+        return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+    }
+    
+}
