@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['oidcconfigurationcontroller',['OidcConfigurationController',['../class_mediwatch_website_1_1_server_1_1_controllers_1_1_oidc_configuration_controller.html',1,'MediwatchWebsite::Server::Controllers']]]
+  ['startup',['Startup',['../class_mediwatch_1_1_server_1_1_startup.html',1,'Mediwatch::Server']]]
 ];
