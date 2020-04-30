@@ -32,9 +32,9 @@
 @code {
 
     [Parameter]
-    public int Month{get;set;};
+    public int Month{get;set;}
     [Parameter]
-    public int Year{get;set;};
+    public int Year{get;set;}
 
     private int nbDayInMonth;
     private int nbDayInLastMonth;
@@ -42,7 +42,7 @@
 
     protected override void OnInitialized()
     {
-        nbDayInLastMonth = NumberOfDayInMonth(Month - 1 < 1 :  )
+        nbDayInLastMonth = NumberOfDayInMonth(Month - 1 < 1 : 12 : Month - 1 );
     }
 
     
