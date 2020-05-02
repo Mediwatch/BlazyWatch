@@ -5,19 +5,36 @@ using System.Threading.Tasks;
 using System.Text;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Blazorise;
+using Blazorise.Bootstrap;
+using Blazorise.Icons.FontAwesome;
 
 namespace Mediwatch.Client
 {
-    public class Program
-    {
-        public static async Task Main(string[] args)
-        {
-            var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("app");
+	public class Program
+	{
+		public static async Task Main(string[] args)
+		{
+			var builder = WebAssemblyHostBuilder.CreateDefault(args);
+			builder.RootComponents.Add<App>("app");
 
-            builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+			builder.Services
+				  .AddBlazorise(options =>
+				 {
+					 options.ChangeTextOnKeyPress = true;
+				 })
+				  .AddBootstrapProviders()
+				  .AddFontAwesomeIcons();
 
-            await builder.Build().RunAsync();
-        }
-    }
+			builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+			var host = builder.Build();
+
+			host.Services
+			  .UseBootstrapProviders()
+			  .UseFontAwesomeIcons();
+
+			await host.RunAsync();
+		}
+	}
 }

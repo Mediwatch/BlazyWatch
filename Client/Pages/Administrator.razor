@@ -1,0 +1,96 @@
+@page "/admin"
+@using Mediwatch.Shared
+
+<h1>Administration</h1>
+
+@if (users == null) {
+	<p>Chargement des utilisateurs en cours...</p>
+} else {
+<table class="table">
+        <thead>
+            <tr>
+				<th>Nom</th>
+				<th>Adresse mail</th>
+				<th>Rôles</th>
+            </tr>
+        </thead>
+		<tbody>
+			@foreach (var user in users)
+			{
+				<tr>
+					<td>@user.name</td>
+					<td>@user.mail</td>
+					<td>
+						<DropDownMenu DropDownButtonClass="btn btn-secondary dropdown-toggle">
+						<DropDownButton>Voir les rôles</DropDownButton>
+							<Content>
+								@foreach (var role in roles)
+								{
+									<a class="dropdown-item selected" @onclick="@(e => changeRole(role, user))">@role
+										@if (user.roles != null && user.roles.Any(r => r.Equals(role))) {
+											<Icon Name="@("fa-check")" Color="Color.Primary"/>
+										}
+									</a>
+
+								}
+							</Content>
+						</DropDownMenu>
+					</td>
+				</tr>
+			}
+		</tbody>
+</table>
+}
+
+@code {
+	private struct User
+	{
+		public string name { get; set; }
+		public string mail { get; set; }
+
+		public List<string> roles { get; set; }
+
+		public User(string name, string mail, List<string> roles)
+		{
+			this.name = name;
+			this.mail = mail;
+			this.roles = roles;
+		}
+	};
+
+	static private List<string> roles = new List<string> { "R1", "R2", "R3", "R4", "R5" };
+	static private List<string> empty = new List<string>();
+	private List<User> users = new List<User>();
+
+	User u1 = new User("Test1", "test1@test.com", new List<string> { roles.ElementAt(0) });
+	User u2 = new User("Test2", "test2@test.com", empty);
+	User u3 = new User("Test3", "test3@test.com", empty);
+	User u4 = new User("Test4", "test4@test.com", empty);
+	User u5 = new User("Test5", "test5@test.com", empty);
+	User u6 = new User("Test6", "test6@test.com", empty);
+	protected override async Task OnInitializedAsync()
+	{
+		users.Add(u1);
+		users.Add(u2);
+		users.Add(u3);
+		users.Add(u4);
+		users.Add(u5);
+		users.Add(u6);
+
+	}
+
+	private void changeRole(string role, User user)
+	{
+		if (user.roles != null)
+		{
+			if (user.roles.Any(r => r.Equals(role)))
+			{
+				user.roles.Remove(role);
+			}
+			else
+			{
+				user.roles.Add(role);
+			}
+		}
+	}
+}
