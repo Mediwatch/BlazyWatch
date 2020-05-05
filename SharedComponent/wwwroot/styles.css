@@ -9,3 +9,7 @@
     margin: 1em 0;
     background-image: url('background.png');
 }
+
+.calendar-element {
+    font-size: 0.7rem;
+}

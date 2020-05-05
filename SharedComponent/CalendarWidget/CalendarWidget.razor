@@ -2,13 +2,13 @@
 <table class="table table-bordered table-dark">
     <thead>
         <tr>
-            <th>Lu</th>
-            <th>Ma</th>
-            <th>Me</th>
-            <th>Je</th>
-            <th>Ve</th>
-            <th>Sa</th>
-            <th>Di</th>
+            <th class="calendar-element">Lu</th>
+            <th class="calendar-element">Ma</th>
+            <th class="calendar-element">Me</th>
+            <th class="calendar-element">Je</th>
+            <th class="calendar-element">Ve</th>
+            <th class="calendar-element">Sa</th>
+            <th class="calendar-element">Di</th>
         </tr>
     </thead>
     <tbody>
@@ -17,10 +17,9 @@
                 @for(int day = 0; day < 7; day++){
                     <td>
                         <div>
-                            <div class="">@(1 + day + 7 * week)</div>
-                            <div class="">
-                                <div> </div>
-                            </div>
+                            <div class="calendar-element">@((1 + day + 7 * week) < startDay ? 
+                               nbDayInLastMonth - startDay + (day + 7 * week) : ((1 + day + 7 * week) - startDay < nbDayInMonth ? 
+                               (1 + day + 7 * week) - startDay + 1 : (1 + day + 7 * week) - startDay - nbDayInMonth + 1))</div>
                         </div>
                     </td>
                 }
@@ -42,7 +41,9 @@
 
     protected override void OnInitialized()
     {
-        //nbDayInLastMonth = NumberOfDayInMonth(Month - 1 < 1 : 12 : Month - 1 );
+        nbDayInLastMonth = NumberOfDayInMonth(Month - 1 < 1 ? 12 : Month - 1 , Year);
+        nbDayInMonth = NumberOfDayInMonth(Month, Year);
+        startDay = WhichDayTheMonthStart(1,Month,Year);
     }
 
     
@@ -56,7 +57,7 @@
 
     public int NumberOfDayInMonth(int month, int year)
     {
-        if (month == 3)
+        if (month == 2)
             return IsLeapYear(year) ? 29 : 28;
         return 30 + month % 2;
     }

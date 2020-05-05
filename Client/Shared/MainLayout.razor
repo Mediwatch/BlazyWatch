@@ -2,19 +2,14 @@
 
 <header class="top-bar navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#"> <img src="./ressources/MediwatchLogoWhite.svg" alt="mediwatch logo" width="25px" />ediwatch </a>
-    
+    <div class="input-group md-form form-sm form-1 ml-auto">
+        <div class="input-group-prepend">
+            <span class="input-group-text pink lighten-3"><i class="fas fa-search text-white"></i></span>
+        </div>
+        <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
+    </div>    
     <div class="navbar-nav-scroll ml-auto d-none d-sm-block">
         <ul class="navbar-nav flex-row">
-            <li class="px-3 nav-item">
-                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                    <span class="oi oi-home" aria-hidden="true"></span> Home
-                </NavLink>
-            </li>
-            <li class="px-3 nav-item">
-                <NavLink class="nav-link" href="counter">
-                    <span class="oi oi-plus" aria-hidden="true"></span> Counter
-                </NavLink>
-            </li>
             <li class="px-3 nav-item">
                 <NavLink class="nav-link" href="fetchdata">
                     <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
@@ -47,7 +42,7 @@
 
 <div class="container-fluid">
     <div class="row flex-xl-nowrap">
-        <div class="sidebar order-md-2 col-12 col-md-4 col-xl-4 @NavMenuCssClass">
+        <div class="order-md-2 col-12 col-md-6 col-xl-4 sidebar @NavMenuCssClass">
             <ul class="">
                 <li class=" active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -62,7 +57,7 @@
                     <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
             </ul>
-            <CalendarWidget/>
+            <CalendarWidget Month=@localDateTime.Month Year=localDateTime.Year/>
         </div>
         
         <div class="main order-md-1">
@@ -102,6 +97,7 @@
     private bool collapseNavMenu = true;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private DateTime localDateTime = DateTime.Now;
 
 
     private void ToggleNavMenu()
