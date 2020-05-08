@@ -1,0 +1,95 @@
+@page "/formationCreation"
+@using Mediwatch.Shared
+@inject IJSRuntime JSRuntime;
+@inject HttpClient client;
+
+<!--<AuthorizeView Roles="Admin, Tutor">-->
+    <ChildContent Context="another_name">
+    <EditForm Model="@form" OnValidSubmit="@PostFormation">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <table>
+            <h1>Création de formation</h1>
+
+            <tr>
+                <td><label for="name">Nom de la formation :</label></td>
+                <td><InputText id="Name" placeholder="Veuillez entrer un nom." @bind-Value="form.Name" /></td>
+            </tr>
+            <tr>
+                <td><label for="">Date de la formation :</label></td>
+                <td><InputDate id="startDate" @bind-Value="form.StartDate" Min="2020-01-01" />
+                <p style="display: inline;">~</p>
+                <InputDate id="endDate" @bind-Value="form.EndDate" Min="2020-01-01" /></td>
+            </tr>
+            <tr>
+                <td><label for="Description">Description de la formation :</label></td>
+                <td><InputTextArea id="Description" placeholder="Veuillez entrer une description." @bind-Value="form.Description" Rows="10" Cols="50"></InputTextArea></td>
+            </tr>
+            <tr>
+                <td><label for="Former">Nom du formateur :</label></td>
+                <td><InputText id="Former" placeholder="Veuillez entrer un nom." @bind-Value="form.Former" /></td>
+            </tr>
+            <tr>
+                <td><label for="Price">Prix de la formation :</label></td>
+                <td><InputNumber id="Price" @bind-Value="form.Price" /></td>
+            </tr>
+            <tr>
+                <td><label for="OrganizationName">Nom de l'organisme :</label></td>
+                <td><InputText id="OrganizationName" placeholder="Veuillez entrer le nom de l'organisme." @bind-Value="form.OrganizationName" /></td>
+            </tr>
+            <tr>
+                <td><label for="Contact">Contact :</label></td>
+                <td><InputText id="Contact" placeholder="Veuillez entrer un contact." @bind-Value="form.Contact" /></td>
+            </tr>
+            <tr>
+                <td><label for="Location">Localisation de la formation :</label></td>
+                <td><InputText id="Location" placeholder="Veuillez entrer la localisation de la formation." @bind-Value="form.Location" /></td>
+            </tr>
+        </table>
+
+        <button type="submit">Créer la formation</button>
+    </EditForm>
+    </ChildContent>
+<!--</AuthorizeView>-->
+@code
+{
+	public class FormationForm
+	{
+		[System.ComponentModel.DataAnnotations.Required]
+		public string Name { get; set; }
+
+		[System.ComponentModel.DataAnnotations.Required]
+		public DateTime StartDate { get; set; } = DateTime.Today;
+
+		[System.ComponentModel.DataAnnotations.Required]
+		public DateTime EndDate { get; set; } = DateTime.Today;
+
+		[System.ComponentModel.DataAnnotations.Required]
+		public string Location { get; set; }
+
+		[System.ComponentModel.DataAnnotations.Required]
+		public string Contact { get; set; }
+
+		[System.ComponentModel.DataAnnotations.Required]
+		public string OrganizationName { get; set; }
+
+		[System.ComponentModel.DataAnnotations.Required]
+		public decimal Price { get; set; }
+
+		[System.ComponentModel.DataAnnotations.Required]
+		public string Former { get; set; }
+
+		[System.ComponentModel.DataAnnotations.Required]
+		public string Description { get; set; }
+
+		[System.ComponentModel.DataAnnotations.Required]
+		public List<string> Target { get; set; }
+	}
+	private FormationForm form { get; set; } = new FormationForm();
+
+	private async void PostFormation()
+	{
+		//await client.PostJsonAsync("api/Formation", form);
+	}
+}
