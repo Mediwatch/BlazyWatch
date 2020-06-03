@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['startup',['Startup',['../class_mediwatch_website_1_1_server_1_1_startup.html',1,'MediwatchWebsite::Server']]]
+  ['weatherforecastcontroller',['WeatherForecastController',['../class_mediwatch_1_1_server_1_1_controllers_1_1_weather_forecast_controller.html',1,'Mediwatch::Server::Controllers']]]
 ];
