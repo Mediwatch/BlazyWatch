@@ -53,6 +53,8 @@ a, .btn-link {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 200;
     position: sticky !important;
+    max-height: calc(100vh);
+    overflow-y: auto;
     top: 0;
 }
 
@@ -154,7 +156,7 @@ a, .btn-link {
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     app {
         flex-direction: row;
     }
@@ -194,4 +196,25 @@ a, .btn-link {
     -moz-border-radius: 50% !important;
     border-radius: 50% !important;
     object-fit: cover;
+}
+
+.news-card {
+    width: 22%;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+}
+
+.new-photo {
+    width: 99%;
+}
+
+.search-card {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 20%;
+}
+
+.search-photo {
+    height: 10rem;
 }
