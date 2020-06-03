@@ -89,3 +89,7 @@ Description: Test Explorer for .NET Core (MSTest, xUnit, NUnit)
 Version: 0.7.1
 Publisher: Jun Han
 VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=formulahendry.dotnet-test-explorer
+
+
+Documentation is available at :
+https://mediwatch.github.io/MediwatchWebsite/html/annotated.html
