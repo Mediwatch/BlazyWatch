@@ -1,6 +1,8 @@
 name: Doxygen Generator
 
 on: push
+    branches:
+      - master
 
 jobs:
   build:
