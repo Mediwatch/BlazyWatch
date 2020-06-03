@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['controllers',['Controllers',['../namespace_mediwatch_1_1_server_1_1_controllers.html',1,'Mediwatch::Server']]],
-  ['mediwatch',['Mediwatch',['../namespace_mediwatch.html',1,'']]],
-  ['pages',['Pages',['../namespace_mediwatch_1_1_server_1_1_pages.html',1,'Mediwatch::Server']]],
-  ['server',['Server',['../namespace_mediwatch_1_1_server.html',1,'Mediwatch']]]
+  ['dbcontextmediwatch',['DbContextMediwatch',['../class_server_1_1_db_context_mediwatch.html',1,'Server']]],
+  ['dbcontextmediwatchmodelsnapshot',['DbContextMediwatchModelSnapshot',['../class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1_db_context_mediwatch_model_snapshot.html',1,'Mediwatch::Server::Migrations::DbContextMediwatchMigrations']]]
 ];
