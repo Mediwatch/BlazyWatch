@@ -3,9 +3,8 @@
 @layout LoginLayout
 -->
 @inject NavigationManager navigationManager
-<!--
-@inject DashBoardAuthentificationState authStateProvider
--->
+@inject MediwatchAuthentifiacationProvider authStateProvider
+
 
 <EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="loginForm">
     <DataAnnotationsValidator />
@@ -32,14 +31,6 @@
 
 @code
 {
-	public class LoginForm
-	{
-		public string UserName { get; set; }
-
-		public string Password { get; set; }
-
-		public bool RememberMe { get; set; }
-	}
 
 	LoginForm loginForm { get; set; } = new LoginForm();
 	string error { get; set; }
@@ -49,17 +40,12 @@
 		error = null;
 		try
 		{
-			//await authStateProvider.Login(loginForm);
-			//navigationManager.NavigateTo("");
+			await authStateProvider.Login(loginForm);
+			navigationManager.NavigateTo("");
 		}
 		catch (Exception ex)
 		{
 			error = ex.Message;
 		}
-	}
-
-	public async Task TestGoogle()
-	{
-		//await authStateProvider.LoginExternal();
 	}
 }

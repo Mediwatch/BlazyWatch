@@ -48,7 +48,7 @@
 	List<FormationInformation> formations = new List<FormationInformation>();
 	List<FormationInformation> FilteredFormations = new List<FormationInformation>();
 
-	protected override async Task OnInitializedAsync()
+	protected override void OnInitialized()
 	{
 		//formations = await client.GetJsonAsync<List<FormationInformation>>("api/Formation");
 			formations.Add(new FormationInformation());
@@ -65,7 +65,7 @@
 
 	//List<FormationInformation> FilteredFormations => formations.Where(i => i.Name.ToLower().Contains(Search.ToLower())).ToList();
 
-	async Task OnClickFormation(FormationInformation formation)
+	void OnClickFormation(FormationInformation formation)
 	{
 		//var error = await client.GetAsync("/Subscribe?name=" + formation.Name);
 		formation.IsRegistered = true;

@@ -1,13 +1,13 @@
 using System;
 using System.Net.Http;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Text;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Blazorise;
 using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
+using Mediwatch.Client.services;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace Mediwatch.Client
 {
@@ -28,6 +28,9 @@ namespace Mediwatch.Client
 
 			builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
+			builder.Services.AddAuthorizationCore();
+			builder.Services.AddScoped<MediwatchAuthentifiacationProvider>();
+			builder.Services.AddScoped<AuthenticationStateProvider>(serviceProvider => serviceProvider.GetRequiredService<MediwatchAuthentifiacationProvider>());
 			var host = builder.Build();
 
 			host.Services
