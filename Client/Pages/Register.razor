@@ -36,19 +36,19 @@
 @functions
 {
     RegisterForm registerForm { get; set; } = new RegisterForm();
-    string error { get; set; }
+		string error { get; set; }
 
-    async Task OnSubmit()
-    {
-        error = null;
-        try
-        {
-            await authStateProvider.Register(registerForm);
-            navigationManager.NavigateTo("");
-        }
-        catch (Exception ex)
-        {
-            error = ex.Message;
-        }
-    }
+		async Task OnSubmit()
+		{
+			error = null;
+			try
+			{
+				await authStateProvider.Register(registerForm);
+				navigationManager.NavigateTo("");
+			}
+			catch (Exception ex)
+			{
+				error = ex.Message;
+			}
+		}
 }
