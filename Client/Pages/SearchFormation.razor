@@ -25,6 +25,34 @@
         </div>
     }
 }
+
+
+<!--Calendrier-->
+<!--Afficher en premier lieu toutes les formations (?).-->
+<!--Bouton pour n'afficher que les formations dans lesquelles l'utilisateur est inscrit.-->
+<!--Bouton pour n'afficher que ses souhaits de formation.-->
+<!-- Début Test -->
+<!--<Mediwatch.Client.Pages.Calendar Month=@localDateTime.Month Year=localDateTime.Year/>-->
+<hr>
+<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100vh;'>
+        <div class="dhx_cal_navline">
+            <div class="dhx_cal_prev_button">&nbsp;</div>
+            <div class="dhx_cal_next_button">&nbsp;</div>
+            <div class="dhx_cal_today_button"></div>
+            <div class="dhx_cal_date"></div>
+            <div class="dhx_cal_tab" name="day_tab"></div>
+            <div class="dhx_cal_tab" name="week_tab"></div>
+            <div class="dhx_cal_tab" name="month_tab"></div>
+        </div>
+        <div class="dhx_cal_header"></div>
+        <div class="dhx_cal_data"></div>
+</div>
+<p>&copy; <a href="https://dhtmlx.com/">dhtmlx</a></p>
+<!--<CalendarWidget Month=@localDateTime.Month Year=localDateTime.Year/>-->
+<!-- Fin Test -->
+
+
+
 @code
 {
 	string style = "border-style: solid; padding: 1px; margin: 20px;";
@@ -33,18 +61,41 @@
 	List<FormationTemplate> formations = new List<FormationTemplate>();
 	List<FormationTemplate> FilteredFormations = new List<FormationTemplate>();
 
+
+	private DateTime localDateTime = DateTime.Now;
+	private void Test()
+	{
+		int n = 10;
+		for (int i = 0; i < n; i += 1) {
+			formations.Add(new FormationTemplate());
+		}
+
+		Random gen = new Random();
+		DateTime RandomDay()
+		{
+    		DateTime start = new DateTime(2020, 1, 1);
+			DateTime end = new DateTime(2021, 1, 1);
+    		int range = (end - start).Days;
+    		return start.AddDays(gen.Next(range));
+		}
+		foreach (var (formation, idx) in formations.Select((value, i) => (value, i)))
+		{
+			formation.Name = $"Test {idx}";
+
+			DateTime d1 = RandomDay();
+			DateTime d2 = RandomDay();
+			List<DateTime> l = new List<DateTime>{d1, d2};
+			formation.StartDate = l.Min();
+			formation.EndDate = l.Max();
+
+			formation.Id = idx;
+		}
+	}
+
 	protected override void OnInitialized()
 	{
 		//formations = await client.GetJsonAsync<List<FormationTemplate>>("api/Formation");
-		formations.Add(new FormationTemplate());
-		formations.Add(new FormationTemplate());
-		formations.Add(new FormationTemplate());
-		formations.Add(new FormationTemplate());
-		formations.Add(new FormationTemplate());
-		formations.Add(new FormationTemplate());
-		formations.Add(new FormationTemplate());
-
-		// Demo fix.
+		Test(); // Demo
 		FilteredFormations = formations;
 	}
 
@@ -53,7 +104,16 @@
 	void OnClickFormation(FormationTemplate formation)
 	{
 		//var error = await client.GetAsync("/Subscribe?name=" + formation.Name);
-		formation.IsRegistered = true;
+		formation.IsRegistered = !formation.IsRegistered;
+
+		String r = " Inscrit";
+		if (formation.IsRegistered) {
+			JSRuntime.InvokeVoidAsync("addDXCalendearEvent", formation);
+			formation.Name += r;
+		} else {
+			formation.Name = formation.Name.Remove(formation.Name.Length - r.Length);
+			JSRuntime.InvokeVoidAsync("removeDXCalendearEvent", formation);
+		}
 		StateHasChanged();
 	}
 }

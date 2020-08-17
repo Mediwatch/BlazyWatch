@@ -31,8 +31,9 @@ public class FormationTemplate
 	[Required]
 	public string Description { get; set; }
 
-	[Required]
 	public List<string> Target { get; set; }
 
 	public bool IsRegistered { get; set; }
+
+	public int Id { get; set; }
 }

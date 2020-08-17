@@ -1,23 +1,26 @@
-
+<hr>
+<h4>@(months[Month])</h4>
+<button id="month-prev" @onclick="@(e => changeMonth(-1))">Avant</button>
+<button id="month-next" @onclick="@(e => changeMonth(1))">Après</button>
 <table class="table table-bordered table-dark">
     <thead>
-        <tr>
-            <th class="widget-calendar-element">Lu</th>
-            <th class="widget-calendar-element">Ma</th>
-            <th class="widget-calendar-element">Me</th>
-            <th class="widget-calendar-element">Je</th>
-            <th class="widget-calendar-element">Ve</th>
-            <th class="widget-calendar-element">Sa</th>
-            <th class="widget-calendar-element">Di</th>
+		<tr>
+            <th class="calendar-element head">Lundi</th>
+            <th class="calendar-element head">Mardi</th>
+            <th class="calendar-element head">Mercredi</th>
+            <th class="calendar-element head">Jeudi</th>
+            <th class="calendar-element head">Vendredi</th>
+            <th class="calendar-element head">Samedi</th>
+            <th class="calendar-element head">Dimanche</th>
         </tr>
     </thead>
-    <tbody>
+	<tbody>
         @for(int week = 0; week < 6; week++) {
             <tr>
                 @for(int day = 0; day < 7; day++){
-                    <td>
+                    <td class="calendar-element day">
                         <div>
-                            <div class="widget-calendar-element">@((1 + day + 7 * week) < startDay ?
+                            <div>@((1 + day + 7 * week) < startDay ?
                                nbDayInLastMonth - startDay + (day + 7 * week) : ((1 + day + 7 * week) - startDay < nbDayInMonth ?
                                (1 + day + 7 * week) - startDay + 1 : (1 + day + 7 * week) - startDay - nbDayInMonth + 1))</div>
                         </div>
@@ -27,6 +30,23 @@
         }
     </tbody>
 </table>
+
+<style>
+	h4 {
+		margin: auto;
+	}
+
+	.calendar-element {
+		font-size: 0.7rem;
+	}
+
+	.head {
+	}
+
+	.day {
+		height: 10rem;
+	}
+</style>
 
 @code {
 
@@ -39,14 +59,24 @@
     private int nbDayInLastMonth;
     private int startDay;
 
-    protected override void OnInitialized()
-    {
-        nbDayInLastMonth = NumberOfDayInMonth(Month - 1 < 1 ? 12 : Month - 1 , Year);
+	private List<String> months = new List<String>{"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"};
+
+	private void changeMonth(int next) {
+		Month += next;
+		Month %= 12;
+		run();
+	}
+
+	private void run()
+	{
+		nbDayInLastMonth = NumberOfDayInMonth(Month - 1 < 1 ? 12 : Month - 1 , Year);
         nbDayInMonth = NumberOfDayInMonth(Month, Year);
         startDay = WhichDayTheMonthStart(1,Month,Year);
+	}
+    protected override void OnInitialized()
+    {
+		run();
     }
-
-
 
     public int WhichDayTheMonthStart(int day, int month, int year)
     {
@@ -65,5 +95,4 @@
     public bool IsLeapYear(int year) {
         return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
     }
-
 }
