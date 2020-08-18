@@ -26,9 +26,9 @@ namespace Mediwatch.Server.Controllers
                 return await _context.formations.ToListAsync();
         }
 
-        //GET: /Formations/5
+        //GET: /Formation/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<formation>> GetFormation(long id)
+        public async Task<ActionResult<formation>> GetFormation(int id)
         {
             var formationResult = await _context.formations.FindAsync(id);
             if (formationResult == null)
@@ -39,9 +39,9 @@ namespace Mediwatch.Server.Controllers
             return formationResult;
         }
 
-        //Put: /Formations/5
+        //Put: /Formation/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<formation>> PutFormation(long id, formation formationPut)
+        public async Task<ActionResult<formation>> PutFormation(int id, formation formationPut)
         {
             if (id != formationPut.id) 
             {
@@ -67,7 +67,7 @@ namespace Mediwatch.Server.Controllers
             return NoContent();
         }
 
-        // POST: /Formations
+        // POST: /Formation
         [HttpPost]
         public async Task<ActionResult<formation>> PostFormation(formation formationBody)
         {
@@ -78,13 +78,9 @@ namespace Mediwatch.Server.Controllers
             return CreatedAtAction(nameof(GetFormation), new { id = formationBody.id }, formationBody);
         }
 
-        private bool FormationExists(long id) {
-            return _context.formations.Any(e => e.id == id);
-        }
-
-        // DELETE: api/TodoItems/5
+        // DELETE: api/Formation/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<formation>> DeleteTodoItem(long id)
+        public async Task<ActionResult<formation>> DeleteFormation(int id)
         {
             var formationResult = await _context.formations.FindAsync(id);
             if (formationResult == null)
@@ -96,6 +92,10 @@ namespace Mediwatch.Server.Controllers
             await _context.SaveChangesAsync();
 
             return formationResult;
+        }
+        
+        private bool FormationExists(long id) {
+            return _context.formations.Any(e => e.id == id);
         }
 
     }
