@@ -48,6 +48,8 @@
         <div class="dhx_cal_data"></div>
 </div>
 <p>&copy; <a href="https://dhtmlx.com/">dhtmlx</a></p>
+<input type="checkbox" @onclick="@(e => SelectMine())" id="select-mine">
+<label for="select-mine">Formations où je suis inscrit(e)</label>
 <!--<CalendarWidget Month=@localDateTime.Month Year=localDateTime.Year/>-->
 <!-- Fin Test -->
 
@@ -89,6 +91,8 @@
 			formation.EndDate = l.Max();
 
 			formation.Id = idx;
+
+			JSRuntime.InvokeVoidAsync("addDXCalendearEvent", formation, "blue");
 		}
 	}
 
@@ -108,12 +112,17 @@
 
 		String r = " Inscrit";
 		if (formation.IsRegistered) {
-			JSRuntime.InvokeVoidAsync("addDXCalendearEvent", formation);
+			JSRuntime.InvokeVoidAsync("addDXCalendearEvent", formation, "green");
 			formation.Name += r;
 		} else {
 			formation.Name = formation.Name.Remove(formation.Name.Length - r.Length);
-			JSRuntime.InvokeVoidAsync("removeDXCalendearEvent", formation);
+			JSRuntime.InvokeVoidAsync("addDXCalendearEvent", formation, "blue");
+			//JSRuntime.InvokeVoidAsync("removeDXCalendearEvent", formation);
 		}
 		StateHasChanged();
+	}
+
+	void SelectMine() {
+		
 	}
 }

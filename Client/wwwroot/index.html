@@ -36,7 +36,9 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+
     <script src="_framework/blazor.webassembly.js"></script>
+    <script src="js/calendar.js"></script>
 
     <!-- Ajout du js des icônes Bootstrap. -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -51,73 +53,6 @@
 
     <script src="_content/Blazorise/blazorise.js"></script>
     <script src="_content/Blazorise.Bootstrap/blazorise.bootstrap.js"></script>
-
-    <script> // Calendrier
-        var checkExist = setInterval(function () {
-            if (document.getElementsByTagName("app").textContent != null && document.getElementsByTagName("app").textContent != "Loading...") {
-                clearInterval(checkExist);
-            }
-            if ($('#scheduler_here').length) {
-                scheduler.config.readonly_form = true;
-                scheduler.locale = {
-                    date: {
-                        month_full: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
-                        month_short: ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Août", "Sept", "Oct", "Nov", "Déc"],
-                        day_full: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
-                        day_short: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]
-                    },
-                    labels: {
-                        dhx_cal_today_button: "Aujourd'hui",
-                        day_tab: "Jour",
-                        week_tab: "Semaine",
-                        month_tab: "Mois",
-                        new_event: "Nouvel événement",
-                        icon_save: "Sauver",
-                        icon_cancel: "Annuler",
-                        icon_details: "Détails",
-                        icon_edit: "Editer",
-                        icon_delete: "Supprimer",
-                        confirm_closing: "Confirmez-vous la fermeture ?",
-                        confirm_deleting: "Confirmez-vous la suppression ?",
-                        section_description: "Description",
-                        section_time: "Période",
-                        full_day: "Toute la journée",
-                        message_ok: "Oui",
-                        message_cancel: "Annuler",
-                    }
-                }
-                scheduler.init("scheduler_here", Date.now(), "month")
-                scheduler.attachEvent("onLightbox", function(){
-                    var section = scheduler.formSection("description");
-                    section.control.disabled = true;
-                });
-                clearInterval(checkExist);
-            }
-        }, 100)
-
-        function addDXCalendearEvent(formation) {
-
-            console.log("AJOUT", formation)
-
-            scheduler.addEvent({
-                start_date: formation.startDate,
-                end_date: formation.endDate,
-                text: formation.name,
-                id: formation.id
-            });
-        }
-
-        function removeDXCalendearEvent(formation) {
-            console.log("SUPPRESSION", formation)
-
-            scheduler.parse([{
-                id: formation.id,
-                start_date: formation.startDate,
-                end_date: formation.endDate
-            }])
-            scheduler.deleteEvent(formation.id);
-        }
-    </script>
 </body>
 
 </html>
