@@ -1,6 +1,8 @@
 appsettings*
 *.css.map
 *db
+scss/*.css
+!scss/main.scss
 
 *.swp
 *.*~
