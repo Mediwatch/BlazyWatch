@@ -8,7 +8,6 @@ project.lock.json
 *.user
 *.userosscache
 *.sln.docstates
-
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -26,3 +25,7 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+
+appsettings.*
+*.css.map
+*.db

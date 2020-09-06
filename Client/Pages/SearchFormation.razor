@@ -27,45 +27,30 @@
 }
 @code
 {
-	public class FormationInformation
-	{
-		public string Name { get; set; }
-		public DateTime StartDate { get; set; }
-		public DateTime EndDate { get; set; }
-		public string Location { get; set; }
-		public string Contact { get; set; }
-		public string OrganizationName { get; set; }
-		public decimal Price { get; set; }
-		public string Former { get; set; }
-		public string Description { get; set; }
-		public string Target { get; set; }
-		public bool IsRegistered { get; set; }
-	}
-
 	string style = "border-style: solid; padding: 1px; margin: 20px;";
 	string newStyle = "";
 	string Search { get; set; } = "";
-	List<FormationInformation> formations = new List<FormationInformation>();
-	List<FormationInformation> FilteredFormations = new List<FormationInformation>();
+	List<FormationTemplate> formations = new List<FormationTemplate>();
+	List<FormationTemplate> FilteredFormations = new List<FormationTemplate>();
 
 	protected override void OnInitialized()
 	{
-		//formations = await client.GetJsonAsync<List<FormationInformation>>("api/Formation");
-			formations.Add(new FormationInformation());
-			formations.Add(new FormationInformation());
-			formations.Add(new FormationInformation());
-			formations.Add(new FormationInformation());
-			formations.Add(new FormationInformation());
-			formations.Add(new FormationInformation());
-			formations.Add(new FormationInformation());
+		//formations = await client.GetJsonAsync<List<FormationTemplate>>("api/Formation");
+		formations.Add(new FormationTemplate());
+		formations.Add(new FormationTemplate());
+		formations.Add(new FormationTemplate());
+		formations.Add(new FormationTemplate());
+		formations.Add(new FormationTemplate());
+		formations.Add(new FormationTemplate());
+		formations.Add(new FormationTemplate());
 
-			// Demo fix.
-			FilteredFormations = formations;
+		// Demo fix.
+		FilteredFormations = formations;
 	}
 
-	//List<FormationInformation> FilteredFormations => formations.Where(i => i.Name.ToLower().Contains(Search.ToLower())).ToList();
+	//List<FormationTemplate> FilteredFormations => formations.Where(i => i.Name.ToLower().Contains(Search.ToLower())).ToList();
 
-	void OnClickFormation(FormationInformation formation)
+	void OnClickFormation(FormationTemplate formation)
 	{
 		//var error = await client.GetAsync("/Subscribe?name=" + formation.Name);
 		formation.IsRegistered = true;

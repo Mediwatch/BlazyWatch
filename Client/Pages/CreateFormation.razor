@@ -54,42 +54,10 @@
 <!--</AuthorizeView>-->
 @code
 {
-	public class FormationForm
-	{
-		[System.ComponentModel.DataAnnotations.Required]
-		public string Name { get; set; }
+    private FormationTemplate form { get; set; } = new FormationTemplate();
 
-		[System.ComponentModel.DataAnnotations.Required]
-		public DateTime StartDate { get; set; } = DateTime.Today;
-
-		[System.ComponentModel.DataAnnotations.Required]
-		public DateTime EndDate { get; set; } = DateTime.Today;
-
-		[System.ComponentModel.DataAnnotations.Required]
-		public string Location { get; set; }
-
-		[System.ComponentModel.DataAnnotations.Required]
-		public string Contact { get; set; }
-
-		[System.ComponentModel.DataAnnotations.Required]
-		public string OrganizationName { get; set; }
-
-		[System.ComponentModel.DataAnnotations.Required]
-		public decimal Price { get; set; }
-
-		[System.ComponentModel.DataAnnotations.Required]
-		public string Former { get; set; }
-
-		[System.ComponentModel.DataAnnotations.Required]
-		public string Description { get; set; }
-
-		[System.ComponentModel.DataAnnotations.Required]
-		public List<string> Target { get; set; }
-	}
-	private FormationForm form { get; set; } = new FormationForm();
-
-	private void PostFormation()
-	{
-		//await client.PostJsonAsync("api/Formation", form);
-	}
+		private void PostFormation()
+		{
+			//await client.PostJsonAsync("api/Formation", form);
+		}
 }

@@ -86,10 +86,12 @@
 			if (user.roles.Any(r => r.Equals(role)))
 			{
 				user.roles.Remove(role);
+				// api -> remove role
 			}
 			else
 			{
 				user.roles.Add(role);
+				// api -> add role
 			}
 		}
 	}

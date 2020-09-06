@@ -1,62 +1,95 @@
 ﻿@page "/"
 
-<h1 class="text-center">Mediwatch votre formation au bout de vos doigts !</h1>
-
-<div class="alert alert-primary row col-10 text-center">
-  <div class="col-6 flex-column">
-    <h1 class="p-2">Découvrez nos formations en ligne</h1>
-    <li class="btn btn-success p-2">c'est ici</li>
-  </div>
-  <img src="./ressources/form0.jpg" class="rounded float-left col-6"/>
-</div>
-
-<h1 class="text-center">Formations populaires</h1>
-<div class="alert alert-primary row col-10 text-center d-flex flex-row">    
-    <div class="news-card d-flex flex-column p-2 alert alert-light">
-        <img src="./ressources/form1.jpg" class="rounded p-2 new-photo"/>
-        <h class="p-2 text-center">5 juin 2020</h>
-        <h class="p-2text-center">Conférence cardiologie</h>
+<main>
+    <h1>Mediwatch votre formation au bout de vos doigts!</h1>
+    <div class="online-formations">
+        <div class="text-box">
+            <h3>Découvrez nos formations en ligne</h3>
+        </div>
+        <button class="buttons">Formations en ligne 1</button>
+        <button class="buttons">Formations en ligne 2</button>
     </div>
-
-    <div class="news-card d-flex flex-column p-2 alert alert-light">
-        <img src="./ressources/form2.jpg" class="rounded p-2 new-photo"/>
-        <h class="p-2 text-center">13 juin 2020</h>
-        <h class="p-2text-center">Conférence dermatologue</h>
+    <h2>Formations populaires</h2>
+    <div class="formations-list">
+        <div class="formation">
+            <div class="formation-img-div">
+                <img class="formation-img" src="css/images/formationsEnLigne.jpg"/>
+                <h3>Conférence Psychologie</h3>
+                <h4>Goro Majima</h4>
+            </div>
+            <div class="formation-informations">
+                <h3>24 Juin 2020</h3>
+            </div>
+        </div>
+        <div class="formation">
+            <div class="formation-img-div">
+                <img class="formation-img" src="css/images/conference.jpg"/>
+                <h3>Conférence Dermatologie</h3>
+                <h4>Daisaku Kuze</h4>
+            </div>
+            <div class="formation-informations">
+                <h3>25 Juin 2020</h3>
+            </div>
+        </div>
+        <div class="formation">
+            <div class="formation-img-div">
+                <img class="formation-img" src="css/images/workspaceWood.jpg"/>
+                <h3>Conférence Cardiologie</h3>
+                <h4>Hiroki Awano</h4>
+            </div>
+            <div class="formation-informations">
+                <h3>26 Juin 2020</h3>
+            </div>
+        </div>
+        <div class="formation">
+            <div class="formation-img-div">
+                <img class="formation-img" src="css/images/papyrus.jpg"/>
+                <h3>Conférence Ostéopathie</h3>
+                <h4>Jun Oda</h4>
+            </div>
+            <div class="formation-informations">
+                <h3>27 Juin 2020</h3>
+            </div>
+        </div>
+        <div class="formation">
+            <div class="formation-img-div">
+                <img class="formation-img" src="css/images/microscope.jpg"/>
+                <h3>Conférence Génicologie</h3>
+                <h4>Kazuma Kiryu</h4>
+            </div>
+            <div class="formation-informations">
+                <h3>28 Juin 2020</h3>
+            </div>
+        </div>
+        <div class="formation">
+            <div class="formation-img-div">
+                <img class="formation-img" src="css/images/stereoscope.jpg"/>
+                <h3>Conférence Homéopatie</h3>
+                <h4>Keiji Shibusawa</h4>
+            </div>
+            <div class="formation-informations">
+                <h3>29 Juin 2020</h3>
+            </div>
+        </div>
+        <div class="formation">
+            <div class="formation-img-div">
+                <img class="formation-img" src="css/images/palpatine.jpg"/>
+                <h3>Conférence Premiers Secours</h3>
+                <h4>Sohei Dojima</h4>
+            </div>
+            <div class="formation-informations">
+                <h3>30 Juin 2020</h3>
+            </div>
+        </div>
+        <div class="formation">
+            <div class="formation-img-div">
+                <img class="formation-img" src="css/images/covid.jpg"/>
+                <h3>Conférence Prévention santé public</h3>
+                <h4>Tetsu Tachibana</h4>
+            </div>
+            <div class="formation-informations">
+                <h3>31 Juin 2020</h3>
+            </div>
+        </div>
     </div>
-
-    <div class="news-card d-flex flex-column p-2 alert alert-light">
-        <img src="./ressources/form3.jpg" class="rounded p-2 new-photo"/>
-        <h class="p-2 text-center">14 juin 2020</h>
-        <h class="p-2text-center">Conférence psychologie</h>
-    </div>
-
-    <div class="news-card d-flex flex-column p-2 alert alert-light">
-        <img src="./ressources/form4.jpg" class="rounded p-2 new-photo"/>
-        <h class="p-2 text-center">14 juin 2020</h>
-        <h class="p-2text-center">Conférence Ostéopathie</h>
-    </div>
-
-    <div class="news-card d-flex flex-column p-2 alert alert-light">
-        <img src="./ressources/form5.jpg" class="rounded p-2 new-photo"/>
-        <h class="p-2 text-center">15 juin 2020</h>
-        <h class="p-2text-center">Conférence génicologie</h>
-    </div>
-
-    <div class="news-card d-flex flex-column p-2 alert alert-light">
-        <img src="./ressources/form6.jpg" class="rounded p-2 new-photo"/>
-        <h class="p-2 text-center">15 juin 2020</h>
-        <h class="p-2text-center">Conférence homéopatie</h>
-    </div>
-
-    <div class="news-card d-flex flex-column p-2 alert alert-light">
-        <img src="./ressources/form7.jpg" class="rounded p-2 new-photo"/>
-        <h class="p-2 text-center">20 juin 2020</h>
-        <h class="p-2text-center">Conférence premiers secours</h>
-    </div>
-
-    <div class="news-card d-flex flex-column p-2 alert alert-light">
-        <img src="./ressources/form0.jpg" class="rounded p-2 new-photo"/>
-        <h class="p-2 text-center">21 juin 2020</h>
-        <h class="p-2text-center">Conférence Prévention santé public</h>
-    </div>
-</div>
+</main>
