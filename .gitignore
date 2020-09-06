@@ -1,6 +1,6 @@
 appsettings*
 *.css.map
-*.db
+*db
 
 *.swp
 *.*~
