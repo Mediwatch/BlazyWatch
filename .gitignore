@@ -1,3 +1,7 @@
+appsettings*
+*.css.map
+*.db
+
 *.swp
 *.*~
 project.lock.json
@@ -25,7 +29,3 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
-
-appsettings.*
-*.css.map
-*.db
