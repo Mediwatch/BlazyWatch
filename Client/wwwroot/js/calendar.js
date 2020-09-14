@@ -53,12 +53,16 @@ function addDXCalendearEvent(formation, color) {
 
     console.log("AJOUT", formation)
 
+    console.log(formation);
+    console.log(formation == undefined);
+    console.log(formation === undefined);
+
     if (exist) {
         scheduler.addEvent({
-            start_date: formation.startDate,
-            end_date: formation.endDate,
-            text: formation.name,
-            id: formation.id,
+            start_date: formation.f.createdAt,
+            end_date: formation.f.formationTime,
+            text: formation.f.formationName,
+            id: formation.i,
             color: color
         });
     } else {

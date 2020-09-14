@@ -1,7 +1,4 @@
 @page "/recherche"
-<!--
-@using Mediwatch.Shared
--->
 @inject HttpClient client
 @inject IJSRuntime JSRuntime
 
@@ -14,14 +11,15 @@
 } else
 {
     @foreach (var formation in FilteredFormations) {
-        @if (formation.IsRegistered) {
+        /*@if (formations.IsRegistered) {
             newStyle = style + "background-color: #e6e6e6;";
         } else {
             newStyle = style + "background-color: #6e6e6e;";
-        }
-        <div style=@newStyle @onclick="@(e => OnClickFormation(@formation))">
-            <h3>@formation.Name</h3>
-            <p>Du @formation.StartDate au @formation.EndDate</p>
+        }*/
+        //<div style=@newStyle @onclick="@(e => OnClickFormation(@formation))">
+		<div style=@newStyle>
+            <h3>@formation.formationName</h3>
+            <p>Début, @formation.createdAt, Durée : @formation.formationTime</p>
         </div>
     }
 }
@@ -60,10 +58,11 @@
 	string style = "border-style: solid; padding: 1px; margin: 20px;";
 	string newStyle = "";
 	string Search { get; set; } = "";
-	List<FormationTemplate> formations = new List<FormationTemplate>();
-	List<FormationTemplate> FilteredFormations = new List<FormationTemplate>();
 
+	List<formation> formations = new List<formation>();
+	List<formation> FilteredFormations = new List<formation>();
 
+		/*
 	private DateTime localDateTime = DateTime.Now;
 	private void Test()
 	{
@@ -94,21 +93,36 @@
 
 			JSRuntime.InvokeVoidAsync("addDXCalendearEvent", formation, "blue");
 		}
-	}
+	}*/
 
-	protected override void OnInitialized()
+	class F {
+			public F(formation formation, int idx) {
+				this.f = formation;
+				this.i = idx;
+			}
+			public formation f {get; set;}
+			public int i {get; set;}
+		};
+
+	protected override async void OnInitialized()
 	{
+		formations = await client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
+
+			foreach (var (formation, idx) in formations.Select((value, i) => (value, i))) {
+				await JSRuntime.InvokeVoidAsync("addDXCalendearEvent", new F(formation, idx), "blue");
+			}
+
+		//FilteredFormations = formations.Where(i => i.formationName.ToLower().Contains(Search.ToLower())).ToList();
 		//formations = await client.GetJsonAsync<List<FormationTemplate>>("api/Formation");
-		Test(); // Demo
-		FilteredFormations = formations;
+		//Test(); // Demo
+		//FilteredFormations = formations;
 	}
 
-	//List<FormationTemplate> FilteredFormations => formations.Where(i => i.Name.ToLower().Contains(Search.ToLower())).ToList();
 
 	void OnClickFormation(FormationTemplate formation)
 	{
 		//var error = await client.GetAsync("/Subscribe?name=" + formation.Name);
-		formation.IsRegistered = !formation.IsRegistered;
+		/*formation.IsRegistered = !formation.IsRegistered;
 
 		String r = " Inscrit";
 		if (formation.IsRegistered) {
@@ -119,7 +133,7 @@
 			JSRuntime.InvokeVoidAsync("addDXCalendearEvent", formation, "blue");
 			//JSRuntime.InvokeVoidAsync("removeDXCalendearEvent", formation);
 		}
-		StateHasChanged();
+		StateHasChanged();*/
 	}
 
 	void SelectMine() {

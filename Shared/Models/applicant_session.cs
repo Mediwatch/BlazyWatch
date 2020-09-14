@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Server.Models
+namespace Mediwatch.Shared.Models
 {
     public class applicant_session
     {

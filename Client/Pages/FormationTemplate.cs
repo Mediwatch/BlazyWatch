@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Mediwatch.Shared.Models;
 
 public class FormationTemplate
 {
-	[Required]
+	public formation formation { get; set; }
+
+	/*[Required]
 	public string Name { get; set; }
 
 	[Required]
@@ -35,5 +38,5 @@ public class FormationTemplate
 
 	public bool IsRegistered { get; set; }
 
-	public int Id { get; set; }
+	public int Id { get; set; }*/
 }

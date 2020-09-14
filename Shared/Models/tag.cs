@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Server.Models 
+namespace Mediwatch.Shared.Models 
 {
     [Table ("tag")]
     public class tag {

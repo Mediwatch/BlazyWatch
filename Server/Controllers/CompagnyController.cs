@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System;
-using Server.Models;
+using Mediwatch.Shared.Models;
 using Server;
 
 namespace Mediwatch.Server.Controllers
