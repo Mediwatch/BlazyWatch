@@ -4,60 +4,89 @@
 @inject HttpClient client;
 
 <!--<AuthorizeView Roles="Admin, Tutor">-->
-    <ChildContent Context="another_name">
-    <EditForm Model="@form" OnValidSubmit="@PostFormation">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+        
 
         <table>
             <h1>Création de formation</h1>
 
-            <tr>
-                <td><label for="name">Nom de la formation :</label></td>
-                <td><InputText id="Name" placeholder="Veuillez entrer un nom." @bind-Value="form.Name" /></td>
-            </tr>
-            <tr>
-                <td><label for="">Date de la formation :</label></td>
-                <td><InputDate id="startDate" @bind-Value="form.StartDate" Min="2020-01-01" />
-                <p style="display: inline;">~</p>
-                <InputDate id="endDate" @bind-Value="form.EndDate" Min="2020-01-01" /></td>
-            </tr>
-            <tr>
-                <td><label for="Description">Description de la formation :</label></td>
-                <td><InputTextArea id="Description" placeholder="Veuillez entrer une description." @bind-Value="form.Description" Rows="10" Cols="50"></InputTextArea></td>
-            </tr>
-            <tr>
-                <td><label for="Former">Nom du formateur :</label></td>
-                <td><InputText id="Former" placeholder="Veuillez entrer un nom." @bind-Value="form.Former" /></td>
-            </tr>
-            <tr>
-                <td><label for="Price">Prix de la formation :</label></td>
-                <td><InputNumber id="Price" @bind-Value="form.Price" /></td>
-            </tr>
-            <tr>
-                <td><label for="OrganizationName">Nom de l'organisme :</label></td>
-                <td><InputText id="OrganizationName" placeholder="Veuillez entrer le nom de l'organisme." @bind-Value="form.OrganizationName" /></td>
-            </tr>
-            <tr>
-                <td><label for="Contact">Contact :</label></td>
-                <td><InputText id="Contact" placeholder="Veuillez entrer un contact." @bind-Value="form.Contact" /></td>
-            </tr>
-            <tr>
-                <td><label for="Location">Localisation de la formation :</label></td>
-                <td><InputText id="Location" placeholder="Veuillez entrer la localisation de la formation." @bind-Value="form.Location" /></td>
-            </tr>
+            @if (validation == 0) {
+                <ChildContent Context="another_name">
+                <EditForm Model="@formTab1" OnValidSubmit="@PostFormation">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <tr>
+                    <td><label for="name">Nom de la formation :</label></td>
+                    <td><InputText id="Name" placeholder="Veuillez entrer un nom." @bind-Value="formTab1.Name" /></td>
+                </tr>
+                <tr>
+                    <td><label for="">Date de la formation :</label></td>
+                    <td><InputDate id="startDate" @bind-Value="formTab1.StartDate" Min="2020-01-01" />
+                    <p style="display: inline;">~</p>
+                    <InputDate id="endDate" @bind-Value="formTab1.EndDate" Min="2020-01-01" /></td>
+                </tr>
+                <tr>
+                    <td><label for="Description">Description de la formation :</label></td>
+                    <td><InputTextArea id="Description" placeholder="Veuillez entrer une description." @bind-Value="formTab1.Description" Rows="10" Cols="50"></InputTextArea></td>
+                </tr>
+                <button type="submit">Créer la formation</button>
+                </EditForm>
+                </ChildContent>
+            }
+            @if (validation == 1) {
+                <ChildContent Context="another_na">
+                <EditForm Model="@formTab2" OnValidSubmit="@PostFormation">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <tr>
+                    <td><label for="Former">Nom du formateur :</label></td>
+                    <td><InputText id="Former" placeholder="Veuillez entrer un nom." @bind-Value="formTab2.Former" /></td>
+                </tr>
+                <tr>
+                    <td><label for="Price">Prix de la formation :</label></td>
+                    <td><InputNumber id="Price" @bind-Value="formTab2.Price" /></td>
+                </tr>
+                <tr>
+                    <td><label for="OrganizationName">Nom de l'organisme :</label></td>
+                    <td><InputText id="OrganizationName" placeholder="Veuillez entrer le nom de l'organisme." @bind-Value="formTab2.OrganizationName" /></td>
+                </tr>
+                <button type="submit">Créer la formation</button>
+                </EditForm>
+                </ChildContent>
+            }
+            
+            @if (validation == 2) {
+                <ChildContent Context="another_n">
+                <EditForm Model="@formTab3" OnValidSubmit="@PostFormation">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <tr>
+                    <td><label for="Contact">Contact :</label></td>
+                    <td><InputText id="Contact" placeholder="Veuillez entrer un contact." @bind-Value="formTab3.Contact" /></td>
+                </tr>
+                <tr>
+                    <td><label for="Location">Localisation de la formation :</label></td>
+                    <td><InputText id="Location" placeholder="Veuillez entrer la localisation de la formation." @bind-Value="formTab3.Location" /></td>
+                </tr>
+                <button type="submit">Créer la formation</button>
+                </EditForm>
+                </ChildContent>
+            }
         </table>
-
-        <button type="submit">Créer la formation</button>
-    </EditForm>
-    </ChildContent>
+        
 <!--</AuthorizeView>-->
 @code
 {
-    private FormationTemplate form { get; set; } = new FormationTemplate();
-
+    private FormationTemplateTab1 formTab1 { get; set; } = new FormationTemplateTab1();
+    private FormationTemplateTab2 formTab2 { get; set; } = new FormationTemplateTab2();
+    private FormationTemplateTab3 formTab3 { get; set; } = new FormationTemplateTab3();
+    private FormationTemplate form { get; set; }
+    private int validation = 0; 
 		private void PostFormation()
 		{
+            validation++;
+            
+            if (validation == 3)
+                form = new FormationTemplate(formTab1, formTab2, formTab3);
 			//await client.PostJsonAsync("api/Formation", form);
 		}
 }

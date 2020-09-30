@@ -13,6 +13,16 @@ $logo-color-4: #0d79f2;
 $logo-color-5: #0d28f2;
 
 * {
+margin: 0;
+margin-bottom: 0;
+padding: 0;
+}
+
+body {
+background-color: $primary-background-color;
+}
+
+* {
   margin: 0;
   margin-bottom: 0;
   padding: 0;
