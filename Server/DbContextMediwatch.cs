@@ -1,4 +1,4 @@
-using Server.Models;
+using Mediwatch.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Server {
