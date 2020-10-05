@@ -1,0 +1,43 @@
+$primary-font: "Montserrat", sans-serif;
+
+$primary-background-color: #fff;
+$secondary-background-color: #ebecf0;
+$tertiary-background-color: #d4d4d4;
+
+$primary-shading: #000;
+$primary-text-color: #fff;
+$secondary-text-color: #172b4d;
+
+$ui-color: #0d79f2; // #0df2c9 / 1.8;
+
+$logo-color-1: #0df279;
+$logo-color-2: #0df2c9;
+$logo-color-3: #0dcaf2;
+$logo-color-4: #0d79f2;
+$logo-color-5: #0d28f2;
+
+//effect
+$transparent-color : #29273ac4;
+
+@mixin extra-small {
+    @media (max-width: 539px) { @content; }
+}
+
+@mixin small {
+    @media (min-width: 540px) and (max-width: 767px){ @content; }
+}
+
+@mixin medium {
+    @media (min-width: 768px) and (max-width: 991px){ @content; }
+}
+
+@mixin large {
+    @media (min-width: 992px){ @content; }
+}
+
+%basic-text {
+    cursor: default;
+    color: $primary-text-color;
+    font-family: $primary-font;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+  }

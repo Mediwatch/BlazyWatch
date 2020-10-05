@@ -1,0 +1,54 @@
+@import "formation-online";
+@import "heading";
+@import "sidebar";
+
+h1 {
+    @extend %basic-text;
+  
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: $primary-text-color;
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 50px 0 0 0;
+    font-size: 50px;
+    z-index: 3;
+    background-color: $ui-color;
+    box-shadow: 10px 5px 0 0 rgba(9, 30, 66, 0.25);
+  }
+  
+  h2 {
+    @extend %basic-text;
+  
+    color: $primary-text-color;
+    text-align: center;
+    padding-top: 30px;
+    margin: 0 auto;
+    width: 80%;
+    font-size: 50px;
+    background-color: $ui-color;
+    box-shadow: 10px 0 0 0 rgba(9, 30, 66, 0.25);
+  }
+  
+  h3 {
+    @extend %basic-text;
+  
+    font-size: 39px;
+    text-align: center;
+    margin-top: 130px;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: $primary-background-color;
+    border: solid 80px transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: $ui-color;
+    border: solid 30px transparent;
+  }
