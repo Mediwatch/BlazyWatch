@@ -9,9 +9,9 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 95.5)">
 <title>Graphe hiérarchique des classes</title>
 <polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-95.5 296,-95.5 296,4 -4,4"/>
-<!-- Node5 -->
+<!-- Node4 -->
 <g id="node1" class="node">
-<title>Node5</title>
+<title>Node4</title>
 <polygon fill="#ffffff" stroke="#bfbfbf" points="0,-33 0,-52 84,-52 84,-33 0,-33"/>
 <text text-anchor="middle" x="42" y="-40" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">ModelSnapshot</text>
 </g>
@@ -26,15 +26,15 @@
 </a>
 </g>
 </g>
-<!-- Node5&#45;&gt;Node0 -->
+<!-- Node4&#45;&gt;Node0 -->
 <g id="edge1" class="edge">
-<title>Node5&#45;&gt;Node0</title>
+<title>Node4&#45;&gt;Node0</title>
 <path fill="none" stroke="#191970" d="M94.343,-51.4366C102.5401,-52.8361 111.1942,-54.3136 119.91,-55.8017"/>
 <polygon fill="#191970" stroke="#191970" points="94.6805,-47.9437 84.2341,-49.7107 93.5024,-54.8438 94.6805,-47.9437"/>
 </g>
-<!-- Node7 -->
+<!-- Node6 -->
 <g id="node3" class="node">
-<title>Node7</title>
+<title>Node6</title>
 <g id="a_node3"><a xlink:href="class_mediwatch_1_1_server_1_1_migrations_1_1_identity_data_context_model_snapshot.html" target="_top" xlink:title="Mediwatch.Server.Migrations.\lIdentityDataContextModelSnapshot">
 <polygon fill="#ffffff" stroke="#000000" points="120,-.5 120,-30.5 292,-30.5 292,-.5 120,-.5"/>
 <text text-anchor="start" x="128" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Mediwatch.Server.Migrations.</text>
@@ -42,9 +42,9 @@
 </a>
 </g>
 </g>
-<!-- Node5&#45;&gt;Node7 -->
+<!-- Node4&#45;&gt;Node6 -->
 <g id="edge2" class="edge">
-<title>Node5&#45;&gt;Node7</title>
+<title>Node4&#45;&gt;Node6</title>
 <path fill="none" stroke="#191970" d="M94.343,-33.8826C102.5401,-32.533 111.1942,-31.1083 119.91,-29.6734"/>
 <polygon fill="#191970" stroke="#191970" points="93.5327,-30.4688 84.2341,-35.5468 94.6698,-37.3758 93.5327,-30.4688"/>
 </g>

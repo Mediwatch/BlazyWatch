@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['formation',['formation',['../class_server_1_1_models_1_1formation.html',1,'Server::Models']]]
+  ['formationcontroller',['FormationController',['../class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html',1,'Mediwatch::Server::Controllers']]]
 ];
