@@ -1,7 +1,7 @@
 @page "/formationCreation"
 @using Mediwatch.Shared
 @inject IJSRuntime JSRuntime;
-@inject HttpClient client;
+@inject HttpClient Http;
 
 <!--<AuthorizeView Roles="Admin, Tutor">-->
         
@@ -81,12 +81,12 @@
     private FormationTemplateTab3 formTab3 { get; set; } = new FormationTemplateTab3();
     private FormationTemplate form { get; set; }
     private int validation = 0; 
-		private void PostFormation()
+		private async void PostFormation()
 		{
             validation++;
             
             if (validation == 3)
                 form = new FormationTemplate(formTab1, formTab2, formTab3);
-			//await client.PostJsonAsync("api/Formation", form);
+			    await Http.PostAsJsonAsync("api/Formation", form);
 		}
 }
