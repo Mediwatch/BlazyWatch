@@ -1,3 +1,9 @@
+appsettings*
+*.css.map
+*db
+*scss/*.css
+!*scss/main.scss
+
 *.swp
 *.*~
 project.lock.json
@@ -8,7 +14,6 @@ project.lock.json
 *.user
 *.userosscache
 *.sln.docstates
-
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

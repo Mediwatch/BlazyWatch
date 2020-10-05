@@ -1,0 +1,153 @@
+h1, h2, h3 {
+  cursor: default;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+}
+
+.online-formations {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  height: 400px;
+  width: 100%;
+  background-image: url("Images/notebook.jpg");
+  z-index: -3;
+  background-size: cover;
+  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 50px 80px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 50px 80px rgba(0, 0, 0, 0.12);
+}
+
+.online-formations .text-box {
+  background-color: rgba(0, 0, 0, 0.548);
+  -webkit-box-shadow: 5px 10px 0 0 rgba(9, 30, 66, 0.25);
+          box-shadow: 5px 10px 0 0 rgba(9, 30, 66, 0.25);
+  margin-top: 50px;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 300px;
+  width: 50%;
+}
+
+.online-formations .buttons {
+  padding: 0;
+  background: none;
+  border: 2px solid #0d79f2;
+  color: #0d79f2;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  width: 300px;
+  height: 100px;
+  margin-top: 150px;
+  margin-left: 100px;
+  z-index: 0;
+  cursor: pointer;
+  -webkit-transition: color 0.4s linear;
+  transition: color 0.4s linear;
+}
+
+.online-formations .buttons:hover, .online-formations .buttons:focus, .online-formations .buttons:active {
+  color: #fff;
+}
+
+.online-formations .buttons::before {
+  padding: 0;
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 100px;
+  margin-top: -38px;
+  margin-left: -20px;
+  background: #0d79f2;
+  z-index: -1;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transform-origin: 50% 0;
+          transform-origin: 50% 0;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+}
+
+.online-formations .buttons:hover::before, .online-formations .buttons:focus::before, .online-formations .buttons:active::before {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+
+h1, h2, h3 {
+  cursor: default;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+}
+
+h1, h2, h3 {
+  cursor: default;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+}
+
+h1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  width: 80%;
+  border-radius: 50px 0 0 0;
+  font-size: 50px;
+  z-index: 3;
+  background-color: #0d79f2;
+  -webkit-box-shadow: 10px 5px 0 0 rgba(9, 30, 66, 0.25);
+          box-shadow: 10px 5px 0 0 rgba(9, 30, 66, 0.25);
+}
+
+h2 {
+  color: #fff;
+  text-align: center;
+  padding-top: 30px;
+  margin: 0 auto;
+  width: 80%;
+  font-size: 50px;
+  background-color: #0d79f2;
+  -webkit-box-shadow: 10px 0 0 0 rgba(9, 30, 66, 0.25);
+          box-shadow: 10px 0 0 0 rgba(9, 30, 66, 0.25);
+}
+
+h3 {
+  font-size: 39px;
+  text-align: center;
+  margin-top: 130px;
+}
+
+::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+  border: solid 80px transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0d79f2;
+  border: solid 30px transparent;
+}
+/*# sourceMappingURL=main.css.map */
