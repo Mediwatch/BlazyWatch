@@ -1,6 +1,4 @@
 <map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node2" href="$class_mediwatch_1_1_server_1_1_migrations_1_1_create_identity_schema.html" title="Mediwatch.Server.Migrations.\lCreateIdentitySchema" alt="" coords="156,5,351,47"/>
-<area shape="rect" id="node3" href="$class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1_create_mediwatch_db.html" title="Mediwatch.Server.Migrations.\lDbContextMediwatchMigrations.Create\lMediwatchDb" alt="" coords="128,71,379,127"/>
-<area shape="rect" id="node4" href="$class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1_create_mediwatch_db1.html" title="Mediwatch.Server.Migrations.\lDbContextMediwatchMigrations.Create\lMediwatchDb1" alt="" coords="128,151,379,207"/>
-<area shape="rect" id="node5" href="$class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1_create_mediwatch_db3.html" title="Mediwatch.Server.Migrations.\lDbContextMediwatchMigrations.Create\lMediwatchDb3" alt="" coords="128,231,379,287"/>
+<area shape="rect" id="node2" href="$class_mediwatch_1_1_server_1_1_migrations_1_1_create_identity_schema.html" title="Mediwatch.Server.Migrations.\lCreateIdentitySchema" alt="" coords="166,5,361,47"/>
+<area shape="rect" id="node3" href="$class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1_formation_template.html" title="Mediwatch.Server.Migrations.\lDbContextMediwatchMigrations.Formation\lTemplate" alt="" coords="128,71,399,127"/>
 </map>
