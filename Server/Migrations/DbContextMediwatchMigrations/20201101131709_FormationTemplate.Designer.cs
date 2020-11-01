@@ -9,16 +9,16 @@ using Server;
 namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
 {
     [DbContext(typeof(DbContextMediwatch))]
-    [Migration("20200603230000_CreateMediwatchDb3")]
-    partial class CreateMediwatchDb3
+    [Migration("20201101131709_FormationTemplate")]
+    partial class FormationTemplate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.4");
+                .HasAnnotation("ProductVersion", "3.1.7");
 
-            modelBuilder.Entity("Server.Models.applicant_session", b =>
+            modelBuilder.Entity("Mediwatch.Shared.Models.applicant_session", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -29,9 +29,6 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
 
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("TEXT");
-
-                    b.Property<int?>("formationid")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("idFormation")
                         .HasColumnType("INTEGER");
@@ -44,12 +41,10 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("formationid");
-
                     b.ToTable("applicant_sessions");
                 });
 
-            modelBuilder.Entity("Server.Models.compagny", b =>
+            modelBuilder.Entity("Mediwatch.Shared.Models.compagny", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -69,38 +64,44 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.ToTable("Compagny");
                 });
 
-            modelBuilder.Entity("Server.Models.formation", b =>
+            modelBuilder.Entity("Mediwatch.Shared.Models.formation", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("address")
+                    b.Property<string>("Contact")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Former")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OrganizationName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Target")
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("compagnyid")
                         .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("createdAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("description")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("formationName")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("formationTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("free")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("idCompagny")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("talker")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("id");
 
@@ -109,7 +110,7 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.ToTable("Formation");
                 });
 
-            modelBuilder.Entity("Server.Models.tag", b =>
+            modelBuilder.Entity("Mediwatch.Shared.Models.tag", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -118,38 +119,19 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.Property<string>("description")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("formationid")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("tag_name")
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");
 
-                    b.HasIndex("formationid");
-
                     b.ToTable("tag");
                 });
 
-            modelBuilder.Entity("Server.Models.applicant_session", b =>
+            modelBuilder.Entity("Mediwatch.Shared.Models.formation", b =>
                 {
-                    b.HasOne("Server.Models.formation", null)
-                        .WithMany("applicantsSessions")
-                        .HasForeignKey("formationid");
-                });
-
-            modelBuilder.Entity("Server.Models.formation", b =>
-                {
-                    b.HasOne("Server.Models.compagny", null)
+                    b.HasOne("Mediwatch.Shared.Models.compagny", null)
                         .WithMany("compagnyFormation")
                         .HasForeignKey("compagnyid");
-                });
-
-            modelBuilder.Entity("Server.Models.tag", b =>
-                {
-                    b.HasOne("Server.Models.formation", null)
-                        .WithMany("tagsFormation")
-                        .HasForeignKey("formationid");
                 });
 #pragma warning restore 612, 618
         }
