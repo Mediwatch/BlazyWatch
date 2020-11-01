@@ -28,7 +28,7 @@
                     <td><label for="Description">Description de la formation :</label></td>
                     <td><InputTextArea id="Description" placeholder="Veuillez entrer une description." @bind-Value="formTab1.Description" Rows="10" Cols="50"></InputTextArea></td>
                 </tr>
-                <button type="submit">Créer la formation</button>
+                <button type="submit">Suivant</button>
                 </EditForm>
                 </ChildContent>
             }
@@ -49,7 +49,7 @@
                     <td><label for="OrganizationName">Nom de l'organisme :</label></td>
                     <td><InputText id="OrganizationName" placeholder="Veuillez entrer le nom de l'organisme." @bind-Value="formTab2.OrganizationName" /></td>
                 </tr>
-                <button type="submit">Créer la formation</button>
+                <button type="submit">Suivant</button>
                 </EditForm>
                 </ChildContent>
             }
@@ -67,7 +67,7 @@
                     <td><label for="Location">Localisation de la formation :</label></td>
                     <td><InputText id="Location" placeholder="Veuillez entrer la localisation de la formation." @bind-Value="formTab3.Location" /></td>
                 </tr>
-                <button type="submit">Créer la formation</button>
+                <button type="submit">Valider la formation</button>
                 </EditForm>
                 </ChildContent>
             }
@@ -79,14 +79,23 @@
     private FormationTemplateTab1 formTab1 { get; set; } = new FormationTemplateTab1();
     private FormationTemplateTab2 formTab2 { get; set; } = new FormationTemplateTab2();
     private FormationTemplateTab3 formTab3 { get; set; } = new FormationTemplateTab3();
-    private FormationTemplate form { get; set; }
+    private formation form { get; set; } = new formation();
     private int validation = 0; 
-		private void PostFormation()
+		private async void PostFormation()
 		{
             validation++;
             
-            if (validation == 3)
-                form = new FormationTemplate(formTab1, formTab2, formTab3);
-			//await client.PostJsonAsync("api/Formation", form);
+            if (validation == 3) {
+                form.Name = formTab1.Name;
+                form.StartDate = formTab1.StartDate;
+                form.EndDate = formTab1.EndDate;
+                form.Description = formTab1.Description;
+                form.OrganizationName = formTab2.OrganizationName;
+                form.Price = formTab2.Price;
+                form.Former = formTab2.Former;
+                form.Location = formTab3.Location;
+                form.Contact = formTab3.Contact;
+                await client.PostAsJsonAsync("Formation", form);
+            }
 		}
 }

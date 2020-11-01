@@ -59,9 +59,9 @@ function addDXCalendearEvent(formation, color) {
 
     if (exist) {
         scheduler.addEvent({
-            start_date: formation.f.createdAt,
-            end_date: formation.f.formationTime,
-            text: formation.f.formationName,
+            start_date: formation.f.startDate,
+            end_date: formation.f.endDate,
+            text: formation.f.name,
             id: formation.i,
             color: color
         });
