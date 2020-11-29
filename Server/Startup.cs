@@ -27,18 +27,20 @@ namespace Mediwatch.Server {
         public void ConfigureServices (IServiceCollection services) {
             services.AddDbContext<DbContextMediwatch> (options =>
                 options.UseSqlite ("Filename=data.db"));
+            services.AddDbContext<IdentityDataContext>(options =>
+                  options.UseSqlite("Filename=data.db"));
             services.AddControllersWithViews ();
 
-            // services.AddIdentity<IdentityUser, IdentityRole> ()
-            //     .AddEntityFrameworkStores<IdentityDataContext> ()
-            //     .AddDefaultTokenProviders ();
+             services.AddIdentity<IdentityUser<Guid>, IdentityRole<Guid>> (options => options.SignIn.RequireConfirmedAccount = false)
+                .AddEntityFrameworkStores<IdentityDataContext> ()
+                .AddDefaultTokenProviders ();
 
             services.AddAuthentication ()
-                .AddCookie ()
-                .AddGoogle (googleOptions => {
-                    googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
-                    googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-                });
+                .AddCookie ("CustomClaimsCookie")
+                 .AddGoogle (googleOptions => {
+                     googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
+                     googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                 });
 
             services.Configure<IdentityOptions> (options => {
                 // Password settings.
@@ -83,6 +85,8 @@ namespace Mediwatch.Server {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts ();
             }
+            app.UseAuthentication();
+            app.UseAuthorization();
             CreateRoles(service).Wait();
 
             app.UseHttpsRedirection ();
@@ -100,21 +104,21 @@ namespace Mediwatch.Server {
         private async Task CreateRoles(IServiceProvider serviceProvider)
         {
             //adding custom roles
-            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-            var UserManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
+            var UserManager = serviceProvider.GetRequiredService<UserManager<IdentityUser<Guid>>>();
             string[] roleNames = { "Admin", "Tutor", "Member" };
             IdentityResult roleResult;
             foreach (var roleName in roleNames)
             {
-                //creating the roles and seeding them to the database
+
                 var roleExist = await RoleManager.RoleExistsAsync(roleName);
                 if (!roleExist)
                 {
-                    roleResult = await RoleManager.CreateAsync(new IdentityRole(roleName));
+                    roleResult = await RoleManager.CreateAsync(new IdentityRole<Guid>(roleName));
                 }
             }
             //creating a super user who could maintain the web app
-            var poweruser = new IdentityUser
+            var poweruser = new IdentityUser<Guid>
             {
                 UserName = Configuration["SuperUser:Username"],
                 Email = Configuration["SuperUser:Email"]

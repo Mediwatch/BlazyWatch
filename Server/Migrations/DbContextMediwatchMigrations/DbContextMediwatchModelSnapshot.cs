@@ -14,9 +14,9 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.4");
+                .HasAnnotation("ProductVersion", "3.1.7");
 
-            modelBuilder.Entity("Server.Models.applicant_session", b =>
+            modelBuilder.Entity("Mediwatch.Shared.Models.applicant_session", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -47,7 +47,7 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.ToTable("applicant_sessions");
                 });
 
-            modelBuilder.Entity("Server.Models.compagny", b =>
+            modelBuilder.Entity("Mediwatch.Shared.Models.compagny", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -67,7 +67,7 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.ToTable("Compagny");
                 });
 
-            modelBuilder.Entity("Server.Models.formation", b =>
+            modelBuilder.Entity("Mediwatch.Shared.Models.formation", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -107,7 +107,7 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.ToTable("Formation");
                 });
 
-            modelBuilder.Entity("Server.Models.tag", b =>
+            modelBuilder.Entity("Mediwatch.Shared.Models.tag", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -129,23 +129,23 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.ToTable("tag");
                 });
 
-            modelBuilder.Entity("Server.Models.applicant_session", b =>
+            modelBuilder.Entity("Mediwatch.Shared.Models.applicant_session", b =>
                 {
-                    b.HasOne("Server.Models.formation", null)
+                    b.HasOne("Mediwatch.Shared.Models.formation", null)
                         .WithMany("applicantsSessions")
                         .HasForeignKey("formationid");
                 });
 
-            modelBuilder.Entity("Server.Models.formation", b =>
+            modelBuilder.Entity("Mediwatch.Shared.Models.formation", b =>
                 {
-                    b.HasOne("Server.Models.compagny", null)
+                    b.HasOne("Mediwatch.Shared.Models.compagny", null)
                         .WithMany("compagnyFormation")
                         .HasForeignKey("compagnyid");
                 });
 
-            modelBuilder.Entity("Server.Models.tag", b =>
+            modelBuilder.Entity("Mediwatch.Shared.Models.tag", b =>
                 {
-                    b.HasOne("Server.Models.formation", null)
+                    b.HasOne("Mediwatch.Shared.Models.formation", null)
                         .WithMany("tagsFormation")
                         .HasForeignKey("formationid");
                 });

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Google;
-
+using System;
 
 namespace Mediwatch.Server.Controllers
 {
@@ -15,11 +15,11 @@ namespace Mediwatch.Server.Controllers
     public class AccountController : ControllerBase
     {
 
-        private readonly SignInManager<IdentityUser> signInManager;
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly RoleManager<IdentityRole> roleManager;
+        private readonly SignInManager<IdentityUser<Guid>> signInManager;
+        private readonly UserManager<IdentityUser<Guid>> userManager;
+        private readonly RoleManager<IdentityRole<Guid>> roleManager;
         
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        public AccountController(SignInManager<IdentityUser<Guid>> signInManager, UserManager<IdentityUser<Guid>> userManager, RoleManager<IdentityRole<Guid>> roleManager)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
@@ -40,7 +40,7 @@ namespace Mediwatch.Server.Controllers
             if (!pasword.Succeeded)
                 return BadRequest("User Name or Password is'nt valid");
             
-            await signInManager.SignInAsync(signUser, login.RememberMe);
+            await signInManager.SignInAsync(signUser, true);
             return Ok();
         }
 
@@ -103,7 +103,7 @@ namespace Mediwatch.Server.Controllers
             if (string.IsNullOrEmpty(userName))
                 return BadRequest($"{info.ProviderDisplayName} has no username");
 
-            var user = new IdentityUser{ Id = System.Guid.NewGuid().ToString(), UserName = userName, Email = userEmail};
+            var user = new IdentityUser<Guid>{ Id = System.Guid.NewGuid(), UserName = userName, Email = userEmail};
             var dbUser = await userManager.CreateAsync(user);
 
             if (!dbUser.Succeeded)
@@ -128,7 +128,7 @@ namespace Mediwatch.Server.Controllers
                 return BadRequest(ModelState.Values.SelectMany(state => state.Errors)
                     .Select(error => error.ErrorMessage).FirstOrDefault());
             
-            var registerUser = new IdentityUser();
+            var registerUser = new IdentityUser<Guid>();
             registerUser.UserName = register.UserName;
             registerUser.Email = register.EmailAddress;
 
@@ -145,6 +145,7 @@ namespace Mediwatch.Server.Controllers
         [HttpGet]
         public UserInformation UserInfo()
         {
+            
             return new UserInformation
             {
                 IsAuthenticated = User.Identity.IsAuthenticated,

@@ -16,16 +16,16 @@ namespace Mediwatch.Server.Controllers
 
     public class UserController : ControllerBase
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<IdentityUser<Guid>> _userManager;
 
-        public UserController(UserManager<IdentityUser> userManager)
+        public UserController(UserManager<IdentityUser<Guid>> userManager)
         {
             _userManager = userManager;
         }
 
         //GET: /ApplicantSession
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<IdentityUser>>> GetApplicantSession(){
+        public async Task<ActionResult<IEnumerable<IdentityUser<Guid>>>> GetApplicantSession(){
                 return await _userManager.Users.ToListAsync();
         }
     }

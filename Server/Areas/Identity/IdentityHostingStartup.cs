@@ -1,8 +1,6 @@
 using System;
 using Mediwatch.Server.Areas.Identity.Data;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,9 +17,9 @@ namespace Mediwatch.Server.Areas.Identity
                     options.UseSqlite(
                         context.Configuration.GetConnectionString("IdentityDataContextConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-                    .AddRoles<IdentityRole>()
-                    .AddEntityFrameworkStores<IdentityDataContext>();
+                // services.AddIdentity<IdentityUser, IdentityRole> ()
+                // .AddEntityFrameworkStores<IdentityDataContext> ()
+                // .AddDefaultTokenProviders ();
             });
         }
     }

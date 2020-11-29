@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
 {
-    public partial class CreateMediwatchDb3 : Migration
+    public partial class innitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
