@@ -28,9 +28,6 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("formationid")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("idFormation")
                         .HasColumnType("INTEGER");
 
@@ -41,8 +38,6 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("id");
-
-                    b.HasIndex("formationid");
 
                     b.ToTable("applicant_sessions");
                 });
@@ -73,32 +68,38 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("address")
+                    b.Property<string>("Contact")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Former")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OrganizationName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Target")
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("compagnyid")
                         .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("createdAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("description")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("formationName")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("formationTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("free")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("idCompagny")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("talker")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("id");
 
@@ -116,15 +117,10 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.Property<string>("description")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("formationid")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("tag_name")
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");
-
-                    b.HasIndex("formationid");
 
                     b.ToTable("tag");
                 });

@@ -1,98 +1,46 @@
-<hr>
-<h4>@(months[Month])</h4>
-<button id="month-prev" @onclick="@(e => changeMonth(-1))">Avant</button>
-<button id="month-next" @onclick="@(e => changeMonth(1))">Après</button>
-<table class="table table-bordered table-dark">
-    <thead>
-		<tr>
-            <th class="calendar-element head">Lundi</th>
-            <th class="calendar-element head">Mardi</th>
-            <th class="calendar-element head">Mercredi</th>
-            <th class="calendar-element head">Jeudi</th>
-            <th class="calendar-element head">Vendredi</th>
-            <th class="calendar-element head">Samedi</th>
-            <th class="calendar-element head">Dimanche</th>
-        </tr>
-    </thead>
-	<tbody>
-        @for(int week = 0; week < 6; week++) {
-            <tr>
-                @for(int day = 0; day < 7; day++){
-                    <td class="calendar-element day">
-                        <div>
-                            <div>@((1 + day + 7 * week) < startDay ?
-                               nbDayInLastMonth - startDay + (day + 7 * week) : ((1 + day + 7 * week) - startDay < nbDayInMonth ?
-                               (1 + day + 7 * week) - startDay + 1 : (1 + day + 7 * week) - startDay - nbDayInMonth + 1))</div>
-                        </div>
-                    </td>
-                }
-            </tr>
-        }
-    </tbody>
-</table>
+@page "/calendrier"
+@inject HttpClient client
+@inject IJSRuntime JSRuntime
 
-<style>
-	h4 {
-		margin: auto;
-	}
-
-	.calendar-element {
-		font-size: 0.7rem;
-	}
-
-	.head {
-	}
-
-	.day {
-		height: 10rem;
-	}
-</style>
+<div class="CALENDAR">
+<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100vh;'>
+        <div class="dhx_cal_navline">
+            <div class="dhx_cal_prev_button">&nbsp;</div>
+            <div class="dhx_cal_next_button">&nbsp;</div>
+            <div class="dhx_cal_today_button"></div>
+            <div class="dhx_cal_date"></div>
+            <div class="dhx_cal_tab" name="day_tab"></div>
+            <div class="dhx_cal_tab" name="week_tab"></div>
+            <div class="dhx_cal_tab" name="month_tab"></div>
+        </div>
+        <div class="dhx_cal_header"></div>
+        <div class="dhx_cal_data"></div>
+</div>
+<p>&copy; <a href="https://dhtmlx.com/">dhtmlx</a></p>
+<input type="checkbox" @onclick="@(e => SelectMine())" id="select-mine">
+<label for="select-mine">Formations où je suis inscrit(e)</label>
+</div>
 
 @code {
-
-    [Parameter]
-    public int Month{get;set;}
-    [Parameter]
-    public int Year{get;set;}
-
-    private int nbDayInMonth;
-    private int nbDayInLastMonth;
-    private int startDay;
-
-	private List<String> months = new List<String>{"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"};
-
-	private void changeMonth(int next) {
-		Month += next;
-		Month %= 12;
-		run();
-	}
-
-	private void run()
+	class F {
+		public F(formation formation, int idx) {
+			this.f = formation;
+			this.i = idx;
+		}
+		public formation f {get; set;}
+		public int i {get; set;}
+	};
+	List<formation> formations = new List<formation>();
+	protected override async void OnInitialized()
 	{
-		nbDayInLastMonth = NumberOfDayInMonth(Month - 1 < 1 ? 12 : Month - 1 , Year);
-        nbDayInMonth = NumberOfDayInMonth(Month, Year);
-        startDay = WhichDayTheMonthStart(1,Month,Year);
+		formations = await client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
+
+		foreach (var (formation, idx) in formations.Select((value, i) => (value, i))) {
+			await JSRuntime.InvokeVoidAsync("addDXCalendearEvent", new F(formation, idx), "blue");
+		}
 	}
-    protected override void OnInitialized()
-    {
-		run();
-    }
 
-    public int WhichDayTheMonthStart(int day, int month, int year)
-    {
-        int[]  t=  new int[]{0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
-        year -= month < 3 ? 1 : 0;
-        return (year + year/4 - year/100 + year/400 + t[month-1] + day) % 7;
-    }
-
-    public int NumberOfDayInMonth(int month, int year)
-    {
-        if (month == 2)
-            return IsLeapYear(year) ? 29 : 28;
-        return 30 + month % 2;
-    }
-
-    public bool IsLeapYear(int year) {
-        return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
-    }
+	void SelectMine() {
+		
+	}
 }

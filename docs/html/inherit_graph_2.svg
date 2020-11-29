@@ -9,9 +9,9 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 280)">
 <title>Graphe hiérarchique des classes</title>
 <polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-280 270,-280 270,4 -4,4"/>
-<!-- Node18 -->
+<!-- Node16 -->
 <g id="node1" class="node">
-<title>Node18</title>
+<title>Node16</title>
 <polygon fill="#ffffff" stroke="#bfbfbf" points="0,-128 0,-147 81,-147 81,-128 0,-128"/>
 <text text-anchor="middle" x="40.5" y="-135" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">ControllerBase</text>
 </g>
@@ -25,15 +25,15 @@
 </a>
 </g>
 </g>
-<!-- Node18&#45;&gt;Node0 -->
+<!-- Node16&#45;&gt;Node0 -->
 <g id="edge1" class="edge">
-<title>Node18&#45;&gt;Node0</title>
+<title>Node16&#45;&gt;Node0</title>
 <path fill="none" stroke="#191970" d="M50.2063,-156.0383C62.7569,-178.2669 86.6517,-215.1859 117,-236.5 121.8928,-239.9363 127.3046,-242.9004 132.9123,-245.453"/>
 <polygon fill="#191970" stroke="#191970" points="53.2618,-154.3308 45.3957,-147.2333 47.1188,-157.6871 53.2618,-154.3308"/>
 </g>
-<!-- Node20 -->
+<!-- Node18 -->
 <g id="node3" class="node">
-<title>Node20</title>
+<title>Node18</title>
 <g id="a_node3"><a xlink:href="class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller.html" target="_top" xlink:title="Mediwatch.Server.Controllers.\lApplicantSessionController">
 <polygon fill="#ffffff" stroke="#000000" points="117,-196.5 117,-226.5 266,-226.5 266,-196.5 117,-196.5"/>
 <text text-anchor="start" x="125" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Mediwatch.Server.Controllers.</text>
@@ -41,15 +41,15 @@
 </a>
 </g>
 </g>
-<!-- Node18&#45;&gt;Node20 -->
+<!-- Node16&#45;&gt;Node18 -->
 <g id="edge2" class="edge">
-<title>Node18&#45;&gt;Node20</title>
+<title>Node16&#45;&gt;Node18</title>
 <path fill="none" stroke="#191970" d="M61.3189,-153.304C76.2158,-164.0516 97.0782,-177.9925 117,-187.5 123.8676,-190.7775 131.2956,-193.7695 138.7102,-196.4442"/>
 <polygon fill="#191970" stroke="#191970" points="63.0053,-150.1995 52.8761,-147.0929 58.8572,-155.8381 63.0053,-150.1995"/>
 </g>
-<!-- Node21 -->
+<!-- Node19 -->
 <g id="node4" class="node">
-<title>Node21</title>
+<title>Node19</title>
 <g id="a_node4"><a xlink:href="class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller.html" target="_top" xlink:title="Mediwatch.Server.Controllers.\lCompagnyController">
 <polygon fill="#ffffff" stroke="#000000" points="117,-147.5 117,-177.5 266,-177.5 266,-147.5 117,-147.5"/>
 <text text-anchor="start" x="125" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Mediwatch.Server.Controllers.</text>
@@ -57,15 +57,15 @@
 </a>
 </g>
 </g>
-<!-- Node18&#45;&gt;Node21 -->
+<!-- Node16&#45;&gt;Node19 -->
 <g id="edge3" class="edge">
-<title>Node18&#45;&gt;Node21</title>
+<title>Node16&#45;&gt;Node19</title>
 <path fill="none" stroke="#191970" d="M91.4621,-145.9374C99.6439,-147.292 108.257,-148.718 116.8554,-150.1416"/>
 <polygon fill="#191970" stroke="#191970" points="91.8002,-142.4458 81.3628,-144.2654 90.6568,-149.3518 91.8002,-142.4458"/>
 </g>
-<!-- Node22 -->
+<!-- Node20 -->
 <g id="node5" class="node">
-<title>Node22</title>
+<title>Node20</title>
 <g id="a_node5"><a xlink:href="class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html" target="_top" xlink:title="Mediwatch.Server.Controllers.\lFormationController">
 <polygon fill="#ffffff" stroke="#000000" points="117,-98.5 117,-128.5 266,-128.5 266,-98.5 117,-98.5"/>
 <text text-anchor="start" x="125" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Mediwatch.Server.Controllers.</text>
@@ -73,15 +73,15 @@
 </a>
 </g>
 </g>
-<!-- Node18&#45;&gt;Node22 -->
+<!-- Node16&#45;&gt;Node20 -->
 <g id="edge4" class="edge">
-<title>Node18&#45;&gt;Node22</title>
+<title>Node16&#45;&gt;Node20</title>
 <path fill="none" stroke="#191970" d="M91.4621,-129.4001C99.6439,-128.0996 108.257,-126.7307 116.8554,-125.364"/>
 <polygon fill="#191970" stroke="#191970" points="90.6894,-125.9789 81.3628,-131.0053 91.7882,-132.8921 90.6894,-125.9789"/>
 </g>
-<!-- Node23 -->
+<!-- Node21 -->
 <g id="node6" class="node">
-<title>Node23</title>
+<title>Node21</title>
 <g id="a_node6"><a xlink:href="class_mediwatch_1_1_server_1_1_controllers_1_1_user_controller.html" target="_top" xlink:title="Mediwatch.Server.Controllers.\lUserController">
 <polygon fill="#ffffff" stroke="#000000" points="117,-49.5 117,-79.5 266,-79.5 266,-49.5 117,-49.5"/>
 <text text-anchor="start" x="125" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Mediwatch.Server.Controllers.</text>
@@ -89,15 +89,15 @@
 </a>
 </g>
 </g>
-<!-- Node18&#45;&gt;Node23 -->
+<!-- Node16&#45;&gt;Node21 -->
 <g id="edge5" class="edge">
-<title>Node18&#45;&gt;Node23</title>
+<title>Node16&#45;&gt;Node21</title>
 <path fill="none" stroke="#191970" d="M62.2539,-121.9037C77.1484,-111.7214 97.6354,-98.6653 117,-89.5 124.6455,-85.8814 132.9574,-82.5492 141.1646,-79.5769"/>
 <polygon fill="#191970" stroke="#191970" points="59.9723,-119.2274 53.7628,-127.8118 63.9703,-124.9733 59.9723,-119.2274"/>
 </g>
-<!-- Node24 -->
+<!-- Node22 -->
 <g id="node7" class="node">
-<title>Node24</title>
+<title>Node22</title>
 <g id="a_node7"><a xlink:href="class_mediwatch_1_1_server_1_1_controllers_1_1_weather_forecast_controller.html" target="_top" xlink:title="Mediwatch.Server.Controllers.\lWeatherForecastController">
 <polygon fill="#ffffff" stroke="#000000" points="117,-.5 117,-30.5 266,-30.5 266,-.5 117,-.5"/>
 <text text-anchor="start" x="125" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Mediwatch.Server.Controllers.</text>
@@ -105,9 +105,9 @@
 </a>
 </g>
 </g>
-<!-- Node18&#45;&gt;Node24 -->
+<!-- Node16&#45;&gt;Node22 -->
 <g id="edge6" class="edge">
-<title>Node18&#45;&gt;Node24</title>
+<title>Node16&#45;&gt;Node22</title>
 <path fill="none" stroke="#191970" d="M50.7084,-118.7742C63.4873,-96.9974 87.3438,-61.3771 117,-40.5 122.4663,-36.6519 128.5695,-33.3609 134.8655,-30.5549"/>
 <polygon fill="#191970" stroke="#191970" points="47.5323,-117.2793 45.6355,-127.703 53.6186,-120.7373 47.5323,-117.2793"/>
 </g>

@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+//using Mediwatch.Shared.Models;
 
-public class FormationTemplate
+/*public class FormationTemplate
 {
 	[Required]
 	public string Name { get; set; }
@@ -51,7 +52,7 @@ public class FormationTemplate
 		Contact = tab3.Contact;
 	}
 }
-
+*/
 public class FormationTemplateTab1
 {
 	[Required]

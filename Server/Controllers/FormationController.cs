@@ -71,7 +71,7 @@ namespace Mediwatch.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<formation>> PostFormation(formation formationBody)
         {
-            formationBody.createdAt = DateTime.Now;
+            // formationBody.createdAt = DateTime.Now;
             _context.formations.Add(formationBody);
             await _context.SaveChangesAsync();
 
