@@ -1,8 +1,3 @@
 <map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node2" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller.html" title="Mediwatch.Server.Controllers.\lAccountController" alt="" coords="161,5,360,47"/>
-<area shape="rect" id="node3" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller.html" title="Mediwatch.Server.Controllers.\lApplicantSessionController" alt="" coords="161,71,360,112"/>
-<area shape="rect" id="node4" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller.html" title="Mediwatch.Server.Controllers.\lCompagnyController" alt="" coords="161,136,360,177"/>
-<area shape="rect" id="node5" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html" title="Mediwatch.Server.Controllers.\lFormationController" alt="" coords="161,201,360,243"/>
-<area shape="rect" id="node6" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_user_controller.html" title="Mediwatch.Server.Controllers.\lUserController" alt="" coords="161,267,360,308"/>
-<area shape="rect" id="node7" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_weather_forecast_controller.html" title="Mediwatch.Server.Controllers.\lWeatherForecastController" alt="" coords="161,332,360,373"/>
+<area shape="rect" id="node2" href="$class_mediwatch_1_1_server_1_1_areas_1_1_identity_1_1_identity_hosting_startup.html" title="Mediwatch.Server.Areas.Identity.\lIdentityHostingStartup" alt="" coords="167,5,383,47"/>
 </map>

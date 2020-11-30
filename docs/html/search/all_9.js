@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['usercontroller',['UserController',['../class_mediwatch_1_1_server_1_1_controllers_1_1_user_controller.html',1,'Mediwatch::Server::Controllers']]]
+  ['server',['Server',['../namespace_server.html',1,'']]],
+  ['startup',['Startup',['../class_mediwatch_1_1_server_1_1_startup.html',1,'Mediwatch::Server']]]
 ];

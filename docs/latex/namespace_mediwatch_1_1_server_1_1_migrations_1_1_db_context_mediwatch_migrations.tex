@@ -4,66 +4,6 @@
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1_db_context_mediwatch_model_snapshot}{Db\+Context\+Mediwatch\+Model\+Snapshot}
+\item 
+class \hyperlink{class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1innitial_create}{innitial\+Create}
 \end{DoxyCompactItemize}
-\subsection*{Fonctions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a4648f444290ca0439994fce1cdb1f144}\label{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a4648f444290ca0439994fce1cdb1f144}} 
-migration\+Builder. {\bfseries Create\+Table} (name\+:\char`\"{}Compagny\char`\"{}, columns\+:table=$>$ new \{ id=table.\+Column$<$ int $>$(nullable\+:false) .Annotation(\char`\"{}Sqlite\+:\+Autoincrement\char`\"{}, true), compagny\+Name=table.\+Column$<$ string $>$(nullable\+:true), country\+Code=table.\+Column$<$ string $>$(nullable\+:true), created\+At=table.\+Column$<$ Date\+Time $>$(nullable\+:false) \}, constraints\+:table=$>$ \{ table.\+Primary\+Key(\char`\"{}P\+K\+\_\+\+Compagny\char`\"{}, x=$>$ x.\+id);\})
-\item 
-\mbox{\Hypertarget{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a4c3b62432574827d811a50fd1a65b0d6}\label{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a4c3b62432574827d811a50fd1a65b0d6}} 
-migration\+Builder. {\bfseries Create\+Table} (name\+:\char`\"{}tag\char`\"{}, columns\+:table=$>$ new \{ id=table.\+Column$<$ int $>$(nullable\+:false) .Annotation(\char`\"{}Sqlite\+:\+Autoincrement\char`\"{}, true), tag\+\_\+name=table.\+Column$<$ string $>$(nullable\+:true), description=table.\+Column$<$ string $>$(nullable\+:true) \}, constraints\+:table=$>$ \{ table.\+Primary\+Key(\char`\"{}P\+K\+\_\+tag\char`\"{}, x=$>$ x.\+id);\})
-\item 
-\mbox{\Hypertarget{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_aa72f111d0e3b12f8b5d6db3a89c2dc14}\label{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_aa72f111d0e3b12f8b5d6db3a89c2dc14}} 
-migration\+Builder. {\bfseries Create\+Table} (name\+:\char`\"{}Formation\char`\"{}, columns\+:table=$>$ new \{ id=table.\+Column$<$ int $>$(nullable\+:false) .Annotation(\char`\"{}Sqlite\+:\+Autoincrement\char`\"{}, true), Name=table.\+Column$<$ string $>$(nullable\+:true), Start\+Date=table.\+Column$<$ Date\+Time $>$(nullable\+:false), End\+Date=table.\+Column$<$ Date\+Time $>$(nullable\+:false), Location=table.\+Column$<$ string $>$(nullable\+:true), Contact=table.\+Column$<$ string $>$(nullable\+:true), Organization\+Name=table.\+Column$<$ string $>$(nullable\+:true), Price=table.\+Column$<$ decimal $>$(nullable\+:false), Former=table.\+Column$<$ string $>$(nullable\+:true), Description=table.\+Column$<$ string $>$(nullable\+:true), Target=table.\+Column$<$ string $>$(nullable\+:true), compagnyid=table.\+Column$<$ int $>$(nullable\+:true) \}, constraints\+:table=$>$ \{ table.\+Primary\+Key(\char`\"{}P\+K\+\_\+\+Formation\char`\"{}, x=$>$ x.\+id);table.\+Foreign\+Key(name\+:\char`\"{}F\+K\+\_\+\+Formation\+\_\+\+Compagny\+\_\+compagnyid\char`\"{}, column\+:x=$>$ x.\+compagnyid, principal\+Table\+:\char`\"{}Compagny\char`\"{}, principal\+Column\+:\char`\"{}id\char`\"{}, on\+Delete\+:\+Referential\+Action.\+Restrict);\})
-\item 
-\mbox{\Hypertarget{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a94b5e0404f6fdcce0415ddbf071032f5}\label{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a94b5e0404f6fdcce0415ddbf071032f5}} 
-migration\+Builder. {\bfseries Create\+Index} (name\+:\char`\"{}I\+X\+\_\+\+Formation\+\_\+compagnyid\char`\"{}, table\+:\char`\"{}Formation\char`\"{}, column\+:\char`\"{}compagnyid\char`\"{})
-\item 
-\mbox{\Hypertarget{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a5bd8200f6170a3c9e6e12f83b5291074}\label{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a5bd8200f6170a3c9e6e12f83b5291074}} 
-override void {\bfseries Down} (Migration\+Builder migration\+Builder)
-\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a142fa3f5e05f1480e2d6a9bcf05c0d83}\label{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a142fa3f5e05f1480e2d6a9bcf05c0d83}} 
-$<$$<$$<$$<$$<$$<$$<$ H\+E\+A\+D\+:\+Server/Migrations/Db\+Context\+Mediwatch\+Migrations/20201129151831\+\_\+innitial\+Create.\+cs public partial class innitial\+Create \+:\+Migration=======public partial class Formation\+Template \+:\+Migration $>$$>$$>$$>$$>$$>$ {\bfseries cb6001234b4279f6115e7bb4cdef324e54822de6}
-\item 
-\mbox{\Hypertarget{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a5ae5d5046c61950e17baa84c44dcedba}\label{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a5ae5d5046c61950e17baa84c44dcedba}} 
-$<$$<$$<$$<$$<$$<$$<$ H\+E\+A\+D\+:\+Server/Migrations/Db\+Context\+Mediwatch\+Migrations/20201129151831\+\_\+innitial\+Create.\+cs public partial class innitial\+Create \+:\+Migration=======public partial class Formation\+Template \+:\+Migration $>$$>$$>$$>$$>$$>$ {\bfseries columns}
-\item 
-\mbox{\Hypertarget{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a43518a4f5ff1f024df19f67d6a2aec18}\label{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a43518a4f5ff1f024df19f67d6a2aec18}} 
-$<$$<$$<$$<$$<$$<$$<$ H\+E\+A\+D\+:\+Server/Migrations/Db\+Context\+Mediwatch\+Migrations/20201129151831\+\_\+innitial\+Create.\+cs public partial class innitial\+Create \+:\+Migration=======public partial class Formation\+Template \+:\+Migration $>$$>$$>$$>$$>$$>$ {\bfseries true}
-\item 
-\mbox{\Hypertarget{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_ae9b3b30abeb45f7fd34f4757445c5908}\label{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_ae9b3b30abeb45f7fd34f4757445c5908}} 
-$<$$<$$<$$<$$<$$<$$<$ H\+E\+A\+D\+:\+Server/Migrations/Db\+Context\+Mediwatch\+Migrations/20201129151831\+\_\+innitial\+Create.\+cs public partial class innitial\+Create \+:\+Migration=======public partial class Formation\+Template \+:\+Migration $>$$>$$>$$>$$>$$>$ {\bfseries id\+Formation} = table.\+Column$<$int$>$(nullable\+: false)
-\item 
-\mbox{\Hypertarget{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a6614e9641cc2d4d41ab9b0d0d7071cf0}\label{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a6614e9641cc2d4d41ab9b0d0d7071cf0}} 
-$<$$<$$<$$<$$<$$<$$<$ H\+E\+A\+D\+:\+Server/Migrations/Db\+Context\+Mediwatch\+Migrations/20201129151831\+\_\+innitial\+Create.\+cs public partial class innitial\+Create \+:\+Migration=======public partial class Formation\+Template \+:\+Migration $>$$>$$>$$>$$>$$>$ {\bfseries id\+User} = table.\+Column$<$int$>$(nullable\+: false)
-\item 
-\mbox{\Hypertarget{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a8bcb9a8b8ae35eca15d9a8de385ae647}\label{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_a8bcb9a8b8ae35eca15d9a8de385ae647}} 
-$<$$<$$<$$<$$<$$<$$<$ H\+E\+A\+D\+:\+Server/Migrations/Db\+Context\+Mediwatch\+Migrations/20201129151831\+\_\+innitial\+Create.\+cs public partial class innitial\+Create \+:\+Migration=======public partial class Formation\+Template \+:\+Migration $>$$>$$>$$>$$>$$>$ {\bfseries confirmed} = table.\+Column$<$bool$>$(nullable\+: false)
-\item 
-\mbox{\Hypertarget{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_afbe28a7cee07848d35d7915378ea6964}\label{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_afbe28a7cee07848d35d7915378ea6964}} 
-$<$$<$$<$$<$$<$$<$$<$ H\+E\+A\+D\+:\+Server/Migrations/Db\+Context\+Mediwatch\+Migrations/20201129151831\+\_\+innitial\+Create.\+cs public partial class innitial\+Create \+:\+Migration=======public partial class Formation\+Template \+:\+Migration $>$$>$$>$$>$$>$$>$ {\bfseries payed} = table.\+Column$<$bool$>$(nullable\+: false)
-\item 
-$<$$<$$<$$<$$<$$<$$<$ H\+E\+A\+D\+:\+Server/Migrations/Db\+Context\+Mediwatch\+Migrations/20201129151831\+\_\+innitial\+Create.\+cs public partial class innitial\+Create \+:\+Migration=======public partial class Formation\+Template \+:\+Migration $>$$>$$>$$>$$>$$>$ {\bfseries created\+At}
-\end{DoxyCompactItemize}
-
-
-\subsection{Documentation des variables}
-\mbox{\Hypertarget{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_acfc8a71f2cea6996df0c4f1e385ca17c}\label{namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_acfc8a71f2cea6996df0c4f1e385ca17c}} 
-\index{Mediwatch\+::\+Server\+::\+Migrations\+::\+Db\+Context\+Mediwatch\+Migrations@{Mediwatch\+::\+Server\+::\+Migrations\+::\+Db\+Context\+Mediwatch\+Migrations}!created\+At@{created\+At}}
-\index{created\+At@{created\+At}!Mediwatch\+::\+Server\+::\+Migrations\+::\+Db\+Context\+Mediwatch\+Migrations@{Mediwatch\+::\+Server\+::\+Migrations\+::\+Db\+Context\+Mediwatch\+Migrations}}
-\subsubsection{\texorpdfstring{created\+At}{createdAt}}
-{\footnotesize\ttfamily $<$$<$$<$$<$$<$$<$$<$ H\+E\+A\+D\+:\+Server/Migrations/Db\+Context\+Mediwatch\+Migrations/20201129151831\+\_\+innitial\+Create.\+cs public partial class innitial\+Create \+: Migration ======= public partial class Formation\+Template \+: Migration $>$$>$$>$$>$$>$$>$ Mediwatch.\+Server.\+Migrations.\+Db\+Context\+Mediwatch\+Migrations.\+created\+At}
-
-{\bfseries Valeur initiale \+:}
-\begin{DoxyCode}
-= table.Column<DateTime>(nullable: \textcolor{keyword}{false})
-                \},
-                constraints: table =>
-                \{
-                    table.PrimaryKey(\textcolor{stringliteral}{"PK\_applicant\_sessions"}, x => x.id);
-                \})
-\end{DoxyCode}

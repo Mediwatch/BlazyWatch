@@ -1,3 +1,10 @@
 <map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node2" href="$class_mediwatch_1_1_server_1_1_areas_1_1_identity_1_1_data_1_1_identity_data_context.html" title="Mediwatch.Server.Areas.Identity.\lData.IdentityDataContext" alt="" coords="181,5,397,47"/>
+<area shape="rect" id="node2" href="$class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller.html" title="BlazingBlog.Server.Controllers.\lArticlesController" alt="" coords="161,5,365,47"/>
+<area shape="rect" id="node3" href="$class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html" title="BlazingBlog.Server.Controllers.\lBlogUtilsController" alt="" coords="161,71,365,112"/>
+<area shape="rect" id="node4" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller.html" title="Mediwatch.Server.Controllers.\lAccountController" alt="" coords="164,136,363,177"/>
+<area shape="rect" id="node5" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller.html" title="Mediwatch.Server.Controllers.\lApplicantSessionController" alt="" coords="164,201,363,243"/>
+<area shape="rect" id="node6" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller.html" title="Mediwatch.Server.Controllers.\lCompagnyController" alt="" coords="164,267,363,308"/>
+<area shape="rect" id="node7" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html" title="Mediwatch.Server.Controllers.\lFormationController" alt="" coords="164,332,363,373"/>
+<area shape="rect" id="node8" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_user_controller.html" title="Mediwatch.Server.Controllers.\lUserController" alt="" coords="164,397,363,439"/>
+<area shape="rect" id="node9" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_weather_forecast_controller.html" title="Mediwatch.Server.Controllers.\lWeatherForecastController" alt="" coords="164,463,363,504"/>
 </map>
