@@ -3,11 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
 {
-<<<<<<< HEAD:Server/Migrations/DbContextMediwatchMigrations/20201129151831_innitialCreate.cs
     public partial class innitialCreate : Migration
-=======
-    public partial class FormationTemplate : Migration
->>>>>>> cb6001234b4279f6115e7bb4cdef324e54822de6:Server/Migrations/DbContextMediwatchMigrations/20201101131709_FormationTemplate.cs
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,6 +22,23 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_applicant_sessions", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BlazingArticles",
+                columns: table => new
+                {
+                    Key = table.Column<Guid>(nullable: false),
+                    Title = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    PreviewImageURL = table.Column<string>(nullable: true),
+                    PreviewTitle = table.Column<string>(nullable: true),
+                    PreviewParagraph = table.Column<string>(nullable: true),
+                    _tags = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BlazingArticles", x => x.Key);
                 });
 
             migrationBuilder.CreateTable(
@@ -96,6 +109,9 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
         {
             migrationBuilder.DropTable(
                 name: "applicant_sessions");
+
+            migrationBuilder.DropTable(
+                name: "BlazingArticles");
 
             migrationBuilder.DropTable(
                 name: "Formation");

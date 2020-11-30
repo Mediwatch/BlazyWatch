@@ -9,19 +9,43 @@ using Server;
 namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
 {
     [DbContext(typeof(DbContextMediwatch))]
-<<<<<<< HEAD:Server/Migrations/DbContextMediwatchMigrations/20201129151831_innitialCreate.Designer.cs
-    [Migration("20201129151831_innitialCreate")]
+    [Migration("20201130141258_innitialCreate")]
     partial class innitialCreate
-=======
-    [Migration("20201101131709_FormationTemplate")]
-    partial class FormationTemplate
->>>>>>> cb6001234b4279f6115e7bb4cdef324e54822de6:Server/Migrations/DbContextMediwatchMigrations/20201101131709_FormationTemplate.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.7");
+
+            modelBuilder.Entity("BlazingArticle.Model.BlazingArticleModel", b =>
+                {
+                    b.Property<Guid>("Key")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PreviewImageURL")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PreviewParagraph")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PreviewTitle")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("_tags")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Key");
+
+                    b.ToTable("BlazingArticles");
+                });
 
             modelBuilder.Entity("Mediwatch.Shared.Models.applicant_session", b =>
                 {
@@ -132,34 +156,12 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.ToTable("tag");
                 });
 
-<<<<<<< HEAD:Server/Migrations/DbContextMediwatchMigrations/20201129151831_innitialCreate.Designer.cs
-            modelBuilder.Entity("Mediwatch.Shared.Models.applicant_session", b =>
-                {
-                    b.HasOne("Mediwatch.Shared.Models.formation", null)
-                        .WithMany("applicantsSessions")
-                        .HasForeignKey("formationid");
-                });
-
             modelBuilder.Entity("Mediwatch.Shared.Models.formation", b =>
                 {
-=======
-            modelBuilder.Entity("Mediwatch.Shared.Models.formation", b =>
-                {
->>>>>>> cb6001234b4279f6115e7bb4cdef324e54822de6:Server/Migrations/DbContextMediwatchMigrations/20201101131709_FormationTemplate.Designer.cs
                     b.HasOne("Mediwatch.Shared.Models.compagny", null)
                         .WithMany("compagnyFormation")
                         .HasForeignKey("compagnyid");
                 });
-<<<<<<< HEAD:Server/Migrations/DbContextMediwatchMigrations/20201129151831_innitialCreate.Designer.cs
-
-            modelBuilder.Entity("Mediwatch.Shared.Models.tag", b =>
-                {
-                    b.HasOne("Mediwatch.Shared.Models.formation", null)
-                        .WithMany("tagsFormation")
-                        .HasForeignKey("formationid");
-                });
-=======
->>>>>>> cb6001234b4279f6115e7bb4cdef324e54822de6:Server/Migrations/DbContextMediwatchMigrations/20201101131709_FormationTemplate.Designer.cs
 #pragma warning restore 612, 618
         }
     }

@@ -1,0 +1,47 @@
+﻿@using Microsoft.JSInterop;
+@using Newtonsoft.Json;
+@using BlazingEditor.BasicBlazeEditComponent;
+@inject IJSRuntime JSRuntime;
+
+
+<div id="editorjs"></div>
+
+@if (message != null){
+    
+<h6>@message</h6>
+
+}
+
+@if (render != null)
+{
+    <BlazeEditViewer @bind-Render="render">
+        <BlazEditParagraph/>
+        <BlazEditImage/>
+        <BlazeEditHeader/>
+        <BlazEditSpacer Content="<b>*****<b>"/>
+    </BlazeEditViewer>
+}
+
+<button @onclick=save>save</button>
+@code {
+    [Parameter]
+    public Func <string, string> returnFunction {get;set;} = null;
+    public string message = null;
+
+    public BlazingRender render = null;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+            await JSRuntime.InvokeAsync<object>(
+                "BlazeEdit.configureEditor");
+    }
+
+    public async Task save() {
+        var article = await JSRuntime.InvokeAsync<string>(
+                "BlazeEdit.saveEdited");
+        message = article;
+        render = JsonConvert.DeserializeObject<BlazingRender>(article);
+        returnFunction?.Invoke(article);
+        this.StateHasChanged();
+    } 
+}

@@ -1,0 +1,30 @@
+@using Newtonsoft.Json;
+
+@if(element != null && element.type == type) {
+    <div class="@ClassImageContainer">
+    <img src="@System.Net.WebUtility.HtmlDecode(file["url"])" class="@ClassImage"/>
+    </div>
+    <p class="@ClassCaption">
+        @((MarkupString)(string)element.data["caption"])
+    </p>
+}
+
+@code{
+    [CascadingParameter(Name = "BlazingEditorElement")]
+    public BlazingEditorElement element {get;set;}
+    [Parameter]
+    public string ClassCaption {get; set;} = null;
+    [Parameter]
+    public string ClassImageContainer {get; set;} = null;
+    [Parameter]
+    public string ClassImage {get; set;} = null;
+    public string type = "image";
+
+    public Dictionary<string, string> file;
+
+    protected override void OnParametersSet() {
+        if(element != null && element.type == type) {
+                file = JsonConvert.DeserializeObject<Dictionary<string,string>>(element.data["file"].ToString());            
+        }
+    }
+}

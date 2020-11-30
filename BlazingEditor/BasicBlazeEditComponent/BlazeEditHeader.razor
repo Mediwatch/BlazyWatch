@@ -1,0 +1,22 @@
+
+
+@if(element != null && element.type == type) {
+    @((MarkupString)content)
+}
+
+@code{
+[CascadingParameter(Name = "BlazingEditorElement")]
+public BlazingEditorElement element {get;set;}
+[Parameter]
+public string Class {get; set;} = null;
+public string type = "header";
+
+public string content = null;
+
+protected override void OnParametersSet() {
+    if(element != null && element.type == type) {
+            var value =  element.data["level"].ToString();
+            content = $"<h{value} class=\"{Class}\">{(string) element.data["text"]}</h{value}>";
+        }
+}
+}

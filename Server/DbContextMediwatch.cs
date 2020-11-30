@@ -1,3 +1,4 @@
+using BlazingArticle.Model;
 using Mediwatch.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,8 @@ namespace Server {
         public DbSet<formation> formations { get; set; }
         public DbSet<applicant_session> applicant_sessions { get; set; }
         public DbSet<tag> tags { get; set; }
+
+        public DbSet<BlazingArticleModel> articleModels {get; set;}
         protected override void OnConfiguring (DbContextOptionsBuilder options) 
         {
              options.UseSqlite("Filename=data.db");

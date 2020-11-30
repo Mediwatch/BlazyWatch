@@ -1,0 +1,14 @@
+
+@if(element != null && element.type == type) {
+    <p class="@Class">
+        @((MarkupString)(string)element.data["text"])
+    </p>
+}
+
+@code{
+[CascadingParameter(Name = "BlazingEditorElement")]
+public BlazingEditorElement element {get;set;}
+[Parameter]
+public string Class {get; set;} = null;
+public string type = "paragraph";
+}

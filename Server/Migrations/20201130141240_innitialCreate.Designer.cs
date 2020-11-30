@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mediwatch.Server.Migrations
 {
     [DbContext(typeof(IdentityDataContext))]
-    [Migration("20201129151811_innitialCreate")]
+    [Migration("20201130141240_innitialCreate")]
     partial class innitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -1,0 +1,46 @@
+@page "/ArticlePerview"
+
+@using Microsoft.AspNetCore.WebUtilities;
+@using Newtonsoft.Json;
+@using BlazingEditor.BasicBlazeEditComponent;
+@using BlazingBlog.Shared
+
+
+@inject HttpClient Http
+@inject NavigationManager navigationManager
+
+
+@if(article != null) {
+    <h1 class="article-viewer-title">@article.Title</h1>
+}
+
+@if (render != null)
+{
+    <BlazeEditViewer @bind-Render="render">
+        <BlazEditParagraph Class="article-viewer-paragraph"/>
+        <BlazEditImage ClassImageContainer="article-viewer-image-container" ClassImage="article-viewer-image"/>
+        <BlazeEditHeader/>
+        <BlazEditSpacer Content=@spacer/>
+    </BlazeEditViewer>
+}
+
+@code {
+    System.Uri url;
+    Article article;
+    public BlazingRender render = null;
+
+    public string spacer = "<div class=\"spacer\"></div>";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        if(firstRender) {
+            url = navigationManager.ToAbsoluteUri(navigationManager.Uri);
+            if (QueryHelpers.ParseQuery(url.Query).TryGetValue("Name", out var articleName)){
+                
+                article = await Http.GetFromJsonAsync<Article>($"api/Articles/GetArticle?name={articleName}");
+                Console.WriteLine(article.Content);
+                render = JsonConvert.DeserializeObject<BlazingRender>(article.Content);
+            }
+            this.StateHasChanged();
+        }
+    }
+}

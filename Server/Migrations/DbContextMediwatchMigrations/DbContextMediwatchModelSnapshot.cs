@@ -16,6 +16,35 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.7");
 
+            modelBuilder.Entity("BlazingArticle.Model.BlazingArticleModel", b =>
+                {
+                    b.Property<Guid>("Key")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PreviewImageURL")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PreviewParagraph")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PreviewTitle")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("_tags")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Key");
+
+                    b.ToTable("BlazingArticles");
+                });
+
             modelBuilder.Entity("Mediwatch.Shared.Models.applicant_session", b =>
                 {
                     b.Property<int>("id")
@@ -125,25 +154,11 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.ToTable("tag");
                 });
 
-            modelBuilder.Entity("Mediwatch.Shared.Models.applicant_session", b =>
-                {
-                    b.HasOne("Mediwatch.Shared.Models.formation", null)
-                        .WithMany("applicantsSessions")
-                        .HasForeignKey("formationid");
-                });
-
             modelBuilder.Entity("Mediwatch.Shared.Models.formation", b =>
                 {
                     b.HasOne("Mediwatch.Shared.Models.compagny", null)
                         .WithMany("compagnyFormation")
                         .HasForeignKey("compagnyid");
-                });
-
-            modelBuilder.Entity("Mediwatch.Shared.Models.tag", b =>
-                {
-                    b.HasOne("Mediwatch.Shared.Models.formation", null)
-                        .WithMany("tagsFormation")
-                        .HasForeignKey("formationid");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,12 +12,14 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.1.7" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.1.7" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.1.1"/>
     <PackageReference Include="System.Net.Http.Json" Version="3.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Shared\Mediwatch.Shared.csproj" />
     <ProjectReference Include="..\SharedComponent\SharedComponent.csproj" />
+    <ProjectReference Include="..\BlazingEditor\BlazingEditor.csproj" />
   </ItemGroup>
 
 </Project>

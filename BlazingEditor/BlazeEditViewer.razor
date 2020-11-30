@@ -1,0 +1,28 @@
+@if (blocks != null) {
+    @foreach(var elem in blocks) {        
+    <CascadingValue Value="@elem" Name="BlazingEditorElement">
+        @ChildContent
+    </CascadingValue>
+    }
+}
+@code{
+    [Parameter]
+    public BlazingRender Render{get; set;}
+    [Parameter]
+    public EventCallback<BlazingRender> RenderChanged { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    public List<BlazingEditorElement> blocks = null;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        
+        blocks = Render.blocks;
+        if (firstRender)
+            this.StateHasChanged();
+
+    }
+        
+    
+}
