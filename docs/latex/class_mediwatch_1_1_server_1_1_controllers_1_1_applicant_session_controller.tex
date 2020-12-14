@@ -1,46 +1,84 @@
-\hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller}{}\section{Référence de la classe Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller}
-\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller}\index{Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller@{Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller}}
+\hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller}{}\doxysection{Référence de la classe Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller}
+\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller}\index{Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}}
 
 
-Graphe d\textquotesingle{}héritage de Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=229pt]{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller__inherit__graph}
-\end{center}
-\end{figure}
+Graphe d\textquotesingle{}héritage de Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller\+:
+% FIG 0
 
 
-Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=229pt]{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller__coll__graph}
-\end{center}
-\end{figure}
-\subsection*{Fonctions membres publiques}
+Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller\+:
+% FIG 1
+\doxysubsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a25bd4d18e93861e4d99e672b127db48b}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a25bd4d18e93861e4d99e672b127db48b}} 
-{\bfseries Applicant\+Session\+Controller} (\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch} context)
+\mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a25bd4d18e93861e4d99e672b127db48b}{Applicant\+Session\+Controller}} (\mbox{\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch}} context)
 \item 
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_adf8d12f5dcaaa4395522c8febae1e735}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_adf8d12f5dcaaa4395522c8febae1e735}} 
-async Task$<$ Action\+Result$<$ I\+Enumerable$<$ applicant\+\_\+session $>$ $>$ $>$ {\bfseries Get\+Applicant\+Session} ()
+async Task$<$ Action\+Result$<$ I\+Enumerable$<$ applicant\+\_\+session $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_adf8d12f5dcaaa4395522c8febae1e735}{Get\+Applicant\+Session}} ()
+\begin{DoxyCompactList}\small\item\em Cette méthode permet d\textquotesingle{}obtenir la liste de toutes les inscriptions aux formations de tous les utilisateurs (G\+ET /\+Applicant\+Session). \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_ada65188cced0326a54f824a251869f02}{Get\+Applicant\+Session}} (int id)
+\begin{DoxyCompactList}\small\item\em Cette méthode permet d\textquotesingle{}obtenir une inscription à une formation grâce à son id (G\+ET /\+Applicant\+Session/$<$id$>$). \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a9b9428a2f0209f15ef65b1262e220234}{Put\+Applicant\+Session}} (int id, applicant\+\_\+session applicant\+Session\+Input)
 \item 
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_ada65188cced0326a54f824a251869f02}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_ada65188cced0326a54f824a251869f02}} 
-async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ {\bfseries Get\+Applicant\+Session} (int id)
+async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a58d68c490175d8d0a13aa0104a36aed8}{Post\+Applicant\+Session}} (applicant\+\_\+session applicant\+Session\+Body)
 \item 
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a9b9428a2f0209f15ef65b1262e220234}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a9b9428a2f0209f15ef65b1262e220234}} 
-async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ {\bfseries Put\+Applicant\+Session} (int id, applicant\+\_\+session applicant\+Session\+Input)
-\item 
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a58d68c490175d8d0a13aa0104a36aed8}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a58d68c490175d8d0a13aa0104a36aed8}} 
-async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ {\bfseries Post\+Applicant\+Session} (applicant\+\_\+session applicant\+Session\+Body)
-\item 
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_af3f0c4921fadd1483d25e39df7d5a857}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_af3f0c4921fadd1483d25e39df7d5a857}} 
-async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ {\bfseries Delete\+Todo\+Item} (int id)
-\end{DoxyCompactItemize}
+async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_af3f0c4921fadd1483d25e39df7d5a857}{Delete\+Todo\+Item}} (int id)
+\begin{DoxyCompactList}\small\item\em Cette méthode permet de supprimer un Applicant\+Session grâce à son id (D\+E\+L\+E\+TE /\+Applicant\+Session/$<$id$>$) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a25bd4d18e93861e4d99e672b127db48b}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a25bd4d18e93861e4d99e672b127db48b}} 
+\index{Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}!ApplicantSessionController@{ApplicantSessionController}}
+\index{ApplicantSessionController@{ApplicantSessionController}!Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}}
+\doxysubsubsection{\texorpdfstring{ApplicantSessionController()}{ApplicantSessionController()}}
+{\footnotesize\ttfamily Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Applicant\+Session\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch}}}]{context }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_af3f0c4921fadd1483d25e39df7d5a857}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_af3f0c4921fadd1483d25e39df7d5a857}} 
+\index{Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}!DeleteTodoItem@{DeleteTodoItem}}
+\index{DeleteTodoItem@{DeleteTodoItem}!Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}}
+\doxysubsubsection{\texorpdfstring{DeleteTodoItem()}{DeleteTodoItem()}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$applicant\+\_\+session$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Delete\+Todo\+Item (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Cette méthode permet de supprimer un Applicant\+Session grâce à son id (D\+E\+L\+E\+TE /\+Applicant\+Session/$<$id$>$) 
+
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_adf8d12f5dcaaa4395522c8febae1e735}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_adf8d12f5dcaaa4395522c8febae1e735}} 
+\index{Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}!GetApplicantSession@{GetApplicantSession}}
+\index{GetApplicantSession@{GetApplicantSession}!Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}}
+\doxysubsubsection{\texorpdfstring{GetApplicantSession()}{GetApplicantSession()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$applicant\+\_\+session$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Get\+Applicant\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cette méthode permet d\textquotesingle{}obtenir la liste de toutes les inscriptions aux formations de tous les utilisateurs (G\+ET /\+Applicant\+Session). 
+
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_ada65188cced0326a54f824a251869f02}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_ada65188cced0326a54f824a251869f02}} 
+\index{Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}!GetApplicantSession@{GetApplicantSession}}
+\index{GetApplicantSession@{GetApplicantSession}!Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}}
+\doxysubsubsection{\texorpdfstring{GetApplicantSession()}{GetApplicantSession()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$applicant\+\_\+session$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Get\+Applicant\+Session (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Cette méthode permet d\textquotesingle{}obtenir une inscription à une formation grâce à son id (G\+ET /\+Applicant\+Session/$<$id$>$). 
+
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a58d68c490175d8d0a13aa0104a36aed8}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a58d68c490175d8d0a13aa0104a36aed8}} 
+\index{Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}!PostApplicantSession@{PostApplicantSession}}
+\index{PostApplicantSession@{PostApplicantSession}!Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}}
+\doxysubsubsection{\texorpdfstring{PostApplicantSession()}{PostApplicantSession()}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$applicant\+\_\+session$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Post\+Applicant\+Session (\begin{DoxyParamCaption}\item[{applicant\+\_\+session}]{applicant\+Session\+Body }\end{DoxyParamCaption})}
+
+Cette méthode permet de crée une nouvelle Applicant\+Session (P\+O\+ST /\+Applicant\+Session). La requête doit contenir un body de la forme \{id\+\_\+formation, id\+\_\+user, confirmed, payed\} \{ id\+\_\+formation id\+\_\+user confirmed payed \} \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a9b9428a2f0209f15ef65b1262e220234}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a9b9428a2f0209f15ef65b1262e220234}} 
+\index{Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}!PutApplicantSession@{PutApplicantSession}}
+\index{PutApplicantSession@{PutApplicantSession}!Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}}
+\doxysubsubsection{\texorpdfstring{PutApplicantSession()}{PutApplicantSession()}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$applicant\+\_\+session$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Put\+Applicant\+Session (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{applicant\+\_\+session}]{applicant\+Session\+Input }\end{DoxyParamCaption})}
+
+Cette méthode permet de mettre à jour une inscription à une formation grâce à son id (P\+UT /\+Applicant\+Session/$<$id$>$), cette requete doit être accompagné d\textquotesingle{}un body sous la forme. \{ id\+\_\+formation id\+\_\+user confirmed payed \} 
 
 La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-Server/\+Controllers/Applicant\+Session\+Controller.\+cs\end{DoxyCompactItemize}
+Server/\+Controllers/\mbox{\hyperlink{_applicant_session_controller_8cs}{Applicant\+Session\+Controller.\+cs}}\end{DoxyCompactItemize}
