@@ -1,10 +1,4 @@
 var searchData=
 [
-  ['dbcontextmediwatch_37',['DbContextMediwatch',['../class_server_1_1_db_context_mediwatch.html',1,'Server.DbContextMediwatch'],['../class_server_1_1_db_context_mediwatch.html#a94fde86883fe0a2d1ce0b4c58f06727f',1,'Server.DbContextMediwatch.DbContextMediwatch(DbContextOptions&lt; DbContextMediwatch &gt; options)'],['../class_server_1_1_db_context_mediwatch.html#a55894aa40174c95ed50c7d0314a723f1',1,'Server.DbContextMediwatch.DbContextMediwatch()']]],
-  ['dbcontextmediwatch_2ecs_38',['DbContextMediwatch.cs',['../_db_context_mediwatch_8cs.html',1,'']]],
-  ['dbcontextmediwatchmodelsnapshot_39',['DbContextMediwatchModelSnapshot',['../class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1_db_context_mediwatch_model_snapshot.html',1,'Mediwatch::Server::Migrations::DbContextMediwatchMigrations']]],
-  ['dbcontextmediwatchmodelsnapshot_2ecs_40',['DbContextMediwatchModelSnapshot.cs',['../_db_context_mediwatch_model_snapshot_8cs.html',1,'']]],
-  ['deleteformation_41',['DeleteFormation',['../class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html#af3e300009a2f7d0d1551da387effbe09',1,'Mediwatch::Server::Controllers::FormationController']]],
-  ['deletetodoitem_42',['DeleteTodoItem',['../class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller.html#af3f0c4921fadd1483d25e39df7d5a857',1,'Mediwatch.Server.Controllers.ApplicantSessionController.DeleteTodoItem()'],['../class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller.html#a5c33b6687ecca9c5b060f029ce809e7d',1,'Mediwatch.Server.Controllers.CompagnyController.DeleteTodoItem()']]],
-  ['down_43',['Down',['../class_mediwatch_1_1_server_1_1_migrations_1_1innitial_create.html#a8a02e197d3bd2cc0eefc6ac7814d1372',1,'Mediwatch.Server.Migrations.innitialCreate.Down()'],['../class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1innitial_create.html#adf827587ad324f346db044e7e9409e0a',1,'Mediwatch.Server.Migrations.DbContextMediwatchMigrations.innitialCreate.Down()']]]
+  ['formationcontroller',['FormationController',['../class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html',1,'Mediwatch::Server::Controllers']]]
 ];
