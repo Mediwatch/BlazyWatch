@@ -1,84 +1,46 @@
-\hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller}{}\doxysection{Référence de la classe Mediwatch.\+Server.\+Controllers.\+Formation\+Controller}
-\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller}\index{Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}}
+\hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller}{}\section{Référence de la classe Mediwatch.\+Server.\+Controllers.\+Formation\+Controller}
+\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller}\index{Mediwatch.\+Server.\+Controllers.\+Formation\+Controller@{Mediwatch.\+Server.\+Controllers.\+Formation\+Controller}}
 
 
-Graphe d\textquotesingle{}héritage de Mediwatch.\+Server.\+Controllers.\+Formation\+Controller\+:
-% FIG 0
+Graphe d\textquotesingle{}héritage de Mediwatch.\+Server.\+Controllers.\+Formation\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller__inherit__graph}
+\end{center}
+\end{figure}
 
 
-Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Formation\+Controller\+:
-% FIG 1
-\doxysubsection*{Fonctions membres publiques}
+Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Formation\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_a71430327b82736d6b252d83a40833dbd}{Formation\+Controller}} (\mbox{\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch}} context)
-\item 
-async Task$<$ Action\+Result$<$ I\+Enumerable$<$ formation $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_ac1711d7a1c8bbd44715fc57cb945c93c}{Get\+Formation}} ()
-\begin{DoxyCompactList}\small\item\em Cette méthode permet de recevoir la liste des formations (G\+ET /\+Formation). \end{DoxyCompactList}\item 
-async Task$<$ Action\+Result$<$ formation $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_aecf887fc57ba8ee1af0ba1be7703738a}{Get\+Formation}} (int id)
-\begin{DoxyCompactList}\small\item\em Cette méthode permet de recevoir les information d\textquotesingle{}une formation grâce à son id (G\+ET /\+Formation/$<$id$>$). \end{DoxyCompactList}\item 
-async Task$<$ Action\+Result$<$ formation $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_ac56853c9a6cf3b7cb2303d1c6bf8a037}{Put\+Formation}} (int id, formation formation\+Put)
-\item 
-async Task$<$ Action\+Result$<$ formation $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_a2710e701c2d495ee6a1d343a5303bfa3}{Post\+Formation}} (formation formation\+Body)
-\item 
-async Task$<$ Action\+Result$<$ formation $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_af3e300009a2f7d0d1551da387effbe09}{Delete\+Formation}} (int id)
-\begin{DoxyCompactList}\small\item\em Cette méthode permet de supprimer un Applicant\+Session grâce à son id (D\+E\+L\+E\+TE /\+Applicant\+Session/$<$id$>$) \end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\doxysubsection{Documentation des constructeurs et destructeur}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_a71430327b82736d6b252d83a40833dbd}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_a71430327b82736d6b252d83a40833dbd}} 
-\index{Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}!FormationController@{FormationController}}
-\index{FormationController@{FormationController}!Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}}
-\doxysubsubsection{\texorpdfstring{FormationController()}{FormationController()}}
-{\footnotesize\ttfamily Mediwatch.\+Server.\+Controllers.\+Formation\+Controller.\+Formation\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch}}}]{context }\end{DoxyParamCaption})}
-
-
-
-\doxysubsection{Documentation des fonctions membres}
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_af3e300009a2f7d0d1551da387effbe09}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_af3e300009a2f7d0d1551da387effbe09}} 
-\index{Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}!DeleteFormation@{DeleteFormation}}
-\index{DeleteFormation@{DeleteFormation}!Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}}
-\doxysubsubsection{\texorpdfstring{DeleteFormation()}{DeleteFormation()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$formation$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Formation\+Controller.\+Delete\+Formation (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
-
-
-
-Cette méthode permet de supprimer un Applicant\+Session grâce à son id (D\+E\+L\+E\+TE /\+Applicant\+Session/$<$id$>$) 
-
+{\bfseries Formation\+Controller} (\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch} context)
+\item 
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_ac1711d7a1c8bbd44715fc57cb945c93c}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_ac1711d7a1c8bbd44715fc57cb945c93c}} 
-\index{Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}!GetFormation@{GetFormation}}
-\index{GetFormation@{GetFormation}!Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}}
-\doxysubsubsection{\texorpdfstring{GetFormation()}{GetFormation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$formation$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Formation\+Controller.\+Get\+Formation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Cette méthode permet de recevoir la liste des formations (G\+ET /\+Formation). 
-
+async Task$<$ Action\+Result$<$ I\+Enumerable$<$ formation $>$ $>$ $>$ {\bfseries Get\+Formation} ()
+\item 
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_aecf887fc57ba8ee1af0ba1be7703738a}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_aecf887fc57ba8ee1af0ba1be7703738a}} 
-\index{Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}!GetFormation@{GetFormation}}
-\index{GetFormation@{GetFormation}!Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}}
-\doxysubsubsection{\texorpdfstring{GetFormation()}{GetFormation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$formation$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Formation\+Controller.\+Get\+Formation (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
-
-
-
-Cette méthode permet de recevoir les information d\textquotesingle{}une formation grâce à son id (G\+ET /\+Formation/$<$id$>$). 
-
+async Task$<$ Action\+Result$<$ formation $>$ $>$ {\bfseries Get\+Formation} (int id)
+\item 
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_ac56853c9a6cf3b7cb2303d1c6bf8a037}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_ac56853c9a6cf3b7cb2303d1c6bf8a037}} 
+async Task$<$ Action\+Result$<$ formation $>$ $>$ {\bfseries Put\+Formation} (int id, formation formation\+Put)
+\item 
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_a2710e701c2d495ee6a1d343a5303bfa3}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_a2710e701c2d495ee6a1d343a5303bfa3}} 
-\index{Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}!PostFormation@{PostFormation}}
-\index{PostFormation@{PostFormation}!Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}}
-\doxysubsubsection{\texorpdfstring{PostFormation()}{PostFormation()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$formation$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Formation\+Controller.\+Post\+Formation (\begin{DoxyParamCaption}\item[{formation}]{formation\+Body }\end{DoxyParamCaption})}
+async Task$<$ Action\+Result$<$ formation $>$ $>$ {\bfseries Post\+Formation} (formation formation\+Body)
+\item 
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_af3e300009a2f7d0d1551da387effbe09}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_af3e300009a2f7d0d1551da387effbe09}} 
+async Task$<$ Action\+Result$<$ formation $>$ $>$ {\bfseries Delete\+Formation} (int id)
+\end{DoxyCompactItemize}
 
-Cette méthode permet de crée une formation (P\+O\+ST /\+Compagny/). Un body doit être joint à la requête avec les champs. \{ formation\+\_\+name (varchar) id\+\_\+compagny (int) formation\+\_\+time (timestamp) address (varchar) id\+\_\+tag (int) talker (varchar) description (varchar) free (boolean) \} \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_ac56853c9a6cf3b7cb2303d1c6bf8a037}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_ac56853c9a6cf3b7cb2303d1c6bf8a037}} 
-\index{Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}!PutFormation@{PutFormation}}
-\index{PutFormation@{PutFormation}!Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}}
-\doxysubsubsection{\texorpdfstring{PutFormation()}{PutFormation()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$formation$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Formation\+Controller.\+Put\+Formation (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{formation}]{formation\+Put }\end{DoxyParamCaption})}
-
-Cette méthode permet de mettre à jour une formation (G\+ET /\+Formation/$<$id$>$). \{ formation\+\_\+name (varchar) id\+\_\+compagny (int) formation\+\_\+time (timestamp) address (varchar) id\+\_\+tag (int) talker (varchar) description (varchar) free (boolean) \} 
 
 La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-Server/\+Controllers/\mbox{\hyperlink{_formation_controller_8cs}{Formation\+Controller.\+cs}}\end{DoxyCompactItemize}
+Server/\+Controllers/Formation\+Controller.\+cs\end{DoxyCompactItemize}

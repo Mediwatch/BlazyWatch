@@ -1,6 +1,12 @@
 var searchData=
 [
-  ['formationcontroller_48',['FormationController',['../class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html',1,'Mediwatch.Server.Controllers.FormationController'],['../class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html#a71430327b82736d6b252d83a40833dbd',1,'Mediwatch.Server.Controllers.FormationController.FormationController()']]],
-  ['formationcontroller_2ecs_49',['FormationController.cs',['../_formation_controller_8cs.html',1,'']]],
-  ['formations_50',['formations',['../class_server_1_1_db_context_mediwatch.html#a6597dab2848cd5aa87774af4bf6eb4e4',1,'Server::DbContextMediwatch']]]
+  ['areas',['Areas',['../namespace_mediwatch_1_1_server_1_1_areas.html',1,'Mediwatch::Server']]],
+  ['controllers',['Controllers',['../namespace_mediwatch_1_1_server_1_1_controllers.html',1,'Mediwatch::Server']]],
+  ['data',['Data',['../namespace_mediwatch_1_1_server_1_1_areas_1_1_identity_1_1_data.html',1,'Mediwatch::Server::Areas::Identity']]],
+  ['dbcontextmediwatchmigrations',['DbContextMediwatchMigrations',['../namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations.html',1,'Mediwatch::Server::Migrations']]],
+  ['identity',['Identity',['../namespace_mediwatch_1_1_server_1_1_areas_1_1_identity.html',1,'Mediwatch::Server::Areas']]],
+  ['mediwatch',['Mediwatch',['../namespace_mediwatch.html',1,'']]],
+  ['migrations',['Migrations',['../namespace_mediwatch_1_1_server_1_1_migrations.html',1,'Mediwatch::Server']]],
+  ['pages',['Pages',['../namespace_mediwatch_1_1_server_1_1_pages.html',1,'Mediwatch::Server']]],
+  ['server',['Server',['../namespace_mediwatch_1_1_server.html',1,'Mediwatch']]]
 ];

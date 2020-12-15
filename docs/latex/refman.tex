@@ -1,17 +1,10 @@
-\let\mypdfximage\pdfximage\def\pdfximage{\immediate\mypdfximage}\documentclass[twoside]{book}
+\documentclass[twoside]{book}
 
-%% moved from doxygen.sty due to workaround for LaTex 2019 version and unmaintained tabu package
-\usepackage{ifthen}
-\ifx\requestedLaTeXdate\undefined
-\usepackage{array}
-\else
-\usepackage{array}[=2016-10-06]
-\fi
-%%
 % Packages required by doxygen
 \usepackage{fixltx2e}
 \usepackage{calc}
 \usepackage{doxygen}
+\usepackage[export]{adjustbox} % also loads graphicx
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage{makeidx}
@@ -21,19 +14,17 @@
 \usepackage{textcomp}
 \usepackage[nointegrals]{wasysym}
 \usepackage[table]{xcolor}
-\usepackage{ifpdf,ifxetex}
 
 % NLS support packages
 \usepackage[french]{babel}
-\NoAutoSpaceBeforeFDP
 
 % Font selection
 \usepackage[T1]{fontenc}
 \usepackage[scaled=.90]{helvet}
 \usepackage{courier}
-\renewcommand{\familydefault}{\sfdefault}
 \usepackage{amssymb}
 \usepackage{sectsty}
+\renewcommand{\familydefault}{\sfdefault}
 \allsectionsfont{%
   \fontseries{bc}\selectfont%
   \color{darkgray}%
@@ -44,13 +35,6 @@
 }
 \newcommand{\+}{\discretionary{\mbox{\scriptsize$\hookleftarrow$}}{}{}}
 
-% Arguments of doxygenemoji:
-% 1) ':<text>:' form of the emoji, already "LaTeX"-escaped
-% 2) file with the name of the emoji without the .png extension
-% in case image exist use this otherwise use the ':<text>:' form
-\newcommand{\doxygenemoji}[2]{%
-  \IfFileExists{./#2.png}{\raisebox{-0.1em}{\includegraphics[height=0.9em]{./#2.png}}}{#1}%
-}
 % Page & text layout
 \usepackage{geometry}
 \geometry{%
@@ -65,9 +49,7 @@
 \hbadness=750
 \setlength{\emergencystretch}{15pt}
 \setlength{\parindent}{0cm}
-\newcommand{\doxynormalparskip}{\setlength{\parskip}{3ex plus 2ex minus 2ex}}
-\newcommand{\doxytocparskip}{\setlength{\parskip}{1ex plus 0ex minus 0ex}}
-\doxynormalparskip
+\setlength{\parskip}{3ex plus 2ex minus 2ex}
 \makeatletter
 \renewcommand{\paragraph}{%
   \@startsection{paragraph}{4}{0ex}{-1.0ex}{1.0ex}{%
@@ -79,10 +61,6 @@
     \normalfont\normalsize\bfseries\SS@subparafont%
   }%
 }
-\makeatother
-
-\makeatletter
-\newcommand\hrulefilll{\leavevmode\leaders\hrule\hskip 0pt plus 1filll\kern\z@}
 \makeatother
 
 % Headers & footers
@@ -115,22 +93,13 @@
 \setcounter{secnumdepth}{5}
 \makeindex
 
-\usepackage{newunicodechar}
-  \newunicodechar{⁻}{${}^{-}$}% Superscript minus
-  \newunicodechar{²}{${}^{2}$}% Superscript two
-  \newunicodechar{³}{${}^{3}$}% Superscript three
-
 % Hyperlinks (required, but should be loaded last)
+\usepackage{ifpdf}
 \ifpdf
   \usepackage[pdftex,pagebackref=true]{hyperref}
 \else
-  \ifxetex
-    \usepackage[pagebackref=true]{hyperref}
-  \else
-    \usepackage[ps2pdf,pagebackref=true]{hyperref}
-  \fi
+  \usepackage[ps2pdf,pagebackref=true]{hyperref}
 \fi
-
 \hypersetup{%
   colorlinks=true,%
   linkcolor=blue,%
@@ -146,9 +115,6 @@
 \usepackage{caption}
 \captionsetup{labelsep=space,justification=centering,font={bf},singlelinecheck=off,skip=4pt,position=top}
 
-\usepackage{etoc}
-\etocsettocstyle{\doxytocparskip}{\doxynormalparskip}
-\renewcommand{\numberline}[1]{#1~}
 %===== C O N T E N T S =====
 
 \begin{document}
@@ -162,9 +128,9 @@
 \begin{titlepage}
 \vspace*{7cm}
 \begin{center}%
-{\Large Web\+Site \\[1ex]\large 0.\+0.\+0-\/M\+VP }\\
+{\Large Medi\+Watch\+Web\+Site \\[1ex]\large 0.\+0.\+0-\/\+M\+VP }\\
 \vspace*{1cm}
-{\large Généré par Doxygen 1.8.20}\\
+{\large Généré par Doxygen 1.8.13}\\
 \end{center}
 \end{titlepage}
 \clearemptydoublepage
@@ -181,10 +147,7 @@
 \input{hierarchy}
 \chapter{Index des classes}
 \input{annotated}
-\chapter{Index des fichiers}
-\input{files}
 \chapter{Documentation des espaces de nommage}
-\input{namespace_asp_net_core}
 \input{namespace_blazing_blog}
 \input{namespace_blazing_blog_1_1_server}
 \input{namespace_blazing_blog_1_1_server_1_1_controllers}
@@ -201,8 +164,6 @@
 \chapter{Documentation des classes}
 \input{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller}
 \input{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller}
-\input{class_asp_net_core_1_1_areas___identity___pages_____validation_scripts_partial}
-\input{class_asp_net_core_1_1_areas___identity___pages_____view_start}
 \input{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller}
 \input{class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller}
 \input{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller}
@@ -213,49 +174,12 @@
 \input{class_mediwatch_1_1_server_1_1_areas_1_1_identity_1_1_data_1_1_identity_data_context}
 \input{class_mediwatch_1_1_server_1_1_migrations_1_1_identity_data_context_model_snapshot}
 \input{class_mediwatch_1_1_server_1_1_areas_1_1_identity_1_1_identity_hosting_startup}
-\input{class_mediwatch_1_1_server_1_1_migrations_1_1innitial_create}
 \input{class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1innitial_create}
-\input{class_asp_net_core_1_1_pages_____view_imports}
-\input{class_asp_net_core_1_1_pages_____view_start}
-\input{class_asp_net_core_1_1_pages___error}
-\input{class_asp_net_core_1_1_pages___shared_____layout}
-\input{class_asp_net_core_1_1_pages___shared_____login_partial}
+\input{class_mediwatch_1_1_server_1_1_migrations_1_1innitial_create}
 \input{class_mediwatch_1_1_server_1_1_program}
 \input{class_mediwatch_1_1_server_1_1_startup}
 \input{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller}
 \input{class_mediwatch_1_1_server_1_1_controllers_1_1_weather_forecast_controller}
-\chapter{Documentation des fichiers}
-\input{_identity_data_context_8cs}
-\input{_identity_hosting_startup_8cs}
-\input{_account_controller_8cs}
-\input{_applicant_session_controller_8cs}
-\input{_articles_controller_8cs}
-\input{_blog_utils_controller_8cs}
-\input{_compagny_controller_8cs}
-\input{_formation_controller_8cs}
-\input{_users_controller_8cs}
-\input{_weather_forecast_controller_8cs}
-\input{_db_context_mediwatch_8cs}
-\input{20201130141240__innitial_create_8cs}
-\input{20201130141240__innitial_create_8_designer_8cs}
-\input{20201130141258__innitial_create_8cs}
-\input{20201130141258__innitial_create_8_designer_8cs}
-\input{_db_context_mediwatch_model_snapshot_8cs}
-\input{_identity_data_context_model_snapshot_8cs}
-\input{_8_n_e_t_core_app_00_version_0av3_81_8_assembly_attributes_8cs}
-\input{_mediwatch_8_server_8_assembly_info_8cs}
-\input{_mediwatch_8_server_8_razor_assembly_info_8cs}
-\input{_mediwatch_8_server_8_razor_target_assembly_info_8cs}
-\input{___validation_scripts_partial_8cshtml_8g_8cs}
-\input{_areas_2_identity_2_pages_2___view_start_8cshtml_8g_8cs}
-\input{_pages_2___view_start_8cshtml_8g_8cs}
-\input{___view_imports_8cshtml_8g_8cs}
-\input{_error_8cshtml_8g_8cs}
-\input{___layout_8cshtml_8g_8cs}
-\input{___login_partial_8cshtml_8g_8cs}
-\input{_error_8cshtml_8cs}
-\input{_program_8cs}
-\input{_startup_8cs}
 %--- End generated contents ---
 
 % Index
@@ -263,7 +187,7 @@
 \newpage
 \phantomsection
 \clearemptydoublepage
-\addcontentsline{toc}{chapter}{\indexname}
+\addcontentsline{toc}{chapter}{Index}
 \printindex
 
 \end{document}
