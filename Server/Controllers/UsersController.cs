@@ -51,7 +51,7 @@ namespace Mediwatch.Server.Controllers
 
         //GET: /Users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserPublic>> GetFormation(String id)
+        public async Task<ActionResult<UserPublic>> GetUser(String id)
         {
             Guid x;
             if (!Guid.TryParse(id, out x))

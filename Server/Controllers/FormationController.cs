@@ -43,9 +43,14 @@ namespace Mediwatch.Server.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<formation>> PutFormation(int id, formation formationPut)
         {
-            if (id != formationPut.id) 
+            // if (id != formationPut.id) 
+            // {
+            //     return BadRequest();
+            // }
+            formationPut.id = id;
+            if (!FormationExists(id))
             {
-                return BadRequest();
+                return NotFound();
             }
             _context.Entry(formationPut).State = EntityState.Modified;
             
@@ -55,16 +60,9 @@ namespace Mediwatch.Server.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FormationExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
-            return NoContent();
+            return StatusCode(200);
         }
 
         // POST: /Formation
