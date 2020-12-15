@@ -1,0 +1,11 @@
+digraph "Graphe hiérarchique des classes"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node12 [label="Page",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node12 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node0 [label="AspNetCore.Pages_Error",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_asp_net_core_1_1_pages___error.html",tooltip=" "];
+}
