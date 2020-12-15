@@ -43,10 +43,6 @@ namespace Mediwatch.Server.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<formation>> PutFormation(int id, formation formationPut)
         {
-            // if (id != formationPut.id) 
-            // {
-            //     return BadRequest();
-            // }
             formationPut.id = id;
             if (!FormationExists(id))
             {
