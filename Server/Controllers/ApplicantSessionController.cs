@@ -57,7 +57,7 @@ namespace Mediwatch.Server.Controllers
             {
                 throw;
             }
-            return NoContent();
+            return StatusCode(200);
         }
 
         // POST: /ApplicantSession
