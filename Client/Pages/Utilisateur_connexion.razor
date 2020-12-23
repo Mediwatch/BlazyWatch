@@ -1,0 +1,51 @@
+@page "/utilisateur/connexion"
+<!--
+@layout LoginLayout
+-->
+@inject NavigationManager navigationManager
+@inject MediwatchAuthentifiacationProvider authStateProvider
+
+
+<EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="loginForm">
+    <DataAnnotationsValidator />
+    <h4 class="font-weight-normal text-center">Connexion</h4>
+
+    <label for="inputUsername" class="sr-only">Nom d'utilisateur</label>
+    <InputText id="inputUsername" class="form-control" placeholder="Nom D'utilisateur" autofocus @bind-Value="@loginForm.UserName" />
+    <ValidationMessage For="@(() => loginForm.UserName)" />
+
+    <label for="inputPassword" class="sr-only">Mot de passe</label>
+    <InputText type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" @bind-Value="@loginForm.Password" />
+    <ValidationMessage For="@(() => loginForm.Password)" />
+
+    <input type="checkbox" bind="@loginForm.RememberMe"/><br/>Se Souvenir de moi<br/>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+
+    <label class="text-danger">@error</label>
+    <NavLink href="/utilisateur/enregistrement">
+        <h6 class="font-weight-normal text-center">Besoin de vous enregistrer ? Cliquez ici.</h6>
+    </NavLink>
+    <a class="btn btn-primary btn-lg text-center" href="Account/LoginExternal">Google</a>
+</EditForm>
+
+@code
+{
+
+	LoginForm loginForm { get; set; } = new LoginForm();
+	string error { get; set; }
+
+	async Task OnSubmit()
+	{
+		error = null;
+		try
+		{
+			await authStateProvider.Login(loginForm);
+			navigationManager.NavigateTo("");
+		}
+		catch (Exception ex)
+		{
+			error = ex.Message;
+		}
+	}
+}

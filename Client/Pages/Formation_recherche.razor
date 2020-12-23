@@ -1,0 +1,96 @@
+@page "/formations/recherche"
+
+@using Mediwatch.Shared
+@inject HttpClient client
+@inject IJSRuntime JSRuntime
+
+<label for="searchBar">Rechercher : </label>
+<input id="searchBar" @oninput=@filter placeholder="Entrez votre recherche"/>
+
+@if (formations == null) {
+	<p>En attente d'acquisition des formations...</p>
+	<div class="loading-bar"></div>
+} else {
+	@foreach (var f in filtered) {
+		<div style=@style>
+			<h3>@f.Name</h3>
+			<p>Du @f.StartDate au @f.EndDate</p>
+			<p>Localisation : @f.Location</p>
+		</div>
+	}
+}
+
+<!--
+@if (formations.Count == 0) {
+    <div class="loading-bar"></div>
+} else
+{
+    @foreach (var formation in filtered) {
+			@if (formation) {
+            newStyle = style + "background-color: #e6e6e6;";
+        } else {
+            newStyle = style + "background-color: #6e6e6e;";
+        }
+        <div style=@newStyle @onclick="@(e => OnClickFormation(@formation))">
+            <h3>@formation.Name</h3>
+            <p>Du @formation.StartDate au @formation.EndDate</p>
+        </div>
+    }
+}
+-->
+@code
+{
+	public class FormationInformation
+	{
+		public string Name { get; set; }
+		public DateTime StartDate { get; set; }
+		public DateTime EndDate { get; set; }
+		public string Location { get; set; }
+		public string Contact { get; set; }
+		public string OrganizationName { get; set; }
+		public decimal Price { get; set; }
+		public string Former { get; set; }
+		public string Description { get; set; }
+		public string Target { get; set; }
+		public bool IsRegistered { get; set; }
+	}
+
+	string style = "border-style: solid; padding: 1px; margin: 20px;";
+	//string newStyle = "";
+	string Search { get; set; } = "";
+	//List<FormationInformation> formations = new List<FormationInformation>();
+	//List<FormationInformation> FilteredFormations = new List<FormationInformation>();
+
+	List<formation> formations = null;
+	List<formation> filtered = null;
+
+	protected override async Task OnInitializedAsync()
+	{
+		formations = await client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
+		//formations = await client.GetJsonAsync<List<FormationInformation>>("api/Formation");
+			/*formations.Add(new FormationInformation());
+			formations.Add(new FormationInformation());
+			formations.Add(new FormationInformation());
+			formations.Add(new FormationInformation());
+			formations.Add(new FormationInformation());
+			formations.Add(new FormationInformation());
+			formations.Add(new FormationInformation());
+
+			FilteredFormations = formations;
+			*/
+			filtered = formations;
+	}
+
+	//List<FormationInformation> FilteredFormations => formations.Where(i => i.Name.ToLower().Contains(Search.ToLower())).ToList();
+
+	private void filter(ChangeEventArgs e)
+	{
+		filtered = formations.Where(f => f.Name.ToLower().Contains(e.Value.ToString().ToLower())).ToList();
+	}
+	void OnClickFormation(FormationInformation formation)
+	{
+		//var error = await client.GetAsync("/Subscribe?name=" + formation.Name);
+		formation.IsRegistered = true;
+		StateHasChanged();
+	}
+}

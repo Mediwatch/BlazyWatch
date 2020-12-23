@@ -1,6 +1,4 @@
 ﻿@page "/"
-@inject HttpClient client
-@inject IJSRuntime JSRuntime
 
 <main>
     <h1>Mediwatch votre formation au bout de vos doigts!</h1>
@@ -13,24 +11,6 @@
     </div>
     <h2>Formations populaires</h2>
     <div class="formations-list">
-        @if (formations == null) {
-            <p>Pas de formations disponibles.</p>
-        } else {
-            @foreach (var f in formations)
-            {
-                <div class="formation" @onclick="@(e => affichage_formation(@f.id))">
-                    <div class="formation-img-div">
-                        <img class="formation-img" src="images/palpatine.jpg"/>
-                        <h3>@f.Name</h3>
-                        <h4>@f.Former, @f.OrganizationName</h4>
-                    </div>
-                    <div class="formation-informations">
-                        <h3>@f.StartDate</h3>
-                    </div>
-                </div>
-            }
-        }
-        <!--
         <div class="formation">
             <div class="formation-img-div">
                 <img class="formation-img" src="css/images/formationsEnLigne.jpg"/>
@@ -111,22 +91,5 @@
                 <h3>31 Juin 2020</h3>
             </div>
         </div>
-        -->
     </div>
 </main>
-
-@code {
-
-    private List<formation> formations = null;//= new List<formation>();
-
-    protected override async Task OnInitializedAsync()
-    {
-        formations = await client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
-        await JSRuntime.InvokeVoidAsync("display", await client.GetFromJsonAsync<IEnumerable<formation>>("Formation"));
-    }
-
-    private void affichage_formation(int id)
-    {
-        JSRuntime.InvokeAsync<object>("open", "/formations/" + id.ToString(), "_blank");
-    }
-}

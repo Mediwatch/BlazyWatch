@@ -34,12 +34,12 @@ scheduler.attachEvent("onLightbox", function () {
 var exist = false;
 var queue = {};
 var interval = setInterval(function () {
-    if (document.getElementsByTagName("app")[0].innerHTML != undefined && document.getElementsByTagName("app")[0].innerHTML != "Loading...") {
+    if (document.getElementsByTagName("app")[0].innerHTML != undefined && document.getElementsByTagName("app")[0].innerHTML != "Chargement de la page...") {
         clearInterval(interval);
         console.log("FIN !")
     }
-    if (document.getElementById("scheduler_here") != null) {
-        scheduler.init("scheduler_here", Date.now(), "month")
+    if (document.getElementById("calendrier") != null) {
+        scheduler.init("calendrier", Date.now(), "month")
         exist = true;
         clearInterval(interval);
         console.log("FIN DE FIN !")
@@ -83,4 +83,14 @@ function removeDXCalendearEvent(formation) {
     } else {
         delete queue[formation.id];
     }
+}
+
+function exportDXCalendar() {
+    scheduler.exportToICal({
+        //server: "https://localhost:5001/calendrier"
+    });
+}
+
+function display(a) {
+    console.log(a);
 }
