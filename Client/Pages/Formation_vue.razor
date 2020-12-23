@@ -1,11 +1,18 @@
 @page "/formations/{id}"
 
 @inject HttpClient client
+@inject IJSRuntime JSRuntime
 
 @if (f == null)
 {
-    <p>En attente d'acquisition des informations de la formation...</p>
-    <div class="loading-bar"></div>
+    @if (!erreur)
+    {
+        <p>En attente d'acquisition des informations de la formation...</p>
+        <div class="loading-bar"></div>
+    } else {
+        <p>Formation inexistante, <a href="/">retourner à la page d'accueil ?</a></p>
+    }
+    
 } else {
     <h1>@f.Name</h1>
     <h2>Du @f.StartDate au @f.EndDate, à @f.Location</h2>
@@ -19,6 +26,15 @@
     <p>S'adresse surtout pour @f.Target</p>
     <br>
     <p>Prix de la formation : @f.Price €</p>
+    <hr>
+    <form>
+        @if (info == null || !info.IsAuthenticated)
+        {
+            <input type="submit" disabled value="S'inscrire à la formation"/>
+        } else {
+            <input type="submit" value="S'inscrire à la formation" @oninput=@registration/>
+        }
+    </form>
 }
 
 @code {
@@ -27,8 +43,23 @@
 
     public formation f = null;
 
+    public UserInformation info = null;
+
+    public bool erreur = false;
+
     protected override async Task OnInitializedAsync()
     {
-        f = await client.GetFromJsonAsync<formation>("Formation/" + Id);
+        try {
+            info = await client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
+            f = await client.GetFromJsonAsync<formation>("Formation/" + Id);
+        } catch {
+            erreur = true;
+        }
+    }
+
+    private async Task registration()
+    {
+        // Enregistrer ici l'utilisateur à la formation !
+        //JSRuntime.InvokeVoidAsync("display", e);
     }
 }

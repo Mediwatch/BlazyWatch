@@ -16,28 +16,12 @@
 			<h3>@f.Name</h3>
 			<p>Du @f.StartDate au @f.EndDate</p>
 			<p>Localisation : @f.Location</p>
+			<p>Audience : @f.Target</p>
+			<p>Plus d'informations <a target="_blank" href=@( $"/formations/{f.id}" )>ici</a></p>
 		</div>
 	}
 }
 
-<!--
-@if (formations.Count == 0) {
-    <div class="loading-bar"></div>
-} else
-{
-    @foreach (var formation in filtered) {
-			@if (formation) {
-            newStyle = style + "background-color: #e6e6e6;";
-        } else {
-            newStyle = style + "background-color: #6e6e6e;";
-        }
-        <div style=@newStyle @onclick="@(e => OnClickFormation(@formation))">
-            <h3>@formation.Name</h3>
-            <p>Du @formation.StartDate au @formation.EndDate</p>
-        </div>
-    }
-}
--->
 @code
 {
 	public class FormationInformation
@@ -55,11 +39,11 @@
 		public bool IsRegistered { get; set; }
 	}
 
+	string url_base = "/formations/";
+	string url = "";
+
 	string style = "border-style: solid; padding: 1px; margin: 20px;";
-	//string newStyle = "";
 	string Search { get; set; } = "";
-	//List<FormationInformation> formations = new List<FormationInformation>();
-	//List<FormationInformation> FilteredFormations = new List<FormationInformation>();
 
 	List<formation> formations = null;
 	List<formation> filtered = null;
@@ -67,29 +51,17 @@
 	protected override async Task OnInitializedAsync()
 	{
 		formations = await client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
-		//formations = await client.GetJsonAsync<List<FormationInformation>>("api/Formation");
-			/*formations.Add(new FormationInformation());
-			formations.Add(new FormationInformation());
-			formations.Add(new FormationInformation());
-			formations.Add(new FormationInformation());
-			formations.Add(new FormationInformation());
-			formations.Add(new FormationInformation());
-			formations.Add(new FormationInformation());
-
-			FilteredFormations = formations;
-			*/
-			filtered = formations;
+		filtered = formations;
+		JSRuntime.InvokeVoidAsync("display", filtered);
 	}
-
-	//List<FormationInformation> FilteredFormations => formations.Where(i => i.Name.ToLower().Contains(Search.ToLower())).ToList();
 
 	private void filter(ChangeEventArgs e)
 	{
 		filtered = formations.Where(f => f.Name.ToLower().Contains(e.Value.ToString().ToLower())).ToList();
 	}
+
 	void OnClickFormation(FormationInformation formation)
 	{
-		//var error = await client.GetAsync("/Subscribe?name=" + formation.Name);
 		formation.IsRegistered = true;
 		StateHasChanged();
 	}

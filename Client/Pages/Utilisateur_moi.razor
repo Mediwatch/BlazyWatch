@@ -1,6 +1,7 @@
 @page "/utilisateur/moi"
 
 @inject HttpClient client
+@inject IJSRuntime JSRuntime
 
 <h2>Tableau de bord</h2>
 
@@ -16,5 +17,6 @@
     protected override async Task OnInitializedAsync()
     {
         info = await client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
+        await JSRuntime.InvokeVoidAsync("display", info);
     }
 }

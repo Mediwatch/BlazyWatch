@@ -1,4 +1,7 @@
+var url = "https://localhost:5001/formations/"
+
 scheduler.config.readonly_form = true;
+scheduler.config.drag_move = false;
 scheduler.locale = {
     date: {
         month_full: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
@@ -16,9 +19,9 @@ scheduler.locale = {
         icon_cancel: "Annuler",
         icon_details: "Détails",
         icon_edit: "Editer",
-        icon_delete: "Supprimer",
+        icon_delete: "Masquer",
         confirm_closing: "Confirmez-vous la fermeture ?",
-        confirm_deleting: "Confirmez-vous la suppression ?",
+        confirm_deleting: "Confirmez-vous le masquage ?",
         section_description: "Description",
         section_time: "Période",
         full_day: "Toute la journée",
@@ -30,59 +33,45 @@ scheduler.attachEvent("onLightbox", function () {
     var section = scheduler.formSection("description");
     section.control.disabled = true;
 });
+scheduler.attachEvent("onTemplatesReady", () => {
+    scheduler.templates.event_header = (start, end, e) => {
+        console.log(e);
+        return e;
+    }
+})
 
-var exist = false;
-var queue = {};
+scheduler.attachEvent("onClick", (id, e) => {
+    window.open(url + id, "_blank");
+    return true;
+})
+
 var interval = setInterval(function () {
     if (document.getElementsByTagName("app")[0].innerHTML != undefined && document.getElementsByTagName("app")[0].innerHTML != "Chargement de la page...") {
         clearInterval(interval);
-        console.log("FIN !")
     }
     if (document.getElementById("calendrier") != null) {
-        scheduler.init("calendrier", Date.now(), "month")
-        exist = true;
         clearInterval(interval);
-        console.log("FIN DE FIN !")
-        for (var id in queue) {
-            addDXCalendearEvent(queue[id][0], queue[id][1])
-        }
+        scheduler.init("calendrier", Date.now(), "month")
     }
 }, 100)
 
 function addDXCalendearEvent(formation, color) {
-
-    console.log("AJOUT", formation)
-
-    console.log(formation);
-    console.log(formation == undefined);
-    console.log(formation === undefined);
-
-    if (exist) {
-        scheduler.addEvent({
-            start_date: formation.f.startDate,
-            end_date: formation.f.endDate,
-            text: formation.f.name,
-            id: formation.i,
-            color: color
-        });
-    } else {
-        queue[formation.id] = [formation, color]
-    }
+    scheduler.addEvent({
+        start_date: formation.startDate,
+        end_date: formation.endDate,
+        text: `${formation.name}, à ${formation.location} Lien : ${url}${formation.id}`,
+        id: formation.id,
+        color: color
+    });
 }
 
 function removeDXCalendearEvent(formation) {
-    console.log("SUPPRESSION", formation)
-
-    if (exist) {
-        scheduler.parse([{
-            id: formation.id,
-            start_date: formation.startDate,
-            end_date: formation.endDate
-        }])
-        scheduler.deleteEvent(formation.id);
-    } else {
-        delete queue[formation.id];
-    }
+    scheduler.parse([{
+        id: formation.id,
+        start_date: formation.startDate,
+        end_date: formation.endDate
+    }])
+    scheduler.deleteEvent(formation.id);
 }
 
 function exportDXCalendar() {

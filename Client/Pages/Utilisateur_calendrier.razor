@@ -2,6 +2,9 @@
 @inject HttpClient client
 @inject IJSRuntime JSRuntime
 
+<form>
+	<input type="submit" value="Exporter le calendrier" @onclick=@export>
+</form>
 <div id="calendrier" class="dhx_cal_container" style='width:100%; height:100vh;'>
         <div class="dhx_cal_navline">
             <div class="dhx_cal_prev_button">&nbsp;</div>
@@ -16,27 +19,16 @@
         <div class="dhx_cal_data"></div>
 </div>
 <p>&copy; <a href="https://dhtmlx.com/">dhtmlx</a></p>
-<!--
-<input type="checkbox" @onclick="@(e => SelectMine())" id="select-mine">
-<label for="select-mine">Formations où je suis inscrit(e)</label>
--->
 
 @code {
-	class F {
-		public F(formation formation, int idx) {
-			this.f = formation;
-			this.i = idx;
-		}
-		public formation f {get; set;}
-		public int i {get; set;}
-	};
 	List<formation> formations = new List<formation>();
 	protected override async void OnInitialized()
 	{
 		formations = await client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
 
-		foreach (var (formation, idx) in formations.Select((value, i) => (value, i))) {
-			await JSRuntime.InvokeVoidAsync("addDXCalendearEvent", new F(formation, idx), "blue");
+		foreach (var f in formations) {
+			await JSRuntime.InvokeVoidAsync("display", f);
+			await JSRuntime.InvokeVoidAsync("addDXCalendearEvent", f, "blue");
 		}
 	}
 
