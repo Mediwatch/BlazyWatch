@@ -39,8 +39,7 @@ namespace Mediwatch.Server.Controllers
             _userManager = userManager;
         }
 
-        //GET: /Users
-
+        //GET: /Users/info
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserPublic>>> GetUserList()
         {
@@ -49,7 +48,7 @@ namespace Mediwatch.Server.Controllers
             return publicUsers;
         }
 
-        //GET: /Users/5
+        //GET: /Users/info/5
         [HttpGet("{id}")]
         public async Task<ActionResult<UserPublic>> GetUser(String id)
         {
