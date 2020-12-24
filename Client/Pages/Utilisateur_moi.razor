@@ -1,0 +1,22 @@
+@page "/utilisateur/moi"
+
+@inject HttpClient client
+@inject IJSRuntime JSRuntime
+
+<h2>Tableau de bord</h2>
+
+<h4>Nom d'utilisateur</h4>
+@if (info == null) {
+    <p>En cours d'acquisition...<div class="loading-bar"></div></p>
+} else {
+    <p>@info.UserName</p>
+}
+
+@code {
+    private UserInformation info = null;
+    protected override async Task OnInitializedAsync()
+    {
+        info = await client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
+        await JSRuntime.InvokeVoidAsync("display", info);
+    }
+}
