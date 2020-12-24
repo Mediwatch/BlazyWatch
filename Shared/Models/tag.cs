@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mediwatch.Shared.Models 
 {
-    [Table ("tag")]
+    [Table ("Tag")]
     public class tag {
         [Key]
         public int id { get; set; }

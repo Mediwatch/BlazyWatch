@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Mediwatch.Server.Migrations
+namespace Mediwatch.Server.Migrations.IdentityData
 {
     [DbContext(typeof(IdentityDataContext))]
-    [Migration("20201130141240_innitialCreate")]
-    partial class innitialCreate
+    [Migration("20201224152723_UserRole")]
+    partial class UserRole
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

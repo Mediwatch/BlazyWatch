@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Mediwatch.Server.Migrations
+namespace Mediwatch.Server.Migrations.IdentityData
 {
-    public partial class innitialCreate : Migration
+    public partial class UserRole : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
