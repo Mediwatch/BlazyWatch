@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Identity;
 namespace Mediwatch.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/info")]
     public class UsersController : ControllerBase
     {
         private UserPublic createUserPublic(IdentityUser<Guid> elem) {
