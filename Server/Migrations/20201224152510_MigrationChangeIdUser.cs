@@ -1,27 +1,27 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
+namespace Mediwatch.Server.Migrations
 {
-    public partial class innitialCreate : Migration
+    public partial class MigrationChangeIdUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "applicant_sessions",
+                name: "Applicant_session",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    idFormation = table.Column<int>(nullable: false),
-                    idUser = table.Column<int>(nullable: false),
+                    idFormation = table.Column<float>(nullable: false),
+                    idUser = table.Column<Guid>(nullable: false),
                     confirmed = table.Column<bool>(nullable: false),
                     payed = table.Column<bool>(nullable: false),
                     createdAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_applicant_sessions", x => x.id);
+                    table.PrimaryKey("PK_Applicant_session", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -57,7 +57,7 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "tag",
+                name: "Tag",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
@@ -67,7 +67,7 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tag", x => x.id);
+                    table.PrimaryKey("PK_Tag", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -108,7 +108,7 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "applicant_sessions");
+                name: "Applicant_session");
 
             migrationBuilder.DropTable(
                 name: "BlazingArticles");
@@ -117,7 +117,7 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                 name: "Formation");
 
             migrationBuilder.DropTable(
-                name: "tag");
+                name: "Tag");
 
             migrationBuilder.DropTable(
                 name: "Compagny");

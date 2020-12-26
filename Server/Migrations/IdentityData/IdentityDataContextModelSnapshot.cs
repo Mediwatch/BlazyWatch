@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Mediwatch.Server.Migrations
+namespace Mediwatch.Server.Migrations.IdentityData
 {
     [DbContext(typeof(IdentityDataContext))]
     partial class IdentityDataContextModelSnapshot : ModelSnapshot

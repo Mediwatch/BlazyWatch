@@ -40,6 +40,7 @@ namespace Mediwatch.Server.Controllers
         }
 
         //Put: /ApplicantSession/5
+        // WARNING YOU MUST TO SEND ALL DATA CHAMP WITH MODIFICATION 
         [HttpPut("{id}")]
         public async Task<ActionResult<applicant_session>> PutApplicantSession(int id, applicant_session applicantSessionInput)
         {

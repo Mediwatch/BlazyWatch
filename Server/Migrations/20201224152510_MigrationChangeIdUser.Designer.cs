@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Server;
 
-namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
+namespace Mediwatch.Server.Migrations
 {
     [DbContext(typeof(DbContextMediwatch))]
-    [Migration("20201130141258_innitialCreate")]
-    partial class innitialCreate
+    [Migration("20201224152510_MigrationChangeIdUser")]
+    partial class MigrationChangeIdUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -59,18 +59,18 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("idFormation")
-                        .HasColumnType("INTEGER");
+                    b.Property<float>("idFormation")
+                        .HasColumnType("REAL");
 
-                    b.Property<int>("idUser")
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid>("idUser")
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("payed")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("id");
 
-                    b.ToTable("applicant_sessions");
+                    b.ToTable("Applicant_session");
                 });
 
             modelBuilder.Entity("Mediwatch.Shared.Models.compagny", b =>
@@ -153,7 +153,7 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
 
                     b.HasKey("id");
 
-                    b.ToTable("tag");
+                    b.ToTable("Tag");
                 });
 
             modelBuilder.Entity("Mediwatch.Shared.Models.formation", b =>
