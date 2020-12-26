@@ -1,4 +1,4 @@
 <map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node2" href="$class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1_db_context_mediwatch_model_snapshot.html" title="Mediwatch.Server.Migrations.\lDbContextMediwatchMigrations.Db\lContextMediwatchModelSnapshot" alt="" coords="165,5,395,61"/>
-<area shape="rect" id="node3" href="$class_mediwatch_1_1_server_1_1_migrations_1_1_identity_data_context_model_snapshot.html" title="Mediwatch.Server.Migrations.\lIdentityDataContextModelSnapshot" alt="" coords="165,86,395,127"/>
+<area shape="rect" id="node2" href="$class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_model_snapshot.html" title="Mediwatch.Server.Migrations.\lDbContextMediwatchModelSnapshot" alt="" coords="165,5,404,47"/>
+<area shape="rect" id="node3" href="$class_mediwatch_1_1_server_1_1_migrations_1_1_identity_data_1_1_identity_data_context_model_snapshot.html" title="Mediwatch.Server.Migrations.\lIdentityData.IdentityDataContext\lModelSnapshot" alt="" coords="177,71,392,127"/>
 </map>
