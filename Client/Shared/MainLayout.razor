@@ -20,8 +20,8 @@
     <div class="navbar-nav-scroll ml-auto d-none d-sm-block">
         <ul class="navbar-nav flex-row">
             <li class="px-3 nav-item dropdown">
-                @if (info == null) {
-                    <a href="/connexion">Se connecter</a>
+                @if (info == null || ! info.IsAuthenticated) {
+                    <a href="/utilisateur/connexion">Se connecter</a>
                 } else if (info.IsAuthenticated) {
                     <DropDownMenu DropDownButtonClass="btn">
                         <DropDownButton><h3>Bienvenue @info.UserName</h3></DropDownButton>
