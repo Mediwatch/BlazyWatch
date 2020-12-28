@@ -2,8 +2,19 @@
 @using Mediwatch.Shared
 @inject NavigationManager navigationManager
 @inject HttpClient Http
+@inject IJSRuntime JSRuntime
 
 
 Normalement voila le btn paypal
 <div id="paypal-button-container"></div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("init_paypal");
+        }
+    }
+}
   

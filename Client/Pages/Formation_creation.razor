@@ -5,10 +5,11 @@
 @inject NavigationManager NavManager
 
 <!--<AuthorizeView Roles="Admin, Tutor">-->
-
+<div>
     <h1>Création de formation</h1>
 
-    @if (@validation == 0)
+    <p>Note, il est possible de modifier les informations à la toute fin, avant la validation de la formation.</p>
+    @if (validation == 0 || validation == 3)
     {
         <EditForm Model="@formTab1" OnValidSubmit="@PostFormation">
             <DataAnnotationsValidator />
@@ -36,11 +37,14 @@
                 </td>
             </tr>
             </table>
-            <button type="submit">Suivant</button>
+            @if (validation == 0)
+            {
+                <button type="submit">Suivant</button>
+            }
         </EditForm>
     }
 
-    @if (validation == 1)
+    @if (validation == 1 || validation == 3)
     {
         <EditForm Model="@formTab2" OnValidSubmit="@PostFormation">
             <DataAnnotationsValidator />
@@ -66,11 +70,14 @@
                 </td>
             </tr>
             </table>
-            <button type="submit">Suivant</button>
+            @if (validation == 1)
+            {
+                <button type="submit">Suivant</button>
+            }
         </EditForm>
     }
 
-    @if (validation == 2)
+    @if (validation == 2 || validation == 3)
     {
         <EditForm Model="@formTab3" OnValidSubmit="@PostFormation">
             <DataAnnotationsValidator />
@@ -90,15 +97,25 @@
                 </td>
             </tr>
             </table>
-            <button type="submit">Valider la formation</button>
+            @if (validation == 2)
+            {
+                <button type="submit">Vérification et validation de la formation</button>
+            }
         </EditForm>
     }
 
     @if (validation == 3)
     {
+        <button type="submit" @onclick=@PostFormation>Valider les informations</button>
+    }
+
+    @if (validation == 4)
+    {
+        <p>Vous avez créé avec succès une nouvelle formation.</p>
         <button type="submit" @onclick=@PostFormation>Créer une nouvelle formation</button>
         <button type="submit" @onclick=@GoBack>Retourner à la page d'accueil</button>
     }
+</div>
 
 <!--</AuthorizeView>-->
 @code
@@ -119,7 +136,7 @@
     {
         validation++;
 
-        if (validation == 3)
+        if (validation == 4)
         {
             form.Name = formTab1.Name;
             form.StartDate = formTab1.StartDate;
@@ -133,7 +150,7 @@
             await Http.PostAsJsonAsync("Formation", form);
         }
 
-        if (validation == 4)
+        if (validation == 5)
         {
             validation = 0;
         }
