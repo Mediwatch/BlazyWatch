@@ -40,31 +40,25 @@ namespace Mediwatch.Server.Controllers
         }
 
         //Put: /ApplicantSession/5
+        // WARNING YOU MUST TO SEND ALL DATA CHAMP WITH MODIFICATION 
         [HttpPut("{id}")]
         public async Task<ActionResult<applicant_session>> PutApplicantSession(int id, applicant_session applicantSessionInput)
         {
-            if (id != applicantSessionInput.id) 
+            applicantSessionInput.id = id;
+                if (!ApplicantSessionInputExists(id))
             {
-                return BadRequest();
+                return NotFound();
             }
             _context.Entry(applicantSessionInput).State = EntityState.Modified;
-            
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ApplicantSessionInputExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
-            return NoContent();
+            return StatusCode(200);
         }
 
         // POST: /ApplicantSession
