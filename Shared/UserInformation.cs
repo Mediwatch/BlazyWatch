@@ -9,5 +9,7 @@ namespace Mediwatch.Shared
         public string UserName {get; set;}    
         
         public Dictionary<string, string> Claims {get; set;}
+
+        public List<string> formations;
     }
 }
