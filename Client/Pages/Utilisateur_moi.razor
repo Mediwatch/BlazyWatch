@@ -14,9 +14,13 @@
 
 @code {
     private UserInformation info = null;
+    private IEnumerable<UserPublic> info2 = null;
     protected override async Task OnInitializedAsync()
     {
         info = await client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
         await JSRuntime.InvokeVoidAsync("display", info);
+
+        info2 = await client.GetFromJsonAsync<IEnumerable<UserPublic>>("Users/info");
+        await JSRuntime.InvokeVoidAsync("display", info2);
     }
 }

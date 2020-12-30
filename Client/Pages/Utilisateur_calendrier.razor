@@ -22,14 +22,31 @@
 
 @code {
 	List<formation> formations = new List<formation>();
+
+	/*
 	protected override async void OnInitialized()
 	{
+		await JSRuntime.InvokeVoidAsync("initDXCalendar");
 		formations = await client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
 
 		foreach (var f in formations) {
 			await JSRuntime.InvokeVoidAsync("display", f);
-			await JSRuntime.InvokeVoidAsync("addDXCalendearEvent", f, "blue");
+			await JSRuntime.InvokeVoidAsync("addDXCalendarEvent", f, "blue");
 		}
+	}*/
+
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+    	if (firstRender)
+    	{
+        	await JSRuntime.InvokeVoidAsync("initDXCalendar");
+			formations = await client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
+
+			foreach (var f in formations) {
+				await JSRuntime.InvokeVoidAsync("display", f);
+				await JSRuntime.InvokeVoidAsync("addDXCalendarEvent", f, "blue");
+			}
+    	}
 	}
 
 	void SelectMine() {
