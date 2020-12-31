@@ -17,6 +17,8 @@ namespace Server {
         public DbSet<applicant_session> applicant_sessions { get; set; }
         public DbSet<tag> tags { get; set; }
 
+        public DbSet<orderInfo> orderInfos {get; set;}
+
         public DbSet<BlazingArticleModel> articleModels {get; set;}
         protected override void OnConfiguring (DbContextOptionsBuilder options) 
         {

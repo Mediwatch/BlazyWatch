@@ -91,19 +91,5 @@ namespace Mediwatch.Server.Controllers
         private bool ApplicantSessionInputExists(long id) {
             return _context.applicant_sessions.Any(e => e.id == id);
         }
-
-        // POST ApplicantSession/order/
-        [HttpPost("order")]
-        public async Task<ActionResult<applicant_session>> PostApplicantOrder(OrderInfo order)
-        {
-
-            Console.WriteLine(order);
-            var applicantSessionBody = new applicant_session();
-            applicantSessionBody.createdAt = DateTime.Now;
-            _context.applicant_sessions.Add(applicantSessionBody);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetApplicantSession), new { id = applicantSessionBody.id }, applicantSessionBody);
-        }
     }
 }

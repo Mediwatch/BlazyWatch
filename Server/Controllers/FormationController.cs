@@ -26,7 +26,7 @@ namespace Mediwatch.Server.Controllers
                 return await _context.formations.ToListAsync();
         }
 
-        //GET: /Formation/5
+        //GET: /Formation/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<formation>> GetFormation(int id)
         {
