@@ -5,6 +5,7 @@
 <area shape="rect" id="node5" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller.html" title="Mediwatch.Server.Controllers.\lApplicantSessionController" alt="" coords="164,201,363,243"/>
 <area shape="rect" id="node6" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller.html" title="Mediwatch.Server.Controllers.\lCompagnyController" alt="" coords="164,267,363,308"/>
 <area shape="rect" id="node7" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html" title="Mediwatch.Server.Controllers.\lFormationController" alt="" coords="164,332,363,373"/>
-<area shape="rect" id="node8" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html" title="Mediwatch.Server.Controllers.\lUsersController" alt="" coords="164,397,363,439"/>
-<area shape="rect" id="node9" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_weather_forecast_controller.html" title="Mediwatch.Server.Controllers.\lWeatherForecastController" alt="" coords="164,463,363,504"/>
+<area shape="rect" id="node8" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_order_controller.html" title="Mediwatch.Server.Controllers.\lOrderController" alt="" coords="164,397,363,439"/>
+<area shape="rect" id="node9" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html" title="Mediwatch.Server.Controllers.\lUsersController" alt="" coords="164,463,363,504"/>
+<area shape="rect" id="node10" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_weather_forecast_controller.html" title="Mediwatch.Server.Controllers.\lWeatherForecastController" alt="" coords="164,528,363,569"/>
 </map>
