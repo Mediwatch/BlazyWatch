@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
+/// <summary>
+/// Test controller
+/// </summary>
 namespace Mediwatch.Server.Controllers
 {
     [ApiController]

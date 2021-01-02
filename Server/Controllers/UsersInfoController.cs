@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-// using Mediwatch.Server.Areas.Identity.Data;
 using System.Security.Claims;
 using Mediwatch.Shared.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -15,6 +14,11 @@ namespace Mediwatch.Server.Controllers {
     [ApiController]
     [Route ("[controller]")]
     public class UsersController : ControllerBase {
+        /// <summary>
+        /// convert user in data base to user public for api
+        /// </summary>
+        /// <param name="elem"></param>
+        /// <returns>return new user as public</returns>
         private UserPublic createUserPublic (IdentityUser<Guid> elem) {
             UserPublic node = new UserPublic ();
             node.Id = elem.Id;
@@ -23,6 +27,11 @@ namespace Mediwatch.Server.Controllers {
             node.PhoneNumber = elem.PhoneNumber;
             return node;
         }
+        /// <summary>
+        /// Convert list of user in data base to user public for api
+        /// </summary>
+        /// <param name="dataToChange"></param>
+        /// <returns></returns>
         private List<UserPublic> ConvertInPublicInfo (ref List<IdentityUser<Guid>> dataToChange) {
             List<UserPublic> PublicUserInfo = new List<UserPublic> ();
 
@@ -33,7 +42,12 @@ namespace Mediwatch.Server.Controllers {
             return PublicUserInfo;
         }
 
+        /// <summary>
+        /// modify user information in database
+        /// </summary>
+        /// <param name="user"></param>
         private void SetUserInfoFromUserPublic (UserPublic user) {
+            //TODO modify in dabase user
             return;
         }
         private readonly UserManager<IdentityUser<Guid>> _userManager;
@@ -45,9 +59,11 @@ namespace Mediwatch.Server.Controllers {
             _userManager = userManager;
             _context = context;
         }
-
-        //GET: /Users/listUser
-        //list all user
+        /// <summary>
+        /// list all users if you are admin 
+        /// GET: /Users/listUser
+        /// </summary>
+        /// <returns>return unauthorized if the user role is not admin and a list of public user when it work</returns>
         [HttpGet ("listUser")]
         [Authorize (Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<UserPublic>>> GetUserList () {
@@ -56,15 +72,26 @@ namespace Mediwatch.Server.Controllers {
             return publicUsers;
         }
 
+        /// <summary>
+        /// Get the information of the connected user
+        /// API GET : /Users/info
+        /// </summary>
+        /// <returns>return a user public user with the information of the connected user</returns>
         [Authorize]
         [HttpGet("info")]
         public async Task<ActionResult<UserPublic>> GetMyUser() {
             var info = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));
             return createUserPublic (info);
         }
-
-        //GET: /Users/info/{id user}
-        // get info of one user
+ 
+        /// <summary>
+        /// get info of one user
+        /// GET: /Users/info/{id user}
+        /// </summary>
+        /// <param name="id">the id of the user</param>
+        /// <returns>return a  user public if the id correspond to the id of the connected user.
+        ///  Return not found in case of not base 64 id, the id is not found in the data base or if you're not admin else
+        /// it will return a user public with the information corresponding to the user id</returns>
         [HttpGet ("info/{id}")]
         [Authorize]
         public async Task<ActionResult<UserPublic>> GetUser (String id) {
@@ -82,11 +109,19 @@ namespace Mediwatch.Server.Controllers {
             return publicUser;
         }
 
+        /// <summary>
+        /// set info of one user
+        /// POST: /Users/setInfo/
+        /// BODY: raw/json :UserPublic
+        /// </summary>
+        /// <param name="user">information to set</param>
+        /// <returns>return OK if the id correspond to the id of the connected user.
+        ///  Return not found in case of not base 64 id, the id is not found in the data base or if you're not admin else
+        /// it will return OK</returns>
         [HttpPost ("setInfo")]
         [Authorize]
         public async Task<ActionResult> SetUser (UserPublic user) {
             var info = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));
-            Guid x;
             if (info.Id == user.Id)
                 SetUserInfoFromUserPublic (user);
             else if ((await _userManager.GetRolesAsync (info))[0] != "Admin")
@@ -99,8 +134,12 @@ namespace Mediwatch.Server.Controllers {
             return Ok ();
         }
 
-        //GET: /Users/formation/{id user}
-        // get all formation of one user
+        /// <summary>
+        /// GET: /Users/formation/{id user}
+        /// get all formation of one user
+        /// </summary>
+        /// <param name="id">id of the formation</param>
+        /// <returns>return the list of applicant session</returns>
         [HttpGet ("formation/{id}")]
         public async Task<ActionResult<IEnumerable<applicant_session>>> GetUserFormation (String id) {
             var AllApplicantSessions = await _context.applicant_sessions.ToListAsync ();
@@ -108,14 +147,6 @@ namespace Mediwatch.Server.Controllers {
 
             return AllApplicantSessions;
         }
-
-        // //PUT: /User/session/{id}
-        // // subscribe a session of one formation
-        // [HttpGet("session/{id}")]
-        // public  async Task<ActionResult<applicant_session>> PutUserSession(String id){
-
-        // }
-
     }
 
 }

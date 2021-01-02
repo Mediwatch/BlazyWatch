@@ -18,7 +18,12 @@ namespace BlazingBlog.Server.Controllers
 
     public class BlogUtilsController : ControllerBase
     {
-        //[Authorize]
+        /// <summary>
+        /// API POST: /BlogUtils/UploadImage
+        /// Upload Image to the server
+        /// </summary>
+        /// <returns>return the image informations</returns>
+        [Authorize(Roles = "Admin,Tutor")]
         [HttpPost]
         public async Task<ImageUpload> UploadImage() {
             try {
@@ -46,7 +51,13 @@ namespace BlazingBlog.Server.Controllers
             }
             return new ImageUpload {success = 0, file = null};
         }
-
+        /// <summary>
+        /// Get Image from image uploaded on the server
+        /// GET: /BlogUtils/GetImage
+        /// </summary>
+        /// <param name="fileName">the path from the folder which the images are stocked</param>
+        /// <param name="contentType">the type of image to get</param>
+        /// <returns>the Image in raw</returns>
         [HttpGet]
         public IActionResult GetImage([FromQuery] string fileName, [FromQuery] string contentType)
         {
@@ -62,6 +73,12 @@ namespace BlazingBlog.Server.Controllers
             return File(content, contentType, fileName);
         }
 
+        /// <summary>
+        /// GET: /BlogUtils/GetLinInfo
+        /// Give link info for preview
+        /// </summary>
+        /// <param name="url">Url</param>
+        /// <returns>a link descrition base on the url</returns>
         [HttpGet]
         public LinkDescription GetLinInfo(string url) {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));

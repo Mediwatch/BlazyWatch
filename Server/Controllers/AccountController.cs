@@ -25,6 +25,13 @@ namespace Mediwatch.Server.Controllers
             this.userManager = userManager;
             this.roleManager = roleManager;
         }
+
+        /// <summary>
+        /// Log the user to his account
+        /// API POST: /Account/Login
+        /// </summary>
+        /// <param name="login"> form containing login info</param>
+        /// <returns>Ok 200 when it work with Auth cookie and error in other case with the associate error</returns>
         
         [HttpPost]
         async public Task<IActionResult> Login(LoginForm login)
@@ -44,13 +51,17 @@ namespace Mediwatch.Server.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Add tuttor when you're admin
+        /// API GET: /Account/AddTutor
+        /// </summary>
+        /// <param name="id">id of the account to modify</param>
+        /// <returns>ok 200 when it work</returns>
         [HttpGet]
         [Authorize(Roles = "Admin")]
-        async public Task<IActionResult> AddTutor(string username)
+        async public Task<IActionResult> AddTutor(string id)
         {
-            if (username == "Admin" || username == "")
-                return BadRequest("Can't modify his role");
-            var user = await userManager.FindByNameAsync(username);
+            var user = await userManager.FindByIdAsync(id);
             if (user == null)
                 return BadRequest("User Name or Password is'nt valid");
             foreach (var roleName in new string[] {"Admin", "Member"})
@@ -121,6 +132,12 @@ namespace Mediwatch.Server.Controllers
             return LocalRedirect("~/");
         }
 
+        /// <summary>
+        /// Register a user
+        /// API POST /Account/Register
+        /// </summary>
+        /// <param name="register">information for registering the user</param>
+        /// <returns>OK 200 when it work</returns>
         [HttpPost]
         async public Task<IActionResult> Register(RegisterForm register)
         {
@@ -142,6 +159,10 @@ namespace Mediwatch.Server.Controllers
             return await Login(loginForm);
         }
         
+        /// <summary>
+        /// Give basic information about the connected user with cookie
+        /// </summary>
+        /// <returns>the user info with authentificated at fals if it's not</returns>
         [HttpGet]
         public UserInformation UserInfo()
         {

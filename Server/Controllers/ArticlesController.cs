@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BlazingArticle.Model;
 using BlazingBlog.Shared;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Server;
@@ -19,7 +20,11 @@ namespace BlazingBlog.Server.Controllers
         {
             _context = context;
         }
-
+        /// <summary>
+        /// get information about articles
+        /// GET: /Articles/GetArticlesInfo
+        /// </summary>
+        /// <returns>return all articles informations</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ArticleInfo>>> GetArticlesInfo()
         {
@@ -41,6 +46,12 @@ namespace BlazingBlog.Server.Controllers
             return articleInfos;
         }
 
+        /// <summary>
+        /// get content of article
+        /// Get: /Articles/GetArticle?name={string}
+        /// </summary>
+        /// <param name="name">id of the article</param>
+        /// <returns>return Article</returns>
         [HttpGet]
         public async Task<ActionResult<Article>>GetArticle([FromQuery]string name)
         {
@@ -52,7 +63,15 @@ namespace BlazingBlog.Server.Controllers
                     Content = article.Content
                 };
         }
+        /// <summary>
+        /// create an article from an Arcticle Object
+        /// API
+        /// GET: /Articles/CreateArticle
+        /// </summary>
+        /// <param name="article">article to add to data base</param>
+        /// <returns>return OK 200 if it work</returns>
         [HttpPost]
+        [Authorize(Roles = "Admin,Tutor")]
         public async Task<ActionResult> CreateArticle([FromBody]Article article) {
             
             var dbArticle = new BlazingArticleModel {
