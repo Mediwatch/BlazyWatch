@@ -24,21 +24,99 @@ Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Users\+Controller\
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a7957039d9c7d38f0e6791f04e0dcde1e}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a7957039d9c7d38f0e6791f04e0dcde1e}} 
 {\bfseries Users\+Controller} (User\+Manager$<$ Identity\+User$<$ Guid $>$$>$ user\+Manager, \hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch} context)
 \item 
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a5b525adc63d36869bde5021b82480228}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a5b525adc63d36869bde5021b82480228}} 
-async Task$<$ Action\+Result$<$ I\+Enumerable$<$ User\+Public $>$ $>$ $>$ {\bfseries Get\+User\+List} ()
-\item 
+async Task$<$ Action\+Result$<$ I\+Enumerable$<$ User\+Public $>$ $>$ $>$ \hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a5b525adc63d36869bde5021b82480228}{Get\+User\+List} ()
+\begin{DoxyCompactList}\small\item\em list all users if you are admin G\+ET\+: /\+Users/list\+User \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ User\+Public $>$ $>$ \hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a9a705b16c851ce5bb20f426b6e923799}{Get\+My\+User} ()
+\begin{DoxyCompactList}\small\item\em Get the information of the connected user A\+PI G\+ET \+: /\+Users/info \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ User\+Public $>$ $>$ \hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a27103389ca1c6c33d21a3dc3212d7b08}{Get\+User} (String id)
+\begin{DoxyCompactList}\small\item\em get info of one user G\+ET\+: /\+Users/info/\{id user\} \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result $>$ \hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a414ca2854bf71701319b3c34dbda03ab}{Set\+User} (User\+Public user)
+\begin{DoxyCompactList}\small\item\em set info of one user P\+O\+ST\+: /\+Users/set\+Info/ B\+O\+DY\+: raw/json \+:User\+Public \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ I\+Enumerable$<$ applicant\+\_\+session $>$ $>$ $>$ \hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a3da0476c39418727064b44af9e007010}{Get\+User\+Formation} (String id)
+\begin{DoxyCompactList}\small\item\em G\+ET\+: /\+Users/formation/\{id user\} get all formation of one user \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions membres}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a9a705b16c851ce5bb20f426b6e923799}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a9a705b16c851ce5bb20f426b6e923799}} 
-async Task$<$ Action\+Result$<$ User\+Public $>$ $>$ {\bfseries Get\+My\+User} ()
-\item 
+\index{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller}!Get\+My\+User@{Get\+My\+User}}
+\index{Get\+My\+User@{Get\+My\+User}!Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller}}
+\subsubsection{\texorpdfstring{Get\+My\+User()}{GetMyUser()}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$User\+Public$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Users\+Controller.\+Get\+My\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the information of the connected user A\+PI G\+ET \+: /\+Users/info 
+
+\begin{DoxyReturn}{Renvoie}
+return a user public user with the information of the connected user
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a27103389ca1c6c33d21a3dc3212d7b08}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a27103389ca1c6c33d21a3dc3212d7b08}} 
-async Task$<$ Action\+Result$<$ User\+Public $>$ $>$ {\bfseries Get\+User} (String id)
-\item 
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a414ca2854bf71701319b3c34dbda03ab}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a414ca2854bf71701319b3c34dbda03ab}} 
-async Task$<$ Action\+Result $>$ {\bfseries Set\+User} (User\+Public user)
-\item 
+\index{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller}!Get\+User@{Get\+User}}
+\index{Get\+User@{Get\+User}!Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller}}
+\subsubsection{\texorpdfstring{Get\+User()}{GetUser()}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$User\+Public$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Users\+Controller.\+Get\+User (\begin{DoxyParamCaption}\item[{String}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get info of one user G\+ET\+: /\+Users/info/\{id user\} 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id} & the id of the user\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+return a user public if the id correspond to the id of the connected user. Return not found in case of not base 64 id, the id is not found in the data base or if you\textquotesingle{}re not admin else it will return a user public with the information corresponding to the user id
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a3da0476c39418727064b44af9e007010}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a3da0476c39418727064b44af9e007010}} 
-async Task$<$ Action\+Result$<$ I\+Enumerable$<$ applicant\+\_\+session $>$ $>$ $>$ {\bfseries Get\+User\+Formation} (String id)
-\end{DoxyCompactItemize}
+\index{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller}!Get\+User\+Formation@{Get\+User\+Formation}}
+\index{Get\+User\+Formation@{Get\+User\+Formation}!Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller}}
+\subsubsection{\texorpdfstring{Get\+User\+Formation()}{GetUserFormation()}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$applicant\+\_\+session$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Users\+Controller.\+Get\+User\+Formation (\begin{DoxyParamCaption}\item[{String}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+G\+ET\+: /\+Users/formation/\{id user\} get all formation of one user 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id} & id of the formation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+return the list of applicant session
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a5b525adc63d36869bde5021b82480228}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a5b525adc63d36869bde5021b82480228}} 
+\index{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller}!Get\+User\+List@{Get\+User\+List}}
+\index{Get\+User\+List@{Get\+User\+List}!Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller}}
+\subsubsection{\texorpdfstring{Get\+User\+List()}{GetUserList()}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$User\+Public$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Users\+Controller.\+Get\+User\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+list all users if you are admin G\+ET\+: /\+Users/list\+User 
+
+\begin{DoxyReturn}{Renvoie}
+return unauthorized if the user role is not admin and a list of public user when it work
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a414ca2854bf71701319b3c34dbda03ab}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a414ca2854bf71701319b3c34dbda03ab}} 
+\index{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller}!Set\+User@{Set\+User}}
+\index{Set\+User@{Set\+User}!Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Users\+Controller}}
+\subsubsection{\texorpdfstring{Set\+User()}{SetUser()}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$>$ Mediwatch.\+Server.\+Controllers.\+Users\+Controller.\+Set\+User (\begin{DoxyParamCaption}\item[{User\+Public}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set info of one user P\+O\+ST\+: /\+Users/set\+Info/ B\+O\+DY\+: raw/json \+:User\+Public 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em user} & information to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+return OK if the id correspond to the id of the connected user. Return not found in case of not base 64 id, the id is not found in the data base or if you\textquotesingle{}re not admin else it will return OK
+\end{DoxyReturn}
 
 
 La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}

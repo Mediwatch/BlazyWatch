@@ -21,15 +21,66 @@ Graphe de collaboration de Blazing\+Blog.\+Server.\+Controllers.\+Blog\+Utils\+C
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller_a7e2fd0bf2bf61c62ad1598d787987776}\label{class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller_a7e2fd0bf2bf61c62ad1598d787987776}} 
-async Task$<$ Image\+Upload $>$ {\bfseries Upload\+Image} ()
-\item 
+async Task$<$ Image\+Upload $>$ \hyperlink{class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller_a7e2fd0bf2bf61c62ad1598d787987776}{Upload\+Image} ()
+\begin{DoxyCompactList}\small\item\em A\+PI P\+O\+ST\+: /\+Blog\+Utils/\+Upload\+Image Upload Image to the server \end{DoxyCompactList}\item 
+I\+Action\+Result \hyperlink{class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller_abd681dd8b9f613ebca29900f87c763b9}{Get\+Image} (\mbox{[}From\+Query\mbox{]} string file\+Name, \mbox{[}From\+Query\mbox{]} string content\+Type)
+\begin{DoxyCompactList}\small\item\em Get Image from image uploaded on the server G\+ET\+: /\+Blog\+Utils/\+Get\+Image \end{DoxyCompactList}\item 
+Link\+Description \hyperlink{class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller_abb07a81ee10a101acbc979c4a217a76a}{Get\+Lin\+Info} (string url)
+\begin{DoxyCompactList}\small\item\em G\+ET\+: /\+Blog\+Utils/\+Get\+Lin\+Info Give link info for preview \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions membres}
 \mbox{\Hypertarget{class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller_abd681dd8b9f613ebca29900f87c763b9}\label{class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller_abd681dd8b9f613ebca29900f87c763b9}} 
-I\+Action\+Result {\bfseries Get\+Image} (\mbox{[}From\+Query\mbox{]} string file\+Name, \mbox{[}From\+Query\mbox{]} string content\+Type)
-\item 
+\index{Blazing\+Blog\+::\+Server\+::\+Controllers\+::\+Blog\+Utils\+Controller@{Blazing\+Blog\+::\+Server\+::\+Controllers\+::\+Blog\+Utils\+Controller}!Get\+Image@{Get\+Image}}
+\index{Get\+Image@{Get\+Image}!Blazing\+Blog\+::\+Server\+::\+Controllers\+::\+Blog\+Utils\+Controller@{Blazing\+Blog\+::\+Server\+::\+Controllers\+::\+Blog\+Utils\+Controller}}
+\subsubsection{\texorpdfstring{Get\+Image()}{GetImage()}}
+{\footnotesize\ttfamily I\+Action\+Result Blazing\+Blog.\+Server.\+Controllers.\+Blog\+Utils\+Controller.\+Get\+Image (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Query\mbox{]} string}]{file\+Name,  }\item[{\mbox{[}\+From\+Query\mbox{]} string}]{content\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get Image from image uploaded on the server G\+ET\+: /\+Blog\+Utils/\+Get\+Image 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em file\+Name} & the path from the folder which the images are stocked\\
+\hline
+{\em content\+Type} & the type of image to get\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the Image in raw
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller_abb07a81ee10a101acbc979c4a217a76a}\label{class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller_abb07a81ee10a101acbc979c4a217a76a}} 
-Link\+Description {\bfseries Get\+Lin\+Info} (string url)
-\end{DoxyCompactItemize}
+\index{Blazing\+Blog\+::\+Server\+::\+Controllers\+::\+Blog\+Utils\+Controller@{Blazing\+Blog\+::\+Server\+::\+Controllers\+::\+Blog\+Utils\+Controller}!Get\+Lin\+Info@{Get\+Lin\+Info}}
+\index{Get\+Lin\+Info@{Get\+Lin\+Info}!Blazing\+Blog\+::\+Server\+::\+Controllers\+::\+Blog\+Utils\+Controller@{Blazing\+Blog\+::\+Server\+::\+Controllers\+::\+Blog\+Utils\+Controller}}
+\subsubsection{\texorpdfstring{Get\+Lin\+Info()}{GetLinInfo()}}
+{\footnotesize\ttfamily Link\+Description Blazing\+Blog.\+Server.\+Controllers.\+Blog\+Utils\+Controller.\+Get\+Lin\+Info (\begin{DoxyParamCaption}\item[{string}]{url }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+G\+ET\+: /\+Blog\+Utils/\+Get\+Lin\+Info Give link info for preview 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em url} & Url\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a link descrition base on the url
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller_a7e2fd0bf2bf61c62ad1598d787987776}\label{class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller_a7e2fd0bf2bf61c62ad1598d787987776}} 
+\index{Blazing\+Blog\+::\+Server\+::\+Controllers\+::\+Blog\+Utils\+Controller@{Blazing\+Blog\+::\+Server\+::\+Controllers\+::\+Blog\+Utils\+Controller}!Upload\+Image@{Upload\+Image}}
+\index{Upload\+Image@{Upload\+Image}!Blazing\+Blog\+::\+Server\+::\+Controllers\+::\+Blog\+Utils\+Controller@{Blazing\+Blog\+::\+Server\+::\+Controllers\+::\+Blog\+Utils\+Controller}}
+\subsubsection{\texorpdfstring{Upload\+Image()}{UploadImage()}}
+{\footnotesize\ttfamily async Task$<$Image\+Upload$>$ Blazing\+Blog.\+Server.\+Controllers.\+Blog\+Utils\+Controller.\+Upload\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A\+PI P\+O\+ST\+: /\+Blog\+Utils/\+Upload\+Image Upload Image to the server 
+
+\begin{DoxyReturn}{Renvoie}
+return the image informations
+\end{DoxyReturn}
 
 
 La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}

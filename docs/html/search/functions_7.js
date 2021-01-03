@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['identitydatacontext_216',['IdentityDataContext',['../class_mediwatch_1_1_server_1_1_areas_1_1_identity_1_1_data_1_1_identity_data_context.html#ace53da6e49b7d2dff2bb67aad43cfa65',1,'Mediwatch::Server::Areas::Identity::Data::IdentityDataContext']]]
+  ['sendmail',['SendMail',['../class_mediwatch_1_1_server_1_1_controllers_1_1_email_controller.html#a2b9bb204a398a673c010f2ac6f3bb19a',1,'Mediwatch::Server::Controllers::EmailController']]],
+  ['setuser',['SetUser',['../class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a414ca2854bf71701319b3c34dbda03ab',1,'Mediwatch::Server::Controllers::UsersController']]]
 ];

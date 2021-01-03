@@ -84,16 +84,126 @@ Graphe de collaboration de BlazingBlog.Server.Controllers.BlogUtilsController:</
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:a7e2fd0bf2bf61c62ad1598d787987776"><td class="memItemLeft" align="right" valign="top"><a id="a7e2fd0bf2bf61c62ad1598d787987776"></a>
-async Task&lt; ImageUpload &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>UploadImage</b> ()</td></tr>
+<tr class="memitem:a7e2fd0bf2bf61c62ad1598d787987776"><td class="memItemLeft" align="right" valign="top">async Task&lt; ImageUpload &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#a7e2fd0bf2bf61c62ad1598d787987776">UploadImage</a> ()</td></tr>
+<tr class="memdesc:a7e2fd0bf2bf61c62ad1598d787987776"><td class="mdescLeft">&#160;</td><td class="mdescRight">API POST: /BlogUtils/UploadImage Upload Image to the server  <a href="#a7e2fd0bf2bf61c62ad1598d787987776">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a7e2fd0bf2bf61c62ad1598d787987776"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd681dd8b9f613ebca29900f87c763b9"><td class="memItemLeft" align="right" valign="top"><a id="abd681dd8b9f613ebca29900f87c763b9"></a>
-IActionResult&#160;</td><td class="memItemRight" valign="bottom"><b>GetImage</b> ([FromQuery] string fileName, [FromQuery] string contentType)</td></tr>
+<tr class="memitem:abd681dd8b9f613ebca29900f87c763b9"><td class="memItemLeft" align="right" valign="top">IActionResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#abd681dd8b9f613ebca29900f87c763b9">GetImage</a> ([FromQuery] string fileName, [FromQuery] string contentType)</td></tr>
+<tr class="memdesc:abd681dd8b9f613ebca29900f87c763b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Image from image uploaded on the server GET: /BlogUtils/GetImage  <a href="#abd681dd8b9f613ebca29900f87c763b9">Plus de détails...</a><br /></td></tr>
 <tr class="separator:abd681dd8b9f613ebca29900f87c763b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb07a81ee10a101acbc979c4a217a76a"><td class="memItemLeft" align="right" valign="top"><a id="abb07a81ee10a101acbc979c4a217a76a"></a>
-LinkDescription&#160;</td><td class="memItemRight" valign="bottom"><b>GetLinInfo</b> (string url)</td></tr>
+<tr class="memitem:abb07a81ee10a101acbc979c4a217a76a"><td class="memItemLeft" align="right" valign="top">LinkDescription&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#abb07a81ee10a101acbc979c4a217a76a">GetLinInfo</a> (string url)</td></tr>
+<tr class="memdesc:abb07a81ee10a101acbc979c4a217a76a"><td class="mdescLeft">&#160;</td><td class="mdescRight">GET: /BlogUtils/GetLinInfo Give link info for preview  <a href="#abb07a81ee10a101acbc979c4a217a76a">Plus de détails...</a><br /></td></tr>
 <tr class="separator:abb07a81ee10a101acbc979c4a217a76a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="abd681dd8b9f613ebca29900f87c763b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd681dd8b9f613ebca29900f87c763b9">&#9670;&nbsp;</a></span>GetImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IActionResult BlazingBlog.Server.Controllers.BlogUtilsController.GetImage </td>
+          <td>(</td>
+          <td class="paramtype">[FromQuery] string&#160;</td>
+          <td class="paramname"><em>fileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[FromQuery] string&#160;</td>
+          <td class="paramname"><em>contentType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get Image from image uploaded on the server GET: /BlogUtils/GetImage </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>the path from the folder which the images are stocked</td></tr>
+    <tr><td class="paramname">contentType</td><td>the type of image to get</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the Image in raw</dd></dl>
+
+</div>
+</div>
+<a id="abb07a81ee10a101acbc979c4a217a76a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb07a81ee10a101acbc979c4a217a76a">&#9670;&nbsp;</a></span>GetLinInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LinkDescription BlazingBlog.Server.Controllers.BlogUtilsController.GetLinInfo </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>url</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GET: /BlogUtils/GetLinInfo Give link info for preview </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">url</td><td>Url</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>a link descrition base on the url</dd></dl>
+
+</div>
+</div>
+<a id="a7e2fd0bf2bf61c62ad1598d787987776"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e2fd0bf2bf61c62ad1598d787987776">&#9670;&nbsp;</a></span>UploadImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;ImageUpload&gt; BlazingBlog.Server.Controllers.BlogUtilsController.UploadImage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>API POST: /BlogUtils/UploadImage Upload Image to the server </p>
+<dl class="section return"><dt>Renvoie</dt><dd>return the image informations</dd></dl>
+
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
 <li>Server/Controllers/BlogUtilsController.cs</li>
 </ul>

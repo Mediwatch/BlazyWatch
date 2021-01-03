@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['login_217',['Login',['../class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller.html#a0eca1869d875e9cdfbc6e9bc4540ae41',1,'Mediwatch::Server::Controllers::AccountController']]],
-  ['loginextcallback_218',['LoginExtCallback',['../class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller.html#ab3cb65a34f1dd5de150ebf5b956ff414',1,'Mediwatch::Server::Controllers::AccountController']]],
-  ['loginexternal_219',['LoginExternal',['../class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller.html#a7f1a46f59d4b8fff4e948992fcf9f605',1,'Mediwatch::Server::Controllers::AccountController']]],
-  ['logout_220',['Logout',['../class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller.html#a177b908ddf5a0c4ec5e3269e4cbcb252',1,'Mediwatch::Server::Controllers::AccountController']]]
+  ['uploadimage',['UploadImage',['../class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#a7e2fd0bf2bf61c62ad1598d787987776',1,'BlazingBlog::Server::Controllers::BlogUtilsController']]],
+  ['userinfo',['UserInfo',['../class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller.html#a35118ac6cb00d088863119bf4cbdc30f',1,'Mediwatch::Server::Controllers::AccountController']]]
 ];

@@ -87,16 +87,115 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a3881e802459fed1ecf975c20c9b17444"><td class="memItemLeft" align="right" valign="top"><a id="a3881e802459fed1ecf975c20c9b17444"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ArticlesController</b> (<a class="el" href="class_server_1_1_db_context_mediwatch.html">DbContextMediwatch</a> context)</td></tr>
 <tr class="separator:a3881e802459fed1ecf975c20c9b17444"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9970ba338169d8ef258c10663bf211b1"><td class="memItemLeft" align="right" valign="top"><a id="a9970ba338169d8ef258c10663bf211b1"></a>
-async Task&lt; ActionResult&lt; IEnumerable&lt; ArticleInfo &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetArticlesInfo</b> ()</td></tr>
+<tr class="memitem:a9970ba338169d8ef258c10663bf211b1"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult&lt; IEnumerable&lt; ArticleInfo &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller.html#a9970ba338169d8ef258c10663bf211b1">GetArticlesInfo</a> ()</td></tr>
+<tr class="memdesc:a9970ba338169d8ef258c10663bf211b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">get information about articles GET: /Articles/GetArticlesInfo  <a href="#a9970ba338169d8ef258c10663bf211b1">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a9970ba338169d8ef258c10663bf211b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69e1b42a4f3198d4737296e661f95a75"><td class="memItemLeft" align="right" valign="top"><a id="a69e1b42a4f3198d4737296e661f95a75"></a>
-async Task&lt; ActionResult&lt; Article &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetArticle</b> ([FromQuery]string name)</td></tr>
+<tr class="memitem:a69e1b42a4f3198d4737296e661f95a75"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult&lt; Article &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller.html#a69e1b42a4f3198d4737296e661f95a75">GetArticle</a> ([FromQuery]string name)</td></tr>
+<tr class="memdesc:a69e1b42a4f3198d4737296e661f95a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">get content of article Get: /Articles/GetArticle?name={string}  <a href="#a69e1b42a4f3198d4737296e661f95a75">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a69e1b42a4f3198d4737296e661f95a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af37d427d00f7f410f1719d8fd9a47f68"><td class="memItemLeft" align="right" valign="top"><a id="af37d427d00f7f410f1719d8fd9a47f68"></a>
-async Task&lt; ActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>CreateArticle</b> ([FromBody]Article article)</td></tr>
+<tr class="memitem:af37d427d00f7f410f1719d8fd9a47f68"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller.html#af37d427d00f7f410f1719d8fd9a47f68">CreateArticle</a> ([FromBody]Article article)</td></tr>
+<tr class="memdesc:af37d427d00f7f410f1719d8fd9a47f68"><td class="mdescLeft">&#160;</td><td class="mdescRight">create an article from an Arcticle Object API GET: /Articles/CreateArticle  <a href="#af37d427d00f7f410f1719d8fd9a47f68">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af37d427d00f7f410f1719d8fd9a47f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="af37d427d00f7f410f1719d8fd9a47f68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af37d427d00f7f410f1719d8fd9a47f68">&#9670;&nbsp;</a></span>CreateArticle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;ActionResult&gt; BlazingBlog.Server.Controllers.ArticlesController.CreateArticle </td>
+          <td>(</td>
+          <td class="paramtype">[FromBody] Article&#160;</td>
+          <td class="paramname"><em>article</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>create an article from an Arcticle Object API GET: /Articles/CreateArticle </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">article</td><td>article to add to data base</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>return OK 200 if it work</dd></dl>
+
+</div>
+</div>
+<a id="a69e1b42a4f3198d4737296e661f95a75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69e1b42a4f3198d4737296e661f95a75">&#9670;&nbsp;</a></span>GetArticle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;ActionResult&lt;Article&gt; &gt; BlazingBlog.Server.Controllers.ArticlesController.GetArticle </td>
+          <td>(</td>
+          <td class="paramtype">[FromQuery] string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get content of article Get: /Articles/GetArticle?name={string} </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>id of the article</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>return Article</dd></dl>
+
+</div>
+</div>
+<a id="a9970ba338169d8ef258c10663bf211b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9970ba338169d8ef258c10663bf211b1">&#9670;&nbsp;</a></span>GetArticlesInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;ActionResult&lt;IEnumerable&lt;ArticleInfo&gt; &gt; &gt; BlazingBlog.Server.Controllers.ArticlesController.GetArticlesInfo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get information about articles GET: /Articles/GetArticlesInfo </p>
+<dl class="section return"><dt>Renvoie</dt><dd>return all articles informations</dd></dl>
+
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
 <li>Server/Controllers/ArticlesController.cs</li>
 </ul>
