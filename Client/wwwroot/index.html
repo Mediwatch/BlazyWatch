@@ -73,6 +73,12 @@
         <script src="https://www.paypal.com/sdk/js?client-id=AbQlXImq--DsH3y2FbHYJBJsFzn4n2jCnME-voHlS_Out_ZMnLtt-hnG_XGvKXSkcWqBmO0ArtlGqjDI"> // Replace YOUR_SB_CLIENT_ID with your sandbox client ID</script>
         <script src="js/paypal.js"></script>
 
+        <script>
+            window.blazorCulture = {
+            get: () => window.localStorage['BlazorCulture'],
+            set: (value) => window.localStorage['BlazorCulture'] = value
+        };
+        </script>
     </body>
 
 </html>

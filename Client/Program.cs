@@ -8,6 +8,9 @@ using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
 using Mediwatch.Client.services;
 using Microsoft.AspNetCore.Components.Authorization;
+using System.Collections.Generic;
+using System.Globalization;
+using Microsoft.JSInterop;
 
 namespace Mediwatch.Client
 {
@@ -27,12 +30,23 @@ namespace Mediwatch.Client
 				  .AddFontAwesomeIcons();
 
 			builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+			builder.Services.AddLocalization(options => options.ResourcesPath = "Ressources");
 
 			builder.Services.AddAuthorizationCore();
 			builder.Services.AddScoped<MediwatchAuthentifiacationProvider>();
 			builder.Services.AddScoped<AuthenticationStateProvider>(serviceProvider => serviceProvider.GetRequiredService<MediwatchAuthentifiacationProvider>());
+			
 			var host = builder.Build();
 
+			var jsInterop = host.Services.GetRequiredService<IJSRuntime>();
+			var result = await jsInterop.InvokeAsync<string>("blazorCulture.get");
+
+			if (result != null) {
+				var culture = new CultureInfo(result);
+				CultureInfo.DefaultThreadCurrentCulture = culture;
+				CultureInfo.DefaultThreadCurrentUICulture = culture;
+            }
+			
 			host.Services
 			  .UseBootstrapProviders()
 			  .UseFontAwesomeIcons();
