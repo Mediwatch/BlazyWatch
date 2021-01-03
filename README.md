@@ -5,6 +5,7 @@ the website is created using :
 - blazor
 - asp.net core
 
+use dotnetcore 5.0.1
 
 Project RoadMap :
 
