@@ -9,9 +9,9 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 95.5)">
 <title>Graphe hiérarchique des classes</title>
 <polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-95.5 303,-95.5 303,4 -4,4"/>
-<!-- Node4 -->
+<!-- Node5 -->
 <g id="node1" class="node">
-<title>Node4</title>
+<title>Node5</title>
 <polygon fill="#ffffff" stroke="#bfbfbf" points="0,-38.5 0,-57.5 84,-57.5 84,-38.5 0,-38.5"/>
 <text text-anchor="middle" x="42" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">ModelSnapshot</text>
 </g>
@@ -25,15 +25,15 @@
 </a>
 </g>
 </g>
-<!-- Node4&#45;&gt;Node0 -->
+<!-- Node5&#45;&gt;Node0 -->
 <g id="edge1" class="edge">
-<title>Node4&#45;&gt;Node0</title>
+<title>Node5&#45;&gt;Node0</title>
 <path fill="none" stroke="#191970" d="M94.3271,-56.7472C102.4881,-58.1115 111.1148,-59.5535 119.8274,-61.01"/>
 <polygon fill="#191970" stroke="#191970" points="94.7076,-53.2623 84.2673,-55.0656 93.5534,-60.1665 94.7076,-53.2623"/>
 </g>
-<!-- Node6 -->
+<!-- Node7 -->
 <g id="node3" class="node">
-<title>Node6</title>
+<title>Node7</title>
 <g id="a_node3"><a xlink:href="class_mediwatch_1_1_server_1_1_migrations_1_1_identity_data_1_1_identity_data_context_model_snapshot.html" target="_top" xlink:title="Mediwatch.Server.Migrations.\lIdentityData.IdentityDataContext\lModelSnapshot">
 <polygon fill="#ffffff" stroke="#000000" points="129,-.5 129,-41.5 290,-41.5 290,-.5 129,-.5"/>
 <text text-anchor="start" x="137" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Mediwatch.Server.Migrations.</text>
@@ -42,9 +42,9 @@
 </a>
 </g>
 </g>
-<!-- Node4&#45;&gt;Node6 -->
+<!-- Node5&#45;&gt;Node7 -->
 <g id="edge2" class="edge">
-<title>Node4&#45;&gt;Node6</title>
+<title>Node5&#45;&gt;Node7</title>
 <path fill="none" stroke="#191970" d="M94.4379,-39.5473C105.3409,-37.7898 117.0711,-35.899 128.7244,-34.0205"/>
 <polygon fill="#191970" stroke="#191970" points="93.5829,-36.1399 84.2673,-41.1868 94.6969,-43.0507 93.5829,-36.1399"/>
 </g>

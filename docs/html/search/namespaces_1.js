@@ -8,5 +8,6 @@ var searchData=
   ['mediwatch',['Mediwatch',['../namespace_mediwatch.html',1,'']]],
   ['migrations',['Migrations',['../namespace_mediwatch_1_1_server_1_1_migrations.html',1,'Mediwatch::Server']]],
   ['pages',['Pages',['../namespace_mediwatch_1_1_server_1_1_pages.html',1,'Mediwatch::Server']]],
+  ['ressources',['Ressources',['../namespace_mediwatch_1_1_server_1_1_ressources.html',1,'Mediwatch::Server']]],
   ['server',['Server',['../namespace_mediwatch_1_1_server.html',1,'Mediwatch']]]
 ];

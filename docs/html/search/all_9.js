@@ -11,5 +11,6 @@ var searchData=
   ['migrationchangeiduser',['MigrationChangeIdUser',['../class_mediwatch_1_1_server_1_1_migrations_1_1_migration_change_id_user.html',1,'Mediwatch::Server::Migrations']]],
   ['migrations',['Migrations',['../namespace_mediwatch_1_1_server_1_1_migrations.html',1,'Mediwatch::Server']]],
   ['pages',['Pages',['../namespace_mediwatch_1_1_server_1_1_pages.html',1,'Mediwatch::Server']]],
+  ['ressources',['Ressources',['../namespace_mediwatch_1_1_server_1_1_ressources.html',1,'Mediwatch::Server']]],
   ['server',['Server',['../namespace_mediwatch_1_1_server.html',1,'Mediwatch']]]
 ];
