@@ -26,8 +26,9 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add --all
-        git commit -m "Updtate documentation" --allow-empty
+        git commit -m "Update documentation" --allow-empty
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
+        branch: 'master'
         github_token: ${{ secrets.GITHUB_TOKEN }}
