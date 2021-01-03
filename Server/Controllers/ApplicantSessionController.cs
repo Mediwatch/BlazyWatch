@@ -23,6 +23,10 @@ namespace Mediwatch.Server.Controllers
         //GET: /ApplicantSession
         [HttpGet]
         public async Task<ActionResult<IEnumerable<applicant_session>>> GetApplicantSession(){
+            /// <summary>
+            /// Get the list of Applicant Session
+            /// </summary>
+            /// <returns></returns>
                 return await _context.applicant_sessions.ToListAsync();
         }
 
@@ -30,6 +34,10 @@ namespace Mediwatch.Server.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<applicant_session>> GetApplicantSession(int id)
         {
+            /// <summary>
+            /// Get an applicant session
+            /// </summary>
+            /// <returns>Return the applicant session</returns>
             var applicantSessionResult = await _context.applicant_sessions.FindAsync(id);
             if (applicantSessionResult == null)
             {
@@ -44,6 +52,9 @@ namespace Mediwatch.Server.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<applicant_session>> PutApplicantSession(int id, applicant_session applicantSessionInput)
         {
+            /// <summary>
+            /// Update an applicant session
+            /// </summary>
             applicantSessionInput.id = id;
                 if (!ApplicantSessionInputExists(id))
             {
@@ -65,6 +76,9 @@ namespace Mediwatch.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<applicant_session>> PostApplicantSession(applicant_session applicantSessionBody)
         {
+            /// <summary>
+            /// Create an applicant session
+            /// </summary>
             applicantSessionBody.createdAt = DateTime.Now;
             _context.applicant_sessions.Add(applicantSessionBody);
             await _context.SaveChangesAsync();
@@ -76,6 +90,10 @@ namespace Mediwatch.Server.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<applicant_session>> DeleteTodoItem(int id)
         {
+            /// <summary>
+            /// Delete an applicant session
+            /// </summary>
+            /// <returns></returns>
             var applicantSessionResult = await _context.applicant_sessions.FindAsync(id);
             if (applicantSessionResult == null)
             {

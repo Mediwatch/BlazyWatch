@@ -23,6 +23,10 @@ namespace Mediwatch.Server.Controllers
         //GET: /Formation
         [HttpGet]
         public async Task<ActionResult<IEnumerable<formation>>> GetFormation(){
+            /// <summary>
+            /// Get all formation
+            /// </summary>
+            /// <returns>Return the list of the available formation</returns>
                 return await _context.formations.ToListAsync();
         }
 
@@ -30,6 +34,10 @@ namespace Mediwatch.Server.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<formation>> GetFormation(int id)
         {
+            /// <summary>
+            /// Get a specific formation by is ID
+            /// </summary>
+            /// <returns>Return the formation information</returns>
             var formationResult = await _context.formations.FindAsync(id);
             if (formationResult == null)
             {
@@ -43,6 +51,9 @@ namespace Mediwatch.Server.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<formation>> PutFormation(int id, formation formationPut)
         {
+            /// <summary>
+            /// Update the formation specific by is ID
+            /// </summary>
             formationPut.id = id;
             if (!FormationExists(id))
             {
@@ -65,7 +76,9 @@ namespace Mediwatch.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<formation>> PostFormation(formation formationBody)
         {
-            // formationBody.createdAt = DateTime.Now;
+            /// <summary>
+            /// Create a new formation
+            /// </summary>
             _context.formations.Add(formationBody);
             await _context.SaveChangesAsync();
 
@@ -76,6 +89,10 @@ namespace Mediwatch.Server.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<formation>> DeleteFormation(int id)
         {
+            /// <summary>
+            /// Delete the formation by ID
+            /// </summary>
+            /// <returns></returns>
             var formationResult = await _context.formations.FindAsync(id);
             if (formationResult == null)
             {

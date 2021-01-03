@@ -1,0 +1,24 @@
+@page "/email"
+@using Mediwatch.Shared
+@inject HttpClient Http
+
+<EditForm class="email-form" OnValidSubmit="OnSubmit" Model="emailForm">
+    <h4 class="font-weight-normal text-center">Envoyez un mail</h4>
+    <label for="inputEmail" class="sr-only">Email</label>
+    <InputText id="inputEmail" class="form-control" placeholder="Adresse mail" autofocus @bind-Value="@emailForm.EmailAddress" />
+    <label for="inputText" class="sr-only">Text</label>
+    <InputText id="inputEmail" class="form-control" placeholder="Adresse text" autofocus @bind-Value="@emailForm.Content" />
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Envoyez un mail</button>
+</EditForm>
+
+@functions
+{
+    EmailForm emailForm { get; set; } = new EmailForm();
+    string error { get; set; }
+
+    async Task OnSubmit()
+    {
+        await Http.PostAsJsonAsync("/Email", emailForm);
+        error = null;
+    }
+}

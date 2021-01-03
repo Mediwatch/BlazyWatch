@@ -23,13 +23,21 @@ namespace Mediwatch.Server.Controllers
         //GET: /Compagny
         [HttpGet]
         public async Task<ActionResult<IEnumerable<compagny>>> GetCompagny(){
-                return await _context.compagnies.ToListAsync();
+            /// <summary>
+            /// Get all compagny
+            /// </summary>
+            /// <returns>Json raw list of compgny</returns>
+            return await _context.compagnies.ToListAsync();
         }
 
         //GET: /Compagny/5
         [HttpGet("{id}")]
         public async Task<ActionResult<compagny>> GetCompagny(int id)
         {
+            /// <summary>
+            /// Get a compagny by its id
+            /// </summary>
+            /// <returns>Return the company data</returns>
             var compagnyResult = await _context.compagnies.FindAsync(id);
             if (compagnyResult == null)
             {
@@ -43,6 +51,9 @@ namespace Mediwatch.Server.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<compagny>> PutCompagny(int id, compagny compagnyInput)
         {
+            /// <summary>
+            /// Edit the compagny information specified by its id
+            /// </summary> 
             if (id != compagnyInput.id) 
             {
                 return BadRequest();
@@ -71,6 +82,9 @@ namespace Mediwatch.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<compagny>> PostCompagny(compagny compagnyBody)
         {
+            /// <summary>
+            /// Create a new compagny
+            /// </summary>
             compagnyBody.createdAt = DateTime.Now;
             _context.compagnies.Add(compagnyBody);
             await _context.SaveChangesAsync();
@@ -82,6 +96,10 @@ namespace Mediwatch.Server.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<compagny>> DeleteTodoItem(int id)
         {
+            /// <summary>
+            /// Delete the company ID
+            /// </summary>
+            /// <returns></returns>
             var compagnyResult = await _context.compagnies.FindAsync(id);
             if (compagnyResult == null)
             {
