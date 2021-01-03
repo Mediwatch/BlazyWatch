@@ -1,0 +1,43 @@
+@inject NavigationManager manager;
+@inject IJSRuntime JSRuntime
+
+<strong>Culture: </strong>
+<select @bind="Culture">
+@foreach (var culture in supportedCultures)
+{
+    <option value="@culture">@culture.DisplayName</option>
+}
+</select>
+<button @onclick="@PrintCurrentCulture">Print Culture</button>
+
+@code {
+    CultureInfo[] supportedCultures = new[]
+    {
+        new CultureInfo("en-US"),
+        new CultureInfo("fr-FR"),
+    };
+
+    void SetCultureInfo(ChangeEventArgs e) {
+        
+        manager.NavigateTo(manager.Uri, true);
+    }
+
+    CultureInfo Culture
+    {
+        get => CultureInfo.CurrentCulture;
+        set
+        {
+            if (CultureInfo.CurrentCulture != value)
+            {
+                var js = (IJSInProcessRuntime)JSRuntime;
+                js.InvokeVoid("blazorCulture.set", value.Name);
+
+                manager.NavigateTo(manager.Uri, forceLoad: true);
+            }
+        }
+    }
+
+  void PrintCurrentCulture() {
+      Console.WriteLine(CultureInfo.CurrentCulture.Name);
+    }
+}
