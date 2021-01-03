@@ -92,4 +92,4 @@ VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=formula
 
 
 Documentation is available at :
-https://mediwatch.github.io/MediwatchWebsite/html/annotated.html
+https://mediwatch.github.io/BlazyWatch/
