@@ -58,10 +58,11 @@ public class InvoiceGenerator {
     }
 
     public void Run() {
-        Process.Start(new ProcessStartInfo(
+        var p = Process.Start(new ProcessStartInfo(
             "./invoice_generator",
             this.GetArgsString()
         ));
+        p.WaitForExit();
     }
 }
 
@@ -129,18 +130,16 @@ namespace  Mediwatch.Server.Controllers
                     IBAN = "XXXXXXXXXX"
                 })
                 .SetOuput("invoice.pdf")
-                .SetFormat("docx")
                 .SetOverwrite(true)
                 .Run();
-                var info = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));
+            var info = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));
 
-                EmailForm email = new EmailForm{
-                    EmailAddress = info.Email,
-                    Content = "Vous avez payé"
-                };
+            EmailForm email = new EmailForm{
+                EmailAddress = info.Email,
+                Content = "Vous avez payé"
+            };
 
-                EmailUtils.SendMail(email, _configuration);
-                
+            EmailUtils.SendMail(email, _configuration);
 
             // orderInfo info = new orderInfo();
             orderBody.createAt = DateTime.Now;
