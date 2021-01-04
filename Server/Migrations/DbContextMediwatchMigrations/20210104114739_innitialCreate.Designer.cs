@@ -6,17 +6,17 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Server;
 
-namespace Mediwatch.Server.Migrations
+namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
 {
     [DbContext(typeof(DbContextMediwatch))]
-    [Migration("20201231013654_MigrationAddOrderController.cs")]
-    partial class MigrationAddOrderControllercs
+    [Migration("20210104114739_innitialCreate")]
+    partial class innitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.7");
+                .HasAnnotation("ProductVersion", "5.0.1");
 
             modelBuilder.Entity("BlazingArticle.Model.BlazingArticleModel", b =>
                 {
@@ -99,6 +99,9 @@ namespace Mediwatch.Server.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("ArticleID")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Contact")
                         .HasColumnType("TEXT");
 
@@ -160,6 +163,9 @@ namespace Mediwatch.Server.Migrations
                     b.Property<string>("invoiceId")
                         .HasColumnType("TEXT");
 
+                    b.Property<float>("price")
+                        .HasColumnType("REAL");
+
                     b.Property<string>("userId")
                         .HasColumnType("TEXT");
 
@@ -190,6 +196,11 @@ namespace Mediwatch.Server.Migrations
                     b.HasOne("Mediwatch.Shared.Models.compagny", null)
                         .WithMany("compagnyFormation")
                         .HasForeignKey("compagnyid");
+                });
+
+            modelBuilder.Entity("Mediwatch.Shared.Models.compagny", b =>
+                {
+                    b.Navigation("compagnyFormation");
                 });
 #pragma warning restore 612, 618
         }

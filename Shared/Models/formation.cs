@@ -20,6 +20,7 @@ namespace Mediwatch.Shared.Models
     public string Former { get; set; }
     public string Description { get; set; }
     public string Target { get; set; }
+    public string ArticleID {get; set;} 
     // public bool IsRegistered { get; set; }
     // public int idCompagny {get; set;}
     // public string formationName {get; set;}

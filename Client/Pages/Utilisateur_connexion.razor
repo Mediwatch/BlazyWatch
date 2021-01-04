@@ -42,7 +42,7 @@
 		try
 		{
 			await authStateProvider.Login(loginForm);
-			navigationManager.NavigateTo("");
+			navigationManager.NavigateTo("", true);
 		}
 		catch (Exception ex)
 		{

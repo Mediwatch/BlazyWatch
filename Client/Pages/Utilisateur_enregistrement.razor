@@ -44,7 +44,7 @@
 			try
 			{
 				await authStateProvider.Register(registerForm);
-				navigationManager.NavigateTo("");
+				navigationManager.NavigateTo("", true);
 			}
 			catch (Exception ex)
 			{

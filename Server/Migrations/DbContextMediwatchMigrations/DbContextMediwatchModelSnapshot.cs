@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Server;
 
-namespace Mediwatch.Server.Migrations
+namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
 {
     [DbContext(typeof(DbContextMediwatch))]
     partial class DbContextMediwatchModelSnapshot : ModelSnapshot
@@ -14,7 +14,7 @@ namespace Mediwatch.Server.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.7");
+                .HasAnnotation("ProductVersion", "5.0.1");
 
             modelBuilder.Entity("BlazingArticle.Model.BlazingArticleModel", b =>
                 {
@@ -96,6 +96,9 @@ namespace Mediwatch.Server.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("ArticleID")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Contact")
                         .HasColumnType("TEXT");
@@ -191,6 +194,11 @@ namespace Mediwatch.Server.Migrations
                     b.HasOne("Mediwatch.Shared.Models.compagny", null)
                         .WithMany("compagnyFormation")
                         .HasForeignKey("compagnyid");
+                });
+
+            modelBuilder.Entity("Mediwatch.Shared.Models.compagny", b =>
+                {
+                    b.Navigation("compagnyFormation");
                 });
 #pragma warning restore 612, 618
         }

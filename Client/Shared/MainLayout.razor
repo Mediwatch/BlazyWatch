@@ -41,7 +41,7 @@
                             </AuthorizeView>
                             <a class="dropdown-item selected reload" href="/formations/recherche">Chercher une formation</a>
                             <hr>
-                            <a class="dropdown-item selected reload" href="#" @onclick="logout">Se déconnecter (Ne marche pas !)</a>
+                            <a class="dropdown-item selected reload" href="#" @onclick="logout">Se déconnecter</a>
                         </Content>
                     </DropDownMenu>    
                 }
@@ -177,5 +177,7 @@
     private async void logout()
     {
         await authStateProvider.Logout();
+        info = await client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
+        this.StateHasChanged();
     }
 }
