@@ -17,7 +17,6 @@ namespace Mediwatch.Shared.Models
         public DateTime createAt {get; set;}
         public string billingAdress {get; set;}
         public string currency {get; set;}
-
         public float price {get; set;}
     }
 }
