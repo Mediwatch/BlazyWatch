@@ -4,7 +4,7 @@
 @inject Microsoft.Extensions.Localization.IStringLocalizer<Index> localizer
 
 <main>
-    <h1>Mediwatch votre formation au bout de vos doigts!</h1>
+    <h1>@localizer["WelcomeMessage"]</h1>
     <div class="online-formations">
         <div class="text-box">
             <h3>@localizer["FormationsInvite"]</h3>
@@ -13,10 +13,10 @@
         <button class="buttons">Formations en ligne 2</button>
     </div>
     <SharedComponent.LocalizationButton.LocalizationButton />
-    <h2>Formations populaires</h2>
+    <h2>@localizer["Popular"]</h2>
     <div class="formations-list">
         @if (formations == null) {
-            <p>Pas de formations disponibles.</p>
+            <p>@localizer["Unavaillable"]</p>
         } else {
             @foreach (var f in formations)
             {

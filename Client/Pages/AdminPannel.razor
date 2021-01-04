@@ -1,18 +1,19 @@
 @page "/Admin"
 @inject HttpClient client
+@inject IStringLocalizer<AdminPannel> localizer
 
 
 @if (users == null) {
-    <p>loading</p>
+    <p>@localizer["Loading"]</p>
 } else
 {
     <table class="table">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Button</th>
+                <th>@localizer["Name"]</th>
+                <th>@localizer["Email"]</th>
+                <th>@localizer["Role"]</th>
+                <th>@localizer["Button"]</th>
             </tr>
         </thead>
         <tbody>
