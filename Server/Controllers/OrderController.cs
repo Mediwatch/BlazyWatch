@@ -125,10 +125,11 @@ namespace  Mediwatch.Server.Controllers
                     prix_unitaire_HT = "50000.00",
                     total_TTC = "50000.00",
                     téléphone = "+33 X XX XX XX XX",
-                    email = "contact.mandareen@gmail.com",
+                    email = "contact@mediwatch.com",
                     IBAN = "XXXXXXXXXX"
                 })
                 .SetOuput("invoice.pdf")
+                .SetFormat("docx")
                 .SetOverwrite(true)
                 .Run();
                 var info = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));

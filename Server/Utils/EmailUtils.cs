@@ -22,6 +22,8 @@ namespace Server.Utils
             string emailAddress = configuration["EmailServ:MailServer"];
             string password = configuration["EmailServ:Password"];
             
+            Console.WriteLine(emailAddress);
+            
             if (emailAddress == null || password == null)
                 return -1;
             SmtpClient smtpClient = new SmtpClient("ssl0.ovh.net", 25);
@@ -32,9 +34,11 @@ namespace Server.Utils
             MailMessage mailMessage = new MailMessage(emailAddress, email.EmailAddress);
             mailMessage.Subject = "Notification Médiwatch";
             
-            FileStream fs = File.OpenRead("invoice.pdf");
-            Attachment att = new Attachment( fs, name: "invoice.pdf");
-            mailMessage.Attachments.Add( att );
+            FileStream fs = File.OpenRead("invoice.docx");
+            if (fs != null){
+                Attachment att = new Attachment( fs, name: "invoice.docx");
+                mailMessage.Attachments.Add( att );
+            }
             mailMessage.Body = email.Content;
 
             try
