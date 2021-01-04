@@ -52,7 +52,7 @@
 	{
 		formations = await client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
 		filtered = formations;
-		JSRuntime.InvokeVoidAsync("display", filtered);
+		await JSRuntime.InvokeVoidAsync("display", filtered);
 	}
 
 	private void filter(ChangeEventArgs e)

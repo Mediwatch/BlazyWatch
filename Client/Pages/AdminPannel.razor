@@ -1,0 +1,33 @@
+@page "/Admin"
+@inject HttpClient client
+
+
+@if (users == null) {
+    <p>loading</p>
+} else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Button</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var f in users){
+            <AdminItem user=f></AdminItem>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<UserPublic> users = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        users = await client.GetFromJsonAsync<IEnumerable<UserPublic>>("/Users/listUser") as List<UserPublic>;
+    }
+}

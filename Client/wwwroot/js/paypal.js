@@ -1,11 +1,11 @@
-function init_paypal() {
+function init_paypal(price) {
     if (document.getElementById("paypal-button-container") != null){
         paypal.Buttons({
             createOrder: function (data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '0.01'
+                            value: price
                         }
                     }]
                 });
@@ -23,6 +23,7 @@ function init_paypal() {
                     "currency": details.purchase_units[0].amount.currency_code,
                     "price" : parseFloat(details.purchase_units[0].amount.value)
                 })
+
                 
                 var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
                 var theUrl = "Order";
@@ -31,6 +32,8 @@ function init_paypal() {
                 xmlhttp.send(
                     body
                 );
+                }).then(() => {
+                    DotNet.invokeMethodAsync('{APP ASSEMBLY}', 'OnPaypalDone');
                 });
             },
             onCancel: (data, actions) =>{

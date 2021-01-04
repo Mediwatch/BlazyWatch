@@ -7,6 +7,12 @@ using System;
 using Mediwatch.Shared.Models;
 using Server;
 using Newtonsoft.Json;
+using Server.Utils;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Mediwatch.Shared;
 
 public class InvoiceGenerator {
     private string Template;
@@ -65,11 +71,17 @@ namespace  Mediwatch.Server.Controllers
     [Route("[controller]")]
     public class OrderController : ControllerBase
     {
+        private readonly UserManager<IdentityUser<Guid>> _userManager;
+
+        private readonly IConfiguration _configuration;
+
         private readonly DbContextMediwatch _context;
 
-        public OrderController(DbContextMediwatch context)
+        public OrderController(DbContextMediwatch context, UserManager<IdentityUser<Guid>> userManager, IConfiguration configuration)
         {
             _context = context;
+            _userManager = userManager;
+            _configuration = configuration;
         }
 
         //GET: /Order
@@ -94,6 +106,7 @@ namespace  Mediwatch.Server.Controllers
     
         //POST /Order/
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<orderInfo>> PostOrder(orderInfo orderBody){
             new InvoiceGenerator("invoice_template.docx")
                 .SetData(new {
@@ -118,6 +131,15 @@ namespace  Mediwatch.Server.Controllers
                 .SetOuput("invoice.pdf")
                 .SetOverwrite(true)
                 .Run();
+                var info = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));
+
+                EmailForm email = new EmailForm{
+                    EmailAddress = info.Email,
+                    Content = "Vous avez payé"
+                };
+
+                EmailUtils.SendMail(email, _configuration);
+                
 
             // orderInfo info = new orderInfo();
             orderBody.createAt = DateTime.Now;

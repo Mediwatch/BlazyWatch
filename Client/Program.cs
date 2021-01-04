@@ -32,6 +32,7 @@ namespace Mediwatch.Client
 			builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 			builder.Services.AddLocalization(options => options.ResourcesPath = "Ressources");
 
+			builder.Services.AddOptions();
 			builder.Services.AddAuthorizationCore();
 			builder.Services.AddScoped<MediwatchAuthentifiacationProvider>();
 			builder.Services.AddScoped<AuthenticationStateProvider>(serviceProvider => serviceProvider.GetRequiredService<MediwatchAuthentifiacationProvider>());

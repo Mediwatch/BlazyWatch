@@ -9,18 +9,14 @@
 @if (info == null) {
     <p>En cours d'acquisition...<div class="loading-bar"></div></p>
 } else {
-    <p>@info.UserName</p>
+    <p>@info.Name</p>
+    <p>@info.Email</p>
 }
 
 @code {
-    private UserInformation info = null;
-    private IEnumerable<UserPublic> info2 = null;
+    private UserPublic info = null;
     protected override async Task OnInitializedAsync()
     {
-        info = await client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
-        await JSRuntime.InvokeVoidAsync("display", info);
-
-        info2 = await client.GetFromJsonAsync<IEnumerable<UserPublic>>("Users/info");
-        await JSRuntime.InvokeVoidAsync("display", info2);
+        info = await client.GetFromJsonAsync<UserPublic>("Users/info");
     }
 }

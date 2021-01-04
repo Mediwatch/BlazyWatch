@@ -19,12 +19,13 @@ namespace Mediwatch.Server.Controllers {
         /// </summary>
         /// <param name="elem"></param>
         /// <returns>return new user as public</returns>
-        private UserPublic createUserPublic (IdentityUser<Guid> elem) {
+        private async Task<UserPublic> createUserPublic (IdentityUser<Guid> elem) {
             UserPublic node = new UserPublic ();
             node.Id = elem.Id;
             node.Name = elem.UserName;
             node.Email = elem.Email;
             node.PhoneNumber = elem.PhoneNumber;
+            node.Role =  (await _userManager.GetRolesAsync (elem))[0];
             return node;
         }
         /// <summary>
@@ -32,12 +33,12 @@ namespace Mediwatch.Server.Controllers {
         /// </summary>
         /// <param name="dataToChange"></param>
         /// <returns></returns>
-        private List<UserPublic> ConvertInPublicInfo (ref List<IdentityUser<Guid>> dataToChange) {
+        private async Task<List<UserPublic>> ConvertInPublicInfo (List<IdentityUser<Guid>> dataToChange) {
             List<UserPublic> PublicUserInfo = new List<UserPublic> ();
 
             foreach (IdentityUser<Guid> elem in dataToChange) {
                 var node = createUserPublic (elem);
-                PublicUserInfo.Add (node);
+                PublicUserInfo.Add (await node);
             }
             return PublicUserInfo;
         }
@@ -46,8 +47,12 @@ namespace Mediwatch.Server.Controllers {
         /// modify user information in database
         /// </summary>
         /// <param name="user"></param>
-        private void SetUserInfoFromUserPublic (UserPublic user) {
-            //TODO modify in dabase user
+        private async Task SetUserInfoFromUserPublic (UserPublic user, IdentityUser<Guid> userData) {
+            userData.UserName = user.Name;
+            userData.Email = user.Email;
+            await _userManager.RemoveFromRoleAsync(userData, (await _userManager.GetRolesAsync(userData))[0]);
+            await _userManager.AddToRoleAsync(userData, user.Role);
+            await _userManager.UpdateAsync(userData);
             return;
         }
         private readonly UserManager<IdentityUser<Guid>> _userManager;
@@ -68,7 +73,7 @@ namespace Mediwatch.Server.Controllers {
         [Authorize (Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<UserPublic>>> GetUserList () {
             var rawInfo = await _userManager.Users.ToListAsync ();
-            var publicUsers = ConvertInPublicInfo (ref rawInfo);
+            var publicUsers = await ConvertInPublicInfo (rawInfo);
             return publicUsers;
         }
 
@@ -81,7 +86,7 @@ namespace Mediwatch.Server.Controllers {
         [HttpGet("info")]
         public async Task<ActionResult<UserPublic>> GetMyUser() {
             var info = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));
-            return createUserPublic (info);
+            return await createUserPublic (info);
         }
  
         /// <summary>
@@ -98,7 +103,7 @@ namespace Mediwatch.Server.Controllers {
             var info = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));
             Guid x;
             if (info.Id.ToString () == id)
-                return createUserPublic (info);
+                return await createUserPublic (info);
             else if ((await _userManager.GetRolesAsync (info))[0] != "Admin" || !Guid.TryParse (id, out x))
                 return NotFound ();
             var rawInfo = await _userManager.FindByIdAsync (id);
@@ -106,7 +111,7 @@ namespace Mediwatch.Server.Controllers {
             if (rawInfo == null) {
                 return NotFound ();
             }
-            return publicUser;
+            return await publicUser;
         }
 
         /// <summary>
@@ -123,14 +128,14 @@ namespace Mediwatch.Server.Controllers {
         public async Task<ActionResult> SetUser (UserPublic user) {
             var info = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));
             if (info.Id == user.Id)
-                SetUserInfoFromUserPublic (user);
+                await SetUserInfoFromUserPublic (user, info);
             else if ((await _userManager.GetRolesAsync (info))[0] != "Admin")
                 return NotFound ();
             var rawInfo = await _userManager.FindByIdAsync(user.Id.ToString());
             if (rawInfo == null) {
                 return NotFound ();
             }
-            SetUserInfoFromUserPublic(user);
+            await SetUserInfoFromUserPublic(user, rawInfo);
             return Ok ();
         }
 
