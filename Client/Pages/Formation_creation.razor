@@ -3,25 +3,26 @@
 @inject IJSRuntime JSRuntime;
 @inject HttpClient Http;
 @inject NavigationManager NavManager
+@inject IStringLocalizer<Formation_creation> localizer
 
 <!--<AuthorizeView Roles="Admin, Tutor">-->
 <div>
-    <h1>Création de formation</h1>
+    <h1>@localizer["Creation"]</h1>
 
-    <p>Note, il est possible de modifier les informations à la toute fin, avant la validation de la formation.</p>
+    <p>@localizer["Note"]</p>
     @if (validation == 0 || validation == 3)
     {
         <EditForm Model="@formTab1" OnValidSubmit="@PostFormation">
             <DataAnnotationsValidator />
             <table>
             <tr>
-                <td><label for="name">Nom de la formation :</label></td>
+                <td><label for="name">@localizer["Name"]</label></td>
                 <td>
                     <InputText id="Name" placeholder="Veuillez entrer un nom." @bind-Value="formTab1.Name" />
                 </td>
             </tr>
             <tr>
-                <td><label for="">Date de la formation :</label></td>
+                <td><label for="">@localizer["Date"]</label></td>
                 <td>
                     <InputDate id="startDate" @bind-Value="formTab1.StartDate" Min="2020-01-01" />
                     <p style="display: inline;">~</p>
@@ -29,7 +30,7 @@
                 </td>
             </tr>
             <tr>
-                <td><label for="Description">Description de la formation :</label></td>
+                <td><label for="Description">@localizer["Description"]</label></td>
                 <td>
                     <InputTextArea id="Description" placeholder="Veuillez entrer une description."
                         @bind-Value="formTab1.Description" Rows="10" Cols="50"></InputTextArea>
@@ -38,7 +39,7 @@
             </table>
             @if (validation == 0)
             {
-                <button type="submit">Suivant</button>
+                <button type="submit">@localizer["Next"]</button>
             }
         </EditForm>
     }
@@ -49,19 +50,19 @@
             <DataAnnotationsValidator />
             <table>
             <tr>
-                <td><label for="Former">Nom du formateur :</label></td>
+                <td><label for="Former">@localizer["FName"]</label></td>
                 <td>
                     <InputText id="Former" placeholder="Veuillez entrer un nom." @bind-Value="formTab2.Former" />
                 </td>
             </tr>
             <tr>
-                <td><label for="Price">Prix de la formation :</label></td>
+                <td><label for="Price">@localizer["Price"]</label></td>
                 <td>
                     <InputNumber id="Price" @bind-Value="formTab2.Price" />
                 </td>
             </tr>
             <tr>
-                <td><label for="OrganizationName">Nom de l'organisme :</label></td>
+                <td><label for="OrganizationName">@localizer["OName"]</label></td>
                 <td>
                     <InputText id="OrganizationName" placeholder="Veuillez entrer le nom de l'organisme."
                         @bind-Value="formTab2.OrganizationName" />
@@ -70,7 +71,7 @@
             </table>
             @if (validation == 1)
             {
-                <button type="submit">Suivant</button>
+                <button type="submit">@localizer["Next"]</button>
             }
         </EditForm>
     }
@@ -81,13 +82,13 @@
             <DataAnnotationsValidator />
             <table>
             <tr>
-                <td><label for="Contact">Contact :</label></td>
+                <td><label for="Contact">@localizer["Contact"]</label></td>
                 <td>
                     <InputText id="Contact" placeholder="Veuillez entrer un contact." @bind-Value="formTab3.Contact" />
                 </td>
             </tr>
             <tr>
-                <td><label for="Location">Localisation de la formation :</label></td>
+                <td><label for="Location">@localizer["Location"]</label></td>
                 <td>
                     <InputText id="Location" placeholder="Veuillez entrer la localisation de la formation."
                         @bind-Value="formTab3.Location" />
@@ -96,21 +97,21 @@
             </table>
             @if (validation == 2)
             {
-                <button type="submit">Vérification et validation de la formation</button>
+                <button type="submit">@localizer["Submit"]</button>
             }
         </EditForm>
     }
 
     @if (validation == 3)
     {
-        <button type="submit" @onclick=@PostFormation>Valider les informations</button>
+        <button type="submit" @onclick=@PostFormation>@localizer["SubmitValidation"]</button>
     }
 
     @if (validation == 4)
     {
-        <p>Vous avez créé avec succès une nouvelle formation.</p>
-        <button type="submit" @onclick=@PostFormation>Créer une nouvelle formation</button>
-        <button type="submit" @onclick=@GoBack>Retourner à la page d'accueil</button>
+        <p>@localizer["SubmitSuccess"]</p>
+        <button type="submit" @onclick=@PostFormation>@localizer["CreateNew"]</button>
+        <button type="submit" @onclick=@GoBack>@localizer["Home"]</button>
     }
 </div>
 

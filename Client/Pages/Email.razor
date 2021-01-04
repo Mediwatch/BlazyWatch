@@ -1,14 +1,15 @@
 @page "/email"
 @using Mediwatch.Shared
 @inject HttpClient Http
+@inject IStringLocalizer<Email> localizer
 
 <EditForm class="email-form" OnValidSubmit="OnSubmit" Model="emailForm">
-    <h4 class="font-weight-normal text-center">Envoyez un mail</h4>
-    <label for="inputEmail" class="sr-only">Email</label>
+    <h4 class="font-weight-normal text-center">@localizer["Send"]</h4>
+    <label for="inputEmail" class="sr-only">@localizer["Email"]</label>
     <InputText id="inputEmail" class="form-control" placeholder="Adresse mail" autofocus @bind-Value="@emailForm.EmailAddress" />
-    <label for="inputText" class="sr-only">Text</label>
+    <label for="inputText" class="sr-only">@localizer["Text"]</label>
     <InputText id="inputEmail" class="form-control" placeholder="Adresse text" autofocus @bind-Value="@emailForm.Content" />
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Envoyez un mail</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">@localizer["Send"]</button>
 </EditForm>
 
 @functions

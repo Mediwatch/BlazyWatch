@@ -4,27 +4,28 @@
 -->
 @inject NavigationManager navigationManager
 @inject MediwatchAuthentifiacationProvider authStateProvider
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Utilisateur_connexion> localizer
 
 
 <EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="loginForm">
     <DataAnnotationsValidator />
-    <h4 class="font-weight-normal text-center">Connexion</h4>
+    <h4 class="font-weight-normal text-center">@localizer["Connexion"]</h4>
 
-    <label for="inputUsername" class="sr-only">Nom d'utilisateur</label>
+    <label for="inputUsername" class="sr-only">@localizer["Username"]</label>
     <InputText id="inputUsername" class="form-control" placeholder="Nom D'utilisateur" autofocus @bind-Value="@loginForm.UserName" />
     <ValidationMessage For="@(() => loginForm.UserName)" />
 
-    <label for="inputPassword" class="sr-only">Mot de passe</label>
+    <label for="inputPassword" class="sr-only">@localizer["Password"]</label>
     <InputText type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" @bind-Value="@loginForm.Password" />
     <ValidationMessage For="@(() => loginForm.Password)" />
 
-    <input type="checkbox" bind="@loginForm.RememberMe"/><br/>Se Souvenir de moi<br/>
+    <input type="checkbox" bind="@loginForm.RememberMe"/><br/>@localizer["Remember"]<br/>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">@localizer["Connexion"]</button>
 
     <label class="text-danger">@error</label>
     <NavLink href="/utilisateur/enregistrement">
-        <h6 class="font-weight-normal text-center">Besoin de vous enregistrer ? Cliquez ici.</h6>
+        <h6 class="font-weight-normal text-center">@localizer["Register"]</h6>
     </NavLink>
     <a class="btn btn-primary btn-lg text-center" href="Account/LoginExternal">Google</a>
 </EditForm>

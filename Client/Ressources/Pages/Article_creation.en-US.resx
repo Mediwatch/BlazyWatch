@@ -117,31 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Back" xml:space="preserve">
-    <value>Retour</value>
+  <data name="Add" xml:space="preserve">
+    <value>Add article</value>
   </data>
-  <data name="Features" xml:space="preserve">
-    <value>Options</value>
+  <data name="Creation" xml:space="preserve">
+    <value>Create an article</value>
   </data>
-  <data name="FormationButton" xml:space="preserve">
-    <value>C'est ici</value>
+  <data name="Paragraph" xml:space="preserve">
+    <value>Paragraph</value>
   </data>
-  <data name="FormationsInvite" xml:space="preserve">
-    <value>Découvrez nos formations en ligne</value>
+  <data name="Preview" xml:space="preserve">
+    <value>Preview Title</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Accueil</value>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
   </data>
-  <data name="Popular" xml:space="preserve">
-    <value>Formations populaires</value>
-  </data>
-  <data name="Pricing" xml:space="preserve">
-    <value>Prix</value>
-  </data>
-  <data name="Unavaillable" xml:space="preserve">
-    <value>Pas de formation disponibles</value>
-  </data>
-  <data name="WelcomeMessage" xml:space="preserve">
-    <value>Mediwatch votre formation au bout de vos doigts !</value>
+  <data name="UrlImage" xml:space="preserve">
+    <value>Image Url</value>
   </data>
 </root>

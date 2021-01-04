@@ -2,24 +2,25 @@
 
 @inject HttpClient Http
 @using BlazingBlog.Shared
+@inject IStringLocalizer<Article_creation> localizer
 
-<h1>Création d'un article</h1>
+<h1>@localizer["Creation"]</h1>
 
 <EditForm class="form-article" OnValidSubmit="OnSubmit" Model="article">
     <DataAnnotationsValidator />
-    <label for="inputTitle">Title</label>
+    <label for="inputTitle">@localizer["Title"]</label>
         <InputText id="inputTitle" class="form-control" placeholder="Title" autofocus @bind-Value="@article.Title" />
     <ValidationMessage For="@(() => article.Title)"/>
     
-    <label for="inputUrlImage">UrlImage</label>
+    <label for="inputUrlImage">@localizer["UrlImage"]</label>
         <InputText id="inputUrlImage" class="form-control" placeholder="UrlImage" autofocus @bind-Value="@article.PreviewImageURL" />
     <ValidationMessage For="@(() => article.PreviewImageURL)"/>
 
-    <label for="inputPreviewTitle">PreviewTitle</label>
+    <label for="inputPreviewTitle">@localizer["Preview"]</label>
         <InputText id="inputPreviewTitle" class="form-control" placeholder="PreviewTitle" autofocus @bind-Value="@article.PreviewTitle" />
     <ValidationMessage For="@(() => article.PreviewTitle)"/>
 
-    <label for="inputParagraph">Paragraph</label>
+    <label for="inputParagraph">@localizer["Paragraph"]</label>
         <InputTextArea id="inputParagraph" class="form-control" placeholder="Paragraph" autofocus @bind-Value="@article.PreviewParagraph" />
     <ValidationMessage For="@(() => article.PreviewParagraph)"/>
  
@@ -27,7 +28,7 @@
         <BlazEditor returnFunction="ValidateContent"/>
     </div>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Add Article</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">@localizer["Add"]</button>
 
 </EditForm>
 

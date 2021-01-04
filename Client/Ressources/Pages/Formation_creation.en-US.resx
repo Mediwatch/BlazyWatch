@@ -117,31 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Back" xml:space="preserve">
-    <value>Retour</value>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact :</value>
   </data>
-  <data name="Features" xml:space="preserve">
-    <value>Options</value>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Créer une nouvelle formation</value>
   </data>
-  <data name="FormationButton" xml:space="preserve">
-    <value>C'est ici</value>
+  <data name="Creation" xml:space="preserve">
+    <value>Création de la formation</value>
   </data>
-  <data name="FormationsInvite" xml:space="preserve">
-    <value>Découvrez nos formations en ligne</value>
+  <data name="Date" xml:space="preserve">
+    <value>Date de la formation :</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description de la formation :</value>
+  </data>
+  <data name="FName" xml:space="preserve">
+    <value>Nom du formateur :</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Accueil</value>
+    <value>Retourner à la page d'acceuil</value>
   </data>
-  <data name="Popular" xml:space="preserve">
-    <value>Formations populaires</value>
+  <data name="Location" xml:space="preserve">
+    <value>Localisation de la formation :</value>
   </data>
-  <data name="Pricing" xml:space="preserve">
-    <value>Prix</value>
+  <data name="Name" xml:space="preserve">
+    <value>Nom de la formation :</value>
   </data>
-  <data name="Unavaillable" xml:space="preserve">
-    <value>Pas de formation disponibles</value>
+  <data name="Next" xml:space="preserve">
+    <value>Suivant</value>
   </data>
-  <data name="WelcomeMessage" xml:space="preserve">
-    <value>Mediwatch votre formation au bout de vos doigts !</value>
+  <data name="Note" xml:space="preserve">
+    <value>Note : il est possible de modifier les informations à la toute fin, avant la validation de la formation.</value>
+  </data>
+  <data name="OName" xml:space="preserve">
+    <value>Nom de l'organisme :</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Prix de la formation :</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Vérification et validation de la formation</value>
+  </data>
+  <data name="SubmitSuccess" xml:space="preserve">
+    <value>Vous avez créé avec succès une nouvelle formation.</value>
+  </data>
+  <data name="SubmitValidation" xml:space="preserve">
+    <value>Valider les formations</value>
   </data>
 </root>
