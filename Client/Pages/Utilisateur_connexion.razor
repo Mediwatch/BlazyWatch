@@ -1,31 +1,29 @@
 @page "/utilisateur/connexion"
-<!--
-@layout LoginLayout
--->
-@inject NavigationManager navigationManager
-@inject MediwatchAuthentifiacationProvider authStateProvider
-@inject Microsoft.Extensions.Localization.IStringLocalizer<Utilisateur_connexion> localizer
+
+@inject NavigationManager NavigationManager
+@inject MediwatchAuthentifiacationProvider AuthStateProvider
+@inject IStringLocalizer<Utilisateur_connexion> Localizer
 
 
 <EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="loginForm">
     <DataAnnotationsValidator />
-    <h4 class="font-weight-normal text-center">@localizer["Connexion"]</h4>
+    <h4 class="font-weight-normal text-center">@Localizer["Connexion"]</h4>
 
-    <label for="inputUsername" class="sr-only">@localizer["Username"]</label>
+    <label for="inputUsername" class="sr-only">@Localizer["Username"]</label>
     <InputText id="inputUsername" class="form-control" placeholder="Nom D'utilisateur" autofocus @bind-Value="@loginForm.UserName" />
     <ValidationMessage For="@(() => loginForm.UserName)" />
 
-    <label for="inputPassword" class="sr-only">@localizer["Password"]</label>
+    <label for="inputPassword" class="sr-only">@Localizer["Password"]</label>
     <InputText type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" @bind-Value="@loginForm.Password" />
     <ValidationMessage For="@(() => loginForm.Password)" />
 
-    <input type="checkbox" bind="@loginForm.RememberMe"/><br/>@localizer["Remember"]<br/>
+    <input type="checkbox" bind="@loginForm.RememberMe"/><br/>@Localizer["Remember"]<br/>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">@localizer["Connexion"]</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">@Localizer["Connexion"]</button>
 
     <label class="text-danger">@error</label>
     <NavLink href="/utilisateur/enregistrement">
-        <h6 class="font-weight-normal text-center">@localizer["Register"]</h6>
+        <h6 class="font-weight-normal text-center">@Localizer["Register"]</h6>
     </NavLink>
     <a class="btn btn-primary btn-lg text-center" href="Account/LoginExternal">Google</a>
 </EditForm>
@@ -41,8 +39,8 @@
 		error = null;
 		try
 		{
-			await authStateProvider.Login(loginForm);
-			navigationManager.NavigateTo("", true);
+			await AuthStateProvider.Login(loginForm);
+			NavigationManager.NavigateTo("", true);
 		}
 		catch (Exception ex)
 		{

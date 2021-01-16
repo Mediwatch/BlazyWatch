@@ -1,34 +1,34 @@
 @page "/Admin"
-@inject HttpClient client
-@inject IStringLocalizer<AdminPannel> localizer
+@inject HttpClient Client
+@inject IStringLocalizer<AdminPannel> Localizer
 
 
-@if (users == null) {
-    <p>@localizer["Loading"]</p>
+@if (_users == null) {
+    <p>@Localizer["Loading"]</p>
 } else
 {
     <table class="table">
         <thead>
             <tr>
-                <th>@localizer["Name"]</th>
-                <th>@localizer["Email"]</th>
-                <th>@localizer["Role"]</th>
-                <th>@localizer["Button"]</th>
+                <th>@Localizer["Name"]</th>
+                <th>@Localizer["Email"]</th>
+                <th>@Localizer["Role"]</th>
+                <th>@Localizer["Button"]</th>
             </tr>
         </thead>
         <tbody>
-        @foreach (var f in users){
-            <AdminItem user=f></AdminItem>
+        @foreach (var u in _users){
+            <AdminItem user=u></AdminItem>
         }
         </tbody>
     </table>
 }
 
 @code {
-    private List<UserPublic> users = null;
+    private List<UserPublic> _users = null;
 
     protected override async Task OnInitializedAsync()
     {
-        users = await client.GetFromJsonAsync<IEnumerable<UserPublic>>("/Users/listUser") as List<UserPublic>;
+        _users = await Client.GetFromJsonAsync<IEnumerable<UserPublic>>("/Users/listUser") as List<UserPublic>;
     }
 }

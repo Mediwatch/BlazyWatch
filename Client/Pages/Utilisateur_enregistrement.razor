@@ -1,7 +1,7 @@
 @page "/utilisateur/enregistrement"
-@* @layout LoginLayout *@
-@inject NavigationManager navigationManager
-@inject MediwatchAuthentifiacationProvider authStateProvider
+
+@inject NavigationManager NavigationManager
+@inject MediwatchAuthentifiacationProvider AuthStateProvider
 
 <EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="registerForm">
     <DataAnnotationsValidator/>
@@ -43,8 +43,8 @@
 			error = null;
 			try
 			{
-				await authStateProvider.Register(registerForm);
-				navigationManager.NavigateTo("", true);
+				await AuthStateProvider.Register(registerForm);
+				NavigationManager.NavigateTo("", true);
 			}
 			catch (Exception ex)
 			{

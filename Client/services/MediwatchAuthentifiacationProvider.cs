@@ -13,28 +13,28 @@ namespace Mediwatch.Client.services
 {
     public class MediwatchAuthentifiacationProvider : AuthenticationStateProvider
     {
-        private readonly HttpClient httpClient;
-        private UserInformation userInfoCache;
+        private readonly HttpClient _httpClient;
+        private UserInformation _userInfoCache;
 
         private async Task<UserInformation> GetUserInfo()
         {
-            if (userInfoCache != null && userInfoCache.IsAuthenticated)
-                return userInfoCache;
-            userInfoCache = await httpClient.GetFromJsonAsync<UserInformation>("Account/UserInfo");
-            return userInfoCache;
+            if (_userInfoCache != null && _userInfoCache.IsAuthenticated)
+                return _userInfoCache;
+            _userInfoCache = await _httpClient.GetFromJsonAsync<UserInformation>("Account/UserInfo");
+            return _userInfoCache;
         }
 
         public async Task AddToTutor(string userName)
         {
             var path = "Account/AddTutor?username=" + userName;
-            var result = await httpClient.GetAsync(path);
+            var result = await _httpClient.GetAsync(path);
             if (result.StatusCode == System.Net.HttpStatusCode.BadRequest) throw new Exception(await result.Content.ReadAsStringAsync());
         }
 
         public async Task Login(LoginForm loginForm)
         {
             var stringContent = new StringContent(JsonSerializer.Serialize(loginForm), Encoding.UTF8, "application/json");
-            var result = await httpClient.PostAsync("Account/Login", stringContent);
+            var result = await _httpClient.PostAsync("Account/Login", stringContent);
             if (result.StatusCode == System.Net.HttpStatusCode.BadRequest) throw new Exception(await result.Content.ReadAsStringAsync());
             result.EnsureSuccessStatusCode();
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
@@ -43,7 +43,7 @@ namespace Mediwatch.Client.services
         public async Task LoginExternal()
         {
             var stringContent = new StringContent(JsonSerializer.Serialize("hey"), Encoding.UTF8, "application/json");
-            var result = await httpClient.PostAsync("Account/LoginExternal", stringContent);
+            var result = await _httpClient.PostAsync("Account/LoginExternal", stringContent);
             if (result.StatusCode == System.Net.HttpStatusCode.BadRequest) throw new Exception(await result.Content.ReadAsStringAsync());
             result.EnsureSuccessStatusCode();
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
@@ -51,16 +51,16 @@ namespace Mediwatch.Client.services
 
         public async Task Logout()
         {
-            var result = await httpClient.PostAsync("Account/Logout", null);
+            var result = await _httpClient.PostAsync("Account/Logout", null);
             result.EnsureSuccessStatusCode();
-            userInfoCache = null;
+            _userInfoCache = null;
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 
         public async Task Register(RegisterForm registerForm)
         {
             var stringContent = new StringContent(JsonSerializer.Serialize(registerForm), Encoding.UTF8, "application/json");
-            var result = await httpClient.PostAsync("Account/Register", stringContent);
+            var result = await _httpClient.PostAsync("Account/Register", stringContent);
             if (result.StatusCode == System.Net.HttpStatusCode.BadRequest) throw new Exception(await result.Content.ReadAsStringAsync());
             result.EnsureSuccessStatusCode();
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
@@ -68,7 +68,7 @@ namespace Mediwatch.Client.services
 
         public MediwatchAuthentifiacationProvider(HttpClient httpClient)
         {
-            this.httpClient = httpClient;
+            this._httpClient = httpClient;
         }
 
 
@@ -80,7 +80,7 @@ namespace Mediwatch.Client.services
                 var userInfo = await GetUserInfo();
                 if (userInfo.IsAuthenticated)
                 {
-                    var claims = new[] { new Claim(ClaimTypes.Name, userInfoCache.UserName) }.Concat(userInfoCache.Claims.Select(c => new Claim(c.Key, c.Value)));
+                    var claims = new[] { new Claim(ClaimTypes.Name, _userInfoCache.UserName) }.Concat(_userInfoCache.Claims.Select(c => new Claim(c.Key, c.Value)));
                     identity = new ClaimsIdentity(claims, "Server authentication");
                 }
             }

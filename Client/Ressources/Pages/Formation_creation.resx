@@ -163,6 +163,6 @@
     <value>Vous avez créé avec succès une nouvelle formation.</value>
   </data>
   <data name="SubmitValidation" xml:space="preserve">
-    <value>Valider les formations</value>
+    <value>Valider la formation</value>
   </data>
 </root>

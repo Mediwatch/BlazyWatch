@@ -121,48 +121,48 @@
     <value>Contact :</value>
   </data>
   <data name="CreateNew" xml:space="preserve">
-    <value>Créer une nouvelle formation</value>
+    <value>Create a new formation</value>
   </data>
   <data name="Creation" xml:space="preserve">
-    <value>Création de la formation</value>
+    <value>Creation</value>
   </data>
   <data name="Date" xml:space="preserve">
-    <value>Date de la formation :</value>
+    <value>Duration</value>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Description de la formation :</value>
+    <value>Description</value>
   </data>
   <data name="FName" xml:space="preserve">
-    <value>Nom du formateur :</value>
+    <value>Former</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Retourner à la page d'acceuil</value>
+    <value>Go to home page</value>
   </data>
   <data name="Location" xml:space="preserve">
-    <value>Localisation de la formation :</value>
+    <value>Location</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Nom de la formation :</value>
+    <value>Name</value>
   </data>
   <data name="Next" xml:space="preserve">
-    <value>Suivant</value>
+    <value>Next</value>
   </data>
   <data name="Note" xml:space="preserve">
-    <value>Note : il est possible de modifier les informations à la toute fin, avant la validation de la formation.</value>
+    <value>Note : it is possible to edit all fields at the end, just before the validation of the formation.</value>
   </data>
   <data name="OName" xml:space="preserve">
-    <value>Nom de l'organisme :</value>
+    <value>Organization Name</value>
   </data>
   <data name="Price" xml:space="preserve">
-    <value>Prix de la formation :</value>
+    <value>Price</value>
   </data>
   <data name="Submit" xml:space="preserve">
-    <value>Vérification et validation de la formation</value>
+    <value>Verification and validation</value>
   </data>
   <data name="SubmitSuccess" xml:space="preserve">
-    <value>Vous avez créé avec succès une nouvelle formation.</value>
+    <value>You have successfully created a nex formation.</value>
   </data>
   <data name="SubmitValidation" xml:space="preserve">
-    <value>Valider les formations</value>
+    <value>Validate</value>
   </data>
 </root>

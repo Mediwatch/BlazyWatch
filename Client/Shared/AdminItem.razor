@@ -1,34 +1,33 @@
-@inject HttpClient client
+@inject HttpClient Client
 
 
 <tr>
     <td>
-    <input  @bind="user.Name" >@user.Name</input>
+        <input @bind="user.Name"/>
     </td>
     <td>
-    <input  @bind="user.Email">@user.Email</input>
+        <input @bind="user.Email"/>
     </td>
     <td>
         <select @bind="user.Role">
-        @foreach (var role in roleNames)
-        {
-            
-                    <option value="@role">@role</option>
-                
-        }
+            @foreach (var role in _roleNames)
+            {
+                <option value="@role">@role</option>
+            }
         </select>
     </td>
     <td>
-        <Button @onclick="changeUser">Save</Button>
+        <button @onclick="ChangeUser">Save</button>
     </td>
 </tr>
+
 @code {
-    string[] roleNames = { "Admin", "Tutor", "Member" };
+    string[] _roleNames = { "Admin", "Tutor", "Member" };
+
     [Parameter]
     public UserPublic user {get; set;}
 
-    public async void changeUser() {
-        await client.PostAsJsonAsync("/Users/setInfo/",user);
-    }
-    
+    private async void ChangeUser() {
+        await Client.PostAsJsonAsync("/Users/setInfo/",user);
+    }    
 }

@@ -3,44 +3,47 @@
 @using BlazingEditor.BasicBlazeEditComponent;
 @using BlazingBlog.Shared
 
-
+@inject IJSRuntime JsRuntime
 @inject HttpClient Http
 
 
-@if(article != null) {
-    <h1 class="article-viewer-title">@article.Title</h1>
+@if(_article != null) {
+    <h1 class="article-viewer-title">@_article.Title</h1>
 }
 
-@if (render != null)
+@if (_render != null)
 {
-    <BlazeEditViewer @bind-Render="render">
+    <BlazeEditViewer @bind-Render="_render">
         <BlazEditParagraph Class="article-viewer-paragraph"/>
         <BlazEditImage ClassImageContainer="article-viewer-image-container" ClassImage="article-viewer-image"/>
         <BlazeEditHeader/>
-        <BlazEditSpacer Content=@spacer/>
+        <BlazEditSpacer Content='<div class=\"spacer\"></div>'></BlazEditSpacer>
     </BlazeEditViewer>
 }
 
 @code {
-    System.Uri url;
-    Article article;
+    Uri _url;
+    Article _article;
 
     [Parameter]
     public string articleName {get;set;}
-    public BlazingRender render = null;
 
-    public string spacer = "<div class=\"spacer\"></div>";
+    private BlazingRender _render = null;
 
     protected override async Task OnAfterRenderAsync(bool firstRender) {
-        if(firstRender) {
-           
-                Console.WriteLine(articleName);
-                article = await Http.GetFromJsonAsync<Article>($"api/Articles/GetArticle?name={articleName}");
-                //Console.WriteLine(article.Content);
-                render = JsonConvert.DeserializeObject<BlazingRender>(article.Content);
-            
-            this.StateHasChanged();
-        }
+        if(firstRender && articleName != "NO_ID") {
+            Console.WriteLine(articleName);
+            _article = await Http.GetFromJsonAsync<Article>($"api/Articles/GetArticle?name={articleName}");
+            //Console.WriteLine(article.Content)
+            await JsRuntime.InvokeVoidAsync("display", _article);
+            if (_article != null)
+            {
+                _render = JsonConvert.DeserializeObject<BlazingRender>(_article.Content);
+                if (_render != null)
+                {
+                    StateHasChanged();
+                }
+            }
         }
     }
 }

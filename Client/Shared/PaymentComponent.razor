@@ -1,7 +1,7 @@
 @using Mediwatch.Shared
-@inject NavigationManager navigationManager
+@inject NavigationManager NavigationManager
 @inject HttpClient Http
-@inject IJSRuntime JSRuntime
+@inject IJSRuntime JsRuntime
 
 
 <div id="paypal-button-container"></div>
@@ -9,25 +9,25 @@
 @code {
     [Parameter] 
     public string price {get;set;}
-    private static Action action;
+    private static Action _action;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            await JSRuntime.InvokeVoidAsync("init_paypal", price);
-            action += UpdateMessage;
+            await JsRuntime.InvokeVoidAsync("init_paypal", price);
+            _action += UpdateMessage;
         }
     }
 
     private void UpdateMessage()
     {
-        navigationManager.NavigateTo("/");
+        NavigationManager.NavigateTo("/");
     }
 
     [JSInvokable]
     public static void OnPaypalDone()
     {
-        action();
+        _action();
     }
 
 

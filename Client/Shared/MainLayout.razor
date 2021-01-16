@@ -1,30 +1,21 @@
 ﻿@inherits LayoutComponentBase
-@inject HttpClient client
-@inject IJSRuntime JSRuntime
-@inject MediwatchAuthentifiacationProvider authStateProvider
+@inject HttpClient Client
+@inject IJSRuntime JsRuntime
+@inject MediwatchAuthentifiacationProvider AuthStateProvider
 
 
 <header class="top-bar navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#"> <img src="./ressources/MediwatchLogoWhite.svg" alt="mediwatch logo"
             width="25px" />ediwatch </a>
 
-    <!-- Milieu ? -->
-    <!--<div class="input-group md-form form-sm form-1 ml-auto">
-        <div class="input-group-prepend">
-            <span class="input-group-text pink lighten-3"><i class="fas fa-search text-white"></i></span>
-        </div>
-        <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
-    </div>-->
-
-    <!-- Droite ? -->
     <div class="navbar-nav-scroll ml-auto d-none d-sm-block">
         <ul class="navbar-nav flex-row">
             <li class="px-3 nav-item dropdown">
-                @if (info == null || ! info.IsAuthenticated) {
+                @if (Info == null || ! Info.IsAuthenticated) {
                     <a href="/utilisateur/connexion">Se connecter</a>
-                } else if (info.IsAuthenticated) {
+                } else if (Info.IsAuthenticated) {
                     <DropDownMenu DropDownButtonClass="btn">
-                        <DropDownButton><h3>Bienvenue @info.UserName</h3></DropDownButton>
+                        <DropDownButton><h3>Bienvenue @Info.UserName</h3></DropDownButton>
                         <Content>
                             <a class="dropdown-item selected reload" href="/utilisateur/moi">Mes informations</a>
                             <br>
@@ -41,7 +32,7 @@
                             </AuthorizeView>
                             <a class="dropdown-item selected reload" href="/formations/recherche">Chercher une formation</a>
                             <hr>
-                            <a class="dropdown-item selected reload" href="#" @onclick="logout">Se déconnecter</a>
+                            <a class="dropdown-item selected reload" href="#" @onclick="Logout">Se déconnecter</a>
                         </Content>
                     </DropDownMenu>    
                 }
@@ -59,125 +50,19 @@
         </div>
     </div>
 </div>
-<!--
-<header class="top-bar navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"> <img src="./ressources/MediwatchLogoWhite.svg" alt="mediwatch logo" width="25px" />ediwatch </a>
-    <div class="input-group md-form form-sm form-1 ml-auto">
-        <div class="input-group-prepend">
-            <span class="input-group-text pink lighten-3"><i class="fas fa-search text-white"></i></span>
-        </div>
-        <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
-    </div>    
-    <div class="navbar-nav-scroll ml-auto d-none d-sm-block">
-        <ul class="navbar-nav flex-row">
-            <li class="px-3 nav-item">
-                <NavLink class="nav-link" href="fetchdata">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span>
-                </NavLink>
-            </li>
-            <li class="px-3 nav-item dropdown">
-                <DropDownMenu DropDownButtonClass="btn">
-                    <DropDownButton><img class="profile-pic" src="ressources/koko_profile.jpg"/></DropDownButton>
-                    <ReturnButton>&lt; Retour</ReturnButton>
-                    <Content>
-                        <DropDownItemNested>
-                            <Title>
-                                Counter &gt;
-                            </Title>
-                            <Nested>
-                                <a class="dropdown-item selected">Current count: 64</a>
-                                <a class="dropdown-item selected">Current count: 42</a>
-                            </Nested>
-                        </DropDownItemNested>
-                    </Content>
-                </DropDownMenu>
-            </li>
-        </ul>
-    </div>
-
-    <button class="btn justify-content-sm-center button" @onclick="ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</header>
-
-<div class="container-fluid">
-    <div class="row flex-xl-nowrap">
-        <div class="order-md-2 col-12 col-md-6 col-xl-4 sidebar @NavMenuCssClass">
-            <ul class="">
-                <li class=" active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
-            <CalendarWidget Month=@localDateTime.Month Year=localDateTime.Year/>
-        </div>
-
-        <div class="main order-md-1">
-            <div class="top-row px-4">
-                <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
-            </div>
-
-            <div class="content px-4">
-                @Body
-            </div>
-        </div>
-    </div>
-</div>
-
-<nav class="navbar position-sticky fixed-bottom navbar-dark bootom-bar d-block d-sm-none">
-  <ul class="navbar-nav flex-row">
-            <li class="px-3 nav-item">
-                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                    <span class="oi oi-home" aria-hidden="true"></span> Home
-                </NavLink>
-            </li>
-            <li class="px-3 nav-item">
-                <NavLink class="nav-link" href="counter">
-                    <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-            </li>
-            <li class="px-3 nav-item">
-                <NavLink class="nav-link" href="fetchdata">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-                </NavLink>
-            </li>
-            <img class="profile-pic" src="ressources/koko_profile.jpg"/>
-        </ul>
-</nav>
 
 @code {
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-    private DateTime localDateTime = DateTime.Now;
-
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-}
--->
-@code {
-    public UserInformation info = null;
+    public UserInformation Info = null;
     protected override async Task OnInitializedAsync()
     {
-        info = await client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
+        Info = await Client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
         //await JSRuntime.InvokeVoidAsync("display", info);   
     }
 
-    private async void logout()
+    private async void Logout()
     {
-        await authStateProvider.Logout();
-        info = await client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
+        await AuthStateProvider.Logout();
+        Info = await Client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
         this.StateHasChanged();
     }
 }

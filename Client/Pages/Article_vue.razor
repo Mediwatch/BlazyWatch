@@ -2,43 +2,48 @@
 
 @using Microsoft.AspNetCore.WebUtilities;
 @using Newtonsoft.Json;
-@using BlazingEditor.BasicBlazeEditComponent;
 @using BlazingBlog.Shared
 
 
 @inject HttpClient Http
-@inject NavigationManager navigationManager
+@inject IJSRuntime JsRuntime
+@inject NavigationManager NavigationManager
 
 
-@if(article != null) {
-    <h1 class="article-viewer-title">@article.Title</h1>
+@if(_article != null) {
+    <h1 class="article-viewer-title">@_article.Title</h1>
 }
 
-@if (render != null)
+@if (_render != null)
 {
-    <BlazeEditViewer @bind-Render="render">
+    <BlazeEditViewer @bind-Render="_render">
         <BlazEditParagraph Class="article-viewer-paragraph"/>
         <BlazEditImage ClassImageContainer="article-viewer-image-container" ClassImage="article-viewer-image"/>
         <BlazeEditHeader/>
-        <BlazEditSpacer Content=@spacer/>
+        <BlazEditSpacer Content=@Spacer></BlazEditSpacer>
     </BlazeEditViewer>
 }
 
 @code {
-    System.Uri url;
-    Article article;
-    public BlazingRender render = null;
+    Uri _url;
+    Article _article;
+    private BlazingRender _render = null;
 
-    public string spacer = "<div class=\"spacer\"></div>";
+    private const string Spacer = "<div class=\"spacer\"></div>";
 
     protected override async Task OnAfterRenderAsync(bool firstRender) {
         if(firstRender) {
-            url = navigationManager.ToAbsoluteUri(navigationManager.Uri);
-            if (QueryHelpers.ParseQuery(url.Query).TryGetValue("Name", out var articleName)){
+            _url = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+            if (QueryHelpers.ParseQuery(_url.Query).TryGetValue("Name", out var articleName)){
                 
-                article = await Http.GetFromJsonAsync<Article>($"api/Articles/GetArticle?name={articleName}");
-                Console.WriteLine(article.Content);
-                render = JsonConvert.DeserializeObject<BlazingRender>(article.Content);
+                _article = await Http.GetFromJsonAsync<Article>($"api/Articles/GetArticle?name={articleName}");
+                Console.WriteLine(_article);
+                await JsRuntime.InvokeVoidAsync("display", _article);
+                if (_article != null)
+                {
+                    Console.WriteLine(_article.Content);
+                    _render = JsonConvert.DeserializeObject<BlazingRender>(_article.Content);
+                }
             }
             this.StateHasChanged();
         }

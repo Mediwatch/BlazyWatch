@@ -2,25 +2,25 @@
 
 @inject HttpClient Http
 @using BlazingBlog.Shared
-@inject IStringLocalizer<Article_creation> localizer
+@inject IStringLocalizer<Article_creation> Localizer
 
-<h1>@localizer["Creation"]</h1>
+<h1>@Localizer["Creation"]</h1>
 
 <EditForm class="form-article" OnValidSubmit="OnSubmit" Model="article">
     <DataAnnotationsValidator />
-    <label for="inputTitle">@localizer["Title"]</label>
+    <label for="inputTitle">@Localizer["Title"]</label>
         <InputText id="inputTitle" class="form-control" placeholder="Title" autofocus @bind-Value="@article.Title" />
     <ValidationMessage For="@(() => article.Title)"/>
     
-    <label for="inputUrlImage">@localizer["UrlImage"]</label>
+    <label for="inputUrlImage">@Localizer["UrlImage"]</label>
         <InputText id="inputUrlImage" class="form-control" placeholder="UrlImage" autofocus @bind-Value="@article.PreviewImageURL" />
     <ValidationMessage For="@(() => article.PreviewImageURL)"/>
 
-    <label for="inputPreviewTitle">@localizer["Preview"]</label>
+    <label for="inputPreviewTitle">@Localizer["Preview"]</label>
         <InputText id="inputPreviewTitle" class="form-control" placeholder="PreviewTitle" autofocus @bind-Value="@article.PreviewTitle" />
     <ValidationMessage For="@(() => article.PreviewTitle)"/>
 
-    <label for="inputParagraph">@localizer["Paragraph"]</label>
+    <label for="inputParagraph">@Localizer["Paragraph"]</label>
         <InputTextArea id="inputParagraph" class="form-control" placeholder="Paragraph" autofocus @bind-Value="@article.PreviewParagraph" />
     <ValidationMessage For="@(() => article.PreviewParagraph)"/>
  
@@ -28,12 +28,13 @@
         <BlazEditor returnFunction="ValidateContent"/>
     </div>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">@localizer["Add"]</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">@Localizer["Add"]</button>
 
 </EditForm>
 
 @code {
-    public Article article {get;set;} = new Article{Tags = new List<string>()};
+    private Article article {get;set;} = new Article{Tags = new List<string>()};
+    
     string ValidateContent(string content)
     {
         return article.Content = content;

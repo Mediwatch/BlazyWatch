@@ -1,29 +1,28 @@
 @page "/formations/creation"
-@using Mediwatch.Shared
 @using BlazingBlog.Shared
-@inject IJSRuntime JSRuntime;
+@inject IJSRuntime JsRuntime;
 @inject HttpClient Http;
 @inject NavigationManager NavManager
-@inject IStringLocalizer<Formation_creation> localizer
+@inject IStringLocalizer<Formation_creation> Localizer
 
 <!--<AuthorizeView Roles="Admin, Tutor">-->
 <div>
-    <h1>@localizer["Creation"]</h1>
+    <h1>@Localizer["Creation"]</h1>
 
-    <p>@localizer["Note"]</p>
-    @if (validation == 0 || validation == 3)
+    <p>@Localizer["Note"]</p>
+    @if (_validation == 0 || _validation == 3)
     {
         <EditForm Model="@formTab1" OnValidSubmit="@PostFormation">
             <DataAnnotationsValidator />
             <table>
             <tr>
-                <td><label for="name">@localizer["Name"]</label></td>
+                <td><label for="Name">@Localizer["Name"]</label></td>
                 <td>
                     <InputText id="Name" placeholder="Veuillez entrer un nom." @bind-Value="formTab1.Name" />
                 </td>
             </tr>
             <tr>
-                <td><label for="">@localizer["Date"]</label></td>
+                <td><label for="">@Localizer["Date"]</label></td>
                 <td>
                     <InputDate id="startDate" @bind-Value="formTab1.StartDate" Min="2020-01-01" />
                     <p style="display: inline;">~</p>
@@ -31,154 +30,162 @@
                 </td>
             </tr>
             <tr>
-                <td><label for="Description">@localizer["Description"]</label></td>
+                <td><label for="Description">@Localizer["Description"]</label></td>
                 <td>
                     <InputTextArea id="Description" placeholder="Veuillez entrer une description."
                         @bind-Value="formTab1.Description" Rows="10" Cols="50"></InputTextArea>
                 </td>
             </tr>
             </table>
-            @if (validation == 0)
+            @if (_validation == 0)
             {
-                <button type="submit">@localizer["Next"]</button>
+                <button type="submit">@Localizer["Next"]</button>
             }
         </EditForm>
     }
 
-    @if (validation == 1 || validation == 3)
+    @if (_validation == 1 || _validation == 3)
     {
         <EditForm Model="@formTab2" OnValidSubmit="@PostFormation">
             <DataAnnotationsValidator />
             <table>
             <tr>
-                <td><label for="Former">@localizer["FName"]</label></td>
+                <td><label for="Former">@Localizer["FName"]</label></td>
                 <td>
                     <InputText id="Former" placeholder="Veuillez entrer un nom." @bind-Value="formTab2.Former" />
                 </td>
             </tr>
             <tr>
-                <td><label for="Price">@localizer["Price"]</label></td>
+                <td><label for="Price">@Localizer["Price"]</label></td>
                 <td>
                     <InputNumber id="Price" @bind-Value="formTab2.Price" />
                 </td>
             </tr>
             <tr>
-                <td><label for="OrganizationName">@localizer["OName"]</label></td>
+                <td><label for="OrganizationName">@Localizer["OName"]</label></td>
                 <td>
                     <InputText id="OrganizationName" placeholder="Veuillez entrer le nom de l'organisme."
                         @bind-Value="formTab2.OrganizationName" />
                 </td>
             </tr>
             </table>
-            @if (validation == 1)
+            @if (_validation == 1)
             {
-                <button type="submit">@localizer["Next"]</button>
+                <button type="submit">@Localizer["Next"]</button>
             }
         </EditForm>
     }
 
-    @if (validation == 2 || validation == 3)
+    @if (_validation == 2 || _validation == 3)
     {
         <EditForm Model="@formTab3" OnValidSubmit="@PostFormation">
             <DataAnnotationsValidator />
             <table>
             <tr>
-                <td><label for="Contact">@localizer["Contact"]</label></td>
+                <td><label for="Contact">@Localizer["Contact"]</label></td>
                 <td>
                     <InputText id="Contact" placeholder="Veuillez entrer un contact." @bind-Value="formTab3.Contact" />
                 </td>
             </tr>
             <tr>
-                <td><label for="Location">@localizer["Location"]</label></td>
+                <td><label for="Location">@Localizer["Location"]</label></td>
                 <td>
                     <InputText id="Location" placeholder="Veuillez entrer la localisation de la formation."
                         @bind-Value="formTab3.Location" />
                 </td>
             </tr>
             </table>
-            @if (validation == 2)
+            @if (_validation == 2)
             {
-                <button type="submit">@localizer["Submit"]</button>
+                <button type="submit">@Localizer["Submit"]</button>
             }
         </EditForm>
     }
 
-    @if (validation == 3)
+    @if (_validation == 3)
     {
-        <button type="submit" @onclick=@PostFormation>@localizer["SubmitValidation"]</button>
+        <button type="submit" @onclick=@NoArticle>Valider la formation</button> 
+        <button type="submit" @onclick=@PostFormation>Créer un article et valider la formation</button>
     }
 
-    @if(validation == 4) {
-        <EditForm class="form-article" OnValidSubmit="OnSubmit" Model="article">
+    @if(_validation == 4) {
+        <EditForm class="form-article" OnValidSubmit="OnSubmit" Model="_article">
     <DataAnnotationsValidator />
-    <label for="inputTitle">@localizer["Title"]</label>
-        <InputText id="inputTitle" class="form-control" placeholder="Title" autofocus @bind-Value="@article.Title" />
-    <ValidationMessage For="@(() => article.Title)"/>
+    <label for="inputTitle">@Localizer["Title"]</label>
+        <InputText id="inputTitle" class="form-control" placeholder="Title" autofocus @bind-Value="@_article.Title" />
+    <ValidationMessage For="@(() => _article.Title)"/>
     
-    <label for="inputUrlImage">@localizer["UrlImage"]</label>
-        <InputText id="inputUrlImage" class="form-control" placeholder="UrlImage" autofocus @bind-Value="@article.PreviewImageURL" />
-    <ValidationMessage For="@(() => article.PreviewImageURL)"/>
+    <label for="inputUrlImage">@Localizer["UrlImage"]</label>
+        <InputText id="inputUrlImage" class="form-control" placeholder="UrlImage" autofocus @bind-Value="@_article.PreviewImageURL" />
+    <ValidationMessage For="@(() => _article.PreviewImageURL)"/>
 
-    <label for="inputPreviewTitle">@localizer["Preview"]</label>
-        <InputText id="inputPreviewTitle" class="form-control" placeholder="PreviewTitle" autofocus @bind-Value="@article.PreviewTitle" />
-    <ValidationMessage For="@(() => article.PreviewTitle)"/>
+    <label for="inputPreviewTitle">@Localizer["Preview"]</label>
+        <InputText id="inputPreviewTitle" class="form-control" placeholder="PreviewTitle" autofocus @bind-Value="@_article.PreviewTitle" />
+    <ValidationMessage For="@(() => _article.PreviewTitle)"/>
 
-    <label for="inputParagraph">@localizer["Paragraph"]</label>
-        <InputTextArea id="inputParagraph" class="form-control" placeholder="Paragraph" autofocus @bind-Value="@article.PreviewParagraph" />
-    <ValidationMessage For="@(() => article.PreviewParagraph)"/>
+    <label for="inputParagraph">@Localizer["Paragraph"]</label>
+        <InputTextArea id="inputParagraph" class="form-control" placeholder="Paragraph" autofocus @bind-Value="@_article.PreviewParagraph" />
+    <ValidationMessage For="@(() => _article.PreviewParagraph)"/>
  
     <div class="blazing-editor">
         <BlazEditor returnFunction="ValidateContent"/>
     </div>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">@localizer["Add"]</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">@Localizer["Add"]</button>
     
     </EditForm>
     }
 
-    @if (validation == 5)
+    @if (_validation == 5)
     {
-        <p>@localizer["SubmitSuccess"]</p>
-        <button type="submit" @onclick=@PostFormation>@localizer["CreateNew"]</button>
-        <button type="submit" @onclick=@GoBack>@localizer["Home"]</button>
+        <p>@Localizer["SubmitSuccess"]</p>
+        <button type="submit" @onclick=@PostFormation>@Localizer["CreateNew"]</button>
+        <button type="submit" @onclick=@GoBack>@Localizer["Home"]</button>
     }
 </div>
 
 <!--</AuthorizeView>-->
 @code
 {
-    private FormationTemplateTab1 formTab1 { get; set; } = new FormationTemplateTab1();
-    private FormationTemplateTab2 formTab2 { get; set; } = new FormationTemplateTab2();
-    private FormationTemplateTab3 formTab3 { get; set; } = new FormationTemplateTab3();
-    private formation form { get; set; } = new formation();
-    private int validation = 0;
+    public FormationTemplateTab1 formTab1 = new FormationTemplateTab1();
+    public FormationTemplateTab2 formTab2 = new FormationTemplateTab2();
+    public FormationTemplateTab3 formTab3 = new FormationTemplateTab3();
+    private formation form = new formation();
+    private int _validation = 0;
 
-    private string id;
+    private string _id = "NO_ID";
 
-    public Article article {get;set;} = new Article{Tags = new List<string>()};
+    public Article _article = new Article();
+    
     string ValidateContent(string content)
     {
-        return article.Content = content;
+        return _article.Content = content;
     }
     
     async Task OnSubmit() {
-        var test = (await Http.PostAsJsonAsync("api/Articles/CreateArticle", article));
-        id = (await test.Content.ReadFromJsonAsync<System.Guid>()).ToString();
-        validation = 4;
+        var test = (await Http.PostAsJsonAsync("api/Articles/CreateArticle", _article));
+        _id = (await test.Content.ReadFromJsonAsync<Guid>()).ToString();
+        _validation = 4;
         PostFormation();
     }
 
     protected override async Task OnInitializedAsync()
     {
-        await JSRuntime.InvokeVoidAsync("display", validation);
-        validation = 0;
+        await JsRuntime.InvokeVoidAsync("display", _validation);
+        _validation = 0;
     }
 
+    private void NoArticle()
+    {
+        _validation++;
+        PostFormation();
+    }
+    
     private async void PostFormation()
     {
-        validation++;
+        _validation++;
 
-        if (validation == 5)
+        if (_validation == 5)
         {
             form.Name = formTab1.Name;
             form.StartDate = formTab1.StartDate;
@@ -189,19 +196,15 @@
             form.Former = formTab2.Former;
             form.Location = formTab3.Location;
             form.Contact = formTab3.Contact;
-            form.ArticleID = id;
+            form.ArticleID = _id;
             await Http.PostAsJsonAsync("Formation", form);
-        }
-
-        if (validation == 5)
-        {
-            validation = 0;
+            _validation = 0;
         }
     }
 
     private void GoBack()
     {
-        validation = 0;
+        _validation = 0;
         NavManager.NavigateTo("/");
     }
 }

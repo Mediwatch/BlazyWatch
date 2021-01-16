@@ -1,22 +1,22 @@
 @page "/utilisateur/moi"
 
-@inject HttpClient client
-@inject IJSRuntime JSRuntime
+@inject HttpClient Client
+@inject IJSRuntime JsRuntime
 
 <h2>Tableau de bord</h2>
 
 <h4>Nom d'utilisateur</h4>
-@if (info == null) {
+@if (_info == null) {
     <p>En cours d'acquisition...<div class="loading-bar"></div></p>
 } else {
-    <p>@info.Name</p>
-    <p>@info.Email</p>
+    <p>@_info.Name</p>
+    <p>@_info.Email</p>
 }
 
 @code {
-    private UserPublic info = null;
+    private UserPublic _info = null;
     protected override async Task OnInitializedAsync()
     {
-        info = await client.GetFromJsonAsync<UserPublic>("Users/info");
+        _info = await Client.GetFromJsonAsync<UserPublic>("Users/info");
     }
 }

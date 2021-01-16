@@ -1,24 +1,24 @@
 ﻿@page "/"
-@inject HttpClient client
-@inject IJSRuntime JSRuntime
-@inject Microsoft.Extensions.Localization.IStringLocalizer<Index> localizer
+@inject HttpClient Client
+@inject IJSRuntime JsRuntime
+@inject IStringLocalizer<Index> Localizer
 
 <main>
-    <h1>@localizer["WelcomeMessage"]</h1>
+    <h1>@Localizer["WelcomeMessage"]</h1>
     <div class="online-formations">
         <div class="text-box">
-            <h3>@localizer["FormationsInvite"]</h3>
+            <h3>@Localizer["FormationsInvite"]</h3>
         </div>
         <button class="buttons">Formations en ligne 1</button>
         <button class="buttons">Formations en ligne 2</button>
     </div>
     <SharedComponent.LocalizationButton.LocalizationButton />
-    <h2>@localizer["Popular"]</h2>
+    <h2>@Localizer["Popular"]</h2>
     <div class="formations-list">
-        @if (formations == null) {
-            <p>@localizer["Unavaillable"]</p>
+        @if (_formations == null) {
+            <p>@Localizer["Unavaillable"]</p>
         } else {
-            @foreach (var f in formations)
+            @foreach (var f in _formations)
             {
                 <div class="formation" @onclick="@(e => affichage_formation(@f.id))">
                     <div class="formation-img-div">
@@ -39,16 +39,16 @@
 
 @code {
 
-    private List<formation> formations = null;
+    private List<formation> _formations = null;
 
     protected override async Task OnInitializedAsync()
     {
-        formations = await client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
-        await JSRuntime.InvokeVoidAsync("display", await client.GetFromJsonAsync<IEnumerable<formation>>("Formation"));
+        _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
+        await JsRuntime.InvokeVoidAsync("display", await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation"));
     }
 
     private void affichage_formation(int id)
     {
-        JSRuntime.InvokeAsync<object>("open", "/formations/" + id.ToString(), "_blank");
+        JsRuntime.InvokeAsync<object>("open", "/formations/" + id.ToString(), "_blank");
     }
 }

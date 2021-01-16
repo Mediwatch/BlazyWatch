@@ -1,11 +1,11 @@
 @page "/formations/{id}"
 
-@inject HttpClient client
-@inject IJSRuntime JSRuntime
+@inject HttpClient Client
+@inject IJSRuntime JsRuntime
 
-@if (f == null)
+@if (_formation == null)
 {
-    @if (!erreur)
+    @if (!_erreur)
     {
         <p>En attente d'acquisition des informations de la formation...</p>
         <div class="loading-bar"></div>
@@ -14,52 +14,40 @@
     }
     
 } else {
-    <h1>@f.Name</h1>
-    <h2>Du @f.StartDate au @f.EndDate, à @f.Location</h2>
-    <hr>
-    <p>Formation animée par @f.Former, appartenant à @f.OrganizationName</p>
-    <br>
-    <h3>Description</h3>
-    <p>@f.Description</p>
-    <br>
-    <h3>Informations utiles</h3>
-    <p>S'adresse surtout pour @f.Target</p>
-    <br>
-    <p>Prix de la formation : @f.Price €</p>
-    <hr>
+    <FormationItemView f=_formation></FormationItemView>
     <form>
-        @if (info == null || !info.IsAuthenticated)
+        @if (_info == null || !_info.IsAuthenticated)
         {
             <input type="submit" disabled value="S'inscrire à la formation"/>
         } else {
-            <input type="submit" value="S'inscrire à la formation" @oninput=@registration/>
+            <input type="submit" value="S'inscrire à la formation" @oninput=@Registration/>
         }
     </form>
 
-    <ArticleViewer articleName=@f.ArticleID></ArticleViewer>
+    <ArticleViewer articleName=@_formation.ArticleID></ArticleViewer>
 }
 
 @code {
     [Parameter]
     public String Id {get; set;}
 
-    public formation f = null;
+    private formation _formation = null;
 
-    public UserInformation info = null;
+    private UserInformation _info = null;
 
-    public bool erreur = false;
+    private bool _erreur = false;
 
     protected override async Task OnInitializedAsync()
     {
         try {
-            info = await client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
-            f = await client.GetFromJsonAsync<formation>("Formation/" + Id);
+            _info = await Client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
+            _formation = await Client.GetFromJsonAsync<formation>("Formation/" + Id);
         } catch {
-            erreur = true;
+            _erreur = true;
         }
     }
 
-    private async Task registration()
+    private async Task Registration()
     {
         // Enregistrer ici l'utilisateur à la formation !
         //JSRuntime.InvokeVoidAsync("display", e);

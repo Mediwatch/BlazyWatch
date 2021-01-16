@@ -1,0 +1,20 @@
+<div class="formation-item">
+    <h1>@f.Name</h1>
+    <h2>Du @f.StartDate au @f.EndDate, à @f.Location</h2>
+    <hr>
+    <p>Formation animée par @f.Former, appartenant à @f.OrganizationName</p>
+    <br>
+    <h3>Description</h3>
+    <p>@f.Description</p>
+    <br>
+    <h3>Informations utiles</h3>
+    <p>S'adresse surtout pour @f.Target</p>
+    <br>
+    <p>Prix de la formation : @f.Price €</p>
+    <hr>
+</div>
+
+@code {
+    [Parameter]
+    public formation f {get; set;}
+}
