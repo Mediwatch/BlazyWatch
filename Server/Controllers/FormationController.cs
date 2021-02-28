@@ -109,5 +109,6 @@ namespace Mediwatch.Server.Controllers
             return _context.formations.Any(e => e.id == id);
         }
 
+
     }
 }
