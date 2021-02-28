@@ -1,32 +1,34 @@
-\hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller}{}\section{Référence de la classe Mediwatch.\+Server.\+Controllers.\+Account\+Controller}
-\label{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller}\index{Mediwatch.\+Server.\+Controllers.\+Account\+Controller@{Mediwatch.\+Server.\+Controllers.\+Account\+Controller}}
+\hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller}{}\doxysection{Référence de la classe Mediwatch.\+Server.\+Controllers.\+Account\+Controller}
+\label{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller}\index{Mediwatch.Server.Controllers.AccountController@{Mediwatch.Server.Controllers.AccountController}}
 
 
-Graphe d\textquotesingle{}héritage de Mediwatch.\+Server.\+Controllers.\+Account\+Controller\+:\nopagebreak
+Graphe d\textquotesingle{}héritage de Mediwatch.\+Server.\+Controllers.\+Account\+Controller\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=229pt]{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller__inherit__graph}
+\includegraphics[width=243pt]{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Account\+Controller\+:\nopagebreak
+Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Account\+Controller\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=229pt]{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller__coll__graph}
+\includegraphics[width=243pt]{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller__coll__graph}
 \end{center}
 \end{figure}
-\subsection*{Fonctions membres publiques}
+\doxysubsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a68b985c608e83237a0b41202149d7cf7}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a68b985c608e83237a0b41202149d7cf7}} 
 {\bfseries Account\+Controller} (Sign\+In\+Manager$<$ Identity\+User$<$ Guid $>$$>$ sign\+In\+Manager, User\+Manager$<$ Identity\+User$<$ Guid $>$$>$ user\+Manager, Role\+Manager$<$ Identity\+Role$<$ Guid $>$$>$ role\+Manager)
 \item 
-async Task$<$ I\+Action\+Result $>$ \hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0eca1869d875e9cdfbc6e9bc4540ae41}{Login} (Login\+Form login)
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0eca1869d875e9cdfbc6e9bc4540ae41}{Login}} (Login\+Form login)
 \begin{DoxyCompactList}\small\item\em Log the user to his account A\+PI P\+O\+ST\+: /\+Account/\+Login \end{DoxyCompactList}\item 
-async Task$<$ I\+Action\+Result $>$ \hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a6aadf8689cfa5cdc1485f7fb0fabc073}{Add\+Tutor} (string id)
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a6aadf8689cfa5cdc1485f7fb0fabc073}{Add\+Tutor}} (string id)
 \begin{DoxyCompactList}\small\item\em Add tuttor when you\textquotesingle{}re admin A\+PI G\+ET\+: /\+Account/\+Add\+Tutor \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a177b908ddf5a0c4ec5e3269e4cbcb252}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a177b908ddf5a0c4ec5e3269e4cbcb252}} 
 async Task$<$ I\+Action\+Result $>$ {\bfseries Logout} ()
@@ -37,17 +39,17 @@ I\+Action\+Result {\bfseries Login\+External} (string hey)
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_ab3cb65a34f1dd5de150ebf5b956ff414}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_ab3cb65a34f1dd5de150ebf5b956ff414}} 
 async Task$<$ I\+Action\+Result $>$ {\bfseries Login\+Ext\+Callback} (string return\+Url, string remote\+Error=null)
 \item 
-async Task$<$ I\+Action\+Result $>$ \hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0a0cf410c96bdacc714cb77c1d52861d}{Register} (Register\+Form register)
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0a0cf410c96bdacc714cb77c1d52861d}{Register}} (Register\+Form register)
 \begin{DoxyCompactList}\small\item\em Register a user A\+PI P\+O\+ST /\+Account/\+Register \end{DoxyCompactList}\item 
-User\+Information \hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a35118ac6cb00d088863119bf4cbdc30f}{User\+Info} ()
+User\+Information \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a35118ac6cb00d088863119bf4cbdc30f}{User\+Info}} ()
 \begin{DoxyCompactList}\small\item\em Give basic information about the connected user with cookie \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Documentation des fonctions membres}
+\doxysubsection{Documentation des fonctions membres}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a6aadf8689cfa5cdc1485f7fb0fabc073}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a6aadf8689cfa5cdc1485f7fb0fabc073}} 
-\index{Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller}!Add\+Tutor@{Add\+Tutor}}
-\index{Add\+Tutor@{Add\+Tutor}!Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller}}
-\subsubsection{\texorpdfstring{Add\+Tutor()}{AddTutor()}}
+\index{Mediwatch.Server.Controllers.AccountController@{Mediwatch.Server.Controllers.AccountController}!AddTutor@{AddTutor}}
+\index{AddTutor@{AddTutor}!Mediwatch.Server.Controllers.AccountController@{Mediwatch.Server.Controllers.AccountController}}
+\doxysubsubsection{\texorpdfstring{AddTutor()}{AddTutor()}}
 {\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Mediwatch.\+Server.\+Controllers.\+Account\+Controller.\+Add\+Tutor (\begin{DoxyParamCaption}\item[{string}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
@@ -63,9 +65,9 @@ Add tuttor when you\textquotesingle{}re admin A\+PI G\+ET\+: /\+Account/\+Add\+T
 ok 200 when it work
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0eca1869d875e9cdfbc6e9bc4540ae41}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0eca1869d875e9cdfbc6e9bc4540ae41}} 
-\index{Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller}!Login@{Login}}
-\index{Login@{Login}!Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller}}
-\subsubsection{\texorpdfstring{Login()}{Login()}}
+\index{Mediwatch.Server.Controllers.AccountController@{Mediwatch.Server.Controllers.AccountController}!Login@{Login}}
+\index{Login@{Login}!Mediwatch.Server.Controllers.AccountController@{Mediwatch.Server.Controllers.AccountController}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}}
 {\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Mediwatch.\+Server.\+Controllers.\+Account\+Controller.\+Login (\begin{DoxyParamCaption}\item[{Login\+Form}]{login }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
@@ -81,9 +83,9 @@ Log the user to his account A\+PI P\+O\+ST\+: /\+Account/\+Login
 Ok 200 when it work with Auth cookie and error in other case with the associate error
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0a0cf410c96bdacc714cb77c1d52861d}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0a0cf410c96bdacc714cb77c1d52861d}} 
-\index{Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller}!Register@{Register}}
-\index{Register@{Register}!Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller}}
-\subsubsection{\texorpdfstring{Register()}{Register()}}
+\index{Mediwatch.Server.Controllers.AccountController@{Mediwatch.Server.Controllers.AccountController}!Register@{Register}}
+\index{Register@{Register}!Mediwatch.Server.Controllers.AccountController@{Mediwatch.Server.Controllers.AccountController}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
 {\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Mediwatch.\+Server.\+Controllers.\+Account\+Controller.\+Register (\begin{DoxyParamCaption}\item[{Register\+Form}]{register }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
@@ -99,9 +101,9 @@ Register a user A\+PI P\+O\+ST /\+Account/\+Register
 OK 200 when it work
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a35118ac6cb00d088863119bf4cbdc30f}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a35118ac6cb00d088863119bf4cbdc30f}} 
-\index{Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller}!User\+Info@{User\+Info}}
-\index{User\+Info@{User\+Info}!Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller@{Mediwatch\+::\+Server\+::\+Controllers\+::\+Account\+Controller}}
-\subsubsection{\texorpdfstring{User\+Info()}{UserInfo()}}
+\index{Mediwatch.Server.Controllers.AccountController@{Mediwatch.Server.Controllers.AccountController}!UserInfo@{UserInfo}}
+\index{UserInfo@{UserInfo}!Mediwatch.Server.Controllers.AccountController@{Mediwatch.Server.Controllers.AccountController}}
+\doxysubsubsection{\texorpdfstring{UserInfo()}{UserInfo()}}
 {\footnotesize\ttfamily User\+Information Mediwatch.\+Server.\+Controllers.\+Account\+Controller.\+User\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 

@@ -1,9 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>MediWatchWebSite: Légende du graphe</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -31,18 +31,21 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.13 -->
+<!-- Généré par Doxygen 1.8.17 -->
 <script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
 <!-- window showing the filter options -->
@@ -65,8 +68,42 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <p>Cette page explique comment interpréter les graphes générés par doxygen.</p>
-<p>Considérez l'exemple suivant : </p><div class="fragment"><div class="line">/*! Classe invisible à cause d&#39;une troncature */</div><div class="line">class Invisible { };</div><div class="line"></div><div class="line">/*! Classe tronquée, la relation d&#39;héritage est masquée */</div><div class="line">class Truncated : public Invisible { };</div><div class="line"></div><div class="line">/*! Classe non documentée avec des commentaires Doxygen */</div><div class="line">class Undocumented { };</div><div class="line"></div><div class="line">/*! Classe dérivée par héritage public */</div><div class="line">class PublicBase : public Truncated { };</div><div class="line"></div><div class="line">/*! Un modèle de classe */</div><div class="line">template&lt;class T&gt; class Templ { };</div><div class="line"></div><div class="line">/*! Classe dérivée par héritage protégé */</div><div class="line">class ProtectedBase { };</div><div class="line"></div><div class="line">/*! Classe dérivée par héritage privé */</div><div class="line">class PrivateBase { };</div><div class="line"></div><div class="line">/*! Classe utilisée par la classe dérivée */</div><div class="line">class Used { };</div><div class="line"></div><div class="line">/*! Super-classe qui hérite de plusieurs autres classes */</div><div class="line">class Inherited : public PublicBase,</div><div class="line">                  protected ProtectedBase,</div><div class="line">                  private PrivateBase,</div><div class="line">                  public Undocumented,</div><div class="line">                  public Templ&lt;int&gt;</div><div class="line">{</div><div class="line">  private:</div><div class="line">    Used *m_usedClass;</div><div class="line">};</div></div><!-- fragment --><p> Cela aboutira au graphe suivant :</p>
-<center><iframe scrolling="no" frameborder="0" src="graph_legend.svg" width="683" height="212"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe> </center><p>Les rectangles du graphe ci-dessus ont la signification suivante : </p><ul>
+<p>Considérez l'exemple suivant : </p><div class="fragment"><div class="line"><span class="comment">/*! Classe invisible à cause d&#39;une troncature */</span></div>
+<div class="line"><span class="keyword">class </span>Invisible { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Classe tronquée, la relation d&#39;héritage est masquée */</span></div>
+<div class="line"><span class="keyword">class </span>Truncated : <span class="keyword">public</span> Invisible { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Classe non documentée avec des commentaires Doxygen */</span></div>
+<div class="line"><span class="keyword">class </span>Undocumented { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Classe dérivée par héritage public */</span></div>
+<div class="line"><span class="keyword">class </span>PublicBase : <span class="keyword">public</span> Truncated { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Un modèle de classe */</span></div>
+<div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span>Templ { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Classe dérivée par héritage protégé */</span></div>
+<div class="line"><span class="keyword">class </span>ProtectedBase { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Classe dérivée par héritage privé */</span></div>
+<div class="line"><span class="keyword">class </span>PrivateBase { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Classe utilisée par la classe dérivée */</span></div>
+<div class="line"><span class="keyword">class </span>Used { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Super-classe qui hérite de plusieurs autres classes */</span></div>
+<div class="line"><span class="keyword">class </span>Inherited : <span class="keyword">public</span> PublicBase,</div>
+<div class="line">                  <span class="keyword">protected</span> ProtectedBase,</div>
+<div class="line">                  <span class="keyword">private</span> PrivateBase,</div>
+<div class="line">                  <span class="keyword">public</span> Undocumented,</div>
+<div class="line">                  <span class="keyword">public</span> Templ&lt;int&gt;</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">private</span>:</div>
+<div class="line">    Used *m_usedClass;</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> Cela aboutira au graphe suivant :</p>
+<center><iframe scrolling="no" frameborder="0" src="graph_legend.svg" width="726" height="212"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe> </center><p>Les rectangles du graphe ci-dessus ont la signification suivante : </p><ul>
 <li>
 Un rectangle plein noir représente la structure ou la classe pour laquelle le graphe est généré. </li>
 <li>
@@ -93,7 +130,7 @@ Une flèche jaune en pointillés indique une relation entre un modèle d'instanc
 <hr class="footer"/><address class="footer"><small>
 Généré par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
+</a> 1.8.17
 </small></address>
 </body>
 </html>
