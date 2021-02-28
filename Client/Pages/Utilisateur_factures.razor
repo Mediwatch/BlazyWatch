@@ -1,0 +1,19 @@
+@page "/utilisateur/factures"
+
+@inject HttpClient Client
+@inject IJSRuntime JsRuntime
+
+<h2>Vos factures</h2>
+
+
+
+@code {
+
+    private List<String> factures = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Voir pour récupérer les factures, les éléments ?
+        // factures = await Client.GetFromJsonAsync<String>("Users/factures");
+    }
+}

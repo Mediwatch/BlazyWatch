@@ -2,6 +2,9 @@
 
 @inject HttpClient Client
 @inject IJSRuntime JsRuntime
+@* @inject MediwatchPanier Panier *@
+
+@inject Blazored.LocalStorage.ILocalStorageService Storage
 
 @if (_formation == null)
 {
@@ -15,15 +18,29 @@
     
 } else {
     <FormationItemView f=_formation></FormationItemView>
-    <form>
-        @if (_info == null || !_info.IsAuthenticated)
-        {
-            <input type="submit" disabled value="S'inscrire à la formation"/>
-        } else {
-            <input type="submit" value="S'inscrire à la formation" @oninput=@Registration/>
-        }
-    </form>
+    
+     
+    @if (_info == null || !_info.IsAuthenticated)
+    {
+        <button class="btn btn-primary" @onclick="@Registration" disabled>
+            S'inscrire à la formation
+        </button>
+        <button class="btn btn-primary" @onclick="@Ajout" disabled>
+            Ajouter la formation à mon panier
+        </button>
+    }
+    else
+    {
+        <button class="btn btn-primary" @onclick="@Registration">
+            S'inscrire à la formation
+        </button>
+        <button class="btn btn-primary" @onclick="@Ajout">
+            Ajouter la formation à mon panier
+        </button>
+    }
 
+    <hr/>
+    
     <ArticleViewer articleName=@_formation.ArticleID></ArticleViewer>
 }
 
@@ -36,6 +53,8 @@
     private UserInformation _info = null;
 
     private bool _erreur = false;
+
+    //private Panier _panier = Panier.Get;
 
     protected override async Task OnInitializedAsync()
     {
@@ -51,5 +70,31 @@
     {
         // Enregistrer ici l'utilisateur à la formation !
         //JSRuntime.InvokeVoidAsync("display", e);
+    }
+
+    private async void Ajout()
+    {
+        Console.WriteLine(("ajout !"));
+
+        var formations = await Storage.GetItemAsync<List<string>>("formations");
+
+        if (formations == null)
+        {
+            formations = new List<string>();
+        }
+
+        Console.WriteLine(formations);
+        Console.WriteLine(formations.Count);
+
+        formations.Add(Id);
+
+        Console.WriteLine(formations);
+        Console.WriteLine(formations.Count);
+
+        await Storage.SetItemAsync<List<string>>("formations", formations);
+
+        //Panier.Instance.Ajout(Id);
+        //Panier.Ajout(Id);
+        //_panier.ajout(Id);
     }
 }

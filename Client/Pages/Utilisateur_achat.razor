@@ -1,0 +1,37 @@
+﻿@page "/utilisateur/achat"
+@* @inject MediwatchPanier Panier *@
+@inject Blazored.LocalStorage.ILocalStorageService Storage
+
+
+<h2>Votre panier</h2>
+
+@code {        //private Panier panier = Panier.Get();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var formations = await Storage.GetItemAsync<List<string>>("formations");
+
+        if (formations == null)
+        {
+            Console.WriteLine("Panier vide.");
+        }
+        else
+        {
+
+            Console.WriteLine(">>>>" + formations.Count);
+
+            formations.ForEach((f) =>
+            {
+                Console.WriteLine("Formation " + f);
+            });
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+
+
+        //Console.WriteLine("Panier :" + Panier);
+    }
+
+}

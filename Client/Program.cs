@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.JSInterop;
+using Blazored.LocalStorage;
 
 namespace Mediwatch.Client
 {
@@ -36,7 +37,9 @@ namespace Mediwatch.Client
 			builder.Services.AddAuthorizationCore();
 			builder.Services.AddScoped<MediwatchAuthentifiacationProvider>();
 			builder.Services.AddScoped<AuthenticationStateProvider>(serviceProvider => serviceProvider.GetRequiredService<MediwatchAuthentifiacationProvider>());
-			
+
+			builder.Services.AddBlazoredLocalStorage();
+
 			var host = builder.Build();
 
 			var jsInterop = host.Services.GetRequiredService<IJSRuntime>();
