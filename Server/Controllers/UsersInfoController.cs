@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Server;
 
+
 namespace Mediwatch.Server.Controllers {
     [ApiController]
     [Route ("[controller]")]
@@ -137,6 +138,24 @@ namespace Mediwatch.Server.Controllers {
             }
             await SetUserInfoFromUserPublic(user, rawInfo);
             return Ok ();
+        }
+
+        /// <summary>
+        /// POST: /Users/registeruserformation/
+        /// BODY: raw/json :applicant_session,
+        /// create register user to a Formation
+        /// </summary>
+        /// <param name="idFormation">id of the formation</param>
+        /// <returns>return one applicant session</returns>
+        [HttpPost ("registeruserformation")] 
+        public async Task<ActionResult<applicant_session>> RegisterUserformation (applicant_session RegisterUser) {
+            FormationController _formationController = new FormationController(_context);
+            ApplicantSessionController _sessionController = new ApplicantSessionController(_context);
+            var searchedForm = await _formationController.GetFormation((int)RegisterUser.idFormation);
+            if (searchedForm != null){
+                return await _sessionController.PostApplicantSession(RegisterUser);
+            }
+            return NotFound();
         }
     }
 

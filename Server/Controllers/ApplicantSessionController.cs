@@ -82,8 +82,9 @@ namespace Mediwatch.Server.Controllers
             applicantSessionBody.createdAt = DateTime.Now;
             _context.applicant_sessions.Add(applicantSessionBody);
             await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetApplicantSession), new { id = applicantSessionBody.id }, applicantSessionBody);
+            var result = await GetApplicantSession(applicantSessionBody.id);
+            return result;
+            // return CreatedAtAction(nameof(GetApplicantSession), new { id = applicantSessionBody.id }, applicantSessionBody);
         }
 
         // DELETE: /ApplicantSession/5
