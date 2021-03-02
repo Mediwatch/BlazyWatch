@@ -2,7 +2,8 @@
 \label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller}\index{Mediwatch.Server.Controllers.UsersController@{Mediwatch.Server.Controllers.UsersController}}
 
 
-Graphe d\textquotesingle{}héritage de Mediwatch.\+Server.\+Controllers.\+Users\+Controller\+:\nopagebreak
+Graphe d\textquotesingle{}héritage de Mediwatch.\+Server.\+Controllers.\+Users\+Controller\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -11,7 +12,8 @@ Graphe d\textquotesingle{}héritage de Mediwatch.\+Server.\+Controllers.\+Users\
 \end{figure}
 
 
-Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Users\+Controller\+:\nopagebreak
+Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Users\+Controller\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -31,7 +33,9 @@ async Task$<$ Action\+Result$<$ User\+Public $>$ $>$ \mbox{\hyperlink{class_medi
 async Task$<$ Action\+Result$<$ User\+Public $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a27103389ca1c6c33d21a3dc3212d7b08}{Get\+User}} (String id)
 \begin{DoxyCompactList}\small\item\em get info of one user G\+ET\+: /\+Users/info/\{id user\} \end{DoxyCompactList}\item 
 async Task$<$ Action\+Result $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a414ca2854bf71701319b3c34dbda03ab}{Set\+User}} (User\+Public user)
-\begin{DoxyCompactList}\small\item\em set info of one user P\+O\+ST\+: /\+Users/set\+Info/ B\+O\+DY\+: raw/json \+:User\+Public \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em set info of one user P\+O\+ST\+: /\+Users/set\+Info/ B\+O\+DY\+: raw/json \+:User\+Public \end{DoxyCompactList}\item 
+async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a44bf781dad67f766e1d0c91ac17d73ef}{Register\+Userformation}} (applicant\+\_\+session Register\+User)
+\begin{DoxyCompactList}\small\item\em P\+O\+ST\+: /\+Users/registeruserformation/ B\+O\+DY\+: raw/json \+:applicant\+\_\+session, create register user to a Formation \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentation des fonctions membres}
@@ -78,6 +82,24 @@ list all users if you are admin G\+ET\+: /\+Users/list\+User
 
 \begin{DoxyReturn}{Renvoie}
 return unauthorized if the user role is not admin and a list of public user when it work
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a44bf781dad67f766e1d0c91ac17d73ef}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a44bf781dad67f766e1d0c91ac17d73ef}} 
+\index{Mediwatch.Server.Controllers.UsersController@{Mediwatch.Server.Controllers.UsersController}!RegisterUserformation@{RegisterUserformation}}
+\index{RegisterUserformation@{RegisterUserformation}!Mediwatch.Server.Controllers.UsersController@{Mediwatch.Server.Controllers.UsersController}}
+\doxysubsubsection{\texorpdfstring{RegisterUserformation()}{RegisterUserformation()}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$applicant\+\_\+session$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Users\+Controller.\+Register\+Userformation (\begin{DoxyParamCaption}\item[{applicant\+\_\+session}]{Register\+User }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+P\+O\+ST\+: /\+Users/registeruserformation/ B\+O\+DY\+: raw/json \+:applicant\+\_\+session, create register user to a Formation 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id\+Formation} & id of the formation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+return one applicant session
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a414ca2854bf71701319b3c34dbda03ab}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a414ca2854bf71701319b3c34dbda03ab}} 
 \index{Mediwatch.Server.Controllers.UsersController@{Mediwatch.Server.Controllers.UsersController}!SetUser@{SetUser}}
