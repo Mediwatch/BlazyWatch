@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['sendmail_54',['SendMail',['../class_mediwatch_1_1_server_1_1_controllers_1_1_email_controller.html#a2b9bb204a398a673c010f2ac6f3bb19a',1,'Mediwatch.Server.Controllers.EmailController.SendMail()'],['../class_server_1_1_utils_1_1_email_utils.html#a591df5a567a0dd54572bea9f007ab631',1,'Server.Utils.EmailUtils.SendMail()']]],
-  ['server_55',['Server',['../namespace_server.html',1,'']]],
-  ['setuser_56',['SetUser',['../class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a414ca2854bf71701319b3c34dbda03ab',1,'Mediwatch::Server::Controllers::UsersController']]],
-  ['startup_57',['Startup',['../class_mediwatch_1_1_server_1_1_startup.html',1,'Mediwatch::Server']]],
-  ['utils_58',['Utils',['../namespace_server_1_1_utils.html',1,'Server']]]
+  ['sendmail_55',['SendMail',['../class_mediwatch_1_1_server_1_1_controllers_1_1_email_controller.html#a2b9bb204a398a673c010f2ac6f3bb19a',1,'Mediwatch.Server.Controllers.EmailController.SendMail()'],['../class_server_1_1_utils_1_1_email_utils.html#a591df5a567a0dd54572bea9f007ab631',1,'Server.Utils.EmailUtils.SendMail()']]],
+  ['server_56',['Server',['../namespace_server.html',1,'']]],
+  ['setuser_57',['SetUser',['../class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a414ca2854bf71701319b3c34dbda03ab',1,'Mediwatch::Server::Controllers::UsersController']]],
+  ['startup_58',['Startup',['../class_mediwatch_1_1_server_1_1_startup.html',1,'Mediwatch::Server']]],
+  ['utils_59',['Utils',['../namespace_server_1_1_utils.html',1,'Server']]]
 ];
