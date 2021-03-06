@@ -15,6 +15,9 @@ using Microsoft.Extensions.Configuration;
 using Mediwatch.Shared;
 using System.IO;
 
+using System.Linq;
+using Microsoft.Extensions.Logging;
+
 public class InvoiceGenerator {
     private string Template;
     private string Data;
@@ -182,6 +185,36 @@ namespace  Mediwatch.Server.Controllers
             _context.orderInfos.Add(orderBody);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetOrder), new { id = orderBody.id }, orderBody);
+        }
+
+        //GET /Order/Archived
+        [HttpGet]
+        [Route("Archived")]
+        [Authorize]
+        public async Task<IEnumerable<string>> GetOrderArchived() {
+            var userInfo = await _userManager.FindByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            return new InvoiceArchiver(_configuration)
+                .Search(userInfo.UserName)
+                .Select(path => Path.GetFileName(path));
+        }
+
+        //Get /Order/Archived/<fileName>
+        [HttpGet]
+        [Route("Archived/{fileName}")]
+        [Authorize]
+        public async Task<FileStreamResult> GetArchived(string fileName) {
+            var userInfo = await _userManager.FindByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            var orders = new InvoiceArchiver(_configuration).Search(userInfo.UserName);
+
+            // TODO: handle file not found
+            var filePath = orders.Single(path => Path.GetFileName(path) == fileName);
+            var sr = System.IO.File.OpenRead(filePath);
+
+            // TODO: handle open error
+
+            return new FileStreamResult(sr, "application/octet-stream");
         }
     }
 }
