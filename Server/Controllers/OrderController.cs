@@ -94,6 +94,10 @@ public class InvoiceArchiver {
     }
 
     public string[] Search(string client) {
+        if (!Directory.Exists(Root + "/" + client)) {
+            return new string[] {};
+        }
+
         return Directory.GetFiles(Root + "/" + client);
     }
 }
@@ -203,16 +207,26 @@ namespace  Mediwatch.Server.Controllers
         [HttpGet]
         [Route("Archived/{fileName}")]
         [Authorize]
-        public async Task<FileStreamResult> GetArchived(string fileName) {
+        public async Task<ActionResult> GetArchived(string fileName) {
             var userInfo = await _userManager.FindByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             var orders = new InvoiceArchiver(_configuration).Search(userInfo.UserName);
 
-            // TODO: handle file not found
-            var filePath = orders.Single(path => Path.GetFileName(path) == fileName);
-            var sr = System.IO.File.OpenRead(filePath);
+            string filePath;
 
-            // TODO: handle open error
+            try {
+                filePath = orders.Single(path => Path.GetFileName(path) == fileName);
+            } catch (System.InvalidOperationException) {
+                return NotFound();
+            }
+
+            Stream sr;
+
+            try {
+                sr = System.IO.File.OpenRead(filePath);
+            } catch (System.Exception) {
+                return StatusCode(500);
+            }
 
             return new FileStreamResult(sr, "application/octet-stream");
         }
