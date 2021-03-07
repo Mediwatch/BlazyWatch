@@ -1,37 +1,68 @@
 ﻿@page "/utilisateur/achat"
-@* @inject MediwatchPanier Panier *@
 @inject Blazored.LocalStorage.ILocalStorageService Storage
+@inject HttpClient Client
 
 
 <h2>Votre panier</h2>
 
-@code {        //private Panier panier = Panier.Get();
+@if (formations.Count == 0)
+{
+    <p>Votre panier est vide.</p>
+}
+else
+{
+    @foreach (var f in formations) {
+        var tmp_f = @f;
+        <h4>@f.Name</h4>
+        <p>Du @f.StartDate au @f.EndDate, par @f.Former</p>
+        <br />
+        <p>Coût : @f.Price €</p>
+        <input type="button" @onclick="@(() => SuppressionFormation(tmp_f))" value="Enlever du panier" />
+    }
+}
+
+
+@code {
+
+    private List<formation> formations = new List<formation>();
+
+    private List<string> fs = null;
 
     protected override async Task OnInitializedAsync()
     {
-        var formations = await Storage.GetItemAsync<List<string>>("formations");
+        fs = await Storage.GetItemAsync<List<string>>("formations");
 
-        if (formations == null)
+        if (fs == null)
         {
             Console.WriteLine("Panier vide.");
         }
         else
         {
+            Console.WriteLine(">>>>" + fs.Count);
 
-            Console.WriteLine(">>>>" + formations.Count);
-
-            formations.ForEach((f) =>
+            foreach (var id in fs)
             {
-                Console.WriteLine("Formation " + f);
+                formations.Add(await Client.GetFromJsonAsync<formation>("Formation/" + id));
+            }
+
+            await InvokeAsync(() =>
+            {
+                StateHasChanged();
             });
+
         }
     }
 
-    protected override void OnInitialized()
+    private async void SuppressionFormation(formation f)
     {
-
-
-        //Console.WriteLine("Panier :" + Panier);
+        Console.WriteLine("Suppression de la formation du panier.");
+        formations.Remove(f);
+        fs.Remove(f.id.ToString());
+        await Storage.SetItemAsync<List<string>>("formations", fs);
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
     }
 
 }

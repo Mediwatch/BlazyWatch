@@ -83,6 +83,12 @@
             formations = new List<string>();
         }
 
+        if (formations.Contains(Id))
+        {
+            Console.WriteLine("Impossible d'ajouter la formation, déjà présente.");
+            return;
+        }
+
         Console.WriteLine(formations);
         Console.WriteLine(formations.Count);
 
