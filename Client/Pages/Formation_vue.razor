@@ -12,14 +12,18 @@
     {
         <p>En attente d'acquisition des informations de la formation...</p>
         <div class="loading-bar"></div>
-    } else {
+    }
+    else
+    {
         <p>Formation inexistante, <a href="/">retourner à la page d'accueil ?</a></p>
     }
-    
-} else {
+
+}
+else
+{
     <FormationItemView f=_formation></FormationItemView>
-    
-     
+
+
     @if (_info == null || !_info.IsAuthenticated)
     {
         <button class="btn btn-primary" @onclick="@Registration" disabled>
@@ -39,14 +43,20 @@
         </button>
     }
 
-    <hr/>
-    
+    <hr />
+
     <ArticleViewer articleName=@_formation.ArticleID></ArticleViewer>
+
+    <div id="notif" style="border-style: dashed; visibility: @visibility">
+        <p>Formation ajoutée correctement au panier.</p>
+        <button class="btn btn-secondary" @onclick="@Redirection">Voir mon panier</button>
+        <Button class="btn btn-secondary" @onclick="@Disparition">Réduire</Button>
+    </div>
 }
 
 @code {
     [Parameter]
-    public String Id {get; set;}
+    public String Id { get; set; }
 
     private formation _formation = null;
 
@@ -54,20 +64,25 @@
 
     private bool _erreur = false;
 
-    //private Panier _panier = Panier.Get;
+
+    private string visibility = "hidden";
 
     protected override async Task OnInitializedAsync()
     {
-        try {
+        try
+        {
             _info = await Client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
             _formation = await Client.GetFromJsonAsync<formation>("Formation/" + Id);
-        } catch {
+        }
+        catch
+        {
             _erreur = true;
         }
     }
 
     private async Task Registration()
     {
+        Console.WriteLine("Inscription à la formation en elle-même, passer par Paypal directement ?");
         // Enregistrer ici l'utilisateur à la formation !
         //JSRuntime.InvokeVoidAsync("display", e);
     }
@@ -99,8 +114,19 @@
 
         await Storage.SetItemAsync<List<string>>("formations", formations);
 
-        //Panier.Instance.Ajout(Id);
-        //Panier.Ajout(Id);
-        //_panier.ajout(Id);
+        visibility = "visible";
+
+        StateHasChanged();
+    }
+
+    private void Redirection()
+    {
+        JsRuntime.InvokeAsync<object>("open", "/utilisateur/achat", "_blank");
+    }
+
+    private void Disparition()
+    {
+        visibility = "hidden";
+        StateHasChanged();
     }
 }
