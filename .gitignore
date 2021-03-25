@@ -34,3 +34,6 @@ msbuild.wrn
 
 # Rider
 .idea/
+
+# Generated files
+invoice_archive

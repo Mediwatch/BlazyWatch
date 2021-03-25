@@ -9,9 +9,9 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 427)">
 <title>Graphe hiérarchique des classes</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-427 296,-427 296,4 -4,4"/>
-<!-- Node20 -->
+<!-- Node21 -->
 <g id="node1" class="node">
-<title>Node20</title>
+<title>Node21</title>
 <g id="a_node1"><a xlink:title=" ">
 <polygon fill="white" stroke="#bfbfbf" points="0,-202 0,-221 89,-221 89,-202 0,-202"/>
 <text text-anchor="middle" x="44.5" y="-209" font-family="Helvetica,sans-Serif" font-size="10.00">ControllerBase</text>
@@ -28,15 +28,15 @@
 </a>
 </g>
 </g>
-<!-- Node20&#45;&gt;Node0 -->
+<!-- Node21&#45;&gt;Node0 -->
 <g id="edge1" class="edge">
-<title>Node20&#45;&gt;Node0</title>
+<title>Node21&#45;&gt;Node0</title>
 <path fill="none" stroke="midnightblue" d="M49.13,-231.55C56.69,-267.42 77.52,-342.65 125,-383.5 128.96,-386.9 133.38,-389.83 138.05,-392.34"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="52.5,-230.51 47.13,-221.38 45.63,-231.87 52.5,-230.51"/>
 </g>
-<!-- Node22 -->
+<!-- Node23 -->
 <g id="node3" class="node">
-<title>Node22</title>
+<title>Node23</title>
 <g id="a_node3"><a xlink:href="class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="125,-343.5 125,-373.5 292,-373.5 292,-343.5 125,-343.5"/>
 <text text-anchor="start" x="133" y="-361.5" font-family="Helvetica,sans-Serif" font-size="10.00">BlazingBlog.Server.Controllers.</text>
@@ -44,15 +44,15 @@
 </a>
 </g>
 </g>
-<!-- Node20&#45;&gt;Node22 -->
+<!-- Node21&#45;&gt;Node23 -->
 <g id="edge2" class="edge">
-<title>Node20&#45;&gt;Node22</title>
+<title>Node21&#45;&gt;Node23</title>
 <path fill="none" stroke="midnightblue" d="M52.8,-230.72C64.11,-257.9 88.45,-307.29 125,-334.5 129.67,-337.97 134.83,-340.95 140.22,-343.49"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="55.95,-229.16 48.99,-221.17 49.45,-231.75 55.95,-229.16"/>
 </g>
-<!-- Node23 -->
+<!-- Node24 -->
 <g id="node4" class="node">
-<title>Node23</title>
+<title>Node24</title>
 <g id="a_node4"><a xlink:href="class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="127,-294.5 127,-324.5 290,-324.5 290,-294.5 127,-294.5"/>
 <text text-anchor="start" x="135" y="-312.5" font-family="Helvetica,sans-Serif" font-size="10.00">Mediwatch.Server.Controllers.</text>
@@ -60,15 +60,15 @@
 </a>
 </g>
 </g>
-<!-- Node20&#45;&gt;Node23 -->
+<!-- Node21&#45;&gt;Node24 -->
 <g id="edge3" class="edge">
-<title>Node20&#45;&gt;Node23</title>
+<title>Node21&#45;&gt;Node24</title>
 <path fill="none" stroke="midnightblue" d="M60.03,-229.14C74.76,-245.93 99.03,-270.76 125,-285.5 130.97,-288.89 137.45,-291.83 144.08,-294.38"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="62.4,-226.52 53.24,-221.19 57.07,-231.07 62.4,-226.52"/>
 </g>
-<!-- Node24 -->
+<!-- Node25 -->
 <g id="node5" class="node">
-<title>Node24</title>
+<title>Node25</title>
 <g id="a_node5"><a xlink:href="class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="127,-245.5 127,-275.5 290,-275.5 290,-245.5 127,-245.5"/>
 <text text-anchor="start" x="135" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00">Mediwatch.Server.Controllers.</text>
@@ -76,15 +76,15 @@
 </a>
 </g>
 </g>
-<!-- Node20&#45;&gt;Node24 -->
+<!-- Node21&#45;&gt;Node25 -->
 <g id="edge4" class="edge">
-<title>Node20&#45;&gt;Node24</title>
+<title>Node21&#45;&gt;Node25</title>
 <path fill="none" stroke="midnightblue" d="M85.12,-224.14C97.84,-228.15 112,-232.56 125,-236.5 134.71,-239.44 145.08,-242.51 155.08,-245.43"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="85.87,-220.71 75.28,-221.03 83.76,-227.38 85.87,-220.71"/>
 </g>
-<!-- Node25 -->
+<!-- Node26 -->
 <g id="node6" class="node">
-<title>Node25</title>
+<title>Node26</title>
 <g id="a_node6"><a xlink:href="class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="127,-196.5 127,-226.5 290,-226.5 290,-196.5 127,-196.5"/>
 <text text-anchor="start" x="135" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">Mediwatch.Server.Controllers.</text>
@@ -92,15 +92,15 @@
 </a>
 </g>
 </g>
-<!-- Node20&#45;&gt;Node25 -->
+<!-- Node21&#45;&gt;Node26 -->
 <g id="edge5" class="edge">
-<title>Node20&#45;&gt;Node25</title>
+<title>Node21&#45;&gt;Node26</title>
 <path fill="none" stroke="midnightblue" d="M99.42,-211.5C108.23,-211.5 117.51,-211.5 126.79,-211.5"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="99.34,-208 89.34,-211.5 99.34,-215 99.34,-208"/>
 </g>
-<!-- Node26 -->
+<!-- Node27 -->
 <g id="node7" class="node">
-<title>Node26</title>
+<title>Node27</title>
 <g id="a_node7"><a xlink:href="class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="127,-147.5 127,-177.5 290,-177.5 290,-147.5 127,-147.5"/>
 <text text-anchor="start" x="135" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">Mediwatch.Server.Controllers.</text>
@@ -108,15 +108,15 @@
 </a>
 </g>
 </g>
-<!-- Node20&#45;&gt;Node26 -->
+<!-- Node21&#45;&gt;Node27 -->
 <g id="edge6" class="edge">
-<title>Node20&#45;&gt;Node26</title>
+<title>Node21&#45;&gt;Node27</title>
 <path fill="none" stroke="midnightblue" d="M86.97,-198.96C108.55,-192.43 135.1,-184.4 157.79,-177.54"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="85.68,-195.69 77.12,-201.94 87.7,-202.39 85.68,-195.69"/>
 </g>
-<!-- Node27 -->
+<!-- Node28 -->
 <g id="node8" class="node">
-<title>Node27</title>
+<title>Node28</title>
 <g id="a_node8"><a xlink:href="class_mediwatch_1_1_server_1_1_controllers_1_1_order_controller.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="127,-98.5 127,-128.5 290,-128.5 290,-98.5 127,-98.5"/>
 <text text-anchor="start" x="135" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00">Mediwatch.Server.Controllers.</text>
@@ -124,15 +124,15 @@
 </a>
 </g>
 </g>
-<!-- Node20&#45;&gt;Node27 -->
+<!-- Node21&#45;&gt;Node28 -->
 <g id="edge7" class="edge">
-<title>Node20&#45;&gt;Node27</title>
+<title>Node21&#45;&gt;Node28</title>
 <path fill="none" stroke="midnightblue" d="M60.12,-194.17C74.91,-177.66 99.22,-153.21 125,-138.5 131.63,-134.72 138.89,-131.45 146.27,-128.64"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="57.23,-192.15 53.29,-201.99 62.51,-196.76 57.23,-192.15"/>
 </g>
-<!-- Node28 -->
+<!-- Node29 -->
 <g id="node9" class="node">
-<title>Node28</title>
+<title>Node29</title>
 <g id="a_node9"><a xlink:href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="127,-49.5 127,-79.5 290,-79.5 290,-49.5 127,-49.5"/>
 <text text-anchor="start" x="135" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">Mediwatch.Server.Controllers.</text>
@@ -140,15 +140,15 @@
 </a>
 </g>
 </g>
-<!-- Node20&#45;&gt;Node28 -->
+<!-- Node21&#45;&gt;Node29 -->
 <g id="edge8" class="edge">
-<title>Node20&#45;&gt;Node28</title>
+<title>Node21&#45;&gt;Node29</title>
 <path fill="none" stroke="midnightblue" d="M52.89,-192.49C64.3,-165.6 88.76,-116.69 125,-89.5 130.15,-85.64 135.89,-82.37 141.89,-79.6"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="49.57,-191.36 49.03,-201.94 56.05,-194 49.57,-191.36"/>
 </g>
-<!-- Node29 -->
+<!-- Node30 -->
 <g id="node10" class="node">
-<title>Node29</title>
+<title>Node30</title>
 <g id="a_node10"><a xlink:href="class_mediwatch_1_1_server_1_1_controllers_1_1_weather_forecast_controller.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="127,-0.5 127,-30.5 290,-30.5 290,-0.5 127,-0.5"/>
 <text text-anchor="start" x="135" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Mediwatch.Server.Controllers.</text>
@@ -156,9 +156,9 @@
 </a>
 </g>
 </g>
-<!-- Node20&#45;&gt;Node29 -->
+<!-- Node21&#45;&gt;Node30 -->
 <g id="edge9" class="edge">
-<title>Node20&#45;&gt;Node29</title>
+<title>Node21&#45;&gt;Node30</title>
 <path fill="none" stroke="midnightblue" d="M49.21,-191.62C56.9,-156.03 77.93,-81.36 125,-40.5 129.41,-36.67 134.39,-33.43 139.66,-30.69"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="45.72,-191.21 47.17,-201.7 52.59,-192.6 45.72,-191.21"/>
 </g>
