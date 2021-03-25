@@ -157,6 +157,22 @@ namespace Mediwatch.Server.Controllers {
             }
             return NotFound();
         }
+
+        /// <summary>
+        /// GET: /Users/formation/{id user}
+        /// get all formation of one user
+        /// </summary>
+        /// <param name="id">id user</param>
+        /// <returns>return the list of applicant session</returns>
+        [HttpGet("formation/{id}")]
+        public async Task<ActionResult<IEnumerable<applicant_session>>> GetUserFormation(String id)
+        {
+            var AllApplicantSessions = await _context.applicant_sessions.ToListAsync();
+            var ApplicantSessionsFilterById = AllApplicantSessions.FindAll(elem => elem.id.Equals(id));
+
+            return AllApplicantSessions;
+        }
+
     }
 
 }
