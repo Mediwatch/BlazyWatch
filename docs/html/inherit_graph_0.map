@@ -1,5 +1,5 @@
 <map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node1" title=" " alt="" coords="5,274,124,301"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,307,124,334"/>
 <area shape="rect" id="node2" href="$class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller.html" title=" " alt="" coords="172,5,395,47"/>
 <area shape="rect" id="node3" href="$class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html" title=" " alt="" coords="172,71,395,112"/>
 <area shape="rect" id="node4" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller.html" title=" " alt="" coords="175,136,392,177"/>
@@ -7,6 +7,7 @@
 <area shape="rect" id="node6" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller.html" title=" " alt="" coords="175,267,392,308"/>
 <area shape="rect" id="node7" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html" title=" " alt="" coords="175,332,392,373"/>
 <area shape="rect" id="node8" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_order_controller.html" title=" " alt="" coords="175,397,392,439"/>
-<area shape="rect" id="node9" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html" title=" " alt="" coords="175,463,392,504"/>
-<area shape="rect" id="node10" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_weather_forecast_controller.html" title=" " alt="" coords="175,528,392,569"/>
+<area shape="rect" id="node9" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller.html" title=" " alt="" coords="175,463,392,504"/>
+<area shape="rect" id="node10" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html" title=" " alt="" coords="175,528,392,569"/>
+<area shape="rect" id="node11" href="$class_mediwatch_1_1_server_1_1_controllers_1_1_weather_forecast_controller.html" title=" " alt="" coords="175,593,392,635"/>
 </map>

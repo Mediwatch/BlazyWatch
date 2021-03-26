@@ -77,13 +77,13 @@ $(function() {
 <div class="dynheader">
 Graphe d'héritage de Mediwatch.Server.Controllers.UsersController:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller__inherit__graph.svg" width="228" height="316"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller__inherit__graph.svg" width="228" height="331"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Graphe de collaboration de Mediwatch.Server.Controllers.UsersController:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller__coll__graph.svg" width="228" height="316"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller__coll__graph.svg" width="228" height="331"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -104,14 +104,53 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a414ca2854bf71701319b3c34dbda03ab"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a414ca2854bf71701319b3c34dbda03ab">SetUser</a> (UserPublic user)</td></tr>
 <tr class="memdesc:a414ca2854bf71701319b3c34dbda03ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">set info of one user POST: /Users/setInfo/ BODY: raw/json :UserPublic  <a href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a414ca2854bf71701319b3c34dbda03ab">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a414ca2854bf71701319b3c34dbda03ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44bf781dad67f766e1d0c91ac17d73ef"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult&lt; applicant_session &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a44bf781dad67f766e1d0c91ac17d73ef">RegisterUserformation</a> (applicant_session RegisterUser)</td></tr>
-<tr class="memdesc:a44bf781dad67f766e1d0c91ac17d73ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">POST: /Users/registeruserformation/ BODY: raw/json :applicant_session, create register user to a Formation  <a href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a44bf781dad67f766e1d0c91ac17d73ef">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a44bf781dad67f766e1d0c91ac17d73ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3da0476c39418727064b44af9e007010"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult&lt; IEnumerable&lt; applicant_session &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a3da0476c39418727064b44af9e007010">GetUserFormation</a> (String id)</td></tr>
 <tr class="memdesc:a3da0476c39418727064b44af9e007010"><td class="mdescLeft">&#160;</td><td class="mdescRight">GET: /Users/formation/{id user} get all formation of one user  <a href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a3da0476c39418727064b44af9e007010">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3da0476c39418727064b44af9e007010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44bf781dad67f766e1d0c91ac17d73ef"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult&lt; applicant_session &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a44bf781dad67f766e1d0c91ac17d73ef">RegisterUserformation</a> (applicant_session RegisterUser)</td></tr>
+<tr class="memdesc:a44bf781dad67f766e1d0c91ac17d73ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">POST: /Users/registeruserformation/ BODY: raw/json :applicant_session, create register user to a Formation  <a href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a44bf781dad67f766e1d0c91ac17d73ef">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a44bf781dad67f766e1d0c91ac17d73ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03952b3be592e56eb93c7c6abdfe297b"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult&lt; applicant_session &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a03952b3be592e56eb93c7c6abdfe297b">DeleteUserFormation</a> (applicant_session body)</td></tr>
+<tr class="memdesc:a03952b3be592e56eb93c7c6abdfe297b"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEL: /Users/deleteuserformation/ BODY: raw/json :applicant_session, with id ApplicantSession and IdFormation create register user to a Formation  <a href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a03952b3be592e56eb93c7c6abdfe297b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a03952b3be592e56eb93c7c6abdfe297b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a03952b3be592e56eb93c7c6abdfe297b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03952b3be592e56eb93c7c6abdfe297b">&#9670;&nbsp;</a></span>DeleteUserFormation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;ActionResult&lt;applicant_session&gt; &gt; Mediwatch.Server.Controllers.UsersController.DeleteUserFormation </td>
+          <td>(</td>
+          <td class="paramtype">applicant_session&#160;</td>
+          <td class="paramname"><em>body</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>DEL: /Users/deleteuserformation/ BODY: raw/json :applicant_session, with id ApplicantSession and IdFormation create register user to a Formation </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">body.id</td><td>id of the applicantSession</td></tr>
+    <tr><td class="paramname">body.idUser</td><td>idUser of the applicantSession</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>return one applicant session</dd></dl>
+
+</div>
+</div>
 <a id="a9a705b16c851ce5bb20f426b6e923799"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a705b16c851ce5bb20f426b6e923799">&#9670;&nbsp;</a></span>GetMyUser()</h2>
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['userscontroller_85',['UsersController',['../class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html',1,'Mediwatch::Server::Controllers']]]
+  ['tagcontroller_90',['TagController',['../class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller.html',1,'Mediwatch::Server::Controllers']]]
 ];
