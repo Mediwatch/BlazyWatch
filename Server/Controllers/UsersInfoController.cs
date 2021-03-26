@@ -15,6 +15,19 @@ namespace Mediwatch.Server.Controllers {
     [ApiController]
     [Route ("[controller]")]
     public class UsersController : ControllerBase {
+
+        #region //Config Part
+        private readonly UserManager<IdentityUser<Guid>> _userManager;
+        private readonly DbContextMediwatch _context;
+        public UsersController (UserManager<IdentityUser<Guid>> userManager,
+            DbContextMediwatch context) {
+            _userManager = userManager;
+            _context = context;
+        }
+       #endregion
+
+        #region //Utilitaire
+
         /// <summary>
         /// convert user in data base to user public for api
         /// </summary>
@@ -29,6 +42,7 @@ namespace Mediwatch.Server.Controllers {
             node.Role =  (await _userManager.GetRolesAsync (elem))[0];
             return node;
         }
+        
         /// <summary>
         /// Convert list of user in data base to user public for api
         /// </summary>
@@ -56,22 +70,16 @@ namespace Mediwatch.Server.Controllers {
             await _userManager.UpdateAsync(userData);
             return;
         }
-        private readonly UserManager<IdentityUser<Guid>> _userManager;
-
-        private readonly DbContextMediwatch _context;
-
-        public UsersController (UserManager<IdentityUser<Guid>> userManager,
-            DbContextMediwatch context) {
-            _userManager = userManager;
-            _context = context;
-        }
+        #endregion
+        
+        #region //Authorize Part
         /// <summary>
         /// list all users if you are admin 
         /// GET: /Users/listUser
         /// </summary>
         /// <returns>return unauthorized if the user role is not admin and a list of public user when it work</returns>
         [HttpGet ("listUser")]
-        // [Authorize (Roles = "Admin")]//////////////////////////////////////////////////////
+        [Authorize (Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<UserPublic>>> GetUserList () {
             var rawInfo = await _userManager.Users.ToListAsync ();
             var publicUsers = await ConvertInPublicInfo (rawInfo);
@@ -83,7 +91,7 @@ namespace Mediwatch.Server.Controllers {
         /// API GET : /Users/info
         /// </summary>
         /// <returns>return a user public user with the information of the connected user</returns>
-        // [Authorize]]//////////////////////////////////////////////////////
+        [Authorize]
         [HttpGet("info")]
         public async Task<ActionResult<UserPublic>> GetMyUser() {
             var info = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));
@@ -99,7 +107,7 @@ namespace Mediwatch.Server.Controllers {
         ///  Return not found in case of not base 64 id, the id is not found in the data base or if you're not admin else
         /// it will return a user public with the information corresponding to the user id</returns>
         [HttpGet ("info/{id}")]
-        // [Authorize]//////////////////////////////////////////////////////
+        [Authorize]
         public async Task<ActionResult<UserPublic>> GetUser (String id) {
             var info = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));
             Guid x;
@@ -125,7 +133,7 @@ namespace Mediwatch.Server.Controllers {
         ///  Return not found in case of not base 64 id, the id is not found in the data base or if you're not admin else
         /// it will return OK</returns>
         [HttpPost ("setInfo")]
-        // [Authorize]//////////////////////////////////////////////////////
+        [Authorize]
         public async Task<ActionResult> SetUser (UserPublic user) {
             var info = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));
             if (info.Id == user.Id)
@@ -138,6 +146,23 @@ namespace Mediwatch.Server.Controllers {
             }
             await SetUserInfoFromUserPublic(user, rawInfo);
             return Ok ();
+        }
+        #endregion
+
+        #region //User Formation User
+        /// <summary>
+        /// GET: /Users/formation/{id user}
+        /// get all formation of one user
+        /// </summary>
+        /// <param name="id">id user</param>
+        /// <returns>return the list of applicant session</returns>
+        [HttpGet("formation/{id}")]
+        public async Task<ActionResult<IEnumerable<applicant_session>>> GetUserFormation(String id)
+        {
+            var AllApplicantSessions = await _context.applicant_sessions.ToListAsync();
+            var ApplicantSessionsFilterById = AllApplicantSessions.FindAll(elem => elem.id.Equals(id));
+
+            return AllApplicantSessions;
         }
 
         /// <summary>
@@ -157,22 +182,33 @@ namespace Mediwatch.Server.Controllers {
             }
             return NotFound();
         }
+        
 
+        //  formation
         /// <summary>
-        /// GET: /Users/formation/{id user}
-        /// get all formation of one user
+        /// DEL: /Users/deleteuserformation/
+        /// BODY: raw/json :applicant_session,
+        /// with id ApplicantSession and IdFormation
+        /// create register user to a Formation
         /// </summary>
-        /// <param name="id">id user</param>
-        /// <returns>return the list of applicant session</returns>
-        [HttpGet("formation/{id}")]
-        public async Task<ActionResult<IEnumerable<applicant_session>>> GetUserFormation(String id)
+        /// <param name="body.id">id of the applicantSession</param>
+        /// <param name="body.idUser">idUser of the applicantSession</param>
+        /// <returns>return one applicant session</returns>
+        [HttpDelete("deleteuserformation")]
+        public async Task<ActionResult<applicant_session>> DeleteUserFormation(applicant_session body)
         {
             var AllApplicantSessions = await _context.applicant_sessions.ToListAsync();
-            var ApplicantSessionsFilterById = AllApplicantSessions.FindAll(elem => elem.id.Equals(id));
-
-            return AllApplicantSessions;
+            var applicantSessionsFilterById = AllApplicantSessions.Find(elem => elem.id.Equals(body.id) && elem.idUser.Equals(body.idUser));
+            if (applicantSessionsFilterById == null)
+            {
+                return NotFound();
+            }
+            _context.applicant_sessions.Remove(applicantSessionsFilterById);
+            await _context.SaveChangesAsync();
+            return Ok();
         }
 
+        #endregion
     }
 
 }

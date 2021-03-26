@@ -89,7 +89,7 @@ namespace Mediwatch.Server.Controllers
 
         // DELETE: /ApplicantSession/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<applicant_session>> DeleteTodoItem(int id)
+        public async Task<ActionResult<applicant_session>> DeleteApplicantSession(int id)
         {
             /// <summary>
             /// Delete an applicant session

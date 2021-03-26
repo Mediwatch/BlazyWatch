@@ -13,13 +13,16 @@ namespace Mediwatch.Server.Controllers
     [Route("[controller]")]
     public class FormationController : ControllerBase
     {
+        #region //Config Part
         private readonly DbContextMediwatch _context;
 
         public FormationController(DbContextMediwatch context)
         {
             _context = context;
         }
+        #endregion
 
+        #region //GET Part
         //GET: /Formation
         [HttpGet]
         public async Task<ActionResult<IEnumerable<formation>>> GetFormation(){
@@ -30,7 +33,7 @@ namespace Mediwatch.Server.Controllers
                 return await _context.formations.ToListAsync();
         }
 
-        //GET: /Formation/{id}
+        // //GET: /Formation/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<formation>> GetFormation(int id)
         {
@@ -46,7 +49,66 @@ namespace Mediwatch.Server.Controllers
 
             return formationResult;
         }
+        #endregion
 
+        [HttpGet("search")]
+        public async Task<ActionResult<IEnumerable<formation>>> search(string name,
+        DateTime? startDate, 
+        DateTime? endDate,
+        string location,
+        string contact,
+        string organizationName,
+        float? price,
+        string former)
+        {
+            try
+            {
+                IQueryable<formation> query = _context.formations;
+                if (!string.IsNullOrEmpty(name))
+                {
+                    query = query.Where(e => e.Name.Contains(name));
+                }
+                if (startDate != null)
+                {
+                    query = query.Where(e => e.StartDate == startDate);
+                }
+                if (endDate != null)
+                {
+                    query = query.Where(e => e.StartDate == endDate);
+                }
+                if (!string.IsNullOrEmpty(location))
+                {
+                    query = query.Where(e => e.Location.Contains(location));
+                }
+                if (!string.IsNullOrEmpty(contact))
+                {
+                    query = query.Where(e => e.Contact.Contains(contact));
+                }
+                if (!string.IsNullOrEmpty(organizationName))
+                {
+                    query = query.Where(e => e.OrganizationName.Contains(organizationName));
+                }
+                if (price != null)
+                {
+                    query = query.Where(e => e.Price == (decimal)price);
+                }
+                if (!string.IsNullOrEmpty(former))
+                {
+                    query = query.Where(e => e.Former.Contains(former));
+                }                
+                var resultSearch = await query.ToListAsync();
+                if (resultSearch.Any())
+                    return Ok(resultSearch);
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            } 
+        }
+
+
+        #region //PUT POST DELETE
         //Put: /Formation/5
         [HttpPut("{id}")]
         public async Task<ActionResult<formation>> PutFormation(int id, formation formationPut)
@@ -108,7 +170,7 @@ namespace Mediwatch.Server.Controllers
         private bool FormationExists(long id) {
             return _context.formations.Any(e => e.id == id);
         }
-
+        #endregion
 
     }
 }
