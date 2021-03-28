@@ -10,7 +10,7 @@
 	<p>En attente d'acquisition des formations...</p>
 	<div class="loading-bar"></div>
 } else {
-	@foreach (var f in _filtered) {
+	@foreach (var f in _formations) {
 		<div class="formation-search-item">
 			<h3>@f.Name</h3>
 			<p>Du @f.StartDate au @f.EndDate</p>
@@ -23,21 +23,29 @@
 
 @code
 {
-	string Search { get; set; } = "";
+    string Search { get; set; } = "";
 
-	List<formation> _formations = null;
-	List<formation> _filtered = null;
+    List<formation> _formations = null;
+    //List<formation> _filtered = null;
 
-	protected override async Task OnInitializedAsync()
-	{
-		_formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
-		_filtered = _formations;
-		await JsRuntime.InvokeVoidAsync("display", _filtered!);
-	}
+    protected override async Task OnInitializedAsync()
+    {
+        _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
+        //_filtered = _formations;
+        await JsRuntime.InvokeVoidAsync("display", _formations);
+    }
 
-	private void Filter(ChangeEventArgs e)
-	{
-		// A voir comment filtrer ici ?
-		_filtered = _formations.Where(f => f.Name.ToLower().Contains(e.Value.ToString().ToLower())).ToList();
-	}
+    private async void Filter(ChangeEventArgs e)
+    {
+        try
+        {
+            //_filtered = _formations.Where(f => f.Name.ToLower().Contains(e.Value.ToString().ToLower())).ToList();
+            // Voir pour utiliser le cache si le navigateur ne le fait pas lui-même ?
+            _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation/search?name=" + e.Value.ToString()) as List<formation>;
+        } catch (Exception _)
+        {
+            _formations.Clear();
+        }
+        StateHasChanged();
+    }
 }
