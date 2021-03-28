@@ -3,6 +3,13 @@
 @inject HttpClient Client
 @inject IJSRuntime JsRuntime
 
+<label for="filterOption">Filtrer : </label>
+<select id="filterOption" @bind="_option">
+    <option value="name" selected>Nom</option>
+    <option value="location">Localisation</option>
+    <option value="organizationName">Organisme</option>
+    <option value="former">Formateur</option>
+</select>
 <label for="searchBar">Rechercher : </label>
 <input id="searchBar" @oninput=@Filter placeholder="Entrez votre recherche"/>
 
@@ -15,6 +22,8 @@
 			<h3>@f.Name</h3>
 			<p>Du @f.StartDate au @f.EndDate</p>
 			<p>Localisation : @f.Location</p>
+            <hr />
+            <p>Par @f.Former, pour @f.OrganizationName</p>
 			<p>Audience : @f.Target</p>
 			<p>Plus d'informations <a target="_blank" href=@( $"/formations/{f.id}" )>ici</a></p>
 		</div>
@@ -25,6 +34,7 @@
 {
     string Search { get; set; } = "";
 
+    string _option = "name";
     List<formation> _formations = null;
     //List<formation> _filtered = null;
 
@@ -41,7 +51,7 @@
         {
             //_filtered = _formations.Where(f => f.Name.ToLower().Contains(e.Value.ToString().ToLower())).ToList();
             // Voir pour utiliser le cache si le navigateur ne le fait pas lui-même ?
-            _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation/search?name=" + e.Value.ToString()) as List<formation>;
+            _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation/search?" + _option + "=" + e.Value.ToString()) as List<formation>;
         } catch (Exception _)
         {
             _formations.Clear();
