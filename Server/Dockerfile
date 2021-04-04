@@ -6,12 +6,13 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0.101-buster-slim-amd64 AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0.201-alpine3.13-amd64 AS build
 WORKDIR /src
 COPY ["Server/", "Server/"]
 COPY ["Client/", "Client/"]
 COPY ["Shared/", "Shared/"]
 COPY ["SharedComponent/", "SharedComponent/"]
+COPY ["BlazingEditor/", "BlazingEditor/"]
 RUN dotnet restore "Server/Mediwatch.Server.csproj"
 COPY . .
 WORKDIR "/src/Server"
