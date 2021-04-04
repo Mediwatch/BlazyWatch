@@ -15,11 +15,11 @@
 
 <div class= "cards-container">
 	<div class= "cards-container">
-		@if (formations == null) {
+		@if (_formations == null) {
 			<p>En attente d'acquisition des formations...</p>
 			<div class="loading-bar"></div>
 		} else {
-			@foreach (var f in filtered) {
+			@foreach (var f in _formations) {
 			<div>
 				<div class= "presentation-card mid-color">
 					<div class = "low-color presentation-card-triangle "/>
