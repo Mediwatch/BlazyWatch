@@ -13,22 +13,29 @@
 <label for="searchBar">Rechercher : </label>
 <input id="searchBar" @oninput=@Filter placeholder="Entrez votre recherche"/>
 
-@if (_formations == null) {
-	<p>En attente d'acquisition des formations...</p>
-	<div class="loading-bar"></div>
-} else {
-	@foreach (var f in _formations) {
-		<div class="formation-search-item">
-			<h3>@f.Name</h3>
-			<p>Du @f.StartDate au @f.EndDate</p>
-			<p>Localisation : @f.Location</p>
-            <hr />
-            <p>Par @f.Former, pour @f.OrganizationName</p>
-			<p>Audience : @f.Target</p>
-			<p>Plus d'informations <a target="_blank" href=@( $"/formations/{f.id}" )>ici</a></p>
-		</div>
-	}
-}
+<div class= "cards-container">
+	<div class= "cards-container">
+		@if (formations == null) {
+			<p>En attente d'acquisition des formations...</p>
+			<div class="loading-bar"></div>
+		} else {
+			@foreach (var f in filtered) {
+			<div>
+				<div class= "presentation-card mid-color">
+					<div class = "low-color presentation-card-triangle "/>
+					<div class = "presentation-card-text dark-color">
+						<h3>@f.Name</h3>
+						<p>Du @f.StartDate au @f.EndDate</p>
+						<p>Localisation : @f.Location</p>
+						<p>Audience : @f.Target</p>
+					</div>
+					<a class = "presentation-card-buton high-color" href=@($"/formations/{f.id}")>En savoir plus</a>
+				</div>
+			</div>
+			}
+		}
+	</div>
+</div>
 
 @code
 {
@@ -50,7 +57,7 @@
         try
         {
             //_filtered = _formations.Where(f => f.Name.ToLower().Contains(e.Value.ToString().ToLower())).ToList();
-            // Voir pour utiliser le cache si le navigateur ne le fait pas lui-même ?
+            // Voir pour utiliser le cache si le navigateur ne le fait pas lui-mï¿½me ?
             _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation/search?" + _option + "=" + e.Value.ToString()) as List<formation>;
         } catch (Exception _)
         {

@@ -4,34 +4,39 @@
 @inject IStringLocalizer<Index> Localizer
 
 <main>
-    <h1>@Localizer["WelcomeMessage"]</h1>
-    <div class="online-formations">
-        <div class="text-box">
-            <h3>@Localizer["FormationsInvite"]</h3>
-        </div>
-        <button class="buttons">Formations en ligne 1</button>
-        <button class="buttons">Formations en ligne 2</button>
-    </div>
-    <SharedComponent.LocalizationButton.LocalizationButton />
-    <h2>@Localizer["Popular"]</h2>
-    <div class="formations-list">
-        @if (_formations == null) {
-            <p>@Localizer["Unavaillable"]</p>
-        } else {
-            @foreach (var f in _formations)
-            {
-                <div class="formation" @onclick="@(e => affichage_formation(@f.id))">
-                    <div class="formation-img-div">
-                        <img class="formation-img" src="images/palpatine.jpg"/>
-                        <h3>@f.Name</h3>
-                        <h4>@f.Former, @f.OrganizationName</h4>
-                    </div>
-                    <div class="formation-informations">
-                        <h3>@f.StartDate</h3>
-                    </div>
+    <h1>@localizer["WelcomeMessage"]</h1>
+    <div class= "cards-container">
+        <div>
+            <div class= "presentation-card mid-color">
+                <div class = "low-color presentation-card-triangle "/>
+                <div class = "presentation-card-image-container">
+                    <image src="images/palpatine.jpg"/>
                 </div>
-            }
-        }
+                <div class = "presentation-card-buton high-color">@localizer["FormationsInvite"]</div>
+            </div>
+        </div>
+        <SharedComponent.LocalizationButton.LocalizationButton />
+        <h2>@localizer["Popular"]</h2>
+        <div>
+            <div class="little-cards-container">
+                @if (formations == null) {
+                    <p>@localizer["Unavaillable"]</p>
+                } else {
+                    @foreach (var f in formations)
+                    {
+                        <div class="little-card  dark-color">  
+                            <div class="little-card-image-container">
+                                <image src="images/palpatine.jpg"/>
+                            </div>
+                            <div class="little-card-title low-color">
+                                <h3>@f.Name</h3>
+                                <h4>@f.Former, @f.OrganizationName</h4>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
     </div>
 </main>
 

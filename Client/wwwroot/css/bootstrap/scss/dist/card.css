@@ -1,0 +1,180 @@
+.cards-container {
+  display: flex;
+  flex-direction: column;
+}
+.cards-container :nth-child(3n+1) .high-color {
+  background-color: #b8e994;
+  color: #079992;
+}
+.cards-container :nth-child(3n+1) .mid-color {
+  background-color: #78e08f;
+  color: #38ada9;
+}
+.cards-container :nth-child(3n+1) .low-color {
+  background-color: #38ada9;
+  color: #78e08f;
+}
+.cards-container :nth-child(3n+1) .dark-color {
+  background-color: #079992;
+  color: #b8e994;
+}
+.cards-container :nth-child(3n+2) .high-color {
+  background-color: #82ccdd;
+  color: #0a3d62;
+}
+.cards-container :nth-child(3n+2) .mid-color {
+  background-color: #60a3bc;
+  color: #3c6382;
+}
+.cards-container :nth-child(3n+2) .low-color {
+  background-color: #3c6382;
+  color: #60a3bc;
+}
+.cards-container :nth-child(3n+2) .dark-color {
+  background-color: #0a3d62;
+  color: #82ccdd;
+}
+.cards-container :nth-child(3n+3) .high-color {
+  background-color: #6a89cc;
+  color: #0c2461;
+}
+.cards-container :nth-child(3n+3) .mid-color {
+  background-color: #4a69bd;
+  color: #1e3799;
+}
+.cards-container :nth-child(3n+3) .low-color {
+  background-color: #1e3799;
+  color: #4a69bd;
+}
+.cards-container :nth-child(3n+3) .dark-color {
+  background-color: #0c2461;
+  color: #6a89cc;
+}
+.cards-container .presentation-card {
+  width: 100%;
+  height: 80vh;
+  margin-bottom: 4.5vh;
+  border-radius: 3vh;
+  overflow: hidden;
+}
+.cards-container .presentation-card .presentation-card-triangle {
+  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+  height: 100%;
+  width: 100%;
+}
+.cards-container .presentation-card .presentation-card-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-radius: 3vh;
+  width: calc(100% - 9vh);
+  height: calc(100% - 9vh);
+  top: calc(-100% + 4.5vh);
+  margin-left: 4.5vh;
+  border-radius: 3vh;
+  overflow: hidden;
+}
+.cards-container .presentation-card .presentation-card-image-container img {
+  object-fit: cover;
+  width: 100%;
+}
+.cards-container .presentation-card .presentation-card-text {
+  position: relative;
+  width: calc(100% - 9vh);
+  height: calc(100% - 9vh);
+  top: calc(-100% + 4.5vh);
+  margin-left: 4.5vh;
+  padding: 10%;
+  font-weight: 500;
+  border-radius: 3vh;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 3vh;
+}
+.cards-container .presentation-card .presentation-card-buton {
+  position: relative;
+  top: calc(-90% - 15vh);
+  height: 7.5vh;
+  max-width: 20%;
+  margin-left: 72%;
+  text-align: center;
+  padding: 1%;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border-radius: 1.5vh;
+  font-size: 3vh;
+}
+.cards-container .presentation-card .presentation-card-buton:hover {
+  filter: saturate(150%);
+}
+.cards-container .presentation-card .presentation-card-buton:active {
+  filter: saturate(50%);
+  user-select: none;
+}
+.cards-container .little-cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cards-container .little-cards-container .little-card {
+  overflow: hidden;
+  border-radius: 3vh;
+  height: 60vh;
+  width: 50vh;
+  margin: 3vh;
+  font-size: 3vh;
+}
+.cards-container .little-cards-container .little-card:hover {
+  filter: saturate(150%);
+}
+.cards-container .little-cards-container .little-card:active {
+  filter: saturate(50%);
+  user-select: none;
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .cards-container .little-cards-container .little-card {
+    height: 40vh;
+    width: 30vh;
+    margin: 3vh;
+  }
+}
+@media (max-width: 539px) {
+  .cards-container .little-cards-container .little-card {
+    height: 100%;
+    width: 50vh;
+    margin: 1.5vh 0 1.5vh 0;
+  }
+}
+@media (max-width: 767px) and (min-width: 540px) {
+  .cards-container .little-cards-container .little-card {
+    height: 40vh;
+    width: 30vh;
+    margin: 3vh;
+  }
+}
+.cards-container .little-cards-container .little-card-title {
+  display: flex;
+  width: 100%;
+  height: 46%;
+  text-overflow: ellipsis;
+  text-align: center;
+  padding: 4%;
+  font-weight: 500;
+  text-overflow: ellipsis;
+}
+.cards-container .little-cards-container .little-card-image-container {
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  height: 50%;
+  margin-bottom: 5%;
+  justify-content: center;
+  overflow: hidden;
+}
+.cards-container .little-cards-container .little-card-image-container img {
+  object-fit: cover;
+  width: 100%;
+}

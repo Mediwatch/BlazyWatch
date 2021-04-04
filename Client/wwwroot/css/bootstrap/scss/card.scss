@@ -1,0 +1,146 @@
+@import "graphic-rule.scss";
+
+.cards-container {
+    @include colorize;
+    display: flex;
+    flex-direction: column;
+
+        .presentation-card {
+            width: 100%;
+            height: 80vh;
+            margin-bottom: $big-unit;
+            border-radius: $one-unit;
+            overflow: hidden;
+            
+            
+            .presentation-card-triangle{
+                -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+                clip-path: polygon(0 0, 0% 100%, 100% 100%);
+                height: 100%;
+                width: 100%;
+            }
+
+            .presentation-card-image-container{
+                position: relative;
+                display: flex;
+                justify-content: center;
+                border-radius: 3vh;
+                width: calc(100% - #{2 * $big-unit});
+                height: calc(100% - #{2 * $big-unit});
+                top: calc(-100% + #{$big-unit});
+                margin-left: $big-unit;
+                border-radius: $one-unit;
+                overflow: hidden;
+                img{
+                    object-fit: cover;
+                    width: 100%;
+                }
+            }
+
+            .presentation-card-text{
+                position: relative;
+                width: calc(100% - #{2 * $big-unit});
+                height: calc(100% - #{2 * $big-unit});
+                top: calc(-100% + #{$big-unit});
+                margin-left: $big-unit;
+                padding: 10%;
+                font-weight: 500;
+                border-radius: $one-unit;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-size: $one-unit;
+            }
+            
+            .presentation-card-buton{
+                position: relative;
+                top: calc(-90% - #{2 *($one-unit + $big-unit)});
+                height: $one-unit + $big-unit;
+                max-width: 20%;
+                margin-left: 72%;
+                text-align: center;
+                padding: 1%;
+                font-weight: 500;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                border-radius: $one-unit / 2;
+                font-size: $one-unit;
+
+                &:hover {
+                    filter: saturate(150%);
+                }
+                
+                &:active {
+                    filter: saturate(50%);
+                    user-select: none; 
+                }
+            }
+        }
+
+        .little-cards-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .little-card{
+                overflow: hidden;
+                border-radius: $one-unit;
+                height: 60vh;
+                width: 50vh;
+                margin: $one-unit;
+                font-size: $one-unit;
+
+                &:hover {
+                    filter: saturate(150%);
+                }
+                
+                &:active {
+                    filter: saturate(50%);
+                    user-select: none; 
+                }
+                
+                @include medium {
+                    height: 40vh;
+                    width: 30vh;
+                    margin: $one-unit;
+                }
+                @include extra-small {
+                    height: 100%;
+                    width: 50vh;
+                    margin: $small-unit 0 $small-unit 0;
+                } 
+                @include small{
+                    height: 40vh;
+                    width: 30vh;
+                    margin: $one-unit;
+                }
+                
+            }
+
+            .little-card-title {
+                display: flex;
+                width: 100%;
+                height: 46%;
+                text-overflow: ellipsis;
+                text-align: center;
+                padding: 4%;
+                font-weight: 500;
+                text-overflow: ellipsis;
+            }
+
+            .little-card-image-container{
+                overflow: hidden;
+                display: flex;
+                width: 100%;
+                height: 50%;
+                margin-bottom: 5%;
+                justify-content: center;
+                overflow: hidden;
+                img{
+                    object-fit: cover;
+                    width: 100%;
+                }
+            }
+        }
+        
+}

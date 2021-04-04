@@ -1,0 +1,72 @@
+@use "sass:list";
+
+$palette-rows: 3;
+
+$color-chart:
+    (//green
+     #b8e994,
+     #78e08f,
+     #38ada9,
+     #079992,
+    //sky
+     #82ccdd,
+     #60a3bc,
+     #3c6382,
+     #0a3d62,
+    //ocean
+     #6a89cc,
+     #4a69bd,
+     #1e3799,
+     #0c2461
+     );
+
+$dark-font-color: list.nth($color-chart, 12);
+$light-font-color: list.nth($color-chart, 5);
+
+$valid-sides: top, bottom, left, right;
+$one-unit: 3vh;
+
+$small-unit: $one-unit / 2;
+$big-unit: $one-unit * 1.5;
+
+@mixin extra-small {
+    @media (max-width: 539px)  { @content; }
+}
+  
+@mixin small {
+    @media (max-width: 767px) and (min-width: 540px) { @content; }
+}
+  
+@mixin medium {
+    @media (max-width: 991px) and (min-width: 768px){ @content; }
+}
+  
+@mixin large {
+    @media (max-width: 1199px) and (min-width: 992px){ @content; }
+}
+
+@mixin colorize() {
+    @for $row from 0 to $palette-rows {
+        & :nth-child(#{$palette-rows}n+#{$row + 1}){
+            .high-color {
+                background-color: list.nth($color-chart, $row * 4 + 1);
+                color: list.nth($color-chart, $row * 4 + 4);
+            }
+
+            .mid-color {
+                background-color: list.nth($color-chart, $row * 4 + 2);
+                color: list.nth($color-chart, $row * 4 + 3);
+            }
+
+            .low-color {
+                background-color: list.nth($color-chart, $row * 4 + 3);
+                color: list.nth($color-chart, $row * 4 + 2);
+            }
+
+            .dark-color {
+                background-color: list.nth($color-chart, $row * 4 + 4);
+                color: list.nth($color-chart, $row * 4 + 1);
+            }
+        }
+    }
+}
