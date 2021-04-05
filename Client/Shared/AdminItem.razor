@@ -3,13 +3,13 @@
 
 <tr>
     <td>
-        <input @bind="user.Name"/>
+        <input @bind="user.Name" class="form-control"/>
     </td>
     <td>
-        <input @bind="user.Email"/>
+        <input @bind="user.Email" class="form-control"/>
     </td>
     <td>
-        <select @bind="user.Role">
+        <select @bind="user.Role" class="form-control">
             @foreach (var role in _roleNames)
             {
                 <option value="@role">@role</option>
@@ -17,7 +17,7 @@
         </select>
     </td>
     <td>
-        <button @onclick="ChangeUser">Save</button>
+        <button @onclick="ChangeUser" class="btn btn-primary">Save</button>
     </td>
 </tr>
 
