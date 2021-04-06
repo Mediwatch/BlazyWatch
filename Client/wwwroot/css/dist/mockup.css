@@ -1,3 +1,7 @@
+body {
+  background-color: #fff;
+}
+
 * {
   margin: 0;
   margin-bottom: 0;
@@ -6,44 +10,6 @@
 
 body {
   background-color: #fff;
-}
-
-.formations-list .formation .formation-informations h3, .formations-list .formation .formation-img-div h4, .formations-list .formation .formation-img-div h3, h3, h2, h1 {
-  cursor: default;
-  color: #fff;
-  font-family: "Montserrat", sans-serif;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
-}
-
-h1 {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  color: #fff;
-  text-align: center;
-  margin: 0 auto;
-  width: 80%;
-  border-radius: 50px 0 0 0;
-  font-size: 50px;
-  z-index: 3;
-  background-color: #0d79f2;
-  box-shadow: 10px 5px 0 0 rgba(9, 30, 66, 0.25);
-}
-
-h2 {
-  color: #fff;
-  text-align: center;
-  padding-top: 30px;
-  margin: 0 auto;
-  width: 80%;
-  font-size: 50px;
-  background-color: #0d79f2;
-  box-shadow: 10px 0 0 0 rgba(9, 30, 66, 0.25);
-}
-
-h3 {
-  font-size: 39px;
-  text-align: center;
-  margin-top: 130px;
 }
 
 ::-webkit-scrollbar {
@@ -161,42 +127,8 @@ h3 {
   max-height: 100%;
   min-height: 100%;
 }
-.formations-list .formation .formation-img-div h3 {
-  cursor: pointer;
-  position: absolute;
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  top: 67%;
-  text-align: left;
-  font-size: 24px;
-  margin-left: 12px;
-  margin-top: 0;
-}
-.formations-list .formation .formation-img-div h4 {
-  cursor: pointer;
-  position: absolute;
-  width: 365px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  top: 83%;
-  font-size: 18px;
-  margin-left: 12px;
-}
 .formations-list .formation .formation-informations {
   position: relative;
   height: 100px;
   width: 100%;
-}
-.formations-list .formation .formation-informations h3 {
-  cursor: pointer;
-  color: #172b4d;
-  position: absolute;
-  margin-top: 0;
-  text-align: left;
-  top: 10%;
-  right: 3%;
-  font-size: 24px;
 }

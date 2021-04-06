@@ -12,11 +12,11 @@ $logo-color-3: #0dcaf2;
 $logo-color-4: #0d79f2;
 $logo-color-5: #0d28f2;
 
-* {
-margin: 0;
-margin-bottom: 0;
-padding: 0;
-}
+// * {
+// margin: 0;
+// margin-bottom: 0;
+// padding: 0;
+// }
 
 body {
 background-color: $primary-background-color;
@@ -39,42 +39,42 @@ body {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
 }
 
-h1 {
-  @extend %basic-text;
+// h1 {
+//   @extend %basic-text;
 
-  padding-top: 20px;
-  padding-bottom: 20px;
-  color: $primary-text-color;
-  text-align: center;
-  margin: 0 auto;
-  width: 80%;
-  border-radius: 50px 0 0 0;
-  font-size: 50px;
-  z-index: 3;
-  background-color: $ui-color;
-  box-shadow: 10px 5px 0 0 rgba(9, 30, 66, 0.25);
-}
+//   padding-top: 20px;
+//   padding-bottom: 20px;
+//   color: $primary-text-color;
+//   text-align: center;
+//   margin: 0 auto;
+//   width: 80%;
+//   border-radius: 50px 0 0 0;
+//   font-size: 50px;
+//   z-index: 3;
+//   background-color: $ui-color;
+//   box-shadow: 10px 5px 0 0 rgba(9, 30, 66, 0.25);
+// }
 
-h2 {
-  @extend %basic-text;
+// h2 {
+//   @extend %basic-text;
 
-  color: $primary-text-color;
-  text-align: center;
-  padding-top: 30px;
-  margin: 0 auto;
-  width: 80%;
-  font-size: 50px;
-  background-color: $ui-color;
-  box-shadow: 10px 0 0 0 rgba(9, 30, 66, 0.25);
-}
+//   color: $primary-text-color;
+//   text-align: center;
+//   padding-top: 30px;
+//   margin: 0 auto;
+//   width: 80%;
+//   font-size: 50px;
+//   background-color: $ui-color;
+//   box-shadow: 10px 0 0 0 rgba(9, 30, 66, 0.25);
+// }
 
-h3 {
-  @extend %basic-text;
+// h3 {
+//   @extend %basic-text;
 
-  font-size: 39px;
-  text-align: center;
-  margin-top: 130px;
-}
+//   font-size: 39px;
+//   text-align: center;
+//   margin-top: 130px;
+// }
 
 ::-webkit-scrollbar {
   width: 0.25rem;
@@ -210,35 +210,35 @@ h3 {
         min-height: 100%;
       }
 
-      h3 {
-        @extend %basic-text;
+      // h3 {
+      //   @extend %basic-text;
 
-        cursor: pointer;
-        position: absolute;
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        top: 67%;
-        text-align: left;
-        font-size: 24px;
-        margin-left: 12px;
-        margin-top: 0;
-      }
+      //   cursor: pointer;
+      //   position: absolute;
+      //   width: 100%;
+      //   white-space: nowrap;
+      //   overflow: hidden;
+      //   text-overflow: ellipsis;
+      //   top: 67%;
+      //   text-align: left;
+      //   font-size: 24px;
+      //   margin-left: 12px;
+      //   margin-top: 0;
+      // }
 
-      h4 {
-        @extend %basic-text;
+      // h4 {
+      //   @extend %basic-text;
 
-        cursor: pointer;
-        position: absolute;
-        width: 365px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        top: 83%;
-        font-size: 18px;
-        margin-left: 12px;
-      }
+      //   cursor: pointer;
+      //   position: absolute;
+      //   width: 365px;
+      //   white-space: nowrap;
+      //   overflow: hidden;
+      //   text-overflow: ellipsis;
+      //   top: 83%;
+      //   font-size: 18px;
+      //   margin-left: 12px;
+      // }
     }
 
     .formation-informations {
@@ -246,18 +246,18 @@ h3 {
       height: 100px;
       width: 100%;
 
-      h3 {
-        @extend %basic-text;
+      // h3 {
+      //   @extend %basic-text;
 
-        cursor: pointer;
-        color: $secondary-text-color;
-        position: absolute;
-        margin-top: 0;
-        text-align: left;
-        top: 10%;
-        right: 3%;
-        font-size: 24px;
-      }
+      //   cursor: pointer;
+      //   color: $secondary-text-color;
+      //   position: absolute;
+      //   margin-top: 0;
+      //   text-align: left;
+      //   top: 10%;
+      //   right: 3%;
+      //   font-size: 24px;
+      // }
     }
   }
 }

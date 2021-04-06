@@ -4,18 +4,16 @@
 @inject MediwatchAuthentifiacationProvider AuthStateProvider
 
 
-<header class="top-bar navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"> <img src="./ressources/MediwatchLogoWhite.svg" alt="mediwatch logo"
-            width="25px" />ediwatch </a>
+<header class="top-bar-header">
+    <a class="top-bar-logo" href="#"> <img src="./ressources/2022_logo_Mediwatch.svg" alt="M"
+            class="logo-in-text" />ediwatch </a>
 
-    <div class="navbar-nav-scroll ml-auto d-none d-sm-block">
-        <ul class="navbar-nav flex-row">
-            <li class="px-3 nav-item dropdown">
+    <div class="top-bar-dropbox">
                 @if (Info == null || ! Info.IsAuthenticated) {
                     <a href="/utilisateur/connexion">Se connecter</a>
                 } else if (Info.IsAuthenticated) {
-                    <DropDownMenu DropDownButtonClass="btn">
-                        <DropDownButton><h3>Bienvenue @Info.UserName</h3></DropDownButton>
+                    <DropDownMenu DropDownButtonClass="high-color button">
+                        <DropDownButton><div>Bienvenue @Info.UserName</div></DropDownButton>
                         <Content>
                             <a class="dropdown-item selected reload" href="/utilisateur/moi">Mes informations</a>
                             <br>
@@ -34,10 +32,8 @@
                             <hr>
                             <a class="dropdown-item selected reload" href="#" @onclick="Logout">Se déconnecter</a>
                         </Content>
-                    </DropDownMenu>    
+                    </DropDownMenu>
                 }
-            </li>
-        </ul>
     </div>
 </header>
 
@@ -56,7 +52,7 @@
     protected override async Task OnInitializedAsync()
     {
         Info = await Client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
-        //await JSRuntime.InvokeVoidAsync("display", info);   
+        //await JSRuntime.InvokeVoidAsync("display", info);
     }
 
     private async void Logout()

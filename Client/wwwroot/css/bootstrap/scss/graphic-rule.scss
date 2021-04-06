@@ -47,7 +47,7 @@ $big-unit: $one-unit * 1.5;
 
 @mixin colorize() {
     @for $row from 0 to $palette-rows {
-        & :nth-child(#{$palette-rows}n+#{$row + 1}){
+        &>:nth-child(#{$palette-rows}n+#{$row + 1}){
             .high-color {
                 background-color: list.nth($color-chart, $row * 4 + 1);
                 color: list.nth($color-chart, $row * 4 + 4);

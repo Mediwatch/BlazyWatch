@@ -1,0 +1,71 @@
+.top-bar-header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  background-color: #0c2461;
+  color: #6a89cc;
+  height: 6.75vh;
+  font-size: 4.5vh;
+  font-weight: 600;
+}
+.top-bar-header .high-color {
+  background-color: #6a89cc;
+  color: #0c2461;
+}
+.top-bar-header .mid-color {
+  background-color: #4a69bd;
+  color: #1e3799;
+}
+.top-bar-header .low-color {
+  background-color: #1e3799;
+  color: #4a69bd;
+}
+.top-bar-header .dark-color {
+  background-color: #0c2461;
+  color: #6a89cc;
+}
+.top-bar-header .button {
+  width: 100%;
+  height: 4.5vh;
+  font-size: 3vh;
+  border: none;
+  margin: 1.125vh;
+  border-radius: 0.3vh;
+}
+.top-bar-header .button:hover {
+  filter: saturate(150%);
+}
+.top-bar-header .button:active {
+  filter: saturate(50%);
+  user-select: none;
+}
+.top-bar-header .logo-in-text {
+  height: 3.9vh;
+  margin-top: -0.9vh;
+}
+
+.top-bar-logo {
+  font-size: 4.5vh;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  color: #6a89cc;
+  margin-left: 3vh;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.top-bar-logo:hover {
+  text-decoration: none;
+  color: #6a89cc;
+}
+
+.top-bar-dropbox {
+  font-size: 4.5vh;
+  height: 6.075vh;
+  font-weight: 600;
+  margin-right: 3vh;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}

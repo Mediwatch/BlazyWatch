@@ -11,6 +11,7 @@
             margin-bottom: $big-unit;
             border-radius: $one-unit;
             overflow: hidden;
+            position: relative;
             
             
             .presentation-card-triangle{
@@ -21,13 +22,13 @@
             }
 
             .presentation-card-image-container{
-                position: relative;
+                position: absolute;
                 display: flex;
                 justify-content: center;
                 border-radius: 3vh;
                 width: calc(100% - #{2 * $big-unit});
                 height: calc(100% - #{2 * $big-unit});
-                top: calc(-100% + #{$big-unit});
+                bottom: $big-unit;
                 margin-left: $big-unit;
                 border-radius: $one-unit;
                 overflow: hidden;
@@ -38,10 +39,10 @@
             }
 
             .presentation-card-text{
-                position: relative;
+                position: absolute;
                 width: calc(100% - #{2 * $big-unit});
                 height: calc(100% - #{2 * $big-unit});
-                top: calc(-100% + #{$big-unit});
+                bottom: 0;
                 margin-left: $big-unit;
                 padding: 10%;
                 font-weight: 500;
@@ -52,10 +53,12 @@
             }
             
             .presentation-card-buton{
-                position: relative;
-                top: calc(-90% - #{2 *($one-unit + $big-unit)});
-                height: $one-unit + $big-unit;
-                max-width: 20%;
+                position: absolute;
+                bottom: 10%;
+                right: 10%;
+                //: calc(-90% - #{2 *($one-unit + $big-unit)});
+                min-height: $big-unit;
+                min-width: 20%;
                 margin-left: 72%;
                 text-align: center;
                 padding: 1%;
