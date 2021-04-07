@@ -5,6 +5,7 @@
 @inject IStringLocalizer<Utilisateur_connexion> Localizer
 
 
+
 <EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="loginForm">
     <DataAnnotationsValidator />
     <h4 class="font-weight-normal text-center">@Localizer["Connexion"]</h4>
@@ -22,10 +23,16 @@
     <button class="btn btn-lg btn-primary btn-block" type="submit">@Localizer["Connexion"]</button>
 
     <label class="text-danger">@error</label>
-    <NavLink href="/utilisateur/enregistrement">
-        <h6 class="font-weight-normal text-center">@Localizer["Register"]</h6>
-    </NavLink>
-    <a class="btn btn-primary btn-lg text-center" href="Account/LoginExternal">Google</a>
+    <a class="text-white text-decoration-none" href="Account/LoginExternal">
+        <button type="button" class="btn btn-danger font-weight-bold">
+            <i class="fab fa-google pr-2" aria-hidden="true"></i>Google
+        </button>
+    </a>
+    <a class="text-white text-decoration-none" href="/utilisateur/enregistrement">
+        <button type="button" class="btn btn-success font-weight-bold">
+            @Localizer["Register"]
+        </button>
+    </a>
 </EditForm>
 
 @code

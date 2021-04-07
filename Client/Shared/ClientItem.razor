@@ -1,0 +1,25 @@
+@inject HttpClient Client
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Nom d'utilisateur</span>
+  </div>
+  <input @bind="user.Name" class="form-control"/>
+</div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Adresse email</span>
+  </div>
+  <input @bind="user.Email" class="form-control"/>
+</div>
+<button @onclick="ChangeUser" class="btn btn-primary">Sauvegarder</button>
+
+@code {
+
+    [Parameter]
+    public UserPublic user {get; set;}
+
+    private async void ChangeUser() {
+        await Client.PostAsJsonAsync("/Users/setInfo/",user);
+    }    
+}
