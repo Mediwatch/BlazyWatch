@@ -115,7 +115,7 @@
     protected override async Task OnInitializedAsync()
     {
         Info = await Client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
-        //await JSRuntime.InvokeVoidAsync("display", info);   
+        //await JSRuntime.InvokeVoidAsync("display", info);
     }
 
     private async void Logout()

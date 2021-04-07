@@ -3,10 +3,10 @@
 @implements IDisposable
 
 
-<div class="dropdown">
-    <button class="@DropDownButtonClass" @onclick="UpdateOnclickShow">
+<div class="dropdown @Class">
+    <div class="@DropDownButtonClass" @onclick="UpdateOnclickShow">
         @DropDownButton
-    </button>
+    </div>
 
     @if(dropdownState.Content.Count < 1) {
     <div class="dropdown-menu @ShowCSS">
@@ -28,6 +28,8 @@
 @code {
     [Parameter]
     public string DropDownButtonClass {get; set;}
+    [Parameter]
+    public string Class {get; set;}
     [Parameter]
     public RenderFragment DropDownButton { get; set; }
     [Parameter]
