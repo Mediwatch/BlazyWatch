@@ -3,7 +3,6 @@
 @inject IJSRuntime JsRuntime
 @inject MediwatchAuthentifiacationProvider AuthStateProvider
 
-
 <header class="navbar navbar-expand-lg border-bottom">
     <a class="navbar-brand text-secondary" href="/"><img src="./ressources/logo.png" alt="mediwatch logo" width="30" height="30"
             /> Mediwatch</a>
@@ -56,7 +55,7 @@
     </div>
 </div>
 
-<footer class="page-footer font-small unique-color-white bg-dark mt-4" style="position: absolute; bottom: 0; width: 100%;">
+<footer class="page-footer font-small unique-color-white bg-dark mt-4">
     <div class="border bg-white">
         <div class="container">
             <div class="py-2 align-items-center">
@@ -85,7 +84,21 @@
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 <h6 class="text-uppercase font-weight-bold text-secondary">Qui sommes nous ?</h6>
                 <hr class="light accent-2 mb-4 mt-0 d-inline-block mx-auto text-white" style="width: 60px;">
-                <p class="text-light">Nous sommes une équipe 7 étudiants qui souhaite apporter leurs compétences pour faciliter la communication entre les formateurs et les médecins</p></div>
+                <p class="text-light">Nous sommes une équipe 7 étudiants qui souhaite apporter leurs compétences pour faciliter la communication entre les formateurs et les médecins</p>
+            </div>
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold text-secondary">Guide</h6>
+                <hr class="light accent-2 mb-4 mt-0 d-inline-block mx-auto text-white" style="width: 60px;">
+                <p class="mb-0">
+                    <a class="text-light" href="/help/organism">Organisme de formation</a>
+                </p>
+                <p class="mb-0">
+                    <a class="text-light" href="/help/doctors">Médecins</a>
+                </p>
+                <p class="mb-0">
+                    <a class="text-light" href="/help/structure">Structures médicales</a>
+                </p>
+            </div>
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 <h6 class="text-uppercase font-weight-bold text-secondary">Liens utiles</h6>
                 <hr class="light accent-2 mb-4 mt-0 d-inline-block mx-auto text-secondary" style="width: 60px;">
@@ -96,7 +109,7 @@
                     <a class="text-light" href="https://www.epitech.eu/">EPITECH</a>
                 </p>
                 <p class="mb-0">
-                    <a class="text-light" href="/legal">Mentions légales</a>
+                    <a class="text-light" href="/Legal">Mentions légales</a>
                 </p>
                 <p class="mb-0">
                     <a class="text-light" href="mailto:contact@mediwatch.fr">contact@mediwatch.fr</a>
@@ -109,7 +122,6 @@
         <a class="text-secondary" href="/"> Médiwatch</a> tous droits réservés
     </div>
 </footer>
-
 @code {
     public UserInformation Info = null;
     protected override async Task OnInitializedAsync()
