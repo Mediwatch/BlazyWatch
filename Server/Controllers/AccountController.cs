@@ -1,4 +1,5 @@
 using Mediwatch.Shared;
+using Mediwatch.Server.Areas.Identity.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +16,11 @@ namespace Mediwatch.Server.Controllers
     public class AccountController : ControllerBase
     {
 
-        private readonly SignInManager<IdentityUser<Guid>> signInManager;
-        private readonly UserManager<IdentityUser<Guid>> userManager;
+        private readonly SignInManager<UserCustom> signInManager;
+        private readonly UserManager<UserCustom> userManager;
         private readonly RoleManager<IdentityRole<Guid>> roleManager;
         
-        public AccountController(SignInManager<IdentityUser<Guid>> signInManager, UserManager<IdentityUser<Guid>> userManager, RoleManager<IdentityRole<Guid>> roleManager)
+        public AccountController(SignInManager<UserCustom> signInManager, UserManager<UserCustom> userManager, RoleManager<IdentityRole<Guid>> roleManager)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
@@ -114,7 +115,7 @@ namespace Mediwatch.Server.Controllers
             if (string.IsNullOrEmpty(userName))
                 return BadRequest($"{info.ProviderDisplayName} has no username");
 
-            var user = new IdentityUser<Guid>{ Id = System.Guid.NewGuid(), UserName = userName, Email = userEmail};
+            var user = new UserCustom{ Id = System.Guid.NewGuid(), UserName = userName, Email = userEmail};
             var dbUser = await userManager.CreateAsync(user);
 
             if (!dbUser.Succeeded)
@@ -145,7 +146,7 @@ namespace Mediwatch.Server.Controllers
                 return BadRequest(ModelState.Values.SelectMany(state => state.Errors)
                     .Select(error => error.ErrorMessage).FirstOrDefault());
             
-            var registerUser = new IdentityUser<Guid>();
+            var registerUser = new UserCustom();
             registerUser.UserName = register.UserName;
             registerUser.Email = register.EmailAddress;
 
