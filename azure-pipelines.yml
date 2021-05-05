@@ -1,4 +1,6 @@
 # Docker
+- task: Bash@3
+
 # Build a Docker image
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
@@ -20,10 +22,6 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-    - task: Docker@2
-      displayName: Build an image
       inputs:
-        command: build
-        dockerComposeFile: '$(Build.SourcesDirectory)/docker-compose.yml'
-        tags: |
-          $(tag)
+        filePath: '/bin/ls'
+        arguments: '.'
