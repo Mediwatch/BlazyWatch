@@ -16,12 +16,3 @@ variables:
 stages:
 - stage: Build
   displayName: Build image
-  jobs:
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: ubuntu-latest
-    steps:
-      inputs:
-        filePath: '/bin/ls'
-        arguments: '.'
