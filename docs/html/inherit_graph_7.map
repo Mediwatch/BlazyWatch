@@ -1,5 +1,6 @@
 <map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node1" title=" " alt="" coords="5,57,89,84"/>
-<area shape="rect" id="node2" href="$class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1innitial_create.html" title=" " alt="" coords="137,5,417,61"/>
-<area shape="rect" id="node3" href="$class_mediwatch_1_1_server_1_1_migrations_1_1innitial_create.html" title=" " alt="" coords="147,86,407,127"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,86,89,113"/>
+<area shape="rect" id="node2" href="$class_mediwatch_1_1_server_1_1_migrations_1_1_add_field_to_entity1.html" title=" " alt="" coords="170,5,385,47"/>
+<area shape="rect" id="node3" href="$class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1innitial_create.html" title=" " alt="" coords="137,71,417,127"/>
+<area shape="rect" id="node4" href="$class_mediwatch_1_1_server_1_1_migrations_1_1innitial_create.html" title=" " alt="" coords="147,152,407,193"/>
 </map>
