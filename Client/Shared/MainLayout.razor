@@ -3,37 +3,45 @@
 @inject IJSRuntime JsRuntime
 @inject MediwatchAuthentifiacationProvider AuthStateProvider
 
-
-<header class="top-bar-header">
-    <a class="top-bar-logo" href="#"> <img src="./ressources/2022_logo_Mediwatch.svg" alt="M"
-            class="logo-in-text" />ediwatch </a>
-
-    <div class="top-bar-dropbox">
-                @if (Info == null || ! Info.IsAuthenticated) {
-                    <a href="/utilisateur/connexion">Se connecter</a>
-                } else if (Info.IsAuthenticated) {
-                    <DropDownMenu DropDownButtonClass="high-color button">
-                        <DropDownButton><div>Bienvenue @Info.UserName</div></DropDownButton>
-                        <Content>
-                            <a class="dropdown-item selected reload" href="/utilisateur/moi">Mes informations</a>
-                            <br>
-                            <a class="dropdown-item selected reload" href="/utilisateur/calendrier">Mon calendrier</a>
+<header class="navbar navbar-expand-lg border-bottom">
+    <a class="navbar-brand text-secondary" href="/"><img src="./ressources/logo.png" alt="mediwatch logo" width="30" height="30"
+            /> Mediwatch</a>
+    <div class="navbar-nav-scroll ml-auto d-none d-sm-block">
+        <ul class="navbar-nav flex-row">
+            @if (Info == null || ! Info.IsAuthenticated) {
+                <li class="nav-item">
+                    <a href="/utilisateur/connexion" class="btn btn-outline-primary">connexion</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a href="/utilisateur/enregistrement" class="btn btn-outline-success">inscription</a>
+                </li>
+            } else if (Info.IsAuthenticated) {
+                <li class="px-3 nav-item dropdown">
+                    <!-- Example single danger button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Bienvenue @Info.UserName
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item selected reload" href="/utilisateur/moi">Mes informations</a>
+                                <a class="dropdown-item selected reload" href="/utilisateur/calendrier">Mon calendrier</a>
                             <AuthorizeView Roles="Admin, Tutor">
-                                <hr>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item selected reload" href="/article/creation">Créer un article</a>
-                                <br>
                                 <a class="dropdown-item selected reload" href="/formations/creation">Créer une formation</a>
-                                <hr>
                             </AuthorizeView>
                             <AuthorizeView Roles="Admin">
-                                <a class="dropdown-item selected reload" href="/Admin">Pannel Admin</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item selected reload" href="/Admin">Panneau d'administration</a>
                             </AuthorizeView>
-                            <a class="dropdown-item selected reload" href="/formations/recherche">Chercher une formation</a>
-                            <hr>
-                            <a class="dropdown-item selected reload" href="#" @onclick="Logout">Se déconnecter</a>
-                        </Content>
-                    </DropDownMenu>
-                }
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item selected reload" href="/formations/recherche">Chercher une formation</a>
+                                <a class="dropdown-item selected reload" href="#" @onclick="Logout">Déconnexion</a>
+                        </div>
+                    </div>
+                </li>  
+            }
+        </ul>
     </div>
 </header>
 
@@ -47,6 +55,73 @@
     </div>
 </div>
 
+<footer class="page-footer font-small unique-color-white bg-dark mt-4">
+    <div class="border bg-white">
+        <div class="container">
+            <div class="py-2 align-items-center">
+                <div class="text-center">
+                    <a class="mx-1 text-white text-decoration-none" href="https://www.facebook.com/MediwatchFR/">
+                        <button type="button" class="btn btn-outline-primary font-weight-bold">
+                            <i class="fab fa-facebook pr-2" aria-hidden="true"></i>MediwatchFR
+                        </button>
+                    </a>
+                    <a class="mx-1 text-warning text-decoration-none" href="https://www.instagram.com/mediwatchfr/">
+                        <button type="button" class="btn btn-outline-warning font-weight-bold">
+                                <i class="fab fa-instagram pr-2" aria-hidden="true"></i>MediwatchFR
+                        </button>
+                    </a>
+                    <a class="mx-1 text-white text-decoration-none" href="https://twitter.com/MediwatchFR">
+                        <button type="button" class="btn btn-outline-info font-weight-bold">
+                            <i class="fab fa-twitter pr-2" aria-hidden="true"></i>MediwatchFR
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center text-md-left mt-4">
+        <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold text-secondary">Qui sommes nous ?</h6>
+                <hr class="light accent-2 mb-4 mt-0 d-inline-block mx-auto text-white" style="width: 60px;">
+                <p class="text-light">Nous sommes une équipe 7 étudiants qui souhaite apporter leurs compétences pour faciliter la communication entre les formateurs et les médecins</p>
+            </div>
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold text-secondary">Guide</h6>
+                <hr class="light accent-2 mb-4 mt-0 d-inline-block mx-auto text-white" style="width: 60px;">
+                <p class="mb-0">
+                    <a class="text-light" href="/help/organism">Organisme de formation</a>
+                </p>
+                <p class="mb-0">
+                    <a class="text-light" href="/help/doctors">Médecins</a>
+                </p>
+                <p class="mb-0">
+                    <a class="text-light" href="/help/structure">Structures médicales</a>
+                </p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold text-secondary">Liens utiles</h6>
+                <hr class="light accent-2 mb-4 mt-0 d-inline-block mx-auto text-secondary" style="width: 60px;">
+                <p class="mb-0">
+                    <a class="text-light" href="https://eip.epitech.eu/2022/mediwatch/">Site vitrine</a>
+                </p>
+                <p class="mb-0">
+                    <a class="text-light" href="https://www.epitech.eu/">EPITECH</a>
+                </p>
+                <p class="mb-0">
+                    <a class="text-light" href="/Legal">Mentions légales</a>
+                </p>
+                <p class="mb-0">
+                    <a class="text-light" href="mailto:contact@mediwatch.fr">contact@mediwatch.fr</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr class="light w-25 m-auto">
+    <div class="text-secondary footer-copyright text-center py-3">©2020-2021
+        <a class="text-secondary" href="/"> Médiwatch</a> tous droits réservés
+    </div>
+</footer>
 @code {
     public UserInformation Info = null;
     protected override async Task OnInitializedAsync()

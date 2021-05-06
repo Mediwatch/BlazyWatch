@@ -3,14 +3,20 @@
 @inject HttpClient Client
 @inject IJSRuntime JsRuntime
 
-<h2>Tableau de bord</h2>
 
-<h4>Nom d'utilisateur</h4>
 @if (_info == null) {
-    <p>En cours d'acquisition...<div class="loading-bar"></div></p>
+    <p>Vous n'êtes pas connecté<div class="loading-bar"></div></p>
 } else {
+    <h2>Gestion utilisateur</h2>
+    <h3>Vos informations</h3>
+    <h4>Nom d'utilisateur</h4>
     <p>@_info.Name</p>
+    <h4>Addresse mail principale</h4>
     <p>@_info.Email</p>
+    <h4>Type de compte</h4>
+    <p>@_info.Role</p>
+    <h3>Modification de vos informations</h3>
+    <ClientItem user=_info></ClientItem>
 }
 
 @code {

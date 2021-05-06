@@ -31,7 +31,7 @@ namespace Mediwatch.Server {
                   options.UseSqlite("Filename=data.db"));
             services.AddControllersWithViews ();
 
-             services.AddIdentity<IdentityUser<Guid>, IdentityRole<Guid>> (options => options.SignIn.RequireConfirmedAccount = false)
+             services.AddIdentity<UserCustom, IdentityRole<Guid>> (options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<IdentityDataContext> ()
                 .AddDefaultTokenProviders ();
 
@@ -105,7 +105,7 @@ namespace Mediwatch.Server {
         {
             //adding custom roles
             var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
-            var UserManager = serviceProvider.GetRequiredService<UserManager<IdentityUser<Guid>>>();
+            var UserManager = serviceProvider.GetRequiredService<UserManager<UserCustom>>();
             string[] roleNames = { "Admin", "Tutor", "Member" };
             IdentityResult roleResult;
             foreach (var roleName in roleNames)
@@ -118,7 +118,7 @@ namespace Mediwatch.Server {
                 }
             }
             //creating a super user who could maintain the web app
-            var poweruser = new IdentityUser<Guid>
+            var poweruser = new UserCustom
             {
                 UserName = Configuration["SuperUser:Username"],
                 Email = Configuration["SuperUser:Email"]

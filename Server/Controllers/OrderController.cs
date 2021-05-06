@@ -13,6 +13,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Mediwatch.Shared;
+using Mediwatch.Server.Areas.Identity.Data;
 using System.IO;
 
 using System.Linq;
@@ -108,13 +109,13 @@ namespace  Mediwatch.Server.Controllers
     [Route("[controller]")]
     public class OrderController : ControllerBase
     {
-        private readonly UserManager<IdentityUser<Guid>> _userManager;
+        private readonly UserManager<UserCustom> _userManager;
 
         private readonly IConfiguration _configuration;
 
         private readonly DbContextMediwatch _context;
 
-        public OrderController(DbContextMediwatch context, UserManager<IdentityUser<Guid>> userManager, IConfiguration configuration)
+        public OrderController(DbContextMediwatch context, UserManager<UserCustom> userManager, IConfiguration configuration)
         {
             _context = context;
             _userManager = userManager;

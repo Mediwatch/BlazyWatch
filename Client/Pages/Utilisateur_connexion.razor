@@ -4,29 +4,64 @@
 @inject MediwatchAuthentifiacationProvider AuthStateProvider
 @inject IStringLocalizer<Utilisateur_connexion> Localizer
 
+<div class="container-fluid ">
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <div class="h-100 d-flex align-items-center justify-content-center m-3 p-3 border border-dark rounded">
+        <div class="w-100">
+          <h4 class="text-center">Nouveau sur Médiwatch ?</h4>
+          <div class="row justify-content-center">
+            <a class="col-10" href="/utilisateur/enregistrement">
+              <button type="submit" class="btn btn-success font-weight-bold w-100">Inscription</button>
+            </a>
+          </div>
+          <h4 class="hr">ou</h4>
+          <div class="row justify-content-center">
+            <a class="text-white text-decoration-none center-block col-10" href="Account/LoginExternal">
+              <button type="button" class="btn btn-danger font-weight-bold w-100"><i class="fab fa-google pr-2" aria-hidden="true"></i>Connexion avec Google</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <EditForm  class="m-3 p-3 border border-dark rounded h-100" OnValidSubmit="OnSubmit" Model="loginForm">
+      <DataAnnotationsValidator />
+        <h4 class="text-center">Déjà membre ?</h4>
+        <div class="form-group row">
+          <div class="col-sm-12">
+            <InputText id="inputUsername" class="form-control" placeholder="Nom D'utilisateur" autofocus @bind-Value="@loginForm.UserName"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-12">
+            <InputText type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" @bind-Value="@loginForm.Password" />
+            <ValidationMessage For="@(() => loginForm.Password)" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-12">
+            <div class="form-check">
+              <input  class="form-check-input" type="checkbox" bind="@loginForm.RememberMe"/><br/>@Localizer["Remember"]<br/>
+              <label class="form-check-label" for="gridCheck1">Se souvenir de moi</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row mb-0">
+          <div class="col-6 pr-1">
+            <button class="btn btn-primary w-100" type="submit">@Localizer["Connexion"]</button>
+            <label class="text-danger">@error</label>
+          </div>
+          <div class="col-6 pl-1">
+            <button type="submit" class="btn btn-outline-danger w-100">Mot de passe oublié</button>
+          </div>
+        </div>
+      </EditForm>
+    </div>
+  </div>
+</div>
 
-<EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="loginForm">
-    <DataAnnotationsValidator />
-    <h4 class="font-weight-normal text-center">@Localizer["Connexion"]</h4>
 
-    <label for="inputUsername" class="sr-only">@Localizer["Username"]</label>
-    <InputText id="inputUsername" class="form-control" placeholder="Nom D'utilisateur" autofocus @bind-Value="@loginForm.UserName" />
-    <ValidationMessage For="@(() => loginForm.UserName)" />
-
-    <label for="inputPassword" class="sr-only">@Localizer["Password"]</label>
-    <InputText type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" @bind-Value="@loginForm.Password" />
-    <ValidationMessage For="@(() => loginForm.Password)" />
-
-    <input type="checkbox" bind="@loginForm.RememberMe"/><br/>@Localizer["Remember"]<br/>
-
-    <button class="btn btn-lg btn-primary btn-block" type="submit">@Localizer["Connexion"]</button>
-
-    <label class="text-danger">@error</label>
-    <NavLink href="/utilisateur/enregistrement">
-        <h6 class="font-weight-normal text-center">@Localizer["Register"]</h6>
-    </NavLink>
-    <a class="btn btn-primary btn-lg text-center" href="Account/LoginExternal">Google</a>
-</EditForm>
 
 @code
 {
