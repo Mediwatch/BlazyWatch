@@ -19,6 +19,7 @@ else
         <p>Coût : @f.Price €</p>
         <input type="button" @onclick="@(() => SuppressionFormation(tmp_f))" value="Enlever du panier" />
     }
+    <input type="button" @onclick="(() => Payer())" value="Payer"/>
 }
 
 
@@ -63,6 +64,19 @@ else
         {
             StateHasChanged();
         });
+    }
+
+    private async void Payer()
+    {
+        orderInfo info = new orderInfo();
+        info.invoiceId = Guid.NewGuid().ToString();
+
+        fs.ForEach(async _f => {
+            formation f = await Client.GetFromJsonAsync<formation>("Formation/" + _f);
+            info.price += (float) f.Price;
+        });
+
+        Console.WriteLine("Appeler ici POST /Order/ avec orderInfo correctement rempli.");
     }
 
 }
