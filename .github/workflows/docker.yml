@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo ${{ secrets.APP_SETTING }} >> Server/appsettings.Development.json
+      - run: cat Server/appsettings.Development.json
       - name: Deploy to Docker Host
         uses: wshihadeh/docker-deployment-action@v2
         with:
