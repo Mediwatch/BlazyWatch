@@ -11,12 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - run: echo ${{ secrets.APP_SETTING }} >> Server/appsettings.Development.json
-      - run: cat Server/appsettings.Development.json
-      - run: printf  ${{ secrets.APP_SETTING }} >> Server/appsettings.Development.json
-      - run: printf ${{ secrets.APP_SETTING }}
-      - run: cat Server/appsettings.Development.json
+      - uses: actions/checkout@v2  
+      - name: print secrets
+        run: |
+          echo $DEV_ENV_FILE >> Server/appsettings.Development.json 
+          cat Server/appsettings.Development.json 
+        shell: bash
+        env:
+          DEV_ENV_FILE : ${{secrets.APP_SETTING}}
       - name: Deploy to Docker Host
         uses: wshihadeh/docker-deployment-action@v2
         with:
