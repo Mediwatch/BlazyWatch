@@ -29,7 +29,7 @@
                     @foreach (var f in _formations)
                     {
                         <a href=@("formations/" + f.id) target="_blank">
-                            @if (val % 2 == 0)
+                            @if (val++ % 2 == 0)
                             {
                                 <div class="little-card  dark-color">
                                     <div class="little-card-image-container">
@@ -53,7 +53,6 @@
                                     </div>
                                 </div>
                             }
-                            val++;
                         </a>
                     }
                 }
