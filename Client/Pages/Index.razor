@@ -2,6 +2,7 @@
 @inject HttpClient Client
 @inject IJSRuntime JsRuntime
 @inject IStringLocalizer<Index> Localizer
+@inject NavigationManager NavManager
 
 <main>
     @* <h1>@Localizer["WelcomeMessage"]</h1> *@
@@ -28,7 +29,7 @@
                     int val = 0;
                     @foreach (var f in _formations)
                     {
-                        <a href=@("formations/" + f.id) target="_blank">
+                        <div @onclick="@(e => clickfunc("formations/" + f.id))">
                             @if (val++ % 2 == 0)
                             {
                                 <div class="little-card  dark-color">
@@ -53,7 +54,7 @@
                                     </div>
                                 </div>
                             }
-                        </a>
+                        </div>
                     }
                 }
             </div>
@@ -64,13 +65,16 @@
 @* <PaymentComponent price="0.01"></PaymentComponent> *@
 
 @code {
-
     private List<formation> _formations = null;
 
     protected override async Task OnInitializedAsync()
     {
         _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
         await JsRuntime.InvokeVoidAsync("display", await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation"));
+    }
+
+    private void clickfunc(string path) {
+        NavManager.NavigateTo(path);
     }
 
     private void affichage_formation(int id)

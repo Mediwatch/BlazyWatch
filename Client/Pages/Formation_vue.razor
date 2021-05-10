@@ -23,6 +23,7 @@ else
 {
     <FormationItemView f=_formation></FormationItemView>
 
+    <ArticleViewer articleName=@_formation.ArticleID></ArticleViewer>
 
     @if (_info == null || !_info.IsAuthenticated)
     {
@@ -43,9 +44,6 @@ else
         </button>
     }
 
-    <hr />
-
-    <ArticleViewer articleName=@_formation.ArticleID></ArticleViewer>
 
     <div id="notif" style="border-style: dashed; visibility: @visibility">
         <p>Formation ajoutée correctement au panier.</p>
