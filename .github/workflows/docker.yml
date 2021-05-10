@@ -14,11 +14,8 @@ jobs:
       - uses: actions/checkout@v2  
       - name: print secrets
         run: |
-          echo "${{secrets.APP_SETTINGS}}" >> Server/appsettings.Development.json 
-          cat Server/appsettings.Development.json 
+          echo "${{secrets.APP_SETTINGS}}" >> Server/appsettings.Development.json
         shell: bash
-        env:
-          DEV_ENV_FILE : ${{secrets.APP_SETTING}}
       - name: Deploy to Docker Host
         uses: wshihadeh/docker-deployment-action@v2
         with:
