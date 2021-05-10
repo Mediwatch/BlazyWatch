@@ -13,6 +13,8 @@ services :
     volumes: 
       - data:/app/Data
       - media_volume:/app/Ressources/Images
+      - factures:/invoice_archive
 volumes: 
   data:
   media_volume:
+  factures: 
