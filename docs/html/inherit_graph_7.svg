@@ -9,9 +9,9 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 145)">
 <title>Graphe hiérarchique des classes</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-145 313,-145 313,4 -4,4"/>
-<!-- Node9 -->
+<!-- Node8 -->
 <g id="node1" class="node">
-<title>Node9</title>
+<title>Node8</title>
 <g id="a_node1"><a xlink:title=" ">
 <polygon fill="white" stroke="#bfbfbf" points="0,-61 0,-80 63,-80 63,-61 0,-61"/>
 <text text-anchor="middle" x="31.5" y="-68" font-family="Helvetica,sans-Serif" font-size="10.00">Migration</text>
@@ -28,15 +28,15 @@
 </a>
 </g>
 </g>
-<!-- Node9&#45;&gt;Node0 -->
+<!-- Node8&#45;&gt;Node0 -->
 <g id="edge1" class="edge">
-<title>Node9&#45;&gt;Node0</title>
+<title>Node8&#45;&gt;Node0</title>
 <path fill="none" stroke="midnightblue" d="M60.56,-84.57C72.25,-90.06 86.08,-96.08 99,-100.5 109.72,-104.17 121.23,-107.51 132.56,-110.47"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="61.85,-81.31 51.32,-80.14 58.82,-87.62 61.85,-81.31"/>
 </g>
-<!-- Node11 -->
+<!-- Node10 -->
 <g id="node3" class="node">
-<title>Node11</title>
+<title>Node10</title>
 <g id="a_node3"><a xlink:href="class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1innitial_create.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="99,-50 99,-91 309,-91 309,-50 99,-50"/>
 <text text-anchor="start" x="107" y="-79" font-family="Helvetica,sans-Serif" font-size="10.00">Mediwatch.Server.Migrations.</text>
@@ -45,15 +45,15 @@
 </a>
 </g>
 </g>
-<!-- Node9&#45;&gt;Node11 -->
+<!-- Node8&#45;&gt;Node10 -->
 <g id="edge2" class="edge">
-<title>Node9&#45;&gt;Node11</title>
+<title>Node8&#45;&gt;Node10</title>
 <path fill="none" stroke="midnightblue" d="M73.59,-70.5C81.43,-70.5 89.95,-70.5 98.75,-70.5"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="73.38,-67 63.38,-70.5 73.38,-74 73.38,-67"/>
 </g>
-<!-- Node12 -->
+<!-- Node11 -->
 <g id="node4" class="node">
-<title>Node12</title>
+<title>Node11</title>
 <g id="a_node4"><a xlink:href="class_mediwatch_1_1_server_1_1_migrations_1_1innitial_create.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="106.5,-0.5 106.5,-30.5 301.5,-30.5 301.5,-0.5 106.5,-0.5"/>
 <text text-anchor="start" x="114.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Mediwatch.Server.Migrations.innitial</text>
@@ -61,9 +61,9 @@
 </a>
 </g>
 </g>
-<!-- Node9&#45;&gt;Node12 -->
+<!-- Node8&#45;&gt;Node11 -->
 <g id="edge3" class="edge">
-<title>Node9&#45;&gt;Node12</title>
+<title>Node8&#45;&gt;Node11</title>
 <path fill="none" stroke="midnightblue" d="M60.56,-56.43C72.25,-50.94 86.08,-44.92 99,-40.5 109.72,-36.83 121.23,-33.49 132.56,-30.53"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="58.82,-53.38 51.32,-60.86 61.85,-59.69 58.82,-53.38"/>
 </g>
