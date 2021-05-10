@@ -5,7 +5,19 @@
 
 <h2>Vos factures</h2>
 
-
+@if (factures == null)
+{
+    <p>Aucune facture disponible...</p>
+}
+else
+{
+    <ul>
+    @foreach (var facture in factures)
+        {
+            <li><a href=@("/Order/Archived/" + facture)>@facture</a></li>
+        }
+    </ul>
+}
 
 @code {
 
@@ -13,7 +25,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        // Voir pour récupérer les factures, les éléments ?
+        // Voir pour rï¿½cupï¿½rer les factures, les ï¿½lï¿½ments ?
         factures = await Client.GetFromJsonAsync<List<string>>("/Order/Archived");
     }
 }
