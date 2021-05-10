@@ -46,14 +46,14 @@ window.BlazeEdit = {
                     class: ImageTool,
                     config: {
                       endpoints: {
-                        byFile: 'https://localhost:5001/BlogUtils/UploadImage', // Your backend file uploader endpoint
+                        byFile: '/BlogUtils/UploadImage', // Your backend file uploader endpoint
                       }
                     },
                   },
                   linkTool: {
                     class: LinkTool,
                     config: {
-                      endpoint: 'https://localhost:5001/BlogUtils/GetLinInfo', // Your backend endpoint for url data fetching
+                      endpoint: '/BlogUtils/GetLinInfo', // Your backend endpoint for url data fetching
                     }
                   },
                   codeBox: {
