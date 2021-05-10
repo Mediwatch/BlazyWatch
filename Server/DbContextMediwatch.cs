@@ -1,3 +1,4 @@
+using System.IO;
 using BlazingArticle.Model;
 using Mediwatch.Shared.Models;
 using Microsoft.EntityFrameworkCore;
@@ -21,8 +22,11 @@ namespace Server {
 
         public DbSet<BlazingArticleModel> articleModels {get; set;}
         protected override void OnConfiguring (DbContextOptionsBuilder options) 
-        {
-             options.UseSqlite("Filename=data.db");
+        {   
+            var folderName = "Data";
+            var PathSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+            var fullPath = Path.Combine(PathSave, "data.db");
+            options.UseSqlite("Data Source=" + fullPath);
         }
 
     }
