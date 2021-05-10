@@ -10,3 +10,9 @@ services :
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
+    volumes: 
+      - data:/app/Data
+      - media_volume:/app/Ressources/Images
+volumes: 
+  - data:
+  - media_volume:
