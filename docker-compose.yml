@@ -14,5 +14,5 @@ services :
       - data:/app/Data
       - media_volume:/app/Ressources/Images
 volumes: 
-  - data:
-  - media_volume:
+  data:
+  media_volume:
