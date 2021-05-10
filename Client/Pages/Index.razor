@@ -2,6 +2,7 @@
 @inject HttpClient Client
 @inject IJSRuntime JsRuntime
 @inject IStringLocalizer<Index> Localizer
+@inject NavigationManager NavManager
 
 <main>
     @* <h1>@Localizer["WelcomeMessage"]</h1> *@
@@ -19,34 +20,41 @@
         <h2>@Localizer["Popular"]</h2> *@
         <div>
             <div class="little-cards-container">
-                @if (_formations == null) {
+                @if (_formations == null)
+                {
                     <p>@Localizer["Unavaillable"]</p>
-                } else {
+                }
+                else
+                {
                     int val = 0;
                     @foreach (var f in _formations)
                     {
-                        if (val % 2 == 0) {
-                        <div class="little-card  dark-color">  
-                            <div class="little-card-image-container">
-                                <image src="images/palpatine.jpg"/>
-                            </div>
-                            <div class="little-card-title low-color">
-                                <h3>@f.Name</h3>
-                                <h4>@f.Former, @f.OrganizationName</h4>
-                            </div>
+                        <div @onclick="@(e => clickfunc("formations/" + f.id))">
+                            @if (val++ % 2 == 0)
+                            {
+                                <div class="little-card  dark-color">
+                                    <div class="little-card-image-container">
+                                        <image src="images/palpatine.jpg" />
+                                    </div>
+                                    <div class="little-card-title low-color">
+                                        <h3>@f.Name</h3>
+                                        <h4>@f.Former, @f.OrganizationName</h4>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="little-card  high-color">
+                                    <div class="little-card-image-container">
+                                        <image src="images/palpatine.jpg" />
+                                    </div>
+                                    <div class="little-card-title mid-color">
+                                        <h3>@f.Name</h3>
+                                        <h4>@f.Former, @f.OrganizationName</h4>
+                                    </div>
+                                </div>
+                            }
                         </div>
-                        } else {
-                            <div class="little-card  high-color">  
-                            <div class="little-card-image-container">
-                                <image src="images/palpatine.jpg"/>
-                            </div>
-                            <div class="little-card-title mid-color">
-                                <h3>@f.Name</h3>
-                                <h4>@f.Former, @f.OrganizationName</h4>
-                            </div>
-                        </div>
-                        }
-                        val++;
                     }
                 }
             </div>
@@ -57,13 +65,16 @@
 @* <PaymentComponent price="0.01"></PaymentComponent> *@
 
 @code {
-
     private List<formation> _formations = null;
 
     protected override async Task OnInitializedAsync()
     {
         _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
         await JsRuntime.InvokeVoidAsync("display", await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation"));
+    }
+
+    private void clickfunc(string path) {
+        NavManager.NavigateTo(path);
     }
 
     private void affichage_formation(int id)

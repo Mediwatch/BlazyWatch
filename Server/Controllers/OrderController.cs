@@ -13,6 +13,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Mediwatch.Shared;
+using Mediwatch.Server.Areas.Identity.Data;
 using System.IO;
 
 using System.Linq;
@@ -108,13 +109,13 @@ namespace  Mediwatch.Server.Controllers
     [Route("[controller]")]
     public class OrderController : ControllerBase
     {
-        private readonly UserManager<IdentityUser<Guid>> _userManager;
+        private readonly UserManager<UserCustom> _userManager;
 
         private readonly IConfiguration _configuration;
 
         private readonly DbContextMediwatch _context;
 
-        public OrderController(DbContextMediwatch context, UserManager<IdentityUser<Guid>> userManager, IConfiguration configuration)
+        public OrderController(DbContextMediwatch context, UserManager<UserCustom> userManager, IConfiguration configuration)
         {
             _context = context;
             _userManager = userManager;
@@ -156,15 +157,15 @@ namespace  Mediwatch.Server.Controllers
                     envoyeur_addresse_3 = "France",
                     destinataire = userInfo.UserName,
                     destinataire_addresse = orderBody.billingAdress,
-                    numéro_facture = "FA-2",
+                    numéro_facture = orderBody.invoiceId,
                     date_facture = DateTime.Now.ToString("dd/MM/yyyy"),
-                    description = "Abonnement 1 mois",
+                    description = "Formation (changer par orderBody.desc ?)",
                     // description = formationInfo.Name,
                     quantité = "1",
                     unité = "pce.",
-                    prix_unitaire_HT = "50000.00",
+                    prix_unitaire_HT = orderBody.price.ToString(),
                     // prix_unitaire_HT = formationInfo.Price,
-                    total_TTC = "50000.00",
+                    total_TTC = "-1.00",
                     // total_TTC = formationInfo.Price,
                     téléphone = "+33 X XX XX XX XX",
                     email = "contact@mediwatch.com",

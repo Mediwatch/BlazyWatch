@@ -4,6 +4,8 @@ appsettings*
 *scss/*.css
 !*scss/main.scss
 
+*/Ressources
+
 *.swp
 *.*~
 project.lock.json

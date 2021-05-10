@@ -6,6 +6,7 @@ using System.Linq;
 using System;
 using Mediwatch.Shared.Models;
 using Server;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Mediwatch.Server.Controllers
 {
@@ -110,6 +111,7 @@ namespace Mediwatch.Server.Controllers
 
         #region //PUT POST DELETE
         //Put: /Formation/5
+        [Authorize(Roles = "Admin,Tutor")]
         [HttpPut("{id}")]
         public async Task<ActionResult<formation>> PutFormation(int id, formation formationPut)
         {
@@ -136,6 +138,7 @@ namespace Mediwatch.Server.Controllers
 
         // POST: /Formation
         [HttpPost]
+        [Authorize(Roles = "Admin,Tutor")]
         public async Task<ActionResult<formation>> PostFormation(formation formationBody)
         {
             /// <summary>
@@ -149,6 +152,7 @@ namespace Mediwatch.Server.Controllers
 
         // DELETE: api/Formation/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin,Tutor")]
         public async Task<ActionResult<formation>> DeleteFormation(int id)
         {
             /// <summary>

@@ -59,7 +59,6 @@ namespace BlazingBlog.Server.Controllers
             return new Article{
                     Name = article.Key.ToString(),
                     Title = article.Title,
-                    Tags = article.Tags.ToList(),
                     Content = article.Content
                 };
         }
@@ -71,13 +70,12 @@ namespace BlazingBlog.Server.Controllers
         /// <param name="article">article to add to data base</param>
         /// <returns>return OK 200 if it work</returns>
         [HttpPost]
-        //[Authorize(Roles = "Admin,Tutor")]
+        [Authorize(Roles = "Admin,Tutor")]
         public async Task<System.Guid> CreateArticle([FromBody]Article article) {
             
             var dbArticle = new BlazingArticleModel {
                 Key = new System.Guid(),
                  Title = article.Title,
-                    Tags = article.Tags.ToArray(),
                     Content = article.Content,
                     PreviewImageURL = article.PreviewImageURL,
                     PreviewParagraph = article.PreviewParagraph,

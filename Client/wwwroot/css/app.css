@@ -2,7 +2,12 @@
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-
+.footer-our {
+    display: block;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
 a, .btn-link {
     color: #0366d6;
 }

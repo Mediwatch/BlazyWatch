@@ -1,5 +1,6 @@
 var url = "https://localhost:5001/formations/"
 
+scheduler.config.readonly = true;
 scheduler.config.readonly_form = true;
 scheduler.config.drag_move = false;
 scheduler.locale = {

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Mediwatch.Shared.Models;
+using Mediwatch.Server.Areas.Identity.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Server;
@@ -17,9 +18,9 @@ namespace Mediwatch.Server.Controllers {
     public class UsersController : ControllerBase {
 
         #region //Config Part
-        private readonly UserManager<IdentityUser<Guid>> _userManager;
+        private readonly UserManager<UserCustom> _userManager;
         private readonly DbContextMediwatch _context;
-        public UsersController (UserManager<IdentityUser<Guid>> userManager,
+        public UsersController (UserManager<UserCustom> userManager,
             DbContextMediwatch context) {
             _userManager = userManager;
             _context = context;
@@ -33,7 +34,7 @@ namespace Mediwatch.Server.Controllers {
         /// </summary>
         /// <param name="elem"></param>
         /// <returns>return new user as public</returns>
-        private async Task<UserPublic> createUserPublic (IdentityUser<Guid> elem) {
+        private async Task<UserPublic> createUserPublic (UserCustom elem) {
             UserPublic node = new UserPublic ();
             node.Id = elem.Id;
             node.Name = elem.UserName;
@@ -48,10 +49,10 @@ namespace Mediwatch.Server.Controllers {
         /// </summary>
         /// <param name="dataToChange"></param>
         /// <returns></returns>
-        private async Task<List<UserPublic>> ConvertInPublicInfo (List<IdentityUser<Guid>> dataToChange) {
+        private async Task<List<UserPublic>> ConvertInPublicInfo (List<UserCustom> dataToChange) {
             List<UserPublic> PublicUserInfo = new List<UserPublic> ();
 
-            foreach (IdentityUser<Guid> elem in dataToChange) {
+            foreach (UserCustom elem in dataToChange) {
                 var node = createUserPublic (elem);
                 PublicUserInfo.Add (await node);
             }
@@ -62,7 +63,7 @@ namespace Mediwatch.Server.Controllers {
         /// modify user information in database
         /// </summary>
         /// <param name="user"></param>
-        private async Task SetUserInfoFromUserPublic (UserPublic user, IdentityUser<Guid> userData) {
+        private async Task SetUserInfoFromUserPublic (UserPublic user, UserCustom userData) {
             userData.UserName = user.Name;
             userData.Email = user.Email;
             await _userManager.RemoveFromRoleAsync(userData, (await _userManager.GetRolesAsync(userData))[0]);

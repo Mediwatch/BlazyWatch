@@ -8,7 +8,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Mediwatch.Server.Areas.Identity.Data
 {
-    public class IdentityDataContext : IdentityDbContext<IdentityUser<Guid>, IdentityRole<Guid>, Guid>
+    public class UserCustom : IdentityUser<Guid>
+    {
+    
+        public string Address {get; set;}
+        public string Job {get; set;}
+        public string Message {get; set;}
+        public int CountryNumber {get; set;}
+
+    }
+    public class IdentityDataContext : IdentityDbContext<UserCustom, IdentityRole<Guid>, Guid>
     {
         public IdentityDataContext(DbContextOptions<IdentityDataContext> options)
             : base(options)
