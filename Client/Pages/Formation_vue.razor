@@ -85,6 +85,13 @@ else
         Console.WriteLine("Inscription à la formation en elle-même, passer par Paypal directement ?");
         // Enregistrer ici l'utilisateur à la formation !
         //JSRuntime.InvokeVoidAsync("display", e);
+        
+        Console.WriteLine("Ici, on crée un faux orderInfo, histoire de pouvoir montrer le fonctionnement des factures avec un achat spécifique.");
+        orderInfo info = new orderInfo();
+        info.invoiceId = Guid.NewGuid().ToString();
+        info.price = (float) _formation.Price;
+        await Client.PostAsJsonAsync("Order", info);
+        Console.WriteLine("Facture créée !");
     }
 
     private async void Ajout()

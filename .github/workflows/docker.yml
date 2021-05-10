@@ -1,0 +1,31 @@
+name: Docker CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2  
+      - name: print secrets
+        run: |
+          echo $DEV_ENV_FILE >> Server/appsettings.Development.json 
+          cat Server/appsettings.Development.json 
+        shell: bash
+        env:
+          DEV_ENV_FILE : ${{secrets.APP_SETTING}}
+      - name: Deploy to Docker Host
+        uses: wshihadeh/docker-deployment-action@v2
+        with:
+          remote_docker_host: mediwatch@52.143.185.15
+          stack_file_name: docker-compose.yml
+          ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+          ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+          deployment_mode: docker-compose
+          args: up --build -d
+          deploy_path: /home/mediwatch/solution.mediwatch.fr

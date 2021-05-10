@@ -9,11 +9,11 @@
 
 @code {
 
-    private List<String> factures = null;
+    private List<string> factures = null;
 
     protected override async Task OnInitializedAsync()
     {
         // Voir pour récupérer les factures, les éléments ?
-        // factures = await Client.GetFromJsonAsync<String>("Users/factures");
+        factures = await Client.GetFromJsonAsync<List<string>>("/Order/Archived");
     }
 }
