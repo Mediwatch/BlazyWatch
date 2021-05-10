@@ -22,7 +22,6 @@
 }
 
 @code {
-    Uri _url;
     Article _article;
 
     [Parameter]
@@ -32,11 +31,11 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender) {
         if(firstRender && articleName != "NO_ID") {
-            Console.WriteLine(articleName);
+            Console.WriteLine("yolo: " +articleName);
             _article = await Http.GetFromJsonAsync<Article>($"api/Articles/GetArticle?name={articleName}");
             //Console.WriteLine(article.Content)
             await JsRuntime.InvokeVoidAsync("display", _article);
-            if (_article != null && _article.Title != null)
+            if (_article != null && _article.Title != null && _article.Content != null)
             {
                 _render = JsonConvert.DeserializeObject<BlazingRender>(_article.Content);
                 if (_render != null)

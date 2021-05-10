@@ -59,7 +59,6 @@ namespace BlazingBlog.Server.Controllers
             return new Article{
                     Name = article.Key.ToString(),
                     Title = article.Title,
-                    Tags = article.Tags.ToList(),
                     Content = article.Content
                 };
         }
@@ -77,7 +76,6 @@ namespace BlazingBlog.Server.Controllers
             var dbArticle = new BlazingArticleModel {
                 Key = new System.Guid(),
                  Title = article.Title,
-                    Tags = article.Tags.ToArray(),
                     Content = article.Content,
                     PreviewImageURL = article.PreviewImageURL,
                     PreviewParagraph = article.PreviewParagraph,
