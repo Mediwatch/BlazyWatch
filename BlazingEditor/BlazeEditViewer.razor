@@ -1,7 +1,9 @@
 @if (blocks != null) {
     @foreach(var elem in blocks) {        
     <CascadingValue Value="@elem" Name="BlazingEditorElement">
-        @ChildContent
+        <div>
+            @ChildContent
+        </div>
     </CascadingValue>
     }
 }

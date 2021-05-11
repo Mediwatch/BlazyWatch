@@ -40,7 +40,8 @@
     	if (firstRender)
     	{
         	await JsRuntime.InvokeVoidAsync("initDXCalendar");
-			_formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
+			var info_user = await Client.GetFromJsonAsync<UserPublic>("Users/info");
+			_formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("formation/" + info_user.Id) as List<formation>;
 
 			foreach (var f in _formations) {
 				await JsRuntime.InvokeVoidAsync("display", f);

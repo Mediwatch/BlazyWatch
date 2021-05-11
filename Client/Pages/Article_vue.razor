@@ -16,12 +16,14 @@
 
 @if (_render != null)
 {
-    <BlazeEditViewer @bind-Render="_render">
-        <BlazEditParagraph Class="article-viewer-paragraph"/>
-        <BlazEditImage ClassImageContainer="article-viewer-image-container" ClassImage="article-viewer-image"/>
-        <BlazeEditHeader/>
-        <BlazEditSpacer Content=@Spacer></BlazEditSpacer>
-    </BlazeEditViewer>
+    <div class="cards-container">
+        <BlazeEditViewer @bind-Render="_render">
+            <BlazEditParagraph Class="text-card"/>
+            <BlazEditImage ClassImageContainer="image-card-container" ClassImage="article-viewer-image"/>
+            <BlazeEditHeader/>
+            <BlazEditSpacer Content=@Spacer></BlazEditSpacer>
+        </BlazeEditViewer>
+    </div>
 }
 
 @code {

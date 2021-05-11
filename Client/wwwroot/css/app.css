@@ -16,7 +16,7 @@ html, body {
   }
 .popup-content
 {
-    position: absolute;
+    position: fixed;
     z-index: 2501;
     left: 50%;
     top: 50vh;
