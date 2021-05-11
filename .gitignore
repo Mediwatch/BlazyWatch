@@ -4,7 +4,7 @@ appsettings*
 *scss/*.css
 !*scss/main.scss
 
-*/Ressources
+Server/Ressources
 
 *.swp
 *.*~
