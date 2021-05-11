@@ -93,15 +93,15 @@
             </div>
             @if (_validation == 2)
             {
-                <button type="submit">@Localizer["Submit"]</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">@Localizer["Submit"]</button>
             }
         </EditForm>
     }
 
     @if (_validation == 3)
     {
-        <button type="submit" @onclick=@NoArticle>Valider la formation</button> 
-        <button type="submit" @onclick=@PostFormation>Créer un article et valider la formation</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" @onclick=@NoArticle>Valider la formation</button> 
+        <button class="btn btn-lg btn-primary btn-block" type="submit" @onclick=@PostFormation>Créer un article et valider la formation</button>
     }
 
     @if(_validation == 4) {
