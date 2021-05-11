@@ -158,12 +158,16 @@ namespace Mediwatch.Server.Controllers {
         /// <param name="id">id user</param>
         /// <returns>return the list of applicant session</returns>
         [HttpGet("formation/{id}")]
-        public async Task<ActionResult<IEnumerable<applicant_session>>> GetUserFormation(String id)
+        public async Task<ActionResult<formation>> GetUserFormation(String id)
         {
-            var AllApplicantSessions = await _context.applicant_sessions.ToListAsync();
-            var ApplicantSessionsFilterById = AllApplicantSessions.FindAll(elem => elem.id.Equals(id));
+            FormationController _formationController = new FormationController(_context);
 
-            return AllApplicantSessions;
+            var AllApplicantSessions = await _context.applicant_sessions.ToListAsync();
+            List<formation> formationReturn = new List<formation>();
+            AllApplicantSessions.FindAll(elem => elem.id.Equals(id));
+             
+            return await _formationController.GetFormation((int)AllApplicantSessions[0].idFormation);
+  
         }
 
         /// <summary>
