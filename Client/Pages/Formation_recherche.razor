@@ -11,30 +11,34 @@
     <option value="former">Formateur</option>
 </select>
 <label for="searchBar">Rechercher : </label>
-<input id="searchBar" @oninput=@Filter placeholder="Entrez votre recherche"/>
+<input id="searchBar" @oninput=@Filter placeholder="Entrez votre recherche" />
 
-<div class= "cards-container">
-	<div class= "cards-container">
-		@if (_formations == null) {
-			<p>En attente d'acquisition des formations...</p>
-			<div class="loading-bar"></div>
-		} else {
-			@foreach (var f in _formations) {
-			<div>
-				<div class= "presentation-card mid-color">
-					<div class = "low-color presentation-card-triangle "/>
-					<div class = "presentation-card-text dark-color">
-						<h3>@f.Name</h3>
-						<p>Du @f.StartDate au @f.EndDate</p>
-						<p>Localisation : @f.Location</p>
-						<p>Audience : @f.Target</p>
-					</div>
-					<a class = "presentation-card-buton high-color" href=@($"/formations/{f.id}")>En savoir plus</a>
-				</div>
-			</div>
-			}
-		}
-	</div>
+<div class="cards-container">
+    <div class="cards-container">
+        @if (_formations == null)
+        {
+            <p>En attente d'acquisition des formations...</p>
+            <div class="loading-bar"></div>
+        }
+        else
+        {
+            @foreach (var f in _formations)
+            {
+                <div>
+                    <div class="presentation-card mid-color">
+                        <div class="low-color presentation-card-triangle " />
+                        <div class="presentation-card-text dark-color">
+                            <h3>@f.Name</h3>
+                            <p>Du @f.StartDate au @f.EndDate</p>
+                            <p>Localisation : @f.Location</p>
+                            <p>Audience : @f.Target</p>
+                        </div>
+                        <a class="presentation-card-buton high-color" href=@($"/formations/{f.id}")>En savoir plus</a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
 </div>
 
 @code
@@ -58,12 +62,14 @@
         {
             //_filtered = _formations.Where(f => f.Name.ToLower().Contains(e.Value.ToString().ToLower())).ToList();
             // Voir pour utiliser le cache si le navigateur ne le fait pas lui-m�me ?
-            _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation/search?" + _option + "=" + e.Value.ToString()) as List<formation>;
-        } catch (Exception _)
+            _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation/search?" + _option + "=" +
+            e.Value.ToString()) as List<formation>;
+        }
+        catch (Exception _)
         {
             _formations.Clear();
         }
         StateHasChanged();
-        
+
     }
 }

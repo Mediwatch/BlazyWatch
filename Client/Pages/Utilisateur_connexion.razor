@@ -18,32 +18,35 @@
           <h4 class="hr">ou</h4>
           <div class="row justify-content-center">
             <a class="text-white text-decoration-none center-block col-10" href="Account/LoginExternal">
-              <button type="button" class="btn btn-danger font-weight-bold w-100"><i class="fab fa-google pr-2" aria-hidden="true"></i>Connexion avec Google</button>
+              <button type="button" class="btn btn-danger font-weight-bold w-100"><i class="fab fa-google pr-2"
+                  aria-hidden="true"></i>Connexion avec Google</button>
             </a>
           </div>
         </div>
       </div>
     </div>
     <div class="col-md-6 mb-3">
-      <EditForm  class="m-3 p-3 border border-dark rounded h-100" OnValidSubmit="OnSubmit" Model="loginForm">
-      <DataAnnotationsValidator />
+      <EditForm class="m-3 p-3 border border-dark rounded h-100" OnValidSubmit="OnSubmit" Model="loginForm">
+        <DataAnnotationsValidator />
         <h4 class="text-center">Déjà membre ?</h4>
         <div class="form-group row">
           <div class="col-sm-12">
-            <InputText id="inputUsername" class="form-control" placeholder="Nom D'utilisateur" autofocus @bind-Value="@loginForm.UserName"/>
+            <InputText id="inputUsername" class="form-control" placeholder="Nom D'utilisateur" autofocus
+              @bind-Value="@loginForm.UserName" />
           </div>
         </div>
         <div class="form-group row">
           <div class="col-sm-12">
-            <InputText type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" @bind-Value="@loginForm.Password" />
+            <InputText type="password" id="inputPassword" class="form-control" placeholder="Mot de passe"
+              @bind-Value="@loginForm.Password" />
             <ValidationMessage For="@(() => loginForm.Password)" />
           </div>
         </div>
         <div class="form-group row">
           <div class="col-sm-12">
             <div class="form-check">
-              <input  class="form-check-input" type="checkbox" bind="@loginForm.RememberMe"/><br/>@Localizer["Remember"]<br/>
-              <label class="form-check-label" for="gridCheck1">Se souvenir de moi</label>
+              <input class="form-check-input" type="checkbox"
+                bind="@loginForm.RememberMe" /><br />@Localizer["Remember"]<br />
             </div>
           </div>
         </div>
@@ -66,20 +69,20 @@
 @code
 {
 
-	LoginForm loginForm { get; set; } = new LoginForm();
-	string error { get; set; }
+  LoginForm loginForm { get; set; } = new LoginForm();
+  string error { get; set; }
 
-	async Task OnSubmit()
-	{
-		error = null;
-		try
-		{
-			await AuthStateProvider.Login(loginForm);
-			NavigationManager.NavigateTo("", true);
-		}
-		catch (Exception ex)
-		{
-			error = ex.Message;
-		}
-	}
+  async Task OnSubmit()
+  {
+    error = null;
+    try
+    {
+      await AuthStateProvider.Login(loginForm);
+      NavigationManager.NavigateTo("", true);
+    }
+    catch (Exception ex)
+    {
+      error = ex.Message;
+    }
+  }
 }
