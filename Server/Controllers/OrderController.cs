@@ -193,13 +193,13 @@ namespace Mediwatch.Server.Controllers
                 .SetOverwrite(true)
                 .Run();
 
-            EmailForm email = new EmailForm
-            {
-                EmailAddress = userInfo.Email,
-                Content = "Vous avez payé"
-            };
+            // EmailForm email = new EmailForm
+            // {
+            //     EmailAddress = userInfo.Email,
+            //     Content = "Vous avez payé"
+            // };
 
-            EmailUtils.SendMail(email, _configuration);
+            // EmailUtils.SendMail(email, _configuration);
 
             new InvoiceArchiver(_configuration)
                 .ArchiveInvoice("./InvoiceGenerator/" + orderBody.invoiceId, orderBody.invoiceId, userInfo.UserName);
