@@ -5,9 +5,14 @@
 @inject NavigationManager NavManager
 
 
-@if (_info == null) {
-    <p>Vous n'êtes pas connecté<div class="loading-bar"></div></p>
-} else {
+@if (_info == null)
+{
+    <p>Vous n'êtes pas connecté(e)
+    <div class="loading-bar"></div>
+    </p>
+}
+else
+{
     <h2>Gestion utilisateur</h2>
     <h3>Vos informations</h3>
     <h4>Nom d'utilisateur</h4>
@@ -18,15 +23,15 @@
     <p>@_info.Role</p>
     <Bill></Bill>
     <h3>Modification de vos informations</h3>
-    
+
     <PopUp @bind-Activate="active">
         <div>
-            Vouleez vous vraimen effacer le compte ?
+            Vouleez vous vraiment effacer le compte ?
             <button @onclick="deleteUser" class="btn btn-primary">Effacer le compte</button>
             <button @onclick="CancelErase" class="btn btn-primary">Non</button>
         </div>
     </PopUp>
-    
+
     <ClientItem user=_info></ClientItem>
     <button @onclick="EraseAccount" class="btn btn-primary">Effacer le compte</button>
 }
@@ -40,17 +45,20 @@
         _info = await Client.GetFromJsonAsync<UserPublic>("Users/info");
     }
 
-    public async Task deleteUser() {
+    public async Task deleteUser()
+    {
         await Client.GetAsync("Users/deleteUser?id=" + _info.Id.ToString());
         await AuthStateProvider.Logout();
-        NavManager.NavigateTo("/",true);
+        NavManager.NavigateTo("/", true);
     }
 
-    public void EraseAccount() {
+    public void EraseAccount()
+    {
         active = true;
     }
 
-    public void CancelErase() {
+    public void CancelErase()
+    {
         active = false;
-    } 
+    }
 }

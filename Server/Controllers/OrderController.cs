@@ -72,7 +72,7 @@ public class InvoiceGenerator
     public void Run()
     {
         var p = Process.Start(new ProcessStartInfo(
-            "./invoice_generator",
+            "./InvoiceGenerator/invoice_generator",
             this.GetArgsString()
         ));
         p.WaitForExit();
@@ -166,7 +166,7 @@ namespace Mediwatch.Server.Controllers
             var userInfo = await _userManager.FindByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
             // var formationInfo = await _context.formations.FindAsync(orderBody.formationId);
 
-            new InvoiceGenerator("invoice_template.docx")
+            new InvoiceGenerator("./InvoiceGenerator/invoice_template.docx")
                 .SetData(new
                 {
                     envoyeur = "Mediwatch",
@@ -177,7 +177,7 @@ namespace Mediwatch.Server.Controllers
                     destinataire_addresse = orderBody.billingAdress,
                     numéro_facture = orderBody.invoiceId,
                     date_facture = DateTime.Now.ToString("dd/MM/yyyy"),
-                    description = "Formation (changer par orderBody.desc ?)",
+                    description = "Formation",
                     // description = formationInfo.Name,
                     quantité = "1",
                     unité = "pce.",
@@ -189,7 +189,7 @@ namespace Mediwatch.Server.Controllers
                     email = "contact@mediwatch.com",
                     IBAN = "XXXXXXXXXX"
                 })
-                .SetOuput(orderBody.invoiceId)
+                .SetOuput("./InvoiceGenerator/" + orderBody.invoiceId)
                 .SetOverwrite(true)
                 .Run();
 
@@ -202,7 +202,7 @@ namespace Mediwatch.Server.Controllers
             EmailUtils.SendMail(email, _configuration);
 
             new InvoiceArchiver(_configuration)
-                .ArchiveInvoice(orderBody.invoiceId, orderBody.invoiceId, userInfo.UserName);
+                .ArchiveInvoice("./InvoiceGenerator/" + orderBody.invoiceId, orderBody.invoiceId, userInfo.UserName);
 
             // orderInfo info = new orderInfo();
             orderBody.createAt = DateTime.Now;
