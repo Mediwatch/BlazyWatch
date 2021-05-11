@@ -19,18 +19,21 @@ using System.IO;
 using System.Linq;
 using Microsoft.Extensions.Logging;
 
-public class InvoiceGenerator {
+public class InvoiceGenerator
+{
     private string Template;
     private string Data;
     private string Output = "output";
     private string Format = "pdf";
     private Boolean Overwrite = false;
 
-    public InvoiceGenerator(string template) {
+    public InvoiceGenerator(string template)
+    {
         this.Template = template;
     }
 
-    public InvoiceGenerator SetData(object data) {
+    public InvoiceGenerator SetData(object data)
+    {
         string json = JsonConvert.SerializeObject(data);
         this.Data = "\"" + json.Replace("\"", "\\\"") + "\"";
         // Whithout this Replace the shell will interpret the '"' in the JSON.
@@ -39,22 +42,26 @@ public class InvoiceGenerator {
         return this;
     }
 
-    public InvoiceGenerator SetOuput(string output) {
+    public InvoiceGenerator SetOuput(string output)
+    {
         this.Output = output;
         return this;
     }
 
-    public InvoiceGenerator SetFormat(string output) {
+    public InvoiceGenerator SetFormat(string output)
+    {
         this.Output = output;
         return this;
     }
 
-    public InvoiceGenerator SetOverwrite(Boolean overwrite) {
+    public InvoiceGenerator SetOverwrite(Boolean overwrite)
+    {
         this.Overwrite = overwrite;
         return this;
     }
 
-    public string GetArgsString() {
+    public string GetArgsString()
+    {
         return this.Template
             + " --data " + this.Data
             + " --output " + this.Output
@@ -62,7 +69,8 @@ public class InvoiceGenerator {
             + (this.Overwrite ? " --overwrite" : "");
     }
 
-    public void Run() {
+    public void Run()
+    {
         var p = Process.Start(new ProcessStartInfo(
             "./invoice_generator",
             this.GetArgsString()
@@ -71,39 +79,47 @@ public class InvoiceGenerator {
     }
 }
 
-public class InvoiceArchiver {
+public class InvoiceArchiver
+{
     private string Root;
     private string TimeFormat;
 
-    public InvoiceArchiver(IConfiguration conf) {
+    public InvoiceArchiver(IConfiguration conf)
+    {
         Root = conf["InvoiceArchiver:Root"];
         TimeFormat = conf["InvoiceArchiver:TimeFormat"];
 
-        if (!Directory.Exists(Root)) {
+        if (!Directory.Exists(Root))
+        {
             Directory.CreateDirectory(Root);
         }
     }
 
-    public void ArchiveInvoice(string filePath, string filename, string client) {
-        if (!Directory.Exists(Root + "/" + client)) {
+    public void ArchiveInvoice(string filePath, string filename, string client)
+    {
+        if (!Directory.Exists(Root + "/" + client))
+        {
             Directory.CreateDirectory(Root + "/" + client);
         }
 
+        // facture_NOM_DATE.pdf
         File.Move(filePath,
             Root + "/" + client + "/"
-                + filename + "_" + DateTime.Now.ToString(TimeFormat));
+                + "facture_" + client + "_" + DateTime.Now.ToString(TimeFormat) + ".pdf");
     }
 
-    public string[] Search(string client) {
-        if (!Directory.Exists(Root + "/" + client)) {
-            return new string[] {};
+    public string[] Search(string client)
+    {
+        if (!Directory.Exists(Root + "/" + client))
+        {
+            return new string[] { };
         }
 
         return Directory.GetFiles(Root + "/" + client);
     }
 }
 
-namespace  Mediwatch.Server.Controllers
+namespace Mediwatch.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -130,7 +146,7 @@ namespace  Mediwatch.Server.Controllers
         }
 
         //GET /Order/{id}
-        [HttpGet ("{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<orderInfo>> GetOrder(long id)
         {
             var orderResult = await _context.orderInfos.FindAsync(id);
@@ -145,12 +161,14 @@ namespace  Mediwatch.Server.Controllers
         //POST /Order/
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult<orderInfo>> PostOrder(orderInfo orderBody){
-            var userInfo = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));
+        public async Task<ActionResult<orderInfo>> PostOrder(orderInfo orderBody)
+        {
+            var userInfo = await _userManager.FindByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
             // var formationInfo = await _context.formations.FindAsync(orderBody.formationId);
 
             new InvoiceGenerator("invoice_template.docx")
-                .SetData(new {
+                .SetData(new
+                {
                     envoyeur = "Mediwatch",
                     envoyeur_addresse_1 = "24 rue Pasteur",
                     envoyeur_addresse_2 = "94270 Le Kremlin-Bicêtre",
@@ -171,11 +189,12 @@ namespace  Mediwatch.Server.Controllers
                     email = "contact@mediwatch.com",
                     IBAN = "XXXXXXXXXX"
                 })
-                .SetOuput("test_invoice.pdf")
+                .SetOuput(orderBody.invoiceId)
                 .SetOverwrite(true)
                 .Run();
 
-            EmailForm email = new EmailForm{
+            EmailForm email = new EmailForm
+            {
                 EmailAddress = userInfo.Email,
                 Content = "Vous avez payé"
             };
@@ -183,7 +202,7 @@ namespace  Mediwatch.Server.Controllers
             EmailUtils.SendMail(email, _configuration);
 
             new InvoiceArchiver(_configuration)
-                .ArchiveInvoice("test_invoice.pdf", "test_invoice.pdf", userInfo.UserName);
+                .ArchiveInvoice(orderBody.invoiceId, orderBody.invoiceId, userInfo.UserName);
 
             // orderInfo info = new orderInfo();
             orderBody.createAt = DateTime.Now;
@@ -196,7 +215,8 @@ namespace  Mediwatch.Server.Controllers
         [HttpGet]
         [Route("Archived")]
         [Authorize]
-        public async Task<IEnumerable<string>> GetOrderArchived() {
+        public async Task<IEnumerable<string>> GetOrderArchived()
+        {
             var userInfo = await _userManager.FindByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             return new InvoiceArchiver(_configuration)
@@ -208,24 +228,31 @@ namespace  Mediwatch.Server.Controllers
         [HttpGet]
         [Route("Archived/{fileName}")]
         [Authorize]
-        public async Task<ActionResult> GetArchived(string fileName) {
+        public async Task<ActionResult> GetArchived(string fileName)
+        {
             var userInfo = await _userManager.FindByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             var orders = new InvoiceArchiver(_configuration).Search(userInfo.UserName);
 
             string filePath;
 
-            try {
+            try
+            {
                 filePath = orders.Single(path => Path.GetFileName(path) == fileName);
-            } catch (System.InvalidOperationException) {
+            }
+            catch (System.InvalidOperationException)
+            {
                 return NotFound();
             }
 
             Stream sr;
 
-            try {
+            try
+            {
                 sr = System.IO.File.OpenRead(filePath);
-            } catch (System.Exception) {
+            }
+            catch (System.Exception)
+            {
                 return StatusCode(500);
             }
 

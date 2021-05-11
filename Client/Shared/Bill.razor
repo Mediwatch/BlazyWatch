@@ -1,11 +1,20 @@
-@page "/utilisateur/factures"
-
 @inject HttpClient Client
-@inject IJSRuntime JsRuntime
 
 <h2>Vos factures</h2>
 
-
+@if (factures == null || factures.Count <= 0)
+{
+    <p>Aucune facture disponible...</p>
+}
+else
+{
+    <ul>
+    @foreach (var facture in factures)
+        {
+            <li><a href=@("/Order/Archived/" + facture)>@facture</a></li>
+        }
+    </ul>
+}
 
 @code {
 
@@ -13,7 +22,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        // Voir pour récupérer les factures, les éléments ?
         factures = await Client.GetFromJsonAsync<List<string>>("/Order/Archived");
     }
 }

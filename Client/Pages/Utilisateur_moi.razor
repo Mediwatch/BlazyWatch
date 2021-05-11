@@ -1,7 +1,8 @@
 @page "/utilisateur/moi"
 
 @inject HttpClient Client
-@inject IJSRuntime JsRuntime
+@inject MediwatchAuthentifiacationProvider AuthStateProvider
+@inject NavigationManager NavManager
 
 
 @if (_info == null) {
@@ -15,14 +16,41 @@
     <p>@_info.Email</p>
     <h4>Type de compte</h4>
     <p>@_info.Role</p>
+    <Bill></Bill>
     <h3>Modification de vos informations</h3>
+    
+    <PopUp @bind-Activate="active">
+        <div>
+            Vouleez vous vraimen effacer le compte ?
+            <button @onclick="deleteUser" class="btn btn-primary">Effacer le compte</button>
+            <button @onclick="CancelErase" class="btn btn-primary">Non</button>
+        </div>
+    </PopUp>
+    
     <ClientItem user=_info></ClientItem>
+    <button @onclick="EraseAccount" class="btn btn-primary">Effacer le compte</button>
 }
 
 @code {
     private UserPublic _info = null;
+
+    private bool active = false;
     protected override async Task OnInitializedAsync()
     {
         _info = await Client.GetFromJsonAsync<UserPublic>("Users/info");
     }
+
+    public async Task deleteUser() {
+        await Client.GetAsync("Users/deleteUser?id=" + _info.Id.ToString());
+        await AuthStateProvider.Logout();
+        NavManager.NavigateTo("/",true);
+    }
+
+    public void EraseAccount() {
+        active = true;
+    }
+
+    public void CancelErase() {
+        active = false;
+    } 
 }

@@ -1,0 +1,24 @@
+
+@if (Activate) {
+    <div class="popup"  @onclick="UpdateActiveFromChild">
+    </div>
+    <div class="popup-content">
+    @ChildContent
+    </div>
+}
+
+@code {
+    [Parameter]
+    public bool Activate {get;set;}
+    [Parameter]
+    public EventCallback<bool> ActivateChanged { get; set; }
+    
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    private async Task UpdateActiveFromChild()
+    {
+        await ActivateChanged.InvokeAsync(false);
+    }
+}
