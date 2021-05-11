@@ -13,16 +13,20 @@
 
 @if (_render != null)
 {
+    <div class="cards-container">
     <BlazeEditViewer @bind-Render="_render">
-        <BlazEditParagraph Class="article-viewer-paragraph"/>
-        <BlazEditImage ClassImageContainer="article-viewer-image-container" ClassImage="article-viewer-image"/>
+        <BlazEditParagraph Class="text-card mid-color"/>
+        <BlazEditImage ClassImageContainer="image-card-container mid-color" ClassImage="article-viewer-image"/>
         <BlazeEditHeader/>
-        <BlazEditSpacer Content='<div class=\"spacer\"></div>'></BlazEditSpacer>
+        <BlazEditSpacer Content=@Spacer></BlazEditSpacer>
     </BlazeEditViewer>
+    </div>
 }
 
 @code {
     Article _article;
+
+    private const string Spacer = "<hr\\>";
 
     [Parameter]
     public string articleName {get;set;}

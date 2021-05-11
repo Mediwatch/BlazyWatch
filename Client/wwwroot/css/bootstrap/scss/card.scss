@@ -5,6 +5,31 @@
     display: flex;
     flex-direction: column;
 
+    .text-card {
+        width: 100%;
+        margin-bottom: $big-unit;
+        border-radius: $one-unit;
+        overflow: hidden;
+        position: relative;
+        text-align: justify;
+        font-size: $one-unit;
+        padding: $one-unit/2;
+    }
+
+    .image-card-container {
+        width: 100%;
+        height: 80vh;
+        margin-bottom: $big-unit;
+        border-radius: $one-unit;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        img {
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
         .presentation-card {
             width: 100%;
             height: 80vh;
