@@ -10,6 +10,6 @@ var searchData=
   ['getmyuser_125',['GetMyUser',['../class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a9a705b16c851ce5bb20f426b6e923799',1,'Mediwatch::Server::Controllers::UsersController']]],
   ['gettag_126',['GetTag',['../class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller.html#a1e06e5dc4a267241ce031772eec66d85',1,'Mediwatch.Server.Controllers.TagController.GetTag()'],['../class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller.html#a1d067563a40cadec69c9bba9bfb226a9',1,'Mediwatch.Server.Controllers.TagController.GetTag(int id)']]],
   ['getuser_127',['GetUser',['../class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a27103389ca1c6c33d21a3dc3212d7b08',1,'Mediwatch::Server::Controllers::UsersController']]],
-  ['getuserformation_128',['GetUserFormation',['../class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a3da0476c39418727064b44af9e007010',1,'Mediwatch::Server::Controllers::UsersController']]],
+  ['getuserformation_128',['GetUserFormation',['../class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a45069bba0458791cf9ebaabe153603fa',1,'Mediwatch::Server::Controllers::UsersController']]],
   ['getuserlist_129',['GetUserList',['../class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a5b525adc63d36869bde5021b82480228',1,'Mediwatch::Server::Controllers::UsersController']]]
 ];

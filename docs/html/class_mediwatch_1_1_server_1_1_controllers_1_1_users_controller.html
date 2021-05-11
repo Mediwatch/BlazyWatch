@@ -102,9 +102,9 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a414ca2854bf71701319b3c34dbda03ab"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a414ca2854bf71701319b3c34dbda03ab">SetUser</a> (UserPublic user)</td></tr>
 <tr class="memdesc:a414ca2854bf71701319b3c34dbda03ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">set info of one user POST: /Users/setInfo/ BODY: raw/json :UserPublic  <a href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a414ca2854bf71701319b3c34dbda03ab">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a414ca2854bf71701319b3c34dbda03ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3da0476c39418727064b44af9e007010"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult&lt; IEnumerable&lt; applicant_session &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a3da0476c39418727064b44af9e007010">GetUserFormation</a> (String id)</td></tr>
-<tr class="memdesc:a3da0476c39418727064b44af9e007010"><td class="mdescLeft">&#160;</td><td class="mdescRight">GET: /Users/formation/{id user} get all formation of one user  <a href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a3da0476c39418727064b44af9e007010">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a3da0476c39418727064b44af9e007010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45069bba0458791cf9ebaabe153603fa"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult&lt; formation &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a45069bba0458791cf9ebaabe153603fa">GetUserFormation</a> (String id)</td></tr>
+<tr class="memdesc:a45069bba0458791cf9ebaabe153603fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">GET: /Users/formation/{id user} get all formation of one user  <a href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a45069bba0458791cf9ebaabe153603fa">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a45069bba0458791cf9ebaabe153603fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44bf781dad67f766e1d0c91ac17d73ef"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult&lt; applicant_session &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a44bf781dad67f766e1d0c91ac17d73ef">RegisterUserformation</a> (applicant_session RegisterUser)</td></tr>
 <tr class="memdesc:a44bf781dad67f766e1d0c91ac17d73ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">POST: /Users/registeruserformation/ BODY: raw/json :applicant_session, create register user to a Formation  <a href="class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a44bf781dad67f766e1d0c91ac17d73ef">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a44bf781dad67f766e1d0c91ac17d73ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -215,8 +215,8 @@ async Task&lt; ActionResult &gt;&#160;</td><td class="memItemRight" valign="bott
 
 </div>
 </div>
-<a id="a3da0476c39418727064b44af9e007010"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3da0476c39418727064b44af9e007010">&#9670;&nbsp;</a></span>GetUserFormation()</h2>
+<a id="a45069bba0458791cf9ebaabe153603fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45069bba0458791cf9ebaabe153603fa">&#9670;&nbsp;</a></span>GetUserFormation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -225,7 +225,7 @@ async Task&lt; ActionResult &gt;&#160;</td><td class="memItemRight" valign="bott
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">async Task&lt;ActionResult&lt;IEnumerable&lt;applicant_session&gt; &gt; &gt; Mediwatch.Server.Controllers.UsersController.GetUserFormation </td>
+          <td class="memname">async Task&lt;ActionResult&lt;formation&gt; &gt; Mediwatch.Server.Controllers.UsersController.GetUserFormation </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
