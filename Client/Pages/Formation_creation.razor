@@ -87,21 +87,21 @@
             </div>            
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">>@Localizer["Location"]</span>
+                    <span class="input-group-text" id="basic-addon1">@Localizer["Location"]</span>
                 </div>
                 <InputText id="Location" class="form-control" placeholder="Veuillez entrer la localisation de la formation." @bind-Value="formTab3.Location" />
             </div>
             @if (_validation == 2)
             {
-                <button type="submit">@Localizer["Submit"]</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">@Localizer["Submit"]</button>
             }
         </EditForm>
     }
 
     @if (_validation == 3)
     {
-        <button type="submit" @onclick=@NoArticle>Valider la formation</button> 
-        <button type="submit" @onclick=@PostFormation>Créer un article et valider la formation</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" @onclick=@NoArticle>Valider la formation</button> 
+        <button class="btn btn-lg btn-primary btn-block" type="submit" @onclick=@PostFormation>Créer un article et valider la formation</button>
     }
 
     @if(_validation == 4) {
@@ -135,8 +135,8 @@
     @if (_validation == 5)
     {
         <p>@Localizer["SubmitSuccess"]</p>
-        <button type="submit" @onclick=@PostFormation>@Localizer["CreateNew"]</button>
-        <button type="submit" @onclick=@GoBack>@Localizer["Home"]</button>
+        <button type="submit" class="btn btn-lg btn-primary btn-block" @onclick=@PostFormation>@Localizer["CreateNew"]</button>
+        <button type="submit" class="btn btn-lg btn-primary btn-block" @onclick=@GoBack>@Localizer["Home"]</button>
     }
 </div>
 
