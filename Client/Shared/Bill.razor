@@ -1,11 +1,8 @@
-@page "/utilisateur/factures"
-
 @inject HttpClient Client
-@inject IJSRuntime JsRuntime
 
 <h2>Vos factures</h2>
 
-@if (factures == null)
+@if (factures == null || factures.Count <= 0)
 {
     <p>Aucune facture disponible...</p>
 }
@@ -25,7 +22,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        // Voir pour r�cup�rer les factures, les �l�ments ?
         factures = await Client.GetFromJsonAsync<List<string>>("/Order/Archived");
     }
 }

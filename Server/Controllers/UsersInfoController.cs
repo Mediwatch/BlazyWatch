@@ -209,6 +209,25 @@ namespace Mediwatch.Server.Controllers {
             return Ok();
         }
 
+        [HttpGet ("deleteUser")]
+        [Authorize]
+        public async Task<ActionResult> DeleteUser ([FromQuery]string id) {
+            var info = await _userManager.FindByIdAsync (User.FindFirstValue (ClaimTypes.NameIdentifier));
+            if (info.Id.ToString() == id)
+                {
+                    await _userManager.DeleteAsync(info);
+                    return Ok ("working");
+                }
+            else if ((await _userManager.GetRolesAsync (info))[0] != "Admin")
+                return NotFound ();
+            var rawInfo = await _userManager.FindByIdAsync(id);
+            if (rawInfo == null) {
+                return NotFound ();
+            }
+            await _userManager.DeleteAsync(info);
+            return Ok ("erase");
+        }
+
         #endregion
     }
 

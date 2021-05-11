@@ -25,4 +25,5 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 COPY ["Server/Ressources", "Ressources/"]
+COPY ["Server/InvoiceGenerator", "."]
 ENTRYPOINT ["dotnet", "Mediwatch.Server.dll"]

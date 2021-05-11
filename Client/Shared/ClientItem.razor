@@ -21,5 +21,6 @@
 
     private async void ChangeUser() {
         await Client.PostAsJsonAsync("/Users/setInfo/",user);
+        StateHasChanged();
     }    
 }
