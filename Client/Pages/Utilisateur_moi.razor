@@ -26,14 +26,14 @@ else
 
     <PopUp @bind-Activate="active">
         <div>
-            Vouleez vous vraiment effacer le compte ?
-            <button @onclick="deleteUser" class="btn btn-primary">Effacer le compte</button>
+            Voulez vous vraiment effacer votre compte ?
+            <button @onclick="deleteUser" class="btn btn-primary">Effacer votre compte</button>
             <button @onclick="CancelErase" class="btn btn-primary">Non</button>
         </div>
     </PopUp>
 
     <ClientItem user=_info></ClientItem>
-    <button @onclick="EraseAccount" class="btn btn-primary">Effacer le compte</button>
+    <button @onclick="EraseAccount" class="btn btn-primary">Effacer votre compte</button>
 }
 
 @code {

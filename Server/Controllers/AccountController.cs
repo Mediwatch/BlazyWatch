@@ -43,10 +43,10 @@ namespace Mediwatch.Server.Controllers
 
             var signUser = await userManager.FindByNameAsync(login.UserName);
             if (signUser == null)
-                return BadRequest("User Name or Password is'nt valid");
+                return BadRequest("User Name or Password isn't valid");
             var pasword = await signInManager.CheckPasswordSignInAsync(signUser, login.Password, false);
             if (!pasword.Succeeded)
-                return BadRequest("User Name or Password is'nt valid");
+                return BadRequest("User Name or Password isn't valid");
             
             await signInManager.SignInAsync(signUser, true);
             return Ok();
@@ -64,7 +64,7 @@ namespace Mediwatch.Server.Controllers
         {
             var user = await userManager.FindByIdAsync(id);
             if (user == null)
-                return BadRequest("User Name or Password is'nt valid");
+                return BadRequest("User Name or Password isn't valid");
             foreach (var roleName in new string[] {"Admin", "Member"})
             {
                 var deletionResult = await userManager.RemoveFromRoleAsync(user, roleName);
@@ -101,7 +101,7 @@ namespace Mediwatch.Server.Controllers
 
             var info = await signInManager.GetExternalLoginInfoAsync();
             if (info == null)
-                return RedirectToPage("Can't find externall login");
+                return RedirectToPage("Can't find external login");
 
             var signIn = await signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, false, true);
             if (signIn.Succeeded)
