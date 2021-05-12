@@ -24,6 +24,8 @@ RUN dotnet publish "Mediwatch.Server.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+RUN apt-get update
+RUN apt-get install libreoffice-writer -y
 COPY ["Server/Ressources", "Ressources/"]
 COPY ["Server/InvoiceGenerator", "InvoiceGenerator/"]
 ENTRYPOINT ["dotnet", "Mediwatch.Server.dll"]
