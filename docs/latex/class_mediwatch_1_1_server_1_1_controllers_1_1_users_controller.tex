@@ -32,7 +32,7 @@ async Task$<$ Action\+Result$<$ User\+Public $>$ $>$ \mbox{\hyperlink{class_medi
 \begin{DoxyCompactList}\small\item\em get info of one user G\+ET\+: /\+Users/info/\{id user\} \end{DoxyCompactList}\item 
 async Task$<$ Action\+Result $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a414ca2854bf71701319b3c34dbda03ab}{Set\+User}} (User\+Public user)
 \begin{DoxyCompactList}\small\item\em set info of one user P\+O\+ST\+: /\+Users/set\+Info/ B\+O\+DY\+: raw/json \+:User\+Public \end{DoxyCompactList}\item 
-async Task$<$ Action\+Result$<$ formation $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a45069bba0458791cf9ebaabe153603fa}{Get\+User\+Formation}} (String id)
+async Task$<$ Action\+Result$<$ I\+Enumerable$<$ formation $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_ac6c9d22e29a1b10775a8bb00df29e36e}{Get\+User\+Formation}} (String id)
 \begin{DoxyCompactList}\small\item\em G\+ET\+: /\+Users/formation/\{id user\} get all formation of one user \end{DoxyCompactList}\item 
 async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a44bf781dad67f766e1d0c91ac17d73ef}{Register\+Userformation}} (applicant\+\_\+session Register\+User)
 \begin{DoxyCompactList}\small\item\em P\+O\+ST\+: /\+Users/registeruserformation/ B\+O\+DY\+: raw/json \+:applicant\+\_\+session, create register user to a Formation \end{DoxyCompactList}\item 
@@ -95,11 +95,11 @@ get info of one user G\+ET\+: /\+Users/info/\{id user\}
 \begin{DoxyReturn}{Renvoie}
 return a user public if the id correspond to the id of the connected user. Return not found in case of not base 64 id, the id is not found in the data base or if you\textquotesingle{}re not admin else it will return a user public with the information corresponding to the user id
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a45069bba0458791cf9ebaabe153603fa}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a45069bba0458791cf9ebaabe153603fa}} 
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_ac6c9d22e29a1b10775a8bb00df29e36e}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_ac6c9d22e29a1b10775a8bb00df29e36e}} 
 \index{Mediwatch.Server.Controllers.UsersController@{Mediwatch.Server.Controllers.UsersController}!GetUserFormation@{GetUserFormation}}
 \index{GetUserFormation@{GetUserFormation}!Mediwatch.Server.Controllers.UsersController@{Mediwatch.Server.Controllers.UsersController}}
 \doxysubsubsection{\texorpdfstring{GetUserFormation()}{GetUserFormation()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$formation$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Users\+Controller.\+Get\+User\+Formation (\begin{DoxyParamCaption}\item[{String}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$formation$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Users\+Controller.\+Get\+User\+Formation (\begin{DoxyParamCaption}\item[{String}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
