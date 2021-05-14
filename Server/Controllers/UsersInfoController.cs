@@ -158,16 +158,20 @@ namespace Mediwatch.Server.Controllers {
         /// <param name="id">id user</param>
         /// <returns>return the list of applicant session</returns>
         [HttpGet("formation/{id}")]
-        public async Task<ActionResult<formation>> GetUserFormation(String id)
+        public async Task<ActionResult<IEnumerable<formation>>> GetUserFormation(String id)
         {
-            FormationController _formationController = new FormationController(_context);
-
-            var AllApplicantSessions = await _context.applicant_sessions.ToListAsync();
-            List<formation> formationReturn = new List<formation>();
-            AllApplicantSessions.FindAll(elem => elem.id.Equals(id));
-             
-            return await _formationController.GetFormation((int)AllApplicantSessions[0].idFormation);
-  
+            var _ApplicantSessionController = new ApplicantSessionController(_context);
+            var _formationController = new FormationController(_context);
+            IEnumerable<applicant_session> getApplicantSession = await _ApplicantSessionController.GetApplicantSession(id);
+            List<formation> Result = new List<formation>();
+            foreach (var item in getApplicantSession.ToList())
+            {
+                Result.Add(_formationController
+                .GetFormation((int)item.idFormation)
+                .Result
+                .Value);
+            }
+            return Result;
         }
 
         /// <summary>
@@ -182,10 +186,9 @@ namespace Mediwatch.Server.Controllers {
             FormationController _formationController = new FormationController(_context);
             ApplicantSessionController _sessionController = new ApplicantSessionController(_context);
             var searchedForm = await _formationController.GetFormation((int)RegisterUser.idFormation);
-            if (searchedForm != null){
-                return await _sessionController.PostApplicantSession(RegisterUser);
-            }
-            return NotFound();
+            if (searchedForm == null)
+                return NotFound();
+            return await _sessionController.PostApplicantSession(RegisterUser);
         }
         
 

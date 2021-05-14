@@ -42,12 +42,9 @@ namespace Mediwatch.Server.Controllers
             /// Get a specific formation by is ID
             /// </summary>
             /// <returns>Return the formation information</returns>
-            var formationResult = await _context.formations.FindAsync(id);
+            formation formationResult = await _context.formations.FindAsync(id);
             if (formationResult == null)
-            {
                 return NotFound();
-            }
-
             return formationResult;
         }
         #endregion
@@ -150,7 +147,7 @@ namespace Mediwatch.Server.Controllers
             return CreatedAtAction(nameof(GetFormation), new { id = formationBody.id }, formationBody);
         }
 
-        // DELETE: api/Formation/5
+        // DELETE: Formation/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin,Tutor")]
         public async Task<ActionResult<formation>> DeleteFormation(int id)

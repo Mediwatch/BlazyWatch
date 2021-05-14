@@ -47,6 +47,24 @@ namespace Mediwatch.Server.Controllers
             return applicantSessionResult;
         }
 
+        //GET: /ApplicantSession/user/{Userid}
+        [HttpGet("user/{id}")]
+        public async Task<IEnumerable<applicant_session>> GetApplicantSession(string id)
+        {
+            /// <summary>
+            /// Get an applicant session
+            /// </summary>
+            /// <returns>Return the applicant session</returns>
+            Guid tmp = new Guid(id);
+            IEnumerable<applicant_session> applicantSessionResult = await _context
+            .applicant_sessions
+            .Where(elem => elem.idUser == tmp)
+            .ToListAsync();
+            if (applicantSessionResult == null)
+                return null;
+            return applicantSessionResult;
+        }        
+
         //Put: /ApplicantSession/5
         // WARNING YOU MUST TO SEND ALL DATA CHAMP WITH MODIFICATION 
         [HttpPut("{id}")]
