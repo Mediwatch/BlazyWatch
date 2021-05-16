@@ -66,6 +66,7 @@ else
 
     private bool _erreur = false;
 
+    private UserPublic user = null;
 
     private string visibility = "hidden";
 
@@ -77,6 +78,8 @@ else
         {
             _info = await Client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
             _formation = await Client.GetFromJsonAsync<formation>("Formation/" + Id);
+            user = await Client.GetFromJsonAsync<UserPublic>("Users/info");
+
         }
         catch
         {
@@ -89,7 +92,16 @@ else
         Console.WriteLine("Inscription à la formation en elle-même, passer par Paypal directement ?");
         // Enregistrer ici l'utilisateur à la formation !
         //JSRuntime.InvokeVoidAsync("display", e);
-        
+
+        Console.WriteLine("Inscription à la formation " + Id);
+        applicant_session session = new applicant_session();
+        session.confirmed = true;
+        session.idFormation = float.Parse(Id); // string plutôt ?
+        session.idUser = user.Id;
+        session.payed = true;
+        await Client.PostAsJsonAsync("/Users/registeruserformation", session);
+        Console.WriteLine("Inscription réussie, devrait être après le Paypal");
+
         Console.WriteLine("Ici, on crée un faux orderInfo, histoire de pouvoir montrer le fonctionnement des factures avec un achat spécifique.");
         orderInfo info = new orderInfo();
         info.invoiceId = Guid.NewGuid().ToString();
@@ -97,6 +109,7 @@ else
         await Client.PostAsJsonAsync("Order", info);
         popupActivated = true;
         Console.WriteLine("Facture créée !");
+
     }
 
     private async void Ajout()
