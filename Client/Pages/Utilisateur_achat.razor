@@ -79,6 +79,36 @@ else
         });
 
         Console.WriteLine("Appeler ici POST /Order/ avec orderInfo correctement rempli.");
+
+        Console.WriteLine("Inscription à la formation en elle-même, passer par Paypal directement ?");
+        // Enregistrer ici l'utilisateur à la formation !
+        //JSRuntime.InvokeVoidAsync("display", e);
+
+
+        applicant_session session = new applicant_session();
+        session.confirmed = true;
+        session.payed = true;
+
+        var user = await Client.GetFromJsonAsync<UserPublic>("Users/info");
+
+        fs.ForEach(async _f =>
+        {
+            formation f = await Client.GetFromJsonAsync<formation>("Formation/" + _f);
+
+            session.idFormation = f.id; // string plutôt ?
+            session.idUser = user.Id;
+
+
+            Console.WriteLine("Inscription à la formation " + f.id);
+            await Client.PostAsJsonAsync("/Users/registeruserformation", session);
+            Console.WriteLine("Inscription réussie, devrait être après le Paypal");
+            Console.WriteLine("Chaque formation devrait être ajoutée ici au fur et à mesure dans info, afin de générer correctement la facture");
+        });
+
+        Console.WriteLine("Ici, on crée un faux orderInfo, histoire de pouvoir montrer le fonctionnement des factures avec un achat spécifique.");
+        info.invoiceId = Guid.NewGuid().ToString();
+        await Client.PostAsJsonAsync("Order", info);
+        Console.WriteLine("Facture créée !");
     }
 
 }
