@@ -85,8 +85,8 @@ namespace Mediwatch.Server.Controllers
             return CreatedAtAction(nameof(GetTag), new { id = tag.id }, tag);
         }
 
-        private bool TagExists(long id) {
-            return _context.formations.Any(e => e.id == id);
+        private bool TagExists(int id) {
+            return _context.tags.Any(e => e.id == id);
         }
 
     }

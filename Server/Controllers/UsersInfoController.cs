@@ -167,7 +167,7 @@ namespace Mediwatch.Server.Controllers {
             foreach (var item in getApplicantSession.ToList())
             {
                 Result.Add(_formationController
-                .GetFormation((int)item.idFormation)
+                .GetFormation(item.idFormation)
                 .Result
                 .Value);
             }
@@ -185,7 +185,7 @@ namespace Mediwatch.Server.Controllers {
         public async Task<ActionResult<applicant_session>> RegisterUserformation (applicant_session RegisterUser) {
             FormationController _formationController = new FormationController(_context);
             ApplicantSessionController _sessionController = new ApplicantSessionController(_context);
-            var searchedForm = await _formationController.GetFormation((int)RegisterUser.idFormation);
+            var searchedForm = await _formationController.GetFormation(RegisterUser.idFormation);
             if (searchedForm == null)
                 return NotFound();
             return await _sessionController.PostApplicantSession(RegisterUser);

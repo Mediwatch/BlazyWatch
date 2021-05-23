@@ -9,7 +9,7 @@ namespace Mediwatch.Shared.Models
   public class formation
   {
     [Key]
-    public int id {get; set;}
+    public Guid id {get; set;}
     public string Name { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }

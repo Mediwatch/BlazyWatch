@@ -36,7 +36,7 @@ namespace Mediwatch.Server.Controllers
 
         // //GET: /Formation/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<formation>> GetFormation(int id)
+        public async Task<ActionResult<formation>> GetFormation(Guid id)
         {
             /// <summary>
             /// Get a specific formation by is ID
@@ -110,7 +110,7 @@ namespace Mediwatch.Server.Controllers
         //Put: /Formation/5
         [Authorize(Roles = "Admin,Tutor")]
         [HttpPut("{id}")]
-        public async Task<ActionResult<formation>> PutFormation(int id, formation formationPut)
+        public async Task<ActionResult<formation>> PutFormation(Guid id, formation formationPut)
         {
             /// <summary>
             /// Update the formation specific by is ID
@@ -168,7 +168,7 @@ namespace Mediwatch.Server.Controllers
             return formationResult;
         }
         
-        private bool FormationExists(long id) {
+        private bool FormationExists(Guid id) {
             return _context.formations.Any(e => e.id == id);
         }
         #endregion

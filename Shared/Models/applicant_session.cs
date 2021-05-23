@@ -9,7 +9,7 @@ namespace Mediwatch.Shared.Models
     {
         [Key]
         public int id {get; set;}
-        public float idFormation {get; set;}
+        public Guid idFormation {get; set;}
         public Guid idUser {get; set;}
         public bool confirmed {get; set;}
         public bool payed {get; set;}

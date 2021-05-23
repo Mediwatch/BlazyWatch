@@ -96,7 +96,7 @@ else
         Console.WriteLine("Inscription à la formation " + Id);
         applicant_session session = new applicant_session();
         session.confirmed = true;
-        session.idFormation = float.Parse(Id); // string plutôt ?
+        session.idFormation = Guid.Parse(Id); // string plutôt ?
         session.idUser = user.Id;
         session.payed = true;
         await Client.PostAsJsonAsync("/Users/registeruserformation", session);
