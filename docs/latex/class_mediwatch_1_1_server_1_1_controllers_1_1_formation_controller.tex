@@ -26,12 +26,12 @@ Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Formation\+Control
 \item 
 async Task$<$ Action\+Result$<$ I\+Enumerable$<$ formation $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_ac1711d7a1c8bbd44715fc57cb945c93c}{Get\+Formation}} ()
 \item 
-async Task$<$ Action\+Result$<$ formation $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_aecf887fc57ba8ee1af0ba1be7703738a}{Get\+Formation}} (int id)
+async Task$<$ Action\+Result$<$ formation $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_a9d6ef722f6fb5e2bbfe6171333d227ff}{Get\+Formation}} (Guid id)
 \item 
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_aebc13f59301609d7afe80b8b0f89386c}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_aebc13f59301609d7afe80b8b0f89386c}} 
 async Task$<$ Action\+Result$<$ I\+Enumerable$<$ formation $>$ $>$ $>$ {\bfseries search} (string name, Date\+Time? start\+Date, Date\+Time? end\+Date, string location, string contact, string organization\+Name, float? price, string former)
 \item 
-async Task$<$ Action\+Result$<$ formation $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_ac56853c9a6cf3b7cb2303d1c6bf8a037}{Put\+Formation}} (int id, formation formation\+Put)
+async Task$<$ Action\+Result$<$ formation $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_a739ef05801716a1f52ab251fd50be94e}{Put\+Formation}} (Guid id, formation formation\+Put)
 \item 
 async Task$<$ Action\+Result$<$ formation $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_a2710e701c2d495ee6a1d343a5303bfa3}{Post\+Formation}} (formation formation\+Body)
 \item 
@@ -62,11 +62,11 @@ Get all formation
 \begin{DoxyReturn}{Renvoie}
 Return the list of the available formation
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_aecf887fc57ba8ee1af0ba1be7703738a}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_aecf887fc57ba8ee1af0ba1be7703738a}} 
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_a9d6ef722f6fb5e2bbfe6171333d227ff}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_a9d6ef722f6fb5e2bbfe6171333d227ff}} 
 \index{Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}!GetFormation@{GetFormation}}
 \index{GetFormation@{GetFormation}!Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}}
 \doxysubsubsection{\texorpdfstring{GetFormation()}{GetFormation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$formation$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Formation\+Controller.\+Get\+Formation (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$formation$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Formation\+Controller.\+Get\+Formation (\begin{DoxyParamCaption}\item[{Guid}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Get a specific formation by is ID 
 
@@ -79,11 +79,11 @@ Return the formation information
 \doxysubsubsection{\texorpdfstring{PostFormation()}{PostFormation()}}
 {\footnotesize\ttfamily async Task$<$Action\+Result$<$formation$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Formation\+Controller.\+Post\+Formation (\begin{DoxyParamCaption}\item[{formation}]{formation\+Body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Create a new formation \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_ac56853c9a6cf3b7cb2303d1c6bf8a037}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_ac56853c9a6cf3b7cb2303d1c6bf8a037}} 
+Create a new formation \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_a739ef05801716a1f52ab251fd50be94e}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller_a739ef05801716a1f52ab251fd50be94e}} 
 \index{Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}!PutFormation@{PutFormation}}
 \index{PutFormation@{PutFormation}!Mediwatch.Server.Controllers.FormationController@{Mediwatch.Server.Controllers.FormationController}}
 \doxysubsubsection{\texorpdfstring{PutFormation()}{PutFormation()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$formation$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Formation\+Controller.\+Put\+Formation (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{formation}]{formation\+Put }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$formation$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Formation\+Controller.\+Put\+Formation (\begin{DoxyParamCaption}\item[{Guid}]{id,  }\item[{formation}]{formation\+Put }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Update the formation specific by is ID 
 
