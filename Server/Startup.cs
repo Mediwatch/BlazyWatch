@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Mediwatch.Server.Areas.Identity.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -76,6 +77,16 @@ namespace Mediwatch.Server {
                 serviceScope.ServiceProvider.GetService<IdentityDataContext> ().Database.Migrate ();
                 serviceScope.ServiceProvider.GetService<DbContextMediwatch> ().Database.Migrate ();
             }
+
+            var forwardedHeadersOptions = new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto,
+                RequireHeaderSymmetry = false
+            };
+            forwardedHeadersOptions.KnownNetworks.Clear();
+            forwardedHeadersOptions.KnownProxies.Clear();
+
+            app.UseForwardedHeaders(forwardedHeadersOptions);
 
             if (env.IsDevelopment ()) {
                 app.UseDeveloperExceptionPage ();
