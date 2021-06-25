@@ -20,7 +20,7 @@ namespace Mediwatch.Server.Controllers
             _context = context;
         }
 
-        //GET: Formation
+        //GET: Tag
         [HttpGet]
         public async Task<ActionResult<IEnumerable<tag>>> GetTag()
         {

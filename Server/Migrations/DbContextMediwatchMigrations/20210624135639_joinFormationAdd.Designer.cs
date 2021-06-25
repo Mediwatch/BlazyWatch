@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Server;
 
 namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
 {
     [DbContext(typeof(DbContextMediwatch))]
-    partial class DbContextMediwatchModelSnapshot : ModelSnapshot
+    [Migration("20210624135639_joinFormationAdd")]
+    partial class joinFormationAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,23 +45,6 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.HasKey("Key");
 
                     b.ToTable("BlazingArticles");
-                });
-
-            modelBuilder.Entity("Mediwatch.Shared.Models.JoinFormationTag", b =>
-                {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("idFormation")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("idTag")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Formation_Tag");
                 });
 
             modelBuilder.Entity("Mediwatch.Shared.Models.applicant_session", b =>

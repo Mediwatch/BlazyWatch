@@ -21,6 +21,7 @@ namespace Server {
         public DbSet<orderInfo> orderInfos {get; set;}
 
         public DbSet<BlazingArticleModel> articleModels {get; set;}
+        public DbSet<JoinFormationTag> joinFormationTags {get; set;}
         protected override void OnConfiguring (DbContextOptionsBuilder options) 
         {   
             var folderName = "Data";
