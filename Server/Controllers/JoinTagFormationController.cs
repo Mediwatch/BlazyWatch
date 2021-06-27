@@ -21,49 +21,13 @@ namespace Mediwatch.Server.Controllers
         }
 
         #region Opération CRUD basic
-        //GET: /form_tag/{?idjoin= or ?idform= or ?idtag=}
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<JoinFormationTag>>> GetJoinTagForm()
         {
             /// <summary>
-            /// Get a specific between Join between Tag and Formation
+            /// Get the list of every join
             /// </summary>
-            /// <returns>Return the Join between Tag and Formation</returns>
-            String strIdJoin = HttpContext.Request.Query["idjoin"].ToString();
-            String strIdFormation = HttpContext.Request.Query["idform"].ToString();
-            String strIdTag = HttpContext.Request.Query["idtag"].ToString();
-
-            if (strIdJoin != "")
-            {
-                Guid idJoin = Guid.Parse(strIdJoin);
-                JoinFormationTag onlyJoin = await _context.joinFormationTags.FindAsync(idJoin);
-                List<JoinFormationTag> joinResult = new List<JoinFormationTag>();
-                joinResult.Add(onlyJoin);
-                if (joinResult == null)
-                {
-                    return NotFound();
-                }
-                return joinResult;
-            }
-            else if (strIdFormation != "")
-            {
-                Guid idForm = Guid.Parse(strIdFormation);
-                List<JoinFormationTag> JoinFormation = await _context.joinFormationTags
-                .Where(elem => elem.idFormation == idForm)
-                .ToListAsync();
-
-                return JoinFormation;
-            }
-            else if (strIdTag != "")
-            {
-                Guid idTag = Guid.Parse(strIdTag);
-                List<JoinFormationTag> JoinTag = await _context.joinFormationTags
-                .Where(elem => elem.idTag == idTag)
-                .ToListAsync();
-
-                return JoinTag;
-            }
-            
             return await _context.joinFormationTags.ToListAsync();
         }
 
@@ -127,5 +91,59 @@ namespace Mediwatch.Server.Controllers
             return _context.joinFormationTags.Any(e => e.id == id);
         }
         #endregion
+
+
+        //Operation for Tag and Formation
+        //GET: /form_tag/{?idjoin= or ?idform= or ?idtag=}
+        public static async Task<ActionResult<IEnumerable<JoinFormationTag>>> GetJoinTagForm(
+        DbContextMediwatch _context,
+        String strIdJoin = "",
+        String strIdFormation = "",
+        String strIdTag = "")
+        {
+            /// <summary>
+            /// Get a specific between Join between Tag and Formation
+            /// </summary>
+            /// <returns>Return the Join between Tag and Formation</returns>
+ 
+
+            // String strIdJoin = HttpContext.Request.Query["idjoin"].ToString();
+            // String strIdFormation = HttpContext.Request.Query["idform"].ToString();
+            // String strIdTag = HttpContext.Request.Query["idtag"].ToString();
+
+            if (strIdJoin != "")
+            {
+                Guid idJoin = Guid.Parse(strIdJoin);
+                JoinFormationTag onlyJoin = await _context.joinFormationTags.FindAsync(idJoin);
+                List<JoinFormationTag> joinResult = new List<JoinFormationTag>();
+                joinResult.Add(onlyJoin);
+                if (joinResult == null)
+                {
+                    return null;
+                }
+                return joinResult;
+            }
+            else if (strIdFormation != "")
+            {
+                Guid idForm = Guid.Parse(strIdFormation);
+                List<JoinFormationTag> JoinFormation = await _context.joinFormationTags
+                .Where(elem => elem.idFormation == idForm)
+                .ToListAsync();
+
+                return JoinFormation;
+            }
+            else if (strIdTag != "")
+            {
+                Guid idTag = Guid.Parse(strIdTag);
+                List<JoinFormationTag> JoinTag = await _context.joinFormationTags
+                .Where(elem => elem.idTag == idTag)
+                .ToListAsync();
+
+                return JoinTag;
+            }
+            
+            return await _context.joinFormationTags.ToListAsync();
+        }
+
     }
 }

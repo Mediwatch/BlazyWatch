@@ -7,7 +7,7 @@ namespace Mediwatch.Shared.Models
     [Table ("Tag")]
     public class tag {
         [Key]
-        public int id { get; set; }
+        public Guid id { get; set; }
         public string tag_name {get; set;}
         public string description {get; set;}
     }

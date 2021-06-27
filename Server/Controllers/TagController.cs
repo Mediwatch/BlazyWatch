@@ -20,25 +20,27 @@ namespace Mediwatch.Server.Controllers
             _context = context;
         }
 
-        //GET: Tag
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<tag>>> GetTag()
-        {
-            /// <summary>
-            /// Get all tag
-            /// </summary>
-            /// <returns>Return the list of the available formation</returns>
-            return await _context.tags.ToListAsync();
-        }
+        #region CRUD OP
+        // //GET: Tag
+        // [HttpGet]
+        // public async Task<ActionResult<IEnumerable<tag>>> GetTag()
+        // {
+        //     /// <summary>
+        //     /// Get all tag
+        //     /// </summary>
+        //     /// <returns>Return the list of the available formation</returns>
+        //     return await _context.tags.ToListAsync();
+        // }
 
         //GET: /tag/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<tag>> GetTag(int id)
+        public async Task<ActionResult<tag>> GetTag(Guid id)
         {
             /// <summary>
             /// Get a specific tag by is ID
             /// </summary>
             /// <returns>Return the formation information</returns>
+
             var tags = await _context.tags.FindAsync(id);
             if (tags == null)
             {
@@ -60,9 +62,9 @@ namespace Mediwatch.Server.Controllers
             return CreatedAtAction(nameof(GetTag), new { id = tag.id }, tag);
         }
 
-                //Put: /Formation/5
+        //Put: /Formation/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<formation>> PostTag(int id, tag tag)
+        public async Task<ActionResult<formation>> PostTag(Guid id, tag tag)
         {
             /// <summary>
             /// Update the Tag specific by is ID
@@ -85,7 +87,37 @@ namespace Mediwatch.Server.Controllers
             return CreatedAtAction(nameof(GetTag), new { id = tag.id }, tag);
         }
 
-        private bool TagExists(int id) {
+
+        #endregion
+        
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<tag>>> GetTag(
+        [FromQuery(Name = "idform")] String strIdform = "")
+        {
+            //Part get Tag from Formation
+            if (strIdform != "")
+            {
+                //Factorisation INC
+                FormationController _formationController = new FormationController(_context);
+                List<JoinFormationTag> Join = JoinTagFormationController.GetJoinTagForm(_context, "", strIdform, "")
+                .Result
+                .Value
+                .ToList();
+                List<tag> result = new List<tag>();
+
+                foreach (var item in Join)
+                {
+                    result.Add(GetTag(item.idTag)
+                    .Result
+                    .Value);
+                }
+                return result;
+            }
+            //Part get List
+            return await _context.tags.ToListAsync();
+        }
+        
+        private bool TagExists(Guid id) {
             return _context.tags.Any(e => e.id == id);
         }
 

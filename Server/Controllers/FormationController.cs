@@ -26,12 +26,35 @@ namespace Mediwatch.Server.Controllers
         #region //GET Part
         //GET: /Formation
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<formation>>> GetFormation(){
+        public async Task<ActionResult<IEnumerable<formation>>> GetFormation(
+        [FromQuery(Name = "idtag")] String strIdTag = ""
+        ){
             /// <summary>
             /// Get all formation
             /// </summary>
             /// <returns>Return the list of the available formation</returns>
-                return await _context.formations.ToListAsync();
+            
+            //Part get Formation from Tag
+            if (strIdTag != "")
+            {
+                TagController _tagController = new TagController(_context);
+                List<JoinFormationTag> Join = JoinTagFormationController
+                .GetJoinTagForm(_context, "", "", strIdTag)
+                .Result
+                .Value
+                .ToList();
+                List<formation> result = new List<formation>();
+
+                foreach (var item in Join)
+                {
+                    result.Add(GetFormation(item.idFormation)
+                    .Result
+                    .Value);
+                }
+                return result;
+            }
+
+            return await _context.formations.ToListAsync();
         }
 
         // //GET: /Formation/{id}
@@ -44,7 +67,7 @@ namespace Mediwatch.Server.Controllers
             /// <returns>Return the formation information</returns>
             formation formationResult = await _context.formations.FindAsync(id);
             if (formationResult == null)
-                return NotFound();
+                return null;
             return formationResult;
         }
         #endregion
