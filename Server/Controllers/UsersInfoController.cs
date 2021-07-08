@@ -11,6 +11,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Server;
 
+using Ical.Net;
+using Ical.Net.CalendarComponents;
+using Ical.Net.DataTypes;
+using Ical.Net.Serialization;
 
 namespace Mediwatch.Server.Controllers {
     [ApiController]
@@ -233,6 +237,42 @@ namespace Mediwatch.Server.Controllers {
             }
             await _userManager.DeleteAsync(info);
             return Ok ("erase");
+        }
+
+        // Ajout de l'export des formations sous format ics
+        [HttpGet("exportCalendar/{id}/calendar.ics")]
+        [Route("exportCalendar/{id}/calendar.ics")]
+        public async Task<IActionResult> ExportCalendar(string id)
+        {
+            var _ApplicantSessionController = new ApplicantSessionController(_context);
+            var _formationController = new FormationController(_context);
+            IEnumerable<applicant_session> getApplicantSession = await _ApplicantSessionController.GetApplicantSession(id);
+
+            var calendar = new Calendar();
+            foreach (var item in getApplicantSession.ToList())
+            {
+                var f = _formationController.GetFormation(item.idFormation).Result.Value;
+                calendar.Events.Add(new CalendarEvent
+                {
+                    Class = "PUBLIC",
+                    Summary = f.Name,
+                    Created = new CalDateTime(DateTime.Now),
+                    Start = new CalDateTime(f.StartDate),
+                    End = new CalDateTime(f.EndDate),
+                    Description = f.Description,
+                    Location = f.Location,
+                    Organizer = new Organizer
+                    {
+                        CommonName = f.OrganizationName + " : " + f.Former,
+                    },
+                });
+            }
+
+            var serializer = new CalendarSerializer();
+            var serializedCalendar = serializer.SerializeToString(calendar);
+            var bytesCalendar = System.Text.Encoding.UTF8.GetBytes(serializedCalendar);
+
+            return File(bytesCalendar, "application/octet-stream", "calendar.ics");
         }
 
         #endregion

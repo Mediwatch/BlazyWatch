@@ -19,6 +19,5 @@
     <ProjectReference Include="..\Shared\Mediwatch.Shared.csproj" />
     <ProjectReference Include="..\SharedComponent\SharedComponent.csproj" />
     <ProjectReference Include="..\BlazingEditor\BlazingEditor.csproj" />
-    <ProjectReference Include="..\BlazorCalendar\BlazorCalendar.csproj" />
   </ItemGroup>
 </Project>
