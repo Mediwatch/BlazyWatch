@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Mediwatch.Server.Areas.Identity.Data;
+using Mediwatch.Shared.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -105,11 +106,46 @@ namespace Mediwatch.Server {
             app.UseAuthentication();
             app.UseAuthorization();
             CreateRoles(service).Wait();
+            CreateDemoFormations(service).Wait();
 
             app.UseEndpoints (endpoints => {
                 endpoints.MapControllers ();
                 endpoints.MapFallbackToFile ("index.html");
             });
+        }
+
+        private Task CreateDemoFormations(IServiceProvider serviceProvider)
+        {
+            if (!Configuration.GetSection("DemoFormations").Exists())
+                return Task.CompletedTask;
+
+            var dbContext = serviceProvider.GetRequiredService<DbContextMediwatch>();
+
+            foreach (var DemoConf in Configuration.GetSection("DemoFormations").GetChildren()) {
+                IQueryable<formation> query = dbContext.formations;
+
+                query = query.Where(e => e.Name.Contains(DemoConf["Name"]));
+                var resultSearch = query.ToList();
+
+                if (resultSearch.Any())
+                    continue;
+
+                var form = new formation {
+                    Name = DemoConf["Name"],
+                    Description = DemoConf["Description"],
+                    Former = DemoConf["Former"],
+                    Target = DemoConf["Target"],
+                    OrganizationName = DemoConf["OrganizationName"],
+                    Location = DemoConf["Location"],
+                    Price = decimal.Parse(DemoConf["Price"]),
+                    StartDate = DateTime.Parse(DemoConf["StartDate"]),
+                    EndDate = DateTime.Parse(DemoConf["EndDate"]),
+                };
+
+                dbContext.formations.Add(form);
+            }
+
+            return dbContext.SaveChangesAsync();
         }
 
         private async Task CreateRoles(IServiceProvider serviceProvider)

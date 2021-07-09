@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.29"/>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.29" />
+    <PackageReference Include="Ical.Net" Version="4.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="5.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.1" />
