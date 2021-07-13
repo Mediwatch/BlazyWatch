@@ -1,0 +1,26 @@
+name: Docker Production
+on:
+  release:
+    types: [published, created, edited]
+  workflow_dispatch:
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2  
+      - name: print secrets
+        run: |
+          echo ${{secrets.APP_SETTINGS}} | base64 -d >> Server/appsettings.Development.json
+        shell: bash
+      - name: Deploy to Docker Host
+        uses: wshihadeh/docker-deployment-action@v2
+        with:
+          remote_docker_host: mediwatch@52.143.185.15
+          stack_file_name: docker-compose.yml.prod
+          ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+          ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+          deployment_mode: docker-compose
+          args: up --build -d
+          deploy_path: /home/mediwatch/production.mediwatch.fr
