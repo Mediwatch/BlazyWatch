@@ -24,15 +24,15 @@ Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Compagny\+Controll
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_ab4a8837fdb737884b3248ee77f734ad0}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_ab4a8837fdb737884b3248ee77f734ad0}} 
 {\bfseries Compagny\+Controller} (\mbox{\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch}} context)
 \item 
-async Task$<$ Action\+Result$<$ I\+Enumerable$<$ compagny $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_a7bc69ceda49f9017a2d6ddfdbffe4758}{Get\+Compagny}} ()
+async Task$<$ Action\+Result$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}} $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_a7bc69ceda49f9017a2d6ddfdbffe4758}{Get\+Compagny}} ()
 \item 
-async Task$<$ Action\+Result$<$ compagny $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_a6608c7128f9e7b31b04885ef1d7e004d}{Get\+Compagny}} (int id)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_a6608c7128f9e7b31b04885ef1d7e004d}{Get\+Compagny}} (int id)
 \item 
-async Task$<$ Action\+Result$<$ compagny $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_a6d092dd8d9edcd60e4a38e1d90af3e40}{Put\+Compagny}} (int id, compagny compagny\+Input)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_a6d092dd8d9edcd60e4a38e1d90af3e40}{Put\+Compagny}} (int id, \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}} compagny\+Input)
 \item 
-async Task$<$ Action\+Result$<$ compagny $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_ad144f627b336f3e43ba994fbdd9c9419}{Post\+Compagny}} (compagny compagny\+Body)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_ad144f627b336f3e43ba994fbdd9c9419}{Post\+Compagny}} (\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}} compagny\+Body)
 \item 
-async Task$<$ Action\+Result$<$ compagny $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_a5c33b6687ecca9c5b060f029ce809e7d}{Delete\+Todo\+Item}} (int id)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_a5c33b6687ecca9c5b060f029ce809e7d}{Delete\+Todo\+Item}} (int id)
 \end{DoxyCompactItemize}
 
 
@@ -41,7 +41,7 @@ async Task$<$ Action\+Result$<$ compagny $>$ $>$ \mbox{\hyperlink{class_mediwatc
 \index{Mediwatch.Server.Controllers.CompagnyController@{Mediwatch.Server.Controllers.CompagnyController}!DeleteTodoItem@{DeleteTodoItem}}
 \index{DeleteTodoItem@{DeleteTodoItem}!Mediwatch.Server.Controllers.CompagnyController@{Mediwatch.Server.Controllers.CompagnyController}}
 \doxysubsubsection{\texorpdfstring{DeleteTodoItem()}{DeleteTodoItem()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$compagny$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Compagny\+Controller.\+Delete\+Todo\+Item (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Compagny\+Controller.\+Delete\+Todo\+Item (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Delete the company ID 
 
@@ -52,7 +52,7 @@ Delete the company ID
 \index{Mediwatch.Server.Controllers.CompagnyController@{Mediwatch.Server.Controllers.CompagnyController}!GetCompagny@{GetCompagny}}
 \index{GetCompagny@{GetCompagny}!Mediwatch.Server.Controllers.CompagnyController@{Mediwatch.Server.Controllers.CompagnyController}}
 \doxysubsubsection{\texorpdfstring{GetCompagny()}{GetCompagny()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$compagny$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Compagny\+Controller.\+Get\+Compagny (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}}$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Compagny\+Controller.\+Get\+Compagny (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Get all compagny 
 
@@ -63,7 +63,7 @@ Json raw list of compgny
 \index{Mediwatch.Server.Controllers.CompagnyController@{Mediwatch.Server.Controllers.CompagnyController}!GetCompagny@{GetCompagny}}
 \index{GetCompagny@{GetCompagny}!Mediwatch.Server.Controllers.CompagnyController@{Mediwatch.Server.Controllers.CompagnyController}}
 \doxysubsubsection{\texorpdfstring{GetCompagny()}{GetCompagny()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$compagny$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Compagny\+Controller.\+Get\+Compagny (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Compagny\+Controller.\+Get\+Compagny (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Get a compagny by its id 
 
@@ -74,13 +74,13 @@ Return the company data
 \index{Mediwatch.Server.Controllers.CompagnyController@{Mediwatch.Server.Controllers.CompagnyController}!PostCompagny@{PostCompagny}}
 \index{PostCompagny@{PostCompagny}!Mediwatch.Server.Controllers.CompagnyController@{Mediwatch.Server.Controllers.CompagnyController}}
 \doxysubsubsection{\texorpdfstring{PostCompagny()}{PostCompagny()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$compagny$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Compagny\+Controller.\+Post\+Compagny (\begin{DoxyParamCaption}\item[{compagny}]{compagny\+Body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Compagny\+Controller.\+Post\+Compagny (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}}}]{compagny\+Body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Create a new compagny \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_a6d092dd8d9edcd60e4a38e1d90af3e40}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller_a6d092dd8d9edcd60e4a38e1d90af3e40}} 
 \index{Mediwatch.Server.Controllers.CompagnyController@{Mediwatch.Server.Controllers.CompagnyController}!PutCompagny@{PutCompagny}}
 \index{PutCompagny@{PutCompagny}!Mediwatch.Server.Controllers.CompagnyController@{Mediwatch.Server.Controllers.CompagnyController}}
 \doxysubsubsection{\texorpdfstring{PutCompagny()}{PutCompagny()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$compagny$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Compagny\+Controller.\+Put\+Compagny (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{compagny}]{compagny\+Input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Compagny\+Controller.\+Put\+Compagny (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1compagny}{compagny}}}]{compagny\+Input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Edit the compagny information specified by its id 
 

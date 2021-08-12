@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['tagcontroller_80',['TagController',['../class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller.html',1,'Mediwatch::Server::Controllers']]]
+  ['tag_109',['tag',['../class_mediwatch_1_1_shared_1_1_models_1_1tag.html',1,'Mediwatch::Shared::Models']]],
+  ['tagcontroller_110',['TagController',['../class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller.html',1,'Mediwatch::Server::Controllers']]]
 ];

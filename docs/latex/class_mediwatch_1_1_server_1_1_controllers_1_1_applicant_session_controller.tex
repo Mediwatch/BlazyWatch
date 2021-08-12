@@ -24,17 +24,17 @@ Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Applicant\+Session
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a25bd4d18e93861e4d99e672b127db48b}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a25bd4d18e93861e4d99e672b127db48b}} 
 {\bfseries Applicant\+Session\+Controller} (\mbox{\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch}} context)
 \item 
-async Task$<$ Action\+Result$<$ I\+Enumerable$<$ applicant\+\_\+session $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_adf8d12f5dcaaa4395522c8febae1e735}{Get\+Applicant\+Session}} ()
+async Task$<$ Action\+Result$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}} $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_adf8d12f5dcaaa4395522c8febae1e735}{Get\+Applicant\+Session}} ()
 \item 
-async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_ada65188cced0326a54f824a251869f02}{Get\+Applicant\+Session}} (int id)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_ada65188cced0326a54f824a251869f02}{Get\+Applicant\+Session}} (int id)
 \item 
-async Task$<$ I\+Enumerable$<$ applicant\+\_\+session $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a8b9f90680a7ee9ce7ec7465863570251}{Get\+Applicant\+Session}} (string id)
+async Task$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a8b9f90680a7ee9ce7ec7465863570251}{Get\+Applicant\+Session}} (string id)
 \item 
-async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a9b9428a2f0209f15ef65b1262e220234}{Put\+Applicant\+Session}} (int id, applicant\+\_\+session applicant\+Session\+Input)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a9b9428a2f0209f15ef65b1262e220234}{Put\+Applicant\+Session}} (int id, \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}} applicant\+Session\+Input)
 \item 
-async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a58d68c490175d8d0a13aa0104a36aed8}{Post\+Applicant\+Session}} (applicant\+\_\+session applicant\+Session\+Body)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a58d68c490175d8d0a13aa0104a36aed8}{Post\+Applicant\+Session}} (\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}} applicant\+Session\+Body)
 \item 
-async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_ad88d09ad6ea3e44ec9c19551694ae4a6}{Delete\+Applicant\+Session}} (int id)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_ad88d09ad6ea3e44ec9c19551694ae4a6}{Delete\+Applicant\+Session}} (int id)
 \end{DoxyCompactItemize}
 
 
@@ -43,7 +43,7 @@ async Task$<$ Action\+Result$<$ applicant\+\_\+session $>$ $>$ \mbox{\hyperlink{
 \index{Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}!DeleteApplicantSession@{DeleteApplicantSession}}
 \index{DeleteApplicantSession@{DeleteApplicantSession}!Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}}
 \doxysubsubsection{\texorpdfstring{DeleteApplicantSession()}{DeleteApplicantSession()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$applicant\+\_\+session$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Delete\+Applicant\+Session (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Delete\+Applicant\+Session (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Delete an applicant session 
 
@@ -54,7 +54,7 @@ Delete an applicant session
 \index{Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}!GetApplicantSession@{GetApplicantSession}}
 \index{GetApplicantSession@{GetApplicantSession}!Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}}
 \doxysubsubsection{\texorpdfstring{GetApplicantSession()}{GetApplicantSession()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$applicant\+\_\+session$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Get\+Applicant\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}}$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Get\+Applicant\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Get the list of Applicant Session 
 
@@ -65,7 +65,7 @@ Get the list of Applicant Session
 \index{Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}!GetApplicantSession@{GetApplicantSession}}
 \index{GetApplicantSession@{GetApplicantSession}!Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}}
 \doxysubsubsection{\texorpdfstring{GetApplicantSession()}{GetApplicantSession()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$applicant\+\_\+session$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Get\+Applicant\+Session (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Get\+Applicant\+Session (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Get an applicant session 
 
@@ -76,7 +76,7 @@ Return the applicant session
 \index{Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}!GetApplicantSession@{GetApplicantSession}}
 \index{GetApplicantSession@{GetApplicantSession}!Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}}
 \doxysubsubsection{\texorpdfstring{GetApplicantSession()}{GetApplicantSession()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily async Task$<$I\+Enumerable$<$applicant\+\_\+session$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Get\+Applicant\+Session (\begin{DoxyParamCaption}\item[{string}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$I\+Enumerable$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Get\+Applicant\+Session (\begin{DoxyParamCaption}\item[{string}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Get an applicant session 
 
@@ -87,13 +87,13 @@ Return the applicant session
 \index{Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}!PostApplicantSession@{PostApplicantSession}}
 \index{PostApplicantSession@{PostApplicantSession}!Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}}
 \doxysubsubsection{\texorpdfstring{PostApplicantSession()}{PostApplicantSession()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$applicant\+\_\+session$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Post\+Applicant\+Session (\begin{DoxyParamCaption}\item[{applicant\+\_\+session}]{applicant\+Session\+Body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Post\+Applicant\+Session (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}}}]{applicant\+Session\+Body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Create an applicant session \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a9b9428a2f0209f15ef65b1262e220234}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller_a9b9428a2f0209f15ef65b1262e220234}} 
 \index{Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}!PutApplicantSession@{PutApplicantSession}}
 \index{PutApplicantSession@{PutApplicantSession}!Mediwatch.Server.Controllers.ApplicantSessionController@{Mediwatch.Server.Controllers.ApplicantSessionController}}
 \doxysubsubsection{\texorpdfstring{PutApplicantSession()}{PutApplicantSession()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$applicant\+\_\+session$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Put\+Applicant\+Session (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{applicant\+\_\+session}]{applicant\+Session\+Input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Applicant\+Session\+Controller.\+Put\+Applicant\+Session (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}}}]{applicant\+Session\+Input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Update an applicant session 
 

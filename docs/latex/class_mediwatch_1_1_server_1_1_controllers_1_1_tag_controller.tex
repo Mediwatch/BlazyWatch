@@ -24,13 +24,13 @@ Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Tag\+Controller\+:
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a952fd57c7e0e4707dfeb397b5c62f128}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a952fd57c7e0e4707dfeb397b5c62f128}} 
 {\bfseries Tag\+Controller} (\mbox{\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch}} context)
 \item 
-async Task$<$ Action\+Result$<$ I\+Enumerable$<$ tag $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a1e06e5dc4a267241ce031772eec66d85}{Get\+Tag}} ()
+async Task$<$ Action\+Result$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}} $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a1e06e5dc4a267241ce031772eec66d85}{Get\+Tag}} ()
 \item 
-async Task$<$ Action\+Result$<$ tag $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a1d067563a40cadec69c9bba9bfb226a9}{Get\+Tag}} (int id)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a1d067563a40cadec69c9bba9bfb226a9}{Get\+Tag}} (int id)
 \item 
-async Task$<$ Action\+Result$<$ formation $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a370307b19de81ff836b11de1a2b775b8}{Post\+Tag}} (tag tag)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1formation}{formation}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a370307b19de81ff836b11de1a2b775b8}{Post\+Tag}} (\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}} \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}})
 \item 
-async Task$<$ Action\+Result$<$ formation $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a45707f699bb92a40832d188e9e256b23}{Post\+Tag}} (int id, tag tag)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1formation}{formation}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a45707f699bb92a40832d188e9e256b23}{Post\+Tag}} (int id, \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}} \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}})
 \end{DoxyCompactItemize}
 
 
@@ -39,7 +39,7 @@ async Task$<$ Action\+Result$<$ formation $>$ $>$ \mbox{\hyperlink{class_mediwat
 \index{Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}!GetTag@{GetTag}}
 \index{GetTag@{GetTag}!Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}}
 \doxysubsubsection{\texorpdfstring{GetTag()}{GetTag()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$tag$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Get\+Tag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}}$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Get\+Tag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Get all tag 
 
@@ -50,7 +50,7 @@ Return the list of the available formation
 \index{Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}!GetTag@{GetTag}}
 \index{GetTag@{GetTag}!Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}}
 \doxysubsubsection{\texorpdfstring{GetTag()}{GetTag()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$tag$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Get\+Tag (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Get\+Tag (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Get a specific tag by is ID 
 
@@ -61,13 +61,13 @@ Return the formation information
 \index{Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}!PostTag@{PostTag}}
 \index{PostTag@{PostTag}!Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}}
 \doxysubsubsection{\texorpdfstring{PostTag()}{PostTag()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$formation$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Post\+Tag (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{tag}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1formation}{formation}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Post\+Tag (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}}}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Update the Tag specific by is ID \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a370307b19de81ff836b11de1a2b775b8}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a370307b19de81ff836b11de1a2b775b8}} 
 \index{Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}!PostTag@{PostTag}}
 \index{PostTag@{PostTag}!Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}}
 \doxysubsubsection{\texorpdfstring{PostTag()}{PostTag()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$formation$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Post\+Tag (\begin{DoxyParamCaption}\item[{tag}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1formation}{formation}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Post\+Tag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}}}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Create a new Tag 
 

@@ -24,11 +24,11 @@ Graphe de collaboration de Blazing\+Blog.\+Server.\+Controllers.\+Articles\+Cont
 \mbox{\Hypertarget{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a3881e802459fed1ecf975c20c9b17444}\label{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a3881e802459fed1ecf975c20c9b17444}} 
 {\bfseries Articles\+Controller} (\mbox{\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch}} context)
 \item 
-async Task$<$ Action\+Result$<$ I\+Enumerable$<$ Article\+Info $>$ $>$ $>$ \mbox{\hyperlink{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a9970ba338169d8ef258c10663bf211b1}{Get\+Articles\+Info}} ()
+async Task$<$ Action\+Result$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_blazing_blog_1_1_shared_1_1_article_info}{Article\+Info}} $>$ $>$ $>$ \mbox{\hyperlink{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a9970ba338169d8ef258c10663bf211b1}{Get\+Articles\+Info}} ()
 \begin{DoxyCompactList}\small\item\em get information about articles G\+ET\+: /\+Articles/\+Get\+Articles\+Info \end{DoxyCompactList}\item 
-async Task$<$ Action\+Result$<$ Article $>$ $>$ \mbox{\hyperlink{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a69e1b42a4f3198d4737296e661f95a75}{Get\+Article}} (\mbox{[}From\+Query\mbox{]}string name)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_blazing_blog_1_1_shared_1_1_article}{Article}} $>$ $>$ \mbox{\hyperlink{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a69e1b42a4f3198d4737296e661f95a75}{Get\+Article}} (\mbox{[}From\+Query\mbox{]}string name)
 \begin{DoxyCompactList}\small\item\em get content of article Get\+: /\+Articles/\+Get\+Article?name=\{string\} \end{DoxyCompactList}\item 
-async Task$<$ System.\+Guid $>$ \mbox{\hyperlink{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a9569853c2a94646215f6bb863cb07be2}{Create\+Article}} (\mbox{[}From\+Body\mbox{]}Article article)
+async Task$<$ System.\+Guid $>$ \mbox{\hyperlink{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a9569853c2a94646215f6bb863cb07be2}{Create\+Article}} (\mbox{[}From\+Body\mbox{]}\mbox{\hyperlink{class_blazing_blog_1_1_shared_1_1_article}{Article}} article)
 \begin{DoxyCompactList}\small\item\em create an article from an Arcticle Object A\+PI G\+ET\+: /\+Articles/\+Create\+Article \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -37,7 +37,7 @@ async Task$<$ System.\+Guid $>$ \mbox{\hyperlink{class_blazing_blog_1_1_server_1
 \index{BlazingBlog.Server.Controllers.ArticlesController@{BlazingBlog.Server.Controllers.ArticlesController}!CreateArticle@{CreateArticle}}
 \index{CreateArticle@{CreateArticle}!BlazingBlog.Server.Controllers.ArticlesController@{BlazingBlog.Server.Controllers.ArticlesController}}
 \doxysubsubsection{\texorpdfstring{CreateArticle()}{CreateArticle()}}
-{\footnotesize\ttfamily async Task$<$System.\+Guid$>$ Blazing\+Blog.\+Server.\+Controllers.\+Articles\+Controller.\+Create\+Article (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} Article}]{article }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$System.\+Guid$>$ Blazing\+Blog.\+Server.\+Controllers.\+Articles\+Controller.\+Create\+Article (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_blazing_blog_1_1_shared_1_1_article}{Article}}}]{article }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -55,7 +55,7 @@ return OK 200 if it work
 \index{BlazingBlog.Server.Controllers.ArticlesController@{BlazingBlog.Server.Controllers.ArticlesController}!GetArticle@{GetArticle}}
 \index{GetArticle@{GetArticle}!BlazingBlog.Server.Controllers.ArticlesController@{BlazingBlog.Server.Controllers.ArticlesController}}
 \doxysubsubsection{\texorpdfstring{GetArticle()}{GetArticle()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$Article$>$ $>$ Blazing\+Blog.\+Server.\+Controllers.\+Articles\+Controller.\+Get\+Article (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Query\mbox{]} string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_blazing_blog_1_1_shared_1_1_article}{Article}}$>$ $>$ Blazing\+Blog.\+Server.\+Controllers.\+Articles\+Controller.\+Get\+Article (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Query\mbox{]} string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -73,7 +73,7 @@ return Article
 \index{BlazingBlog.Server.Controllers.ArticlesController@{BlazingBlog.Server.Controllers.ArticlesController}!GetArticlesInfo@{GetArticlesInfo}}
 \index{GetArticlesInfo@{GetArticlesInfo}!BlazingBlog.Server.Controllers.ArticlesController@{BlazingBlog.Server.Controllers.ArticlesController}}
 \doxysubsubsection{\texorpdfstring{GetArticlesInfo()}{GetArticlesInfo()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$Article\+Info$>$ $>$ $>$ Blazing\+Blog.\+Server.\+Controllers.\+Articles\+Controller.\+Get\+Articles\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$\mbox{\hyperlink{class_blazing_blog_1_1_shared_1_1_article_info}{Article\+Info}}$>$ $>$ $>$ Blazing\+Blog.\+Server.\+Controllers.\+Articles\+Controller.\+Get\+Articles\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 

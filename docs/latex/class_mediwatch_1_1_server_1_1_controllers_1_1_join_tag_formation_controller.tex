@@ -24,13 +24,13 @@ Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Join\+Tag\+Formati
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller_a170e47779c397963046f3300fa242f25}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller_a170e47779c397963046f3300fa242f25}} 
 {\bfseries Join\+Tag\+Formation\+Controller} (\mbox{\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch}} context)
 \item 
-async Task$<$ Action\+Result$<$ I\+Enumerable$<$ Join\+Formation\+Tag $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller_ab18931c268727b058c532f92beaadc53}{Get\+Join\+Tag\+Form}} ()
+async Task$<$ Action\+Result$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag}{Join\+Formation\+Tag}} $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller_ab18931c268727b058c532f92beaadc53}{Get\+Join\+Tag\+Form}} ()
 \item 
-async Task$<$ Action\+Result$<$ Join\+Formation\+Tag $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller_ae83744e25f473947699b3a0c0ea3c129}{Post\+Join\+Tag\+Form}} (Join\+Formation\+Tag join)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag}{Join\+Formation\+Tag}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller_ae83744e25f473947699b3a0c0ea3c129}{Post\+Join\+Tag\+Form}} (\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag}{Join\+Formation\+Tag}} join)
 \item 
-async Task$<$ Action\+Result$<$ Join\+Formation\+Tag $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller_acef1b751272df076381912ca2f413c4b}{Post\+Join\+Tag\+Form}} (Guid id, Join\+Formation\+Tag join)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag}{Join\+Formation\+Tag}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller_acef1b751272df076381912ca2f413c4b}{Post\+Join\+Tag\+Form}} (Guid id, \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag}{Join\+Formation\+Tag}} join)
 \item 
-async Task$<$ Action\+Result$<$ Join\+Formation\+Tag $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller_aeea9e3e94ca7514cf9d927cadc5ccc72}{Delete\+Join\+Tag\+Form}} (Guid id)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag}{Join\+Formation\+Tag}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller_aeea9e3e94ca7514cf9d927cadc5ccc72}{Delete\+Join\+Tag\+Form}} (Guid id)
 \end{DoxyCompactItemize}
 
 
@@ -39,7 +39,7 @@ async Task$<$ Action\+Result$<$ Join\+Formation\+Tag $>$ $>$ \mbox{\hyperlink{cl
 \index{Mediwatch.Server.Controllers.JoinTagFormationController@{Mediwatch.Server.Controllers.JoinTagFormationController}!DeleteJoinTagForm@{DeleteJoinTagForm}}
 \index{DeleteJoinTagForm@{DeleteJoinTagForm}!Mediwatch.Server.Controllers.JoinTagFormationController@{Mediwatch.Server.Controllers.JoinTagFormationController}}
 \doxysubsubsection{\texorpdfstring{DeleteJoinTagForm()}{DeleteJoinTagForm()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$Join\+Formation\+Tag$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Join\+Tag\+Formation\+Controller.\+Delete\+Join\+Tag\+Form (\begin{DoxyParamCaption}\item[{Guid}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag}{Join\+Formation\+Tag}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Join\+Tag\+Formation\+Controller.\+Delete\+Join\+Tag\+Form (\begin{DoxyParamCaption}\item[{Guid}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Delete Join between Tag and Form 
 
@@ -50,7 +50,7 @@ Delete Join between Tag and Form
 \index{Mediwatch.Server.Controllers.JoinTagFormationController@{Mediwatch.Server.Controllers.JoinTagFormationController}!GetJoinTagForm@{GetJoinTagForm}}
 \index{GetJoinTagForm@{GetJoinTagForm}!Mediwatch.Server.Controllers.JoinTagFormationController@{Mediwatch.Server.Controllers.JoinTagFormationController}}
 \doxysubsubsection{\texorpdfstring{GetJoinTagForm()}{GetJoinTagForm()}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$Join\+Formation\+Tag$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Join\+Tag\+Formation\+Controller.\+Get\+Join\+Tag\+Form (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag}{Join\+Formation\+Tag}}$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Join\+Tag\+Formation\+Controller.\+Get\+Join\+Tag\+Form (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Get a specific between Join between Tag and Formation 
 
@@ -61,13 +61,13 @@ Return the Join between Tag and Formation
 \index{Mediwatch.Server.Controllers.JoinTagFormationController@{Mediwatch.Server.Controllers.JoinTagFormationController}!PostJoinTagForm@{PostJoinTagForm}}
 \index{PostJoinTagForm@{PostJoinTagForm}!Mediwatch.Server.Controllers.JoinTagFormationController@{Mediwatch.Server.Controllers.JoinTagFormationController}}
 \doxysubsubsection{\texorpdfstring{PostJoinTagForm()}{PostJoinTagForm()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$Join\+Formation\+Tag$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Join\+Tag\+Formation\+Controller.\+Post\+Join\+Tag\+Form (\begin{DoxyParamCaption}\item[{Guid}]{id,  }\item[{Join\+Formation\+Tag}]{join }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag}{Join\+Formation\+Tag}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Join\+Tag\+Formation\+Controller.\+Post\+Join\+Tag\+Form (\begin{DoxyParamCaption}\item[{Guid}]{id,  }\item[{\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag}{Join\+Formation\+Tag}}}]{join }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Update the join specific by is ID \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller_ae83744e25f473947699b3a0c0ea3c129}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller_ae83744e25f473947699b3a0c0ea3c129}} 
 \index{Mediwatch.Server.Controllers.JoinTagFormationController@{Mediwatch.Server.Controllers.JoinTagFormationController}!PostJoinTagForm@{PostJoinTagForm}}
 \index{PostJoinTagForm@{PostJoinTagForm}!Mediwatch.Server.Controllers.JoinTagFormationController@{Mediwatch.Server.Controllers.JoinTagFormationController}}
 \doxysubsubsection{\texorpdfstring{PostJoinTagForm()}{PostJoinTagForm()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$Join\+Formation\+Tag$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Join\+Tag\+Formation\+Controller.\+Post\+Join\+Tag\+Form (\begin{DoxyParamCaption}\item[{Join\+Formation\+Tag}]{join }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag}{Join\+Formation\+Tag}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Join\+Tag\+Formation\+Controller.\+Post\+Join\+Tag\+Form (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag}{Join\+Formation\+Tag}}}]{join }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Create a new Tag 
 
