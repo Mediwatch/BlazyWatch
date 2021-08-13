@@ -23,7 +23,10 @@ else
 {
     <FormationItemView f=_formation></FormationItemView>
 
-    <ArticleViewer articleName=@_formation.ArticleID></ArticleViewer>
+    @if (_formation.ArticleID != "NO_ID")
+    {
+        <ArticleViewer articleName=@_formation.ArticleID></ArticleViewer>
+    }
 
     @if (_info == null || !_info.IsAuthenticated)
     {

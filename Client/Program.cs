@@ -13,6 +13,8 @@ using System.Globalization;
 using Microsoft.JSInterop;
 using Blazored.LocalStorage;
 
+using Radzen;
+
 namespace Mediwatch.Client
 {
 	public class Program
@@ -32,6 +34,11 @@ namespace Mediwatch.Client
 
 			builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 			builder.Services.AddLocalization(options => options.ResourcesPath = "Ressources");
+
+			builder.Services.AddScoped<DialogService>();
+			builder.Services.AddScoped<NotificationService>();
+			builder.Services.AddScoped<TooltipService>();
+			builder.Services.AddScoped<ContextMenuService>();
 
 			builder.Services.AddOptions();
 			builder.Services.AddAuthorizationCore();

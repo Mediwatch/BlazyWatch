@@ -2,27 +2,34 @@
 @inject HttpClient Client
 @inject IJSRuntime JsRuntime
 
-@if (info_user != null) {
+@inject DialogService DialogService
+
+@using Radzen;
+@using Radzen.Blazor;
+@using Radzen.Blazor.Rendering;
+
+@if (info_user != null)
+{
     <a href=@("Users/exportCalendar/" + info_user.Id.ToString() + "/calendar.ics") download target="_blank" class="btn btn-info">Exporter le calendrier</a>
     <input type="text" class="input-lg" readonly value="Lien du calendrier : @(Client.BaseAddress + "Users/exportCalendar/" + info_user.Id.ToString() + "/calendar.ics")" />
 }
+else
+{
+    <p>En attente d'acquisitions des informations de l'utilisateur...</p>
+}
 
-<div id="calendrier" class="dhx_cal_container" style='width:100%; height:100vh;'>
-    <div class="dhx_cal_navline">
-        <div class="dhx_cal_prev_button">&nbsp;</div>
-        <div class="dhx_cal_next_button">&nbsp;</div>
-        <div class="dhx_cal_today_button"></div>
-        <div class="dhx_cal_date"></div>
-        <div class="dhx_cal_tab" name="day_tab"></div>
-        <div class="dhx_cal_tab" name="week_tab"></div>
-        <div class="dhx_cal_tab" name="month_tab"></div>
-    </div>
-    <div class="dhx_cal_header"></div>
-    <div class="dhx_cal_data"></div>
-</div>
-<p>&copy; <a href="https://dhtmlx.com/">dhtmlx</a></p>
+<RadzenScheduler @ref=@scheduler style="height: 768px;" TItem="Appointment" Data=@appointments StartProperty="Data.Start" EndProperty="Data.End"
+                 TextProperty="Data.Text" SelectedIndex="2"
+                 SlotSelect=@OnSlotSelect AppointmentSelect=@OnAppointmentSelect AppointmentRender=@OnAppointmentRender>
+    <RadzenDayView />
+    <RadzenWeekView />
+    <RadzenMonthView />
+</RadzenScheduler>
 
 @code {
+
+    RadzenScheduler<Appointment> scheduler;
+    IList<Appointment> appointments = new List<Appointment>();
 
     List<formation> _formations = new List<formation>();
     public UserPublic info_user = null;
@@ -31,15 +38,40 @@
     {
         if (firstRender)
         {
-            await JsRuntime.InvokeVoidAsync("initDXCalendar");
             info_user = await Client.GetFromJsonAsync<UserPublic>("Users/info");
             _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Users/formation/" + info_user.Id) as List<formation>;
 
+            this.StateHasChanged();
+
             foreach (var f in _formations)
             {
-                await JsRuntime.InvokeVoidAsync("addDXCalendarEvent", f, "blue");
+                appointments.Add(new Appointment()
+                {
+                    Data = new AppointmentData()
+                    {
+                        Start = f.StartDate,
+                        End = f.EndDate,
+                        Text = f.Name,
+                    },
+                });
             }
-            this.StateHasChanged();
+            await scheduler.Reload();
         }
+    }
+
+    // Juste parce que.
+    async Task OnSlotSelect(SchedulerSlotSelectEventArgs args)
+    {
+        await scheduler.Reload();
+    }
+
+    async Task OnAppointmentSelect(SchedulerAppointmentSelectEventArgs<Appointment> args)
+    {
+        await scheduler.Reload();
+    }
+
+    void OnAppointmentRender(SchedulerAppointmentRenderEventArgs<Appointment> args)
+    {
+        // Never call StateHasChanged in AppointmentRender - would lead to infinite loop
     }
 }

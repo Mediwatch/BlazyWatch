@@ -13,7 +13,6 @@ COPY ["Client/", "Client/"]
 COPY ["Shared/", "Shared/"]
 COPY ["SharedComponent/", "SharedComponent/"]
 COPY ["BlazingEditor/", "BlazingEditor/"]
-COPY ["BlazorCalendar/", "BlazorCalendar/"]
 RUN dotnet restore "Server/Mediwatch.Server.csproj"
 COPY . .
 WORKDIR "/src/Server"

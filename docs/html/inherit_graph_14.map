@@ -1,4 +1,4 @@
 <map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node1" href="$interface_server_1_1_services_1_1_interface_1_1_i_admin_service_accessor.html" title=" " alt="" coords="5,5,193,47"/>
-<area shape="rect" id="node2" href="$class_server_1_1_services_1_1_admin_service_accessor.html" title=" " alt="" coords="241,5,457,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,13,211,39"/>
+<area shape="rect" id="node2" href="$class_mediwatch_1_1_client_1_1services_1_1_mediwatch_authentifiacation_provider.html" title=" " alt="" coords="259,5,517,47"/>
 </map>

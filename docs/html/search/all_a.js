@@ -1,13 +1,19 @@
 var searchData=
 [
-  ['areas_50',['Areas',['../namespace_mediwatch_1_1_server_1_1_areas.html',1,'Mediwatch::Server']]],
-  ['controllers_51',['Controllers',['../namespace_mediwatch_1_1_server_1_1_controllers.html',1,'Mediwatch::Server']]],
-  ['data_52',['Data',['../namespace_mediwatch_1_1_server_1_1_areas_1_1_identity_1_1_data.html',1,'Mediwatch::Server::Areas::Identity']]],
-  ['dbcontextmediwatchmigrations_53',['DbContextMediwatchMigrations',['../namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations.html',1,'Mediwatch::Server::Migrations']]],
-  ['identity_54',['Identity',['../namespace_mediwatch_1_1_server_1_1_areas_1_1_identity.html',1,'Mediwatch::Server::Areas']]],
-  ['mediwatch_55',['Mediwatch',['../namespace_mediwatch.html',1,'']]],
-  ['migrations_56',['Migrations',['../namespace_mediwatch_1_1_server_1_1_migrations.html',1,'Mediwatch::Server']]],
-  ['pages_57',['Pages',['../namespace_mediwatch_1_1_server_1_1_pages.html',1,'Mediwatch::Server']]],
-  ['ressources_58',['Ressources',['../namespace_mediwatch_1_1_server_1_1_ressources.html',1,'Mediwatch::Server']]],
-  ['server_59',['Server',['../namespace_mediwatch_1_1_server.html',1,'Mediwatch']]]
+  ['areas_70',['Areas',['../namespace_mediwatch_1_1_server_1_1_areas.html',1,'Mediwatch::Server']]],
+  ['client_71',['Client',['../namespace_mediwatch_1_1_client.html',1,'Mediwatch']]],
+  ['controllers_72',['Controllers',['../namespace_mediwatch_1_1_server_1_1_controllers.html',1,'Mediwatch::Server']]],
+  ['data_73',['Data',['../namespace_mediwatch_1_1_server_1_1_areas_1_1_identity_1_1_data.html',1,'Mediwatch::Server::Areas::Identity']]],
+  ['dbcontextmediwatchmigrations_74',['DbContextMediwatchMigrations',['../namespace_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations.html',1,'Mediwatch::Server::Migrations']]],
+  ['identity_75',['Identity',['../namespace_mediwatch_1_1_server_1_1_areas_1_1_identity.html',1,'Mediwatch::Server::Areas']]],
+  ['mediwatch_76',['Mediwatch',['../namespace_mediwatch.html',1,'']]],
+  ['mediwatchauthentifiacationprovider_77',['MediwatchAuthentifiacationProvider',['../class_mediwatch_1_1_client_1_1services_1_1_mediwatch_authentifiacation_provider.html',1,'Mediwatch::Client::services']]],
+  ['metalink_78',['MetaLink',['../class_blazing_blog_1_1_shared_1_1_meta_link.html',1,'BlazingBlog::Shared']]],
+  ['migrations_79',['Migrations',['../namespace_mediwatch_1_1_server_1_1_migrations.html',1,'Mediwatch::Server']]],
+  ['models_80',['Models',['../namespace_mediwatch_1_1_shared_1_1_models.html',1,'Mediwatch::Shared']]],
+  ['pages_81',['Pages',['../namespace_mediwatch_1_1_client_1_1_ressources_1_1_pages.html',1,'Mediwatch.Client.Ressources.Pages'],['../namespace_mediwatch_1_1_server_1_1_pages.html',1,'Mediwatch.Server.Pages']]],
+  ['ressources_82',['Ressources',['../namespace_mediwatch_1_1_client_1_1_ressources.html',1,'Mediwatch.Client.Ressources'],['../namespace_mediwatch_1_1_server_1_1_ressources.html',1,'Mediwatch.Server.Ressources']]],
+  ['server_83',['Server',['../namespace_mediwatch_1_1_server.html',1,'Mediwatch']]],
+  ['services_84',['services',['../namespace_mediwatch_1_1_client_1_1services.html',1,'Mediwatch::Client']]],
+  ['shared_85',['Shared',['../namespace_mediwatch_1_1_shared.html',1,'Mediwatch']]]
 ];
