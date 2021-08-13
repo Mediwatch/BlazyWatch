@@ -26,7 +26,7 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<IEnumerable<JoinFormationTag>>> GetJoinTagForm()
         {
             /// <summary>
-            /// Get the list of every join
+            /// Obtenez la liste de chaque Join
             /// </summary>
             return await _context.joinFormationTags.ToListAsync();
         }
@@ -36,7 +36,7 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<JoinFormationTag>> PostJoinTagForm(JoinFormationTag join)
         {
             /// <summary>
-            /// Create a new Tag
+            /// Créer une nouvelle balise
             /// </summary>
             _context.joinFormationTags.Add(join);
             await _context.SaveChangesAsync();
@@ -48,7 +48,7 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<JoinFormationTag>> PostJoinTagForm(Guid id, JoinFormationTag join)
         {
             /// <summary>
-            /// Update the join specific by is ID
+            /// Mettre à jour la jointure spécifique par son ID
             /// </summary>
             join.id = id;
             if (!JoinExists(id))
@@ -72,7 +72,7 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<JoinFormationTag>> DeleteJoinTagForm(Guid id)
         {
             /// <summary>
-            /// Delete Join between Tag and Form
+            /// Supprimer la jointure entre la balise et le formulaire
             /// </summary>
             /// <returns></returns>
             var join = await _context.joinFormationTags.FindAsync(id);

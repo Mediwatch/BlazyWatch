@@ -20,9 +20,9 @@ namespace BlazingBlog.Server.Controllers
     {
         /// <summary>
         /// API POST: /BlogUtils/UploadImage
-        /// Upload Image to the server
+        /// Télécharger l'image sur le serveur
         /// </summary>
-        /// <returns>return the image informations</returns>
+        /// <returns>retourne les informations de l'image</returns>
         [Authorize(Roles = "Admin,Tutor")]
         [HttpPost]
         public async Task<ImageUpload> UploadImage() {
@@ -52,12 +52,12 @@ namespace BlazingBlog.Server.Controllers
             return new ImageUpload {success = 0, file = null};
         }
         /// <summary>
-        /// Get Image from image uploaded on the server
+        /// Obtenir une image à partir d'une image téléchargée sur le serveur
         /// GET: /BlogUtils/GetImage
         /// </summary>
-        /// <param name="fileName">the path from the folder which the images are stocked</param>
-        /// <param name="contentType">the type of image to get</param>
-        /// <returns>the Image in raw</returns>
+        /// <param name="fileName">le chemin du dossier dans lequel les images sont stockées</param>
+        /// <param name="contentType">le type d'image à obtenir</param>
+        /// <returns>l'image en brut</returns>
         [HttpGet]
         public IActionResult GetImage([FromQuery] string fileName, [FromQuery] string contentType)
         {
@@ -75,10 +75,10 @@ namespace BlazingBlog.Server.Controllers
 
         /// <summary>
         /// GET: /BlogUtils/GetLinInfo
-        /// Give link info for preview
+        /// Donner des informations sur le lien pour l'aperçu
         /// </summary>
         /// <param name="url">Url</param>
-        /// <returns>a link descrition base on the url</returns>
+        /// <returns>une description du lien basée sur l'url</returns>
         [HttpGet]
         public LinkDescription GetLinInfo(string url) {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));

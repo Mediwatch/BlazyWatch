@@ -34,10 +34,10 @@ namespace Mediwatch.Server.Controllers {
         #region //Utilitaire
 
         /// <summary>
-        /// convert user in data base to user public for api
+        /// convertir User de la base de données en user public pour l'api
         /// </summary>
         /// <param name="elem"></param>
-        /// <returns>return new user as public</returns>
+        /// <returns>retourne new user comme UserPublic</returns>
         private async Task<UserPublic> createUserPublic (UserCustom elem) {
             UserPublic node = new UserPublic ();
             node.Id = elem.Id;
@@ -49,7 +49,7 @@ namespace Mediwatch.Server.Controllers {
         }
         
         /// <summary>
-        /// Convert list of user in data base to user public for api
+        /// Convertir la liste d'User dans la base de données en UserPublic pour l'api
         /// </summary>
         /// <param name="dataToChange"></param>
         /// <returns></returns>
@@ -64,7 +64,7 @@ namespace Mediwatch.Server.Controllers {
         }
 
         /// <summary>
-        /// modify user information in database
+        /// modifier les informations User dans la base de données
         /// </summary>
         /// <param name="user"></param>
         private async Task SetUserInfoFromUserPublic (UserPublic user, UserCustom userData) {
@@ -79,10 +79,10 @@ namespace Mediwatch.Server.Controllers {
         
         #region //Authorize Part
         /// <summary>
-        /// list all users if you are admin 
+        /// lister tous les Users si vous êtes administrateur
         /// GET: /Users/listUser
         /// </summary>
-        /// <returns>return unauthorized if the user role is not admin and a list of public user when it work</returns>
+        /// <returns>retourne "non autorisé" si le rôle d'User n'est pas admin et une liste d'UserPublic quand cela fonctionne</returns>
         [HttpGet ("listUser")]
         [Authorize (Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<UserPublic>>> GetUserList () {
@@ -92,10 +92,10 @@ namespace Mediwatch.Server.Controllers {
         }
 
         /// <summary>
-        /// Get the information of the connected user
+        /// Obtenir les informations de l'User connecté
         /// API GET : /Users/info
         /// </summary>
-        /// <returns>return a user public user with the information of the connected user</returns>
+        /// <returns>retourner un User public avec les informations de l'User connecté</returns>
         [Authorize]
         [HttpGet("info")]
         public async Task<ActionResult<UserPublic>> GetMyUser() {
@@ -104,13 +104,13 @@ namespace Mediwatch.Server.Controllers {
         }
  
         /// <summary>
-        /// get info of one user
+        /// obtenir des informations sur un User
         /// GET: /Users/info/{id user}
         /// </summary>
         /// <param name="id">the id of the user</param>
-        /// <returns>return a  user public if the id correspond to the id of the connected user.
-        ///  Return not found in case of not base 64 id, the id is not found in the data base or if you're not admin else
-        /// it will return a user public with the information corresponding to the user id</returns>
+        /// <returns>renvoie un UserPublic si l'id correspond à l'id de l'User connecté.
+        ///  Retour "NotFound" en cas d'id pas en base 64, ou si l'ID n'est pas trouvé dans la base de données, ou si vous n'êtes pas administrateur sinon
+        /// il renverra un UserPublic avec les informations correspondant à l'id du User</returns>
         [HttpGet ("info/{id}")]
         [Authorize]
         public async Task<ActionResult<UserPublic>> GetUser (String id) {
@@ -129,14 +129,14 @@ namespace Mediwatch.Server.Controllers {
         }
 
         /// <summary>
-        /// set info of one user
+        /// définir les informations d'un User
         /// POST: /Users/setInfo/
         /// BODY: raw/json :UserPublic
         /// </summary>
-        /// <param name="user">information to set</param>
-        /// <returns>return OK if the id correspond to the id of the connected user.
-        ///  Return not found in case of not base 64 id, the id is not found in the data base or if you're not admin else
-        /// it will return OK</returns>
+        /// <param name="user">informations à définir</param>
+        /// <returns>renvoie OK si l'id correspond à l'id de l'utilisateur connecté.
+        ///  Retour "NotFound" en cas d'id pas en base 64, ou si vous n'êtes pas administrateur sinon
+        /// cela vous retournera "OK"</returns>
         [HttpPost ("setInfo")]
         [Authorize]
         public async Task<ActionResult> SetUser (UserPublic user) {
@@ -157,10 +157,10 @@ namespace Mediwatch.Server.Controllers {
         #region //User Formation User
         /// <summary>
         /// GET: /Users/formation/{id user}
-        /// get all formation of one user
+        /// obtenir toute la formation d'un User
         /// </summary>
         /// <param name="id">id user</param>
-        /// <returns>return the list of applicant session</returns>
+        /// <returns>Retourne une liste de formation</returns>
         [HttpGet("formation/{id}")]
         public async Task<ActionResult<IEnumerable<formation>>> GetUserFormation(String id)
         {
@@ -181,10 +181,10 @@ namespace Mediwatch.Server.Controllers {
         /// <summary>
         /// POST: /Users/registeruserformation/
         /// BODY: raw/json :applicant_session,
-        /// create register user to a Formation
+        /// créer inscrire un User à une formation
         /// </summary>
-        /// <param name="idFormation">id of the formation</param>
-        /// <returns>return one applicant session</returns>
+        /// <param name="applicant_session">avec l'id d'une formation et l'id de l'Utilisateur</param>
+        /// <returns>retourner une applicant_session</returns>
         [HttpPost ("registeruserformation")] 
         public async Task<ActionResult<applicant_session>> RegisterUserformation (applicant_session RegisterUser) {
             FormationController _formationController = new FormationController(_context);
@@ -196,16 +196,15 @@ namespace Mediwatch.Server.Controllers {
         }
         
 
-        //  formation
         /// <summary>
         /// DEL: /Users/deleteuserformation/
         /// BODY: raw/json :applicant_session,
-        /// with id ApplicantSession and IdFormation
-        /// create register user to a Formation
+        /// Avec id ApplicantSession et IdFormation
+        /// Supprime ApplicantSession d'une  Formation
         /// </summary>
-        /// <param name="body.id">id of the applicantSession</param>
-        /// <param name="body.idUser">idUser of the applicantSession</param>
-        /// <returns>return one applicant session</returns>
+        /// <param name="body.id">id de l'applicantSession</param>
+        /// <param name="body.idUser">idUser de l'applicantSession</param>
+        /// <returns>retourne une applicant_session</returns>
         [HttpDelete("deleteuserformation")]
         public async Task<ActionResult<applicant_session>> DeleteUserFormation(applicant_session body)
         {

@@ -30,11 +30,11 @@ namespace Mediwatch.Server.Controllers
         [FromQuery(Name = "idtag")] String strIdTag = ""
         ){
             /// <summary>
-            /// Get all formation
+            /// Obtenez toutes les formations
             /// </summary>
-            /// <returns>Return the list of the available formation</returns>
+            /// <returns>Retourner la liste des formations disponibles</returns>
             
-            //Part get Formation from Tag
+            //Une partie obtient la formation à partir de IdTag
             if (strIdTag != "")
             {
                 TagController _tagController = new TagController(_context);
@@ -62,9 +62,9 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<formation>> GetFormation(Guid id)
         {
             /// <summary>
-            /// Get a specific formation by is ID
+            /// Obtenez une formation spécifique par est ID
             /// </summary>
-            /// <returns>Return the formation information</returns>
+            /// <returns>Retourne les informations de formation</returns>
             formation formationResult = await _context.formations.FindAsync(id);
             if (formationResult == null)
                 return null;
@@ -136,7 +136,7 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<formation>> PutFormation(Guid id, formation formationPut)
         {
             /// <summary>
-            /// Update the formation specific by is ID
+            /// Mettre à jour la formation spécifique par son ID
             /// </summary>
             formationPut.id = id;
             if (!FormationExists(id))
@@ -162,7 +162,7 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<formation>> PostFormation(formation formationBody)
         {
             /// <summary>
-            /// Create a new formation
+            /// Créer une nouvelle formation
             /// </summary>
             _context.formations.Add(formationBody);
             await _context.SaveChangesAsync();
@@ -176,7 +176,7 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<formation>> DeleteFormation(int id)
         {
             /// <summary>
-            /// Delete the formation by ID
+            /// Supprimer la formation par ID
             /// </summary>
             /// <returns></returns>
             var formationResult = await _context.formations.FindAsync(id);

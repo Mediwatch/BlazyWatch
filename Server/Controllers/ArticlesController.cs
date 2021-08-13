@@ -21,10 +21,10 @@ namespace BlazingBlog.Server.Controllers
             _context = context;
         }
         /// <summary>
-        /// get information about articles
+        /// obtenir des informations sur les articles
         /// GET: /Articles/GetArticlesInfo
         /// </summary>
-        /// <returns>return all articles informations</returns>
+        /// <returns>retourner toutes les informations sur les articles</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ArticleInfo>>> GetArticlesInfo()
         {
@@ -47,11 +47,11 @@ namespace BlazingBlog.Server.Controllers
         }
 
         /// <summary>
-        /// get content of article
+        /// obtenir le contenu de l'article
         /// Get: /Articles/GetArticle?name={string}
         /// </summary>
-        /// <param name="name">id of the article</param>
-        /// <returns>return Article</returns>
+        /// <param name="name">id de l'article</param>
+        /// <returns>retour article</returns>
         [HttpGet]
         public async Task<ActionResult<Article>>GetArticle([FromQuery]string name)
         {
@@ -63,12 +63,12 @@ namespace BlazingBlog.Server.Controllers
                 };
         }
         /// <summary>
-        /// create an article from an Arcticle Object
+        /// créer un article à partir d'un objet article
         /// API
         /// GET: /Articles/CreateArticle
         /// </summary>
-        /// <param name="article">article to add to data base</param>
-        /// <returns>return OK 200 if it work</returns>
+        /// <param name="article">article à ajouter à la base de données</param>
+        /// <returns>retourne OK 200 si ça marche</returns>
         [HttpPost]
         [Authorize(Roles = "Admin,Tutor")]
         public async Task<System.Guid> CreateArticle([FromBody]Article article) {

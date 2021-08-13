@@ -24,9 +24,9 @@ namespace Mediwatch.Server.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<compagny>>> GetCompagny(){
             /// <summary>
-            /// Get all compagny
+            /// Obtenez toute les compagnies dans la base de donnée
             /// </summary>
-            /// <returns>Json raw list of compgny</returns>
+            /// <returns>une liste Json brute de l'entreprise</returns>
             return await _context.compagnies.ToListAsync();
         }
 
@@ -35,9 +35,9 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<compagny>> GetCompagny(int id)
         {
             /// <summary>
-            /// Get a compagny by its id
+            /// Obtenir une entreprise par son id
             /// </summary>
-            /// <returns>Return the company data</returns>
+            /// <returns>Renvoyer les données de l'entreprise</returns>
             var compagnyResult = await _context.compagnies.FindAsync(id);
             if (compagnyResult == null)
             {
@@ -52,7 +52,7 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<compagny>> PutCompagny(int id, compagny compagnyInput)
         {
             /// <summary>
-            /// Edit the compagny information specified by its id
+            /// Modifier les informations de l'entreprise spécifiées par son identifiant
             /// </summary> 
             if (id != compagnyInput.id) 
             {
@@ -83,7 +83,7 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<compagny>> PostCompagny(compagny compagnyBody)
         {
             /// <summary>
-            /// Create a new compagny
+            /// Créer une nouvelle entreprise
             /// </summary>
             compagnyBody.createdAt = DateTime.Now;
             _context.compagnies.Add(compagnyBody);
@@ -97,7 +97,7 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<compagny>> DeleteTodoItem(int id)
         {
             /// <summary>
-            /// Delete the company ID
+            /// Supprimer l'entreprise avec l'ID
             /// </summary>
             /// <returns></returns>
             var compagnyResult = await _context.compagnies.FindAsync(id);

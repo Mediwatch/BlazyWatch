@@ -28,11 +28,11 @@ namespace Mediwatch.Server.Controllers
         }
 
         /// <summary>
-        /// Log the user to his account
+        /// Connectez l'utilisateur à son compte 
         /// API POST: /Account/Login
         /// </summary>
-        /// <param name="login"> form containing login info</param>
-        /// <returns>Ok 200 when it work with Auth cookie and error in other case with the associate error</returns>
+        /// <param name="login"> formulaire contenant les informations de connexion </param>
+        /// <returns>Ok 200 quand cela fonctionne avec le cookie Auth et erreur dans les autres cas avec l'erreur associée</returns>
         
         [HttpPost]
         async public Task<IActionResult> Login(LoginForm login)
@@ -53,11 +53,11 @@ namespace Mediwatch.Server.Controllers
         }
 
         /// <summary>
-        /// Add tuttor when you're admin
+        /// Ajouter un tuteur lorsque vous êtes administrateur
         /// API GET: /Account/AddTutor
         /// </summary>
-        /// <param name="id">id of the account to modify</param>
-        /// <returns>ok 200 when it work</returns>
+        /// <param name="id">id du compte à modifier</param>
+        /// <returns>ok 200 quand ça marche</returns>
         [HttpGet]
         [Authorize(Roles = "Admin")]
         async public Task<IActionResult> AddTutor(string id)
@@ -134,11 +134,11 @@ namespace Mediwatch.Server.Controllers
         }
 
         /// <summary>
-        /// Register a user
+        /// Enregistrer un utilisateur
         /// API POST /Account/Register
         /// </summary>
-        /// <param name="register">information for registering the user</param>
-        /// <returns>OK 200 when it work</returns>
+        /// <param name="register">informations pour l'enregistrement de l'utilisateur</param>
+        /// <returns>OK 200 quand ça marche</returns>
         [HttpPost]
         async public Task<IActionResult> Register(RegisterForm register)
         {
@@ -161,9 +161,9 @@ namespace Mediwatch.Server.Controllers
         }
         
         /// <summary>
-        /// Give basic information about the connected user with cookie
+        /// Donner des informations de base sur l'utilisateur connecté avec cookie
         /// </summary>
-        /// <returns>the user info with authentificated at fals if it's not</returns>
+        /// <returns>les informations de l'utilisateur avec authentifié à faux si ce n'est pas le cas</returns>
         [HttpGet]
         public UserInformation UserInfo()
         {

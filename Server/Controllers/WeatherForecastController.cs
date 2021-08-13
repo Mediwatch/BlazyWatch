@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 /// <summary>
-/// Test controller
+/// Controleur test
 /// </summary>
 namespace Mediwatch.Server.Controllers
 {

@@ -24,7 +24,7 @@ namespace Mediwatch.Server.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<applicant_session>>> GetApplicantSession(){
             /// <summary>
-            /// Get the list of Applicant Session
+            /// Obtenir la liste des candidats Session
             /// </summary>
             /// <returns></returns>
                 return await _context.applicant_sessions.ToListAsync();
@@ -35,9 +35,9 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<applicant_session>> GetApplicantSession(int id)
         {
             /// <summary>
-            /// Get an applicant session
+            /// Obtenez une session de candidature
             /// </summary>
-            /// <returns>Return the applicant session</returns>
+            /// <returns>Retourner la session candidat</returns>
             var applicantSessionResult = await _context.applicant_sessions.FindAsync(id);
             if (applicantSessionResult == null)
             {
@@ -52,9 +52,9 @@ namespace Mediwatch.Server.Controllers
         public async Task<IEnumerable<applicant_session>> GetApplicantSession(string id)
         {
             /// <summary>
-            /// Get an applicant session
+            /// Obtenir une session de candidature
             /// </summary>
-            /// <returns>Return the applicant session</returns>
+            /// <returns>Retourner la session candidat</returns>
             Guid tmp = new Guid(id);
             IEnumerable<applicant_session> applicantSessionResult = await _context
             .applicant_sessions
@@ -65,13 +65,13 @@ namespace Mediwatch.Server.Controllers
             return applicantSessionResult;
         }        
 
-        //Put: /ApplicantSession/5
-        // WARNING YOU MUST TO SEND ALL DATA CHAMP WITH MODIFICATION 
+        //Put: /ApplicantSession/{id}
+        // AVERTISSEMENT VOUS DEVEZ ENVOYER TOUTES LES DONNÉES CHAMP AVEC MODIFICATION
         [HttpPut("{id}")]
         public async Task<ActionResult<applicant_session>> PutApplicantSession(int id, applicant_session applicantSessionInput)
         {
             /// <summary>
-            /// Update an applicant session
+            /// Mettre à jour une session de candidature
             /// </summary>
             applicantSessionInput.id = id;
                 if (!ApplicantSessionInputExists(id))
@@ -95,7 +95,7 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<applicant_session>> PostApplicantSession(applicant_session applicantSessionBody)
         {
             /// <summary>
-            /// Create an applicant session
+            /// Créer une session candidat
             /// </summary>
             applicantSessionBody.createdAt = DateTime.Now;
             _context.applicant_sessions.Add(applicantSessionBody);
@@ -110,7 +110,7 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<applicant_session>> DeleteApplicantSession(int id)
         {
             /// <summary>
-            /// Delete an applicant session
+            /// Supprimer une session de candidature
             /// </summary>
             /// <returns></returns>
             var applicantSessionResult = await _context.applicant_sessions.FindAsync(id);

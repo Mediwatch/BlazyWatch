@@ -36,9 +36,9 @@ public class InvoiceGenerator
     {
         string json = JsonConvert.SerializeObject(data);
         this.Data = "\"" + json.Replace("\"", "\\\"") + "\"";
-        // Whithout this Replace the shell will interpret the '"' in the JSON.
-        // The '"' added so the JSON doesn't get split by internal spaces.
-        // Warning: '"' in keys or values do not work.
+        // Sans ce remplacement, le shell interprétera le '"' dans le JSON.
+        // Le '"' ajouté pour que le JSON ne soit pas divisé par des espaces internes.
+        // Attention : '"' dans les clés ou les valeurs ne fonctionne pas.
         return this;
     }
 

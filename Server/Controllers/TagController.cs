@@ -37,9 +37,9 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<tag>> GetTag(Guid id)
         {
             /// <summary>
-            /// Get a specific tag by is ID
+            /// Obtenir une balise spécifique par son ID
             /// </summary>
-            /// <returns>Return the formation information</returns>
+            /// <returns>Retourne les informations d'une formation</returns>
 
             var tags = await _context.tags.FindAsync(id);
             if (tags == null)
@@ -55,19 +55,19 @@ namespace Mediwatch.Server.Controllers
         public async Task<ActionResult<formation>> PostTag(tag tag)
         {
             /// <summary>
-            /// Create a new Tag
+            /// Créer un nouveau Tag
             /// </summary>
             _context.tags.Add(tag);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetTag), new { id = tag.id }, tag);
         }
 
-        //Put: /Formation/5
+        //Put: /tag/{id}
         [HttpPut("{id}")]
         public async Task<ActionResult<formation>> PostTag(Guid id, tag tag)
         {
             /// <summary>
-            /// Update the Tag specific by is ID
+            /// Mettre à jour un Tag spécifique par son ID
             /// </summary>
             tag.id = id;
             if (!TagExists(id))
