@@ -88,13 +88,13 @@ Graphe de collaboration de BlazingBlog.Server.Controllers.BlogUtilsController:</
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a7e2fd0bf2bf61c62ad1598d787987776"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_blazing_blog_1_1_shared_1_1_image_upload.html">ImageUpload</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#a7e2fd0bf2bf61c62ad1598d787987776">UploadImage</a> ()</td></tr>
-<tr class="memdesc:a7e2fd0bf2bf61c62ad1598d787987776"><td class="mdescLeft">&#160;</td><td class="mdescRight">API POST: /BlogUtils/UploadImage Upload Image to the server  <a href="class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#a7e2fd0bf2bf61c62ad1598d787987776">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a7e2fd0bf2bf61c62ad1598d787987776"><td class="mdescLeft">&#160;</td><td class="mdescRight">API POST: /BlogUtils/UploadImage Télécharger l'image sur le serveur  <a href="class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#a7e2fd0bf2bf61c62ad1598d787987776">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a7e2fd0bf2bf61c62ad1598d787987776"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd681dd8b9f613ebca29900f87c763b9"><td class="memItemLeft" align="right" valign="top">IActionResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#abd681dd8b9f613ebca29900f87c763b9">GetImage</a> ([FromQuery] string fileName, [FromQuery] string contentType)</td></tr>
-<tr class="memdesc:abd681dd8b9f613ebca29900f87c763b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Image from image uploaded on the server GET: /BlogUtils/GetImage  <a href="class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#abd681dd8b9f613ebca29900f87c763b9">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:abd681dd8b9f613ebca29900f87c763b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir une image à partir d'une image téléchargée sur le serveur GET: /BlogUtils/GetImage  <a href="class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#abd681dd8b9f613ebca29900f87c763b9">Plus de détails...</a><br /></td></tr>
 <tr class="separator:abd681dd8b9f613ebca29900f87c763b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb07a81ee10a101acbc979c4a217a76a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_blazing_blog_1_1_shared_1_1_link_description.html">LinkDescription</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#abb07a81ee10a101acbc979c4a217a76a">GetLinInfo</a> (string url)</td></tr>
-<tr class="memdesc:abb07a81ee10a101acbc979c4a217a76a"><td class="mdescLeft">&#160;</td><td class="mdescRight">GET: /BlogUtils/GetLinInfo Give link info for preview  <a href="class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#abb07a81ee10a101acbc979c4a217a76a">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:abb07a81ee10a101acbc979c4a217a76a"><td class="mdescLeft">&#160;</td><td class="mdescRight">GET: /BlogUtils/GetLinInfo Donner des informations sur le lien pour l'aperçu  <a href="class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#abb07a81ee10a101acbc979c4a217a76a">Plus de détails...</a><br /></td></tr>
 <tr class="separator:abb07a81ee10a101acbc979c4a217a76a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions membres</h2>
@@ -132,15 +132,15 @@ Fonctions membres publiques</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get Image from image uploaded on the server GET: /BlogUtils/GetImage </p>
+<p>Obtenir une image à partir d'une image téléchargée sur le serveur GET: /BlogUtils/GetImage </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fileName</td><td>the path from the folder which the images are stocked</td></tr>
-    <tr><td class="paramname">contentType</td><td>the type of image to get</td></tr>
+    <tr><td class="paramname">fileName</td><td>le chemin du dossier dans lequel les images sont stockées</td></tr>
+    <tr><td class="paramname">contentType</td><td>le type d'image à obtenir</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>the Image in raw</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>l'image en brut</dd></dl>
 
 </div>
 </div>
@@ -168,14 +168,14 @@ Fonctions membres publiques</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>GET: /BlogUtils/GetLinInfo Give link info for preview </p>
+<p>GET: /BlogUtils/GetLinInfo Donner des informations sur le lien pour l'aperçu </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">url</td><td>Url</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>a link descrition base on the url</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>une description du lien basée sur l'url</dd></dl>
 
 </div>
 </div>
@@ -202,8 +202,8 @@ Fonctions membres publiques</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>API POST: /BlogUtils/UploadImage Upload Image to the server </p>
-<dl class="section return"><dt>Renvoie</dt><dd>return the image informations</dd></dl>
+<p>API POST: /BlogUtils/UploadImage Télécharger l'image sur le serveur </p>
+<dl class="section return"><dt>Renvoie</dt><dd>retourne les informations de l'image</dd></dl>
 
 </div>
 </div>

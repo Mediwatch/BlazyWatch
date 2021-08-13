@@ -2,7 +2,8 @@
 \label{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller}\index{Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}}
 
 
-Graphe d\textquotesingle{}héritage de Mediwatch.\+Server.\+Controllers.\+Tag\+Controller\+:\nopagebreak
+Graphe d\textquotesingle{}héritage de Mediwatch.\+Server.\+Controllers.\+Tag\+Controller\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -11,7 +12,8 @@ Graphe d\textquotesingle{}héritage de Mediwatch.\+Server.\+Controllers.\+Tag\+C
 \end{figure}
 
 
-Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Tag\+Controller\+:\nopagebreak
+Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Tag\+Controller\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,52 +26,42 @@ Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Tag\+Controller\+:
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a952fd57c7e0e4707dfeb397b5c62f128}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a952fd57c7e0e4707dfeb397b5c62f128}} 
 {\bfseries Tag\+Controller} (\mbox{\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch}} context)
 \item 
-async Task$<$ Action\+Result$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}} $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a1e06e5dc4a267241ce031772eec66d85}{Get\+Tag}} ()
-\item 
-async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a1d067563a40cadec69c9bba9bfb226a9}{Get\+Tag}} (int id)
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a477930af559c79fdf7ec6dc37ff4492a}{Get\+Tag}} (Guid id)
 \item 
 async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1formation}{formation}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a370307b19de81ff836b11de1a2b775b8}{Post\+Tag}} (\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}} \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}})
 \item 
-async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1formation}{formation}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a45707f699bb92a40832d188e9e256b23}{Post\+Tag}} (int id, \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}} \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}})
+async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1formation}{formation}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a591d09bac23ba41292404fe00b997e04}{Post\+Tag}} (Guid id, \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}} \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}})
+\item 
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a3ae69a77e80642bb91f39f771c1250e1}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a3ae69a77e80642bb91f39f771c1250e1}} 
+async Task$<$ Action\+Result$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}} $>$ $>$ $>$ {\bfseries Get\+Tag} (\mbox{[}From\+Query(Name=\char`\"{}idform\char`\"{})\mbox{]} String str\+Idform=\char`\"{}\char`\"{})
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentation des fonctions membres}
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a1e06e5dc4a267241ce031772eec66d85}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a1e06e5dc4a267241ce031772eec66d85}} 
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a477930af559c79fdf7ec6dc37ff4492a}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a477930af559c79fdf7ec6dc37ff4492a}} 
 \index{Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}!GetTag@{GetTag}}
 \index{GetTag@{GetTag}!Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}}
-\doxysubsubsection{\texorpdfstring{GetTag()}{GetTag()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$I\+Enumerable$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}}$>$ $>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Get\+Tag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\doxysubsubsection{\texorpdfstring{GetTag()}{GetTag()}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Get\+Tag (\begin{DoxyParamCaption}\item[{Guid}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Get all tag 
-
-\begin{DoxyReturn}{Renvoie}
-Return the list of the available formation
-\end{DoxyReturn}
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a1d067563a40cadec69c9bba9bfb226a9}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a1d067563a40cadec69c9bba9bfb226a9}} 
-\index{Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}!GetTag@{GetTag}}
-\index{GetTag@{GetTag}!Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}}
-\doxysubsubsection{\texorpdfstring{GetTag()}{GetTag()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Get\+Tag (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-Get a specific tag by is ID 
+Obtenir une balise spécifique par son ID 
 
 \begin{DoxyReturn}{Renvoie}
-Return the formation information
+Retourne les informations d\textquotesingle{}une formation
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a45707f699bb92a40832d188e9e256b23}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a45707f699bb92a40832d188e9e256b23}} 
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a591d09bac23ba41292404fe00b997e04}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a591d09bac23ba41292404fe00b997e04}} 
 \index{Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}!PostTag@{PostTag}}
 \index{PostTag@{PostTag}!Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}}
 \doxysubsubsection{\texorpdfstring{PostTag()}{PostTag()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1formation}{formation}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Post\+Tag (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}}}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1formation}{formation}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Post\+Tag (\begin{DoxyParamCaption}\item[{Guid}]{id,  }\item[{\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}}}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Update the Tag specific by is ID \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a370307b19de81ff836b11de1a2b775b8}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a370307b19de81ff836b11de1a2b775b8}} 
+Mettre à jour un Tag spécifique par son ID \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a370307b19de81ff836b11de1a2b775b8}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_tag_controller_a370307b19de81ff836b11de1a2b775b8}} 
 \index{Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}!PostTag@{PostTag}}
 \index{PostTag@{PostTag}!Mediwatch.Server.Controllers.TagController@{Mediwatch.Server.Controllers.TagController}}
 \doxysubsubsection{\texorpdfstring{PostTag()}{PostTag()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily async Task$<$Action\+Result$<$\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1formation}{formation}}$>$ $>$ Mediwatch.\+Server.\+Controllers.\+Tag\+Controller.\+Post\+Tag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1tag}{tag}}}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Create a new Tag 
+Créer un nouveau Tag 
 
 La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 

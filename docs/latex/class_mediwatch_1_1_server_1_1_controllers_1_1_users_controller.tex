@@ -25,19 +25,19 @@ Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Users\+Controller\
 {\bfseries Users\+Controller} (User\+Manager$<$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_areas_1_1_identity_1_1_data_1_1_user_custom}{User\+Custom}} $>$ user\+Manager, \mbox{\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch}} context)
 \item 
 async Task$<$ Action\+Result$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_user_public}{User\+Public}} $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a5b525adc63d36869bde5021b82480228}{Get\+User\+List}} ()
-\begin{DoxyCompactList}\small\item\em list all users if you are admin G\+ET\+: /\+Users/list\+User \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em lister tous les Users si vous êtes administrateur G\+ET\+: /\+Users/list\+User \end{DoxyCompactList}\item 
 async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_user_public}{User\+Public}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a9a705b16c851ce5bb20f426b6e923799}{Get\+My\+User}} ()
-\begin{DoxyCompactList}\small\item\em Get the information of the connected user A\+PI G\+ET \+: /\+Users/info \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Obtenir les informations de l\textquotesingle{}User connecté A\+PI G\+ET \+: /\+Users/info \end{DoxyCompactList}\item 
 async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_user_public}{User\+Public}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a27103389ca1c6c33d21a3dc3212d7b08}{Get\+User}} (String id)
-\begin{DoxyCompactList}\small\item\em get info of one user G\+ET\+: /\+Users/info/\{id user\} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em obtenir des informations sur un User G\+ET\+: /\+Users/info/\{id user\} \end{DoxyCompactList}\item 
 async Task$<$ Action\+Result $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a414ca2854bf71701319b3c34dbda03ab}{Set\+User}} (\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1_user_public}{User\+Public}} user)
-\begin{DoxyCompactList}\small\item\em set info of one user P\+O\+ST\+: /\+Users/set\+Info/ B\+O\+DY\+: raw/json \+:User\+Public \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em définir les informations d\textquotesingle{}un User P\+O\+ST\+: /\+Users/set\+Info/ B\+O\+DY\+: raw/json \+:User\+Public \end{DoxyCompactList}\item 
 async Task$<$ Action\+Result$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1formation}{formation}} $>$ $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_ac6c9d22e29a1b10775a8bb00df29e36e}{Get\+User\+Formation}} (String id)
-\begin{DoxyCompactList}\small\item\em G\+ET\+: /\+Users/formation/\{id user\} get all formation of one user \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em G\+ET\+: /\+Users/formation/\{id user\} obtenir toute la formation d\textquotesingle{}un User \end{DoxyCompactList}\item 
 async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a44bf781dad67f766e1d0c91ac17d73ef}{Register\+Userformation}} (\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}} Register\+User)
-\begin{DoxyCompactList}\small\item\em P\+O\+ST\+: /\+Users/registeruserformation/ B\+O\+DY\+: raw/json \+:applicant\+\_\+session, create register user to a Formation \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em P\+O\+ST\+: /\+Users/registeruserformation/ B\+O\+DY\+: raw/json \+:applicant\+\_\+session, créer inscrire un User à une formation \end{DoxyCompactList}\item 
 async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}} $>$ $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a03952b3be592e56eb93c7c6abdfe297b}{Delete\+User\+Formation}} (\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_models_1_1applicant__session}{applicant\+\_\+session}} body)
-\begin{DoxyCompactList}\small\item\em D\+EL\+: /\+Users/deleteuserformation/ B\+O\+DY\+: raw/json \+:applicant\+\_\+session, with id Applicant\+Session and Id\+Formation create register user to a Formation \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em D\+EL\+: /\+Users/deleteuserformation/ B\+O\+DY\+: raw/json \+:applicant\+\_\+session, Avec id Applicant\+Session et Id\+Formation Supprime Applicant\+Session d\textquotesingle{}une Formation \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a8212d2adbfb65aed0c959545844bdb07}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a8212d2adbfb65aed0c959545844bdb07}} 
 async Task$<$ Action\+Result $>$ {\bfseries Delete\+User} (\mbox{[}From\+Query\mbox{]}string id)
 \item 
@@ -55,17 +55,17 @@ async Task$<$ I\+Action\+Result $>$ {\bfseries Export\+Calendar} (string id)
 
 
 
-D\+EL\+: /\+Users/deleteuserformation/ B\+O\+DY\+: raw/json \+:applicant\+\_\+session, with id Applicant\+Session and Id\+Formation create register user to a Formation 
+D\+EL\+: /\+Users/deleteuserformation/ B\+O\+DY\+: raw/json \+:applicant\+\_\+session, Avec id Applicant\+Session et Id\+Formation Supprime Applicant\+Session d\textquotesingle{}une Formation 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em body.\+id} & id of the applicant\+Session\\
+{\em body.\+id} & id de l\textquotesingle{}applicant\+Session\\
 \hline
-{\em body.\+id\+User} & id\+User of the applicant\+Session\\
+{\em body.\+id\+User} & id\+User de l\textquotesingle{}applicant\+Session\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-return one applicant session
+retourne une applicant\+\_\+session
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a9a705b16c851ce5bb20f426b6e923799}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a9a705b16c851ce5bb20f426b6e923799}} 
 \index{Mediwatch.Server.Controllers.UsersController@{Mediwatch.Server.Controllers.UsersController}!GetMyUser@{GetMyUser}}
@@ -75,10 +75,10 @@ return one applicant session
 
 
 
-Get the information of the connected user A\+PI G\+ET \+: /\+Users/info 
+Obtenir les informations de l\textquotesingle{}User connecté A\+PI G\+ET \+: /\+Users/info 
 
 \begin{DoxyReturn}{Renvoie}
-return a user public user with the information of the connected user
+retourner un User public avec les informations de l\textquotesingle{}User connecté
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a27103389ca1c6c33d21a3dc3212d7b08}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a27103389ca1c6c33d21a3dc3212d7b08}} 
 \index{Mediwatch.Server.Controllers.UsersController@{Mediwatch.Server.Controllers.UsersController}!GetUser@{GetUser}}
@@ -88,7 +88,7 @@ return a user public user with the information of the connected user
 
 
 
-get info of one user G\+ET\+: /\+Users/info/\{id user\} 
+obtenir des informations sur un User G\+ET\+: /\+Users/info/\{id user\} 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -96,7 +96,7 @@ get info of one user G\+ET\+: /\+Users/info/\{id user\}
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-return a user public if the id correspond to the id of the connected user. Return not found in case of not base 64 id, the id is not found in the data base or if you\textquotesingle{}re not admin else it will return a user public with the information corresponding to the user id
+renvoie un User\+Public si l\textquotesingle{}id correspond à l\textquotesingle{}id de l\textquotesingle{}User connecté. Retour \char`\"{}\+Not\+Found\char`\"{} en cas d\textquotesingle{}id pas en base 64, ou si l\textquotesingle{}ID n\textquotesingle{}est pas trouvé dans la base de données, ou si vous n\textquotesingle{}êtes pas administrateur sinon il renverra un User\+Public avec les informations correspondant à l\textquotesingle{}id du User
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_ac6c9d22e29a1b10775a8bb00df29e36e}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_ac6c9d22e29a1b10775a8bb00df29e36e}} 
 \index{Mediwatch.Server.Controllers.UsersController@{Mediwatch.Server.Controllers.UsersController}!GetUserFormation@{GetUserFormation}}
@@ -106,7 +106,7 @@ return a user public if the id correspond to the id of the connected user. Retur
 
 
 
-G\+ET\+: /\+Users/formation/\{id user\} get all formation of one user 
+G\+ET\+: /\+Users/formation/\{id user\} obtenir toute la formation d\textquotesingle{}un User 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -114,7 +114,7 @@ G\+ET\+: /\+Users/formation/\{id user\} get all formation of one user
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-return the list of applicant session
+Retourne une liste de formation
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a5b525adc63d36869bde5021b82480228}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a5b525adc63d36869bde5021b82480228}} 
 \index{Mediwatch.Server.Controllers.UsersController@{Mediwatch.Server.Controllers.UsersController}!GetUserList@{GetUserList}}
@@ -124,10 +124,10 @@ return the list of applicant session
 
 
 
-list all users if you are admin G\+ET\+: /\+Users/list\+User 
+lister tous les Users si vous êtes administrateur G\+ET\+: /\+Users/list\+User 
 
 \begin{DoxyReturn}{Renvoie}
-return unauthorized if the user role is not admin and a list of public user when it work
+retourne \char`\"{}non autorisé\char`\"{} si le rôle d\textquotesingle{}User n\textquotesingle{}est pas admin et une liste d\textquotesingle{}User\+Public quand cela fonctionne
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a44bf781dad67f766e1d0c91ac17d73ef}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a44bf781dad67f766e1d0c91ac17d73ef}} 
 \index{Mediwatch.Server.Controllers.UsersController@{Mediwatch.Server.Controllers.UsersController}!RegisterUserformation@{RegisterUserformation}}
@@ -137,15 +137,15 @@ return unauthorized if the user role is not admin and a list of public user when
 
 
 
-P\+O\+ST\+: /\+Users/registeruserformation/ B\+O\+DY\+: raw/json \+:applicant\+\_\+session, create register user to a Formation 
+P\+O\+ST\+: /\+Users/registeruserformation/ B\+O\+DY\+: raw/json \+:applicant\+\_\+session, créer inscrire un User à une formation 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em id\+Formation} & id of the formation\\
+{\em applicant\+\_\+session} & avec l\textquotesingle{}id d\textquotesingle{}une formation et l\textquotesingle{}id de l\textquotesingle{}Utilisateur\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-return one applicant session
+retourner une applicant\+\_\+session
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a414ca2854bf71701319b3c34dbda03ab}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller_a414ca2854bf71701319b3c34dbda03ab}} 
 \index{Mediwatch.Server.Controllers.UsersController@{Mediwatch.Server.Controllers.UsersController}!SetUser@{SetUser}}
@@ -155,15 +155,15 @@ return one applicant session
 
 
 
-set info of one user P\+O\+ST\+: /\+Users/set\+Info/ B\+O\+DY\+: raw/json \+:User\+Public 
+définir les informations d\textquotesingle{}un User P\+O\+ST\+: /\+Users/set\+Info/ B\+O\+DY\+: raw/json \+:User\+Public 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em user} & information to set\\
+{\em user} & informations à définir\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-return OK if the id correspond to the id of the connected user. Return not found in case of not base 64 id, the id is not found in the data base or if you\textquotesingle{}re not admin else it will return OK
+renvoie OK si l\textquotesingle{}id correspond à l\textquotesingle{}id de l\textquotesingle{}utilisateur connecté. Retour \char`\"{}\+Not\+Found\char`\"{} en cas d\textquotesingle{}id pas en base 64, ou si vous n\textquotesingle{}êtes pas administrateur sinon cela vous retournera \char`\"{}\+O\+K\char`\"{}
 \end{DoxyReturn}
 
 

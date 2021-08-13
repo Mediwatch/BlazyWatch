@@ -90,8 +90,8 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a71430327b82736d6b252d83a40833dbd"><td class="memItemLeft" align="right" valign="top"><a id="a71430327b82736d6b252d83a40833dbd"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>FormationController</b> (<a class="el" href="class_server_1_1_db_context_mediwatch.html">DbContextMediwatch</a> context)</td></tr>
 <tr class="separator:a71430327b82736d6b252d83a40833dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1711d7a1c8bbd44715fc57cb945c93c"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult&lt; IEnumerable&lt; <a class="el" href="class_mediwatch_1_1_shared_1_1_models_1_1formation.html">formation</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html#ac1711d7a1c8bbd44715fc57cb945c93c">GetFormation</a> ()</td></tr>
-<tr class="separator:ac1711d7a1c8bbd44715fc57cb945c93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a426d985dd1863e250193e2ebd14e1269"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult&lt; IEnumerable&lt; <a class="el" href="class_mediwatch_1_1_shared_1_1_models_1_1formation.html">formation</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html#a426d985dd1863e250193e2ebd14e1269">GetFormation</a> ([FromQuery(Name=&quot;idtag&quot;)] String strIdTag=&quot;&quot;)</td></tr>
+<tr class="separator:a426d985dd1863e250193e2ebd14e1269"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d6ef722f6fb5e2bbfe6171333d227ff"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult&lt; <a class="el" href="class_mediwatch_1_1_shared_1_1_models_1_1formation.html">formation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_formation_controller.html#a9d6ef722f6fb5e2bbfe6171333d227ff">GetFormation</a> (Guid id)</td></tr>
 <tr class="separator:a9d6ef722f6fb5e2bbfe6171333d227ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebc13f59301609d7afe80b8b0f89386c"><td class="memItemLeft" align="right" valign="top"><a id="aebc13f59301609d7afe80b8b0f89386c"></a>
@@ -128,13 +128,13 @@ async Task&lt; ActionResult&lt; IEnumerable&lt; <a class="el" href="class_mediwa
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Delete the formation by ID </p>
+<p>Supprimer la formation par ID </p>
 <dl class="section return"><dt>Renvoie</dt><dd></dd></dl>
 
 </div>
 </div>
-<a id="ac1711d7a1c8bbd44715fc57cb945c93c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1711d7a1c8bbd44715fc57cb945c93c">&#9670;&nbsp;</a></span>GetFormation() <span class="overload">[1/2]</span></h2>
+<a id="a426d985dd1863e250193e2ebd14e1269"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a426d985dd1863e250193e2ebd14e1269">&#9670;&nbsp;</a></span>GetFormation() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,7 +145,8 @@ async Task&lt; ActionResult&lt; IEnumerable&lt; <a class="el" href="class_mediwa
         <tr>
           <td class="memname">async Task&lt;ActionResult&lt;IEnumerable&lt;<a class="el" href="class_mediwatch_1_1_shared_1_1_models_1_1formation.html">formation</a>&gt; &gt; &gt; Mediwatch.Server.Controllers.FormationController.GetFormation </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">[FromQuery(Name = &quot;idtag&quot;)] String&#160;</td>
+          <td class="paramname"><em>strIdTag</em> = <code>&quot;&quot;</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -155,8 +156,8 @@ async Task&lt; ActionResult&lt; IEnumerable&lt; <a class="el" href="class_mediwa
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Get all formation </p>
-<dl class="section return"><dt>Renvoie</dt><dd>Return the list of the available formation</dd></dl>
+<p>Obtenez toutes les formations </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Retourner la liste des formations disponibles</dd></dl>
 
 </div>
 </div>
@@ -183,8 +184,8 @@ async Task&lt; ActionResult&lt; IEnumerable&lt; <a class="el" href="class_mediwa
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Get a specific formation by is ID </p>
-<dl class="section return"><dt>Renvoie</dt><dd>Return the formation information</dd></dl>
+<p>Obtenez une formation spécifique par est ID </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Retourne les informations de formation</dd></dl>
 
 </div>
 </div>
@@ -211,7 +212,7 @@ async Task&lt; ActionResult&lt; IEnumerable&lt; <a class="el" href="class_mediwa
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Create a new formation </p>
+<p>Créer une nouvelle formation </p>
 
 </div>
 </div>
@@ -248,7 +249,7 @@ async Task&lt; ActionResult&lt; IEnumerable&lt; <a class="el" href="class_mediwa
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Update the formation specific by is ID </p>
+<p>Mettre à jour la formation spécifique par son ID </p>
 
 </div>
 </div>

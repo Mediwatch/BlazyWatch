@@ -25,11 +25,11 @@ Graphe de collaboration de Blazing\+Blog.\+Server.\+Controllers.\+Articles\+Cont
 {\bfseries Articles\+Controller} (\mbox{\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch}} context)
 \item 
 async Task$<$ Action\+Result$<$ I\+Enumerable$<$ \mbox{\hyperlink{class_blazing_blog_1_1_shared_1_1_article_info}{Article\+Info}} $>$ $>$ $>$ \mbox{\hyperlink{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a9970ba338169d8ef258c10663bf211b1}{Get\+Articles\+Info}} ()
-\begin{DoxyCompactList}\small\item\em get information about articles G\+ET\+: /\+Articles/\+Get\+Articles\+Info \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em obtenir des informations sur les articles G\+ET\+: /\+Articles/\+Get\+Articles\+Info \end{DoxyCompactList}\item 
 async Task$<$ Action\+Result$<$ \mbox{\hyperlink{class_blazing_blog_1_1_shared_1_1_article}{Article}} $>$ $>$ \mbox{\hyperlink{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a69e1b42a4f3198d4737296e661f95a75}{Get\+Article}} (\mbox{[}From\+Query\mbox{]}string name)
-\begin{DoxyCompactList}\small\item\em get content of article Get\+: /\+Articles/\+Get\+Article?name=\{string\} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em obtenir le contenu de l\textquotesingle{}article Get\+: /\+Articles/\+Get\+Article?name=\{string\} \end{DoxyCompactList}\item 
 async Task$<$ System.\+Guid $>$ \mbox{\hyperlink{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a9569853c2a94646215f6bb863cb07be2}{Create\+Article}} (\mbox{[}From\+Body\mbox{]}\mbox{\hyperlink{class_blazing_blog_1_1_shared_1_1_article}{Article}} article)
-\begin{DoxyCompactList}\small\item\em create an article from an Arcticle Object A\+PI G\+ET\+: /\+Articles/\+Create\+Article \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em créer un article à partir d\textquotesingle{}un objet article A\+PI G\+ET\+: /\+Articles/\+Create\+Article \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentation des fonctions membres}
@@ -41,15 +41,15 @@ async Task$<$ System.\+Guid $>$ \mbox{\hyperlink{class_blazing_blog_1_1_server_1
 
 
 
-create an article from an Arcticle Object A\+PI G\+ET\+: /\+Articles/\+Create\+Article 
+créer un article à partir d\textquotesingle{}un objet article A\+PI G\+ET\+: /\+Articles/\+Create\+Article 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em article} & article to add to data base\\
+{\em article} & article à ajouter à la base de données\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-return OK 200 if it work
+retourne OK 200 si ça marche
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a69e1b42a4f3198d4737296e661f95a75}\label{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a69e1b42a4f3198d4737296e661f95a75}} 
 \index{BlazingBlog.Server.Controllers.ArticlesController@{BlazingBlog.Server.Controllers.ArticlesController}!GetArticle@{GetArticle}}
@@ -59,15 +59,15 @@ return OK 200 if it work
 
 
 
-get content of article Get\+: /\+Articles/\+Get\+Article?name=\{string\} 
+obtenir le contenu de l\textquotesingle{}article Get\+: /\+Articles/\+Get\+Article?name=\{string\} 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em name} & id of the article\\
+{\em name} & id de l\textquotesingle{}article\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-return Article
+retour article
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a9970ba338169d8ef258c10663bf211b1}\label{class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller_a9970ba338169d8ef258c10663bf211b1}} 
 \index{BlazingBlog.Server.Controllers.ArticlesController@{BlazingBlog.Server.Controllers.ArticlesController}!GetArticlesInfo@{GetArticlesInfo}}
@@ -77,10 +77,10 @@ return Article
 
 
 
-get information about articles G\+ET\+: /\+Articles/\+Get\+Articles\+Info 
+obtenir des informations sur les articles G\+ET\+: /\+Articles/\+Get\+Articles\+Info 
 
 \begin{DoxyReturn}{Renvoie}
-return all articles informations
+retourner toutes les informations sur les articles
 \end{DoxyReturn}
 
 

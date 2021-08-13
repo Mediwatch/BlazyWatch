@@ -25,9 +25,9 @@ Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Account\+Controlle
 {\bfseries Account\+Controller} (Sign\+In\+Manager$<$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_areas_1_1_identity_1_1_data_1_1_user_custom}{User\+Custom}} $>$ sign\+In\+Manager, User\+Manager$<$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_areas_1_1_identity_1_1_data_1_1_user_custom}{User\+Custom}} $>$ user\+Manager, Role\+Manager$<$ Identity\+Role$<$ Guid $>$$>$ role\+Manager)
 \item 
 async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0eca1869d875e9cdfbc6e9bc4540ae41}{Login}} (\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_login_form}{Login\+Form}} login)
-\begin{DoxyCompactList}\small\item\em Log the user to his account A\+PI P\+O\+ST\+: /\+Account/\+Login \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Connectez l\textquotesingle{}utilisateur à son compte A\+PI P\+O\+ST\+: /\+Account/\+Login \end{DoxyCompactList}\item 
 async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a6aadf8689cfa5cdc1485f7fb0fabc073}{Add\+Tutor}} (string id)
-\begin{DoxyCompactList}\small\item\em Add tuttor when you\textquotesingle{}re admin A\+PI G\+ET\+: /\+Account/\+Add\+Tutor \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Ajouter un tuteur lorsque vous êtes administrateur A\+PI G\+ET\+: /\+Account/\+Add\+Tutor \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a177b908ddf5a0c4ec5e3269e4cbcb252}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a177b908ddf5a0c4ec5e3269e4cbcb252}} 
 async Task$<$ I\+Action\+Result $>$ {\bfseries Logout} ()
 \item 
@@ -38,9 +38,9 @@ I\+Action\+Result {\bfseries Login\+External} (string hey)
 async Task$<$ I\+Action\+Result $>$ {\bfseries Login\+Ext\+Callback} (string return\+Url, string remote\+Error=null)
 \item 
 async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0a0cf410c96bdacc714cb77c1d52861d}{Register}} (\mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_register_form}{Register\+Form}} register)
-\begin{DoxyCompactList}\small\item\em Register a user A\+PI P\+O\+ST /\+Account/\+Register \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Enregistrer un utilisateur A\+PI P\+O\+ST /\+Account/\+Register \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_mediwatch_1_1_shared_1_1_user_information}{User\+Information}} \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a35118ac6cb00d088863119bf4cbdc30f}{User\+Info}} ()
-\begin{DoxyCompactList}\small\item\em Give basic information about the connected user with cookie \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Donner des informations de base sur l\textquotesingle{}utilisateur connecté avec cookie \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentation des fonctions membres}
@@ -52,15 +52,15 @@ async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_
 
 
 
-Add tuttor when you\textquotesingle{}re admin A\+PI G\+ET\+: /\+Account/\+Add\+Tutor 
+Ajouter un tuteur lorsque vous êtes administrateur A\+PI G\+ET\+: /\+Account/\+Add\+Tutor 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em id} & id of the account to modify\\
+{\em id} & id du compte à modifier\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-ok 200 when it work
+ok 200 quand ça marche
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0eca1869d875e9cdfbc6e9bc4540ae41}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0eca1869d875e9cdfbc6e9bc4540ae41}} 
 \index{Mediwatch.Server.Controllers.AccountController@{Mediwatch.Server.Controllers.AccountController}!Login@{Login}}
@@ -70,15 +70,15 @@ ok 200 when it work
 
 
 
-Log the user to his account A\+PI P\+O\+ST\+: /\+Account/\+Login 
+Connectez l\textquotesingle{}utilisateur à son compte A\+PI P\+O\+ST\+: /\+Account/\+Login 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em login} & form containing login info\\
+{\em login} & formulaire contenant les informations de connexion \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Ok 200 when it work with Auth cookie and error in other case with the associate error
+Ok 200 quand cela fonctionne avec le cookie Auth et erreur dans les autres cas avec l\textquotesingle{}erreur associée
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0a0cf410c96bdacc714cb77c1d52861d}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a0a0cf410c96bdacc714cb77c1d52861d}} 
 \index{Mediwatch.Server.Controllers.AccountController@{Mediwatch.Server.Controllers.AccountController}!Register@{Register}}
@@ -88,15 +88,15 @@ Ok 200 when it work with Auth cookie and error in other case with the associate 
 
 
 
-Register a user A\+PI P\+O\+ST /\+Account/\+Register 
+Enregistrer un utilisateur A\+PI P\+O\+ST /\+Account/\+Register 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em register} & information for registering the user\\
+{\em register} & informations pour l\textquotesingle{}enregistrement de l\textquotesingle{}utilisateur\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-OK 200 when it work
+OK 200 quand ça marche
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a35118ac6cb00d088863119bf4cbdc30f}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller_a35118ac6cb00d088863119bf4cbdc30f}} 
 \index{Mediwatch.Server.Controllers.AccountController@{Mediwatch.Server.Controllers.AccountController}!UserInfo@{UserInfo}}
@@ -106,10 +106,10 @@ OK 200 when it work
 
 
 
-Give basic information about the connected user with cookie 
+Donner des informations de base sur l\textquotesingle{}utilisateur connecté avec cookie 
 
 \begin{DoxyReturn}{Renvoie}
-the user info with authentificated at fals if it\textquotesingle{}s not
+les informations de l\textquotesingle{}utilisateur avec authentifié à faux si ce n\textquotesingle{}est pas le cas
 \end{DoxyReturn}
 
 

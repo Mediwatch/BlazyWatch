@@ -69,6 +69,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-static-methods">Fonctions membres publiques statiques</a> &#124;
 <a href="class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe Mediwatch.Server.Controllers.JoinTagFormationController</div>  </div>
@@ -77,12 +78,14 @@ $(function() {
 <div class="dynheader">
 Graphe d'héritage de Mediwatch.Server.Controllers.JoinTagFormationController:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller__inherit__graph.svg" width="234" height="287"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller__inherit__graph.svg" width="234" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 <div class="dynheader">
 Graphe de collaboration de Mediwatch.Server.Controllers.JoinTagFormationController:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller__coll__graph.svg" width="234" height="287"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller__coll__graph.svg" width="234" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -98,6 +101,11 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:acef1b751272df076381912ca2f413c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeea9e3e94ca7514cf9d927cadc5ccc72"><td class="memItemLeft" align="right" valign="top">async Task&lt; ActionResult&lt; <a class="el" href="class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag.html">JoinFormationTag</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller.html#aeea9e3e94ca7514cf9d927cadc5ccc72">DeleteJoinTagForm</a> (Guid id)</td></tr>
 <tr class="separator:aeea9e3e94ca7514cf9d927cadc5ccc72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Fonctions membres publiques statiques</h2></td></tr>
+<tr class="memitem:abb369bd2f4ac49d744b4eb5cd3a88bb3"><td class="memItemLeft" align="right" valign="top">static async Task&lt; ActionResult&lt; IEnumerable&lt; <a class="el" href="class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag.html">JoinFormationTag</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mediwatch_1_1_server_1_1_controllers_1_1_join_tag_formation_controller.html#abb369bd2f4ac49d744b4eb5cd3a88bb3">GetJoinTagForm</a> (<a class="el" href="class_server_1_1_db_context_mediwatch.html">DbContextMediwatch</a> _context, String strIdJoin=&quot;&quot;, String strIdFormation=&quot;&quot;, String strIdTag=&quot;&quot;)</td></tr>
+<tr class="separator:abb369bd2f4ac49d744b4eb5cd3a88bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions membres</h2>
 <a id="aeea9e3e94ca7514cf9d927cadc5ccc72"></a>
@@ -123,13 +131,13 @@ Fonctions membres publiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Delete Join between Tag and Form </p>
+<p>Supprimer la jointure entre la balise et le formulaire </p>
 <dl class="section return"><dt>Renvoie</dt><dd></dd></dl>
 
 </div>
 </div>
 <a id="ab18931c268727b058c532f92beaadc53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab18931c268727b058c532f92beaadc53">&#9670;&nbsp;</a></span>GetJoinTagForm()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab18931c268727b058c532f92beaadc53">&#9670;&nbsp;</a></span>GetJoinTagForm() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,6 +155,55 @@ Fonctions membres publiques</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Obtenez la liste de chaque Join </p>
+
+</div>
+</div>
+<a id="abb369bd2f4ac49d744b4eb5cd3a88bb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb369bd2f4ac49d744b4eb5cd3a88bb3">&#9670;&nbsp;</a></span>GetJoinTagForm() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;ActionResult&lt;IEnumerable&lt;<a class="el" href="class_mediwatch_1_1_shared_1_1_models_1_1_join_formation_tag.html">JoinFormationTag</a>&gt; &gt; &gt; Mediwatch.Server.Controllers.JoinTagFormationController.GetJoinTagForm </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_server_1_1_db_context_mediwatch.html">DbContextMediwatch</a>&#160;</td>
+          <td class="paramname"><em>_context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>strIdJoin</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>strIdFormation</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>strIdTag</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -188,7 +245,7 @@ Fonctions membres publiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Update the join specific by is ID </p>
+<p>Mettre à jour la jointure spécifique par son ID </p>
 
 </div>
 </div>
@@ -215,7 +272,7 @@ Fonctions membres publiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Create a new Tag </p>
+<p>Créer une nouvelle balise </p>
 
 </div>
 </div>
