@@ -7,6 +7,10 @@ using System;
 using Mediwatch.Shared.Models;
 using Server;
 
+/// <summary>
+/// Fichier avec les fonctions relatif aux controleurs des ApplicantSession.
+/// A chaque inscription à une formation l'utilisateur créer un ApplicantSession 
+/// </summary>
 namespace Mediwatch.Server.Controllers
 {
     [ApiController]

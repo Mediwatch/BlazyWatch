@@ -16,6 +16,12 @@ using Ical.Net.CalendarComponents;
 using Ical.Net.DataTypes;
 using Ical.Net.Serialization;
 
+
+
+/// <summary>
+/// Fichier avec les fonctions relatif aux controleurs des UserInfo.
+/// Cela permet d'avoir les information publique
+/// </summary>
 namespace Mediwatch.Server.Controllers {
     [ApiController]
     [Route ("[controller]")]

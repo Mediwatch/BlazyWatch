@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Server;
 
+/// <summary>
+/// Fichier avec les fonctions relatif aux controleurs des Articles. 
+/// </summary>
 namespace BlazingBlog.Server.Controllers
 {
     [Route("api/[controller]/[action]")]

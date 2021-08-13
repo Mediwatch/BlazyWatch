@@ -8,6 +8,9 @@ using Mediwatch.Shared.Models;
 using Server;
 using Microsoft.AspNetCore.Authorization;
 
+/// <summary>
+/// Fichier avec les fonctions relatif aux controleurs des Formation.
+/// </summary>
 namespace Mediwatch.Server.Controllers
 {
     [ApiController]

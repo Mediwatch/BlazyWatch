@@ -11,6 +11,9 @@ using HtmlAgilityPack;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+/// <summary>
+/// Fichier avec les fonctions relatif aux controleurs du Blog utilisateur. 
+/// </summary>
 namespace BlazingBlog.Server.Controllers
 {
     [ApiController]

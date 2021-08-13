@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Google;
 using System;
 
+/// <summary>
+/// Fichier avec les fonctions relatif aux controleurs des Comptes. 
+/// </summary>
 namespace Mediwatch.Server.Controllers
 {
     [ApiController]
