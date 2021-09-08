@@ -6,7 +6,7 @@
 
 <main>
     <div class= "cards-container">
-        <div>
+        <div align="center">
             <div class="little-cards-container">
                 @if (_formations == null)
                 {
@@ -48,8 +48,10 @@
                     }
                 }
             </div>
+            <div id="paypal-button-container"></div>
         </div>
     </div>
+
 </main>
 
 
@@ -65,9 +67,16 @@
     private void clickfunc(string path) {
         NavManager.NavigateTo(path);
     }
-@* 
-    private void affichage_formation(int id)
+
+    private void affichage_formation(Guid id)
     {
         JsRuntime.InvokeAsync<object>("open", "/formations/" + id.ToString(), "_blank");
-    } *@
+    } 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender){
+            await JsRuntime.InvokeVoidAsync("init_paypal");
+            StateHasChanged();
+        }
+    }
 }

@@ -1,45 +1,53 @@
+const baseOrderAmount = '15.00';        
+
 function init_paypal(price) {
     if (document.getElementById("paypal-button-container") != null){
+        alert('Transaction canceled');
         paypal.Buttons({
-            createOrder: function (data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: price
-                        }
-                    }]
-                });
-            },
-            onApprove:  (data, actions) => {
-                return actions.order.capture().then(function (details) {
+             // Set up the transaction
+        createOrder: function (data, actions) {
+            orderId = data.orderID;
+            return fetch('/api/paypal/checkout/order/create/', {
+                method: 'post'
+            }).then(function (res) {
+                return res.json();
+            }).then(function (data) {
+                return data.orderID;
+            });
+        },
 
-                    alert('Transaction completed by ' + details.payer.name.given_name);
-                //REMPLIRE LES PLACEHOLDER AVEC LES VALEUR DYNAMIQUE DE LA SESSION!
-                body = JSON.stringify({
-                    "invoiceId": String(details.id),
-                    "userId": "PLACEHOLDER",
-                    "formationId" : "PLACEHOLDER",
-                    "billingAdress": details.purchase_units[0].shipping.address.address_line_1 + " " + details.purchase_units[0].shipping.address.admin_area_2 + " "+ details.purchase_units[0].shipping.address.postal_code,
-                    "currency": details.purchase_units[0].amount.currency_code,
-                    "price" : parseFloat(details.purchase_units[0].amount.value)
-                })
+        // Finalise the transaction
+        onApprove: function (data, actions) {
+            return fetch('/api/paypal/checkout/order/approved/' + data.orderID, {
+                method: 'post'
+            }).then(function (res) {
+                return actions.order.capture();
+            }).then(function (details) {
 
+                // (Preferred) Notify the server that the transaction id complete and have a option to display an order completed screen.
+                window.location.replace('/api/paypal/checkout/order/complete/' + data.orderID + '/@ViewBag.CurrencyCode');
                 
-                var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-                var theUrl = "Order";
-                xmlhttp.open("POST", theUrl, true);
-                xmlhttp.setRequestHeader("Content-Type", "application/json");
-                xmlhttp.send(
-                    body
-                );
-                }).then(() => {
-                    DotNet.invokeMethodAsync('{APP ASSEMBLY}', 'OnPaypalDone');
-                });
-            },
-            onCancel: (data, actions) =>{
-                alert('Transaction canceled');
-            }
-        }).render('#paypal-button-container'); // Display payment options on your web page
+                // OR
+                // Notify the server that the transaction id complete
+                //httpGet('/api/paypal/checkout/order/complete/' + data.orderID);
+
+                // Show a success message to the buyer
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+            });
+        },
+
+        // Buyer cancelled the payment
+        onCancel: function (data, actions) {
+            httpGet('/api/paypal/checkout/order/cancel/' + data.orderID);
+        },
+
+        // An error occurred during the transaction
+        onError: function (err) {
+            httpGet('/api/paypal/checkout/order/error/' + orderId + '/' + encodeURIComponent(err));
+        }
+
+        }).render('#paypal-button-container');
+            
     }
 }
 
