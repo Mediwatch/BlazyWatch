@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Mediwatch.Server.Areas.Identity.Data;
 using Mediwatch.Shared.Models;
@@ -70,8 +71,25 @@ namespace Mediwatch.Server {
                     return Task.CompletedTask;
                 };
             });
+
+
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
             
-            services.AddMvc().AddNewtonsoftJson();
+            services.AddCors(options =>
+                    {
+                        options.AddPolicy("DevCorsPolicy", builder =>
+                        {
+                            builder
+                                .AllowAnyOrigin()
+                                .AllowAnyMethod()
+                                .AllowAnyHeader();
+                        });
+                    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -114,6 +132,7 @@ namespace Mediwatch.Server {
                 endpoints.MapControllers ();
                 endpoints.MapFallbackToFile ("index.html");
             });
+            app.UseCors("DevCorsPolicy");
         }
 
         private Task CreateDemoFormations(IServiceProvider serviceProvider)

@@ -39,14 +39,14 @@ else
     }
     else
     {
-        <button class="btn btn-primary" @onclick="@Registration">
+        @* <button class="btn btn-primary" @onclick="@Registration">
             S'inscrire à la formation
-        </button>
+        </button> *@
+        <div id="paypal-button-container"></div>
         <button class="btn btn-primary" @onclick="@Ajout">
             Ajouter la formation à mon panier
         </button>
     }
-
 
     <div id="notif" style="border-style: dashed; visibility: @visibility">
         <p>Formation ajoutée correctement au panier.</p>
@@ -75,6 +75,8 @@ else
 
     private bool popupActivated = false;
 
+    private bool found = false;
+
     protected override async Task OnInitializedAsync()
     {
         try
@@ -82,11 +84,19 @@ else
             _info = await Client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
             _formation = await Client.GetFromJsonAsync<formation>("Formation/" + Id);
             user = await Client.GetFromJsonAsync<UserPublic>("Users/info");
-
         }
         catch
         {
             _erreur = true;
+        }
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender && !found){
+
+            await JsRuntime.InvokeVoidAsync("init_paypal", Id);
+            found = true;
+            StateHasChanged();
         }
     }
 
@@ -157,4 +167,5 @@ else
         visibility = "hidden";
         StateHasChanged();
     }
+
 }

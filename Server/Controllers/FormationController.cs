@@ -30,8 +30,7 @@ namespace Mediwatch.Server.Controllers
         //GET: /Formation
         [HttpGet]
         public async Task<ActionResult<IEnumerable<formation>>> GetFormation(
-        [FromQuery(Name = "idtag")] String strIdTag = ""
-        ){
+        [FromQuery(Name = "idtag")] String strIdTag = ""){
             /// <summary>
             /// Obtenez toutes les formations
             /// </summary>
