@@ -17,7 +17,7 @@ namespace Mediwatch.Server.Controllers
         public class localBody
         {
             public string formationId { get; set; }
-            // public string orderID { get; set; }
+            public string orderID { get; set; }
         }
 
         /// <summary>
@@ -32,8 +32,7 @@ namespace Mediwatch.Server.Controllers
 
             var request = new PayPalCheckoutSdk.Orders.OrdersCreateRequest();
             request.Prefer("return=representation");
-            // request.RequestBody(PayPal.OrderBuilder.Build(formFind));
-            request.RequestBody(PayPal.OrderBuilder.Build());
+            request.RequestBody(PayPal.OrderBuilder.Build(formFind));
             // Call PayPal to set up a transaction
             var response = await PayPal.PayPalClient.Client().Execute(request);
             // Create a response, with an order id.
@@ -51,7 +50,7 @@ namespace Mediwatch.Server.Controllers
         /// </summary>
         /// <param name="orderId"></param>
         /// <returns></returns>
-        [Route("api/paypal/checkout/order/approved/{orderId}")]
+        [HttpGet("api/paypal/checkout/order/approved/{orderId}")]
         public IActionResult Approved(string orderId)
         {
             return Ok();
@@ -63,7 +62,7 @@ namespace Mediwatch.Server.Controllers
         /// </summary>
         /// <param name="orderId"></param>
         /// <returns></returns>
-        [Route("api/paypal/checkout/order/complete/{orderId}")]
+        [HttpGet("api/paypal/checkout/order/complete/{orderId}")]
         public IActionResult Complete(string orderId)
         {
             // 1. Update the database.
@@ -71,7 +70,7 @@ namespace Mediwatch.Server.Controllers
             // 3. Complete the shipping process.
             System.Console.WriteLine(
             @"+++++++++++++++++++++++++++++++++++++++++++++++++++++\n" +
-            orderId +
+            orderId+
             @"+++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
             return Ok();
         }
@@ -82,7 +81,7 @@ namespace Mediwatch.Server.Controllers
         /// </summary>
         /// <param name="orderId"></param>
         /// <returns></returns>
-        [Route("api/paypal/checkout/order/cancel/{orderId}")]
+        [HttpGet("api/paypal/checkout/order/cancel/{orderId}")]
         public IActionResult Cancel(string orderId)
         {
             // 1. Remove the orderId from the database.
@@ -95,7 +94,7 @@ namespace Mediwatch.Server.Controllers
         /// </summary>
         /// <param name="orderId"></param>
         /// <returns></returns>
-        [Route("api/paypal/checkout/order/error/{orderId}/{error}")]
+        [HttpGet("api/paypal/checkout/order/error/{orderId}/{error}")]
         public IActionResult Error(string orderId,
                                    string error)
         {

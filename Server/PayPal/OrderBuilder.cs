@@ -1,4 +1,5 @@
 using Mediwatch.Server.PayPal.Values;
+using Mediwatch.Shared.Models;
 using PayPalCheckoutSdk.Orders;
 using System.Collections.Generic;
 
@@ -10,7 +11,7 @@ namespace Mediwatch.Server.PayPal
         /// Use classes from the PayPalCheckoutSdk to build an OrderRequest
         /// </summary>
         /// <returns></returns>
-        public static OrderRequest Build()
+        public static OrderRequest Build(formation currentForm)
         {
             // OrderRequest orderRequest = new OrderRequest()
             // {
@@ -80,6 +81,7 @@ namespace Mediwatch.Server.PayPal
             //                     Category = PayPal.Values.Item.Category.DIGITAL_GOODS
             //                 });
             // }
+            string priceStr = currentForm.Price.ToString().Replace(",", ".");
             var order = new OrderRequest()
             {
                 CheckoutPaymentIntent = "CAPTURE",
@@ -89,8 +91,8 @@ namespace Mediwatch.Server.PayPal
                     {
                         AmountWithBreakdown = new AmountWithBreakdown()
                         {
-                            CurrencyCode = "USD",
-                            Value = "100.00"
+                            CurrencyCode = PayPal.Values.CurrencyCode.EUR,
+                            Value = priceStr
                         }
                     }
                 }
