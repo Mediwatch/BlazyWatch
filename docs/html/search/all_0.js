@@ -10,7 +10,8 @@ var searchData=
   ['applicant_5fsession_7',['applicant_session',['../class_mediwatch_1_1_shared_1_1_models_1_1applicant__session.html',1,'Mediwatch::Shared::Models']]],
   ['applicantsessioncontroller_8',['ApplicantSessionController',['../class_mediwatch_1_1_server_1_1_controllers_1_1_applicant_session_controller.html',1,'Mediwatch::Server::Controllers']]],
   ['applicantsessionidformationinguid_9',['ApplicantsessionIdformationinGUID',['../class_mediwatch_1_1_server_1_1_migrations_1_1_db_context_mediwatch_migrations_1_1_applicantsession_idformationin_g_u_i_d.html',1,'Mediwatch::Server::Migrations::DbContextMediwatchMigrations']]],
-  ['article_10',['Article',['../class_blazing_blog_1_1_shared_1_1_article.html',1,'BlazingBlog::Shared']]],
-  ['articleinfo_11',['ArticleInfo',['../class_blazing_blog_1_1_shared_1_1_article_info.html',1,'BlazingBlog::Shared']]],
-  ['articlescontroller_12',['ArticlesController',['../class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller.html',1,'BlazingBlog::Server::Controllers']]]
+  ['approved_10',['Approved',['../class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller.html#a07d50cfb437222dccc97f9738c2730f5',1,'Mediwatch::Server::Controllers::CheckoutController']]],
+  ['article_11',['Article',['../class_blazing_blog_1_1_shared_1_1_article.html',1,'BlazingBlog::Shared']]],
+  ['articleinfo_12',['ArticleInfo',['../class_blazing_blog_1_1_shared_1_1_article_info.html',1,'BlazingBlog::Shared']]],
+  ['articlescontroller_13',['ArticlesController',['../class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller.html',1,'BlazingBlog::Server::Controllers']]]
 ];

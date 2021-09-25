@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['createarticle_205',['CreateArticle',['../class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller.html#a9569853c2a94646215f6bb863cb07be2',1,'BlazingBlog::Server::Controllers::ArticlesController']]]
+  ['build_228',['Build',['../class_mediwatch_1_1_server_1_1_pay_pal_1_1_order_builder.html#a04d098f176022e9afe9bacedaab7e667',1,'Mediwatch::Server::PayPal::OrderBuilder']]]
 ];

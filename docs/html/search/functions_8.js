@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['uploadimage_237',['UploadImage',['../class_blazing_blog_1_1_server_1_1_controllers_1_1_blog_utils_controller.html#a7e2fd0bf2bf61c62ad1598d787987776',1,'BlazingBlog::Server::Controllers::BlogUtilsController']]],
-  ['userinfo_238',['UserInfo',['../class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller.html#a35118ac6cb00d088863119bf4cbdc30f',1,'Mediwatch::Server::Controllers::AccountController']]]
+  ['register_261',['Register',['../class_mediwatch_1_1_server_1_1_controllers_1_1_account_controller.html#a0a0cf410c96bdacc714cb77c1d52861d',1,'Mediwatch::Server::Controllers::AccountController']]],
+  ['registeruserformation_262',['RegisterUserformation',['../class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a44bf781dad67f766e1d0c91ac17d73ef',1,'Mediwatch::Server::Controllers::UsersController']]]
 ];

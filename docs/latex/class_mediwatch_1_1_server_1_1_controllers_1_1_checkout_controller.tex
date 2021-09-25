@@ -1,0 +1,136 @@
+\hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller}{}\doxysection{Référence de la classe Mediwatch.\+Server.\+Controllers.\+Checkout\+Controller}
+\label{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller}\index{Mediwatch.Server.Controllers.CheckoutController@{Mediwatch.Server.Controllers.CheckoutController}}
+
+
+Graphe d\textquotesingle{}héritage de Mediwatch.\+Server.\+Controllers.\+Checkout\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Mediwatch.\+Server.\+Controllers.\+Checkout\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_1_1local_body}{local\+Body}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_ad0543cb232e83958c894bb29579f21fa}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_ad0543cb232e83958c894bb29579f21fa}} 
+{\bfseries Checkout\+Controller} (\mbox{\hyperlink{class_server_1_1_db_context_mediwatch}{Db\+Context\+Mediwatch}} context)
+\item 
+async Task$<$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_pay_pal_1_1_smart_button_http_response}{Pay\+Pal.\+Smart\+Button\+Http\+Response}} $>$ \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_a76be1fec719f0643eb5c207b3b696dcf}{Create}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_1_1local_body}{local\+Body}} body)
+\begin{DoxyCompactList}\small\item\em This action is called when the user clicks on the \mbox{\hyperlink{namespace_mediwatch_1_1_server_1_1_pay_pal}{Pay\+Pal}} button. \end{DoxyCompactList}\item 
+I\+Action\+Result \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_a07d50cfb437222dccc97f9738c2730f5}{Approved}} (string order\+Id)
+\begin{DoxyCompactList}\small\item\em This action is called once the \mbox{\hyperlink{namespace_mediwatch_1_1_server_1_1_pay_pal}{Pay\+Pal}} transaction is approved \end{DoxyCompactList}\item 
+I\+Action\+Result \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_ac9b7162603e1ea82b10106a5be76c348}{Complete}} (string order\+Id)
+\begin{DoxyCompactList}\small\item\em This action is called once the \mbox{\hyperlink{namespace_mediwatch_1_1_server_1_1_pay_pal}{Pay\+Pal}} transaction is complete \end{DoxyCompactList}\item 
+I\+Action\+Result \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_a2af05dc58e8cc3fa0c8296ed67d85c88}{Cancel}} (string order\+Id)
+\begin{DoxyCompactList}\small\item\em This action is called once the \mbox{\hyperlink{namespace_mediwatch_1_1_server_1_1_pay_pal}{Pay\+Pal}} transaction is complete \end{DoxyCompactList}\item 
+I\+Action\+Result \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_a6d7327d524f88a9d862503a3120b88f0}{Error}} (string order\+Id, string error)
+\begin{DoxyCompactList}\small\item\em This action is called once the \mbox{\hyperlink{namespace_mediwatch_1_1_server_1_1_pay_pal}{Pay\+Pal}} transaction is complete \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_a07d50cfb437222dccc97f9738c2730f5}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_a07d50cfb437222dccc97f9738c2730f5}} 
+\index{Mediwatch.Server.Controllers.CheckoutController@{Mediwatch.Server.Controllers.CheckoutController}!Approved@{Approved}}
+\index{Approved@{Approved}!Mediwatch.Server.Controllers.CheckoutController@{Mediwatch.Server.Controllers.CheckoutController}}
+\doxysubsubsection{\texorpdfstring{Approved()}{Approved()}}
+{\footnotesize\ttfamily I\+Action\+Result Mediwatch.\+Server.\+Controllers.\+Checkout\+Controller.\+Approved (\begin{DoxyParamCaption}\item[{string}]{order\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This action is called once the \mbox{\hyperlink{namespace_mediwatch_1_1_server_1_1_pay_pal}{Pay\+Pal}} transaction is approved 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em order\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_a2af05dc58e8cc3fa0c8296ed67d85c88}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_a2af05dc58e8cc3fa0c8296ed67d85c88}} 
+\index{Mediwatch.Server.Controllers.CheckoutController@{Mediwatch.Server.Controllers.CheckoutController}!Cancel@{Cancel}}
+\index{Cancel@{Cancel}!Mediwatch.Server.Controllers.CheckoutController@{Mediwatch.Server.Controllers.CheckoutController}}
+\doxysubsubsection{\texorpdfstring{Cancel()}{Cancel()}}
+{\footnotesize\ttfamily I\+Action\+Result Mediwatch.\+Server.\+Controllers.\+Checkout\+Controller.\+Cancel (\begin{DoxyParamCaption}\item[{string}]{order\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This action is called once the \mbox{\hyperlink{namespace_mediwatch_1_1_server_1_1_pay_pal}{Pay\+Pal}} transaction is complete 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em order\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_ac9b7162603e1ea82b10106a5be76c348}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_ac9b7162603e1ea82b10106a5be76c348}} 
+\index{Mediwatch.Server.Controllers.CheckoutController@{Mediwatch.Server.Controllers.CheckoutController}!Complete@{Complete}}
+\index{Complete@{Complete}!Mediwatch.Server.Controllers.CheckoutController@{Mediwatch.Server.Controllers.CheckoutController}}
+\doxysubsubsection{\texorpdfstring{Complete()}{Complete()}}
+{\footnotesize\ttfamily I\+Action\+Result Mediwatch.\+Server.\+Controllers.\+Checkout\+Controller.\+Complete (\begin{DoxyParamCaption}\item[{string}]{order\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This action is called once the \mbox{\hyperlink{namespace_mediwatch_1_1_server_1_1_pay_pal}{Pay\+Pal}} transaction is complete 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em order\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_a76be1fec719f0643eb5c207b3b696dcf}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_a76be1fec719f0643eb5c207b3b696dcf}} 
+\index{Mediwatch.Server.Controllers.CheckoutController@{Mediwatch.Server.Controllers.CheckoutController}!Create@{Create}}
+\index{Create@{Create}!Mediwatch.Server.Controllers.CheckoutController@{Mediwatch.Server.Controllers.CheckoutController}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily async Task$<$\mbox{\hyperlink{class_mediwatch_1_1_server_1_1_pay_pal_1_1_smart_button_http_response}{Pay\+Pal.\+Smart\+Button\+Http\+Response}}$>$ Mediwatch.\+Server.\+Controllers.\+Checkout\+Controller.\+Create (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_1_1local_body}{local\+Body}}}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This action is called when the user clicks on the \mbox{\hyperlink{namespace_mediwatch_1_1_server_1_1_pay_pal}{Pay\+Pal}} button. 
+
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_a6d7327d524f88a9d862503a3120b88f0}\label{class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller_a6d7327d524f88a9d862503a3120b88f0}} 
+\index{Mediwatch.Server.Controllers.CheckoutController@{Mediwatch.Server.Controllers.CheckoutController}!Error@{Error}}
+\index{Error@{Error}!Mediwatch.Server.Controllers.CheckoutController@{Mediwatch.Server.Controllers.CheckoutController}}
+\doxysubsubsection{\texorpdfstring{Error()}{Error()}}
+{\footnotesize\ttfamily I\+Action\+Result Mediwatch.\+Server.\+Controllers.\+Checkout\+Controller.\+Error (\begin{DoxyParamCaption}\item[{string}]{order\+Id,  }\item[{string}]{error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This action is called once the \mbox{\hyperlink{namespace_mediwatch_1_1_server_1_1_pay_pal}{Pay\+Pal}} transaction is complete 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em order\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+Server/\+Controllers/Checkout\+Controller.\+cs\end{DoxyCompactItemize}
