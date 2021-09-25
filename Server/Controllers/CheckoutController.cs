@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using PayPalCheckoutSdk.Orders;
 using Server;
 using System;
+using Mediwatch.Shared.Models;
 
 namespace Mediwatch.Server.Controllers
 {
@@ -17,7 +18,7 @@ namespace Mediwatch.Server.Controllers
         public class localBody
         {
             public string formationId { get; set; }
-            public string orderID { get; set; }
+            public string orderId { get; set; }
         }
 
         /// <summary>
@@ -28,6 +29,7 @@ namespace Mediwatch.Server.Controllers
         public async Task<PayPal.SmartButtonHttpResponse> Create([FromBody] localBody body)
         {
             FormationController _formationCtr = new FormationController(_context);
+            ApplicantSessionController _appSessionController = new ApplicantSessionController(_context);
             var formFind = _formationCtr.GetFormation(Guid.Parse(body.formationId)).Result.Value;
 
             var request = new PayPalCheckoutSdk.Orders.OrdersCreateRequest();
@@ -41,6 +43,13 @@ namespace Mediwatch.Server.Controllers
             {
                 orderID = result.Id
             };
+            applicant_session applicantSession = new applicant_session(){
+                idFormation = formFind.id,
+                confirmed = false,
+                payed = false,
+                // idUser = result.Id
+            };
+            await _appSessionController.PostApplicantSession(applicantSession);
             return payPalHttpResponse;
         }
 
@@ -62,19 +71,28 @@ namespace Mediwatch.Server.Controllers
         /// </summary>
         /// <param name="orderId"></param>
         /// <returns></returns>
+        // [HttpPost("api/paypal/checkout/order/complete/{orderId}")]
+        // public IActionResult Complete(string orderId, [FromBody] localBody body)
+        // {
+        //     // 1. Update the database.
+        //     // 2. Complete the order process. Create and send invoices etc.
+        //     // 3. Complete the shipping process.
+        //     System.Console.WriteLine(
+        //     @"+++++++++++++++++++++++++++++++++++++++++++++++++++++\n" +
+        //     body.formationId +
+        //     @"+++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+        //     return Ok();
+        // }
+        
         [HttpGet("api/paypal/checkout/order/complete/{orderId}")]
         public IActionResult Complete(string orderId)
         {
-            // 1. Update the database.
-            // 2. Complete the order process. Create and send invoices etc.
-            // 3. Complete the shipping process.
             System.Console.WriteLine(
             @"+++++++++++++++++++++++++++++++++++++++++++++++++++++\n" +
-            orderId+
+            orderId +
             @"+++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
             return Ok();
         }
-
 
         /// <summary>
         /// This action is called once the PayPal transaction is complete

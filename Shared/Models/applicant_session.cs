@@ -10,7 +10,7 @@ namespace Mediwatch.Shared.Models
         [Key]
         public int id {get; set;}
         public Guid idFormation {get; set;}
-        public Guid idUser {get; set;}
+        public Guid idUser {get; set;} // idOrder for moment
         public bool confirmed {get; set;}
         public bool payed {get; set;}
         public DateTime createdAt{get; set;}
