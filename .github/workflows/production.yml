@@ -24,10 +24,11 @@ jobs:
           deployment_mode: docker-compose
           args: up --build -d
           deploy_path: /home/mediwatch/production.mediwatch.fr
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@master
+      # Limits memory usage in exchange for slower deployment
+      - name: Prune unused containers and images
+        uses: garygrossgarten/github-action-ssh@release
         with:
-          host: mediwatch@52.143.185.15
-          key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-          fingerprint: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-          script: yes | docker image prune
+          command: yes | docker container prune && yes | docker image prune
+          host: ${{ secrets.SSH_HOST }}
+          username: mediwatch
+          password: ${{ secrets.SSH_PASSWORD }}
