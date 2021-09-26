@@ -24,3 +24,10 @@ jobs:
           deployment_mode: docker-compose
           args: up --build -d
           deploy_path: /home/mediwatch/production.mediwatch.fr
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: mediwatch@52.143.185.15
+          key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+          fingerprint: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+          script: docker image prune
