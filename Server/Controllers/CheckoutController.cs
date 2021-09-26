@@ -5,15 +5,20 @@ using PayPalCheckoutSdk.Orders;
 using Server;
 using System;
 using Mediwatch.Shared.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace Mediwatch.Server.Controllers
 {
     public class CheckoutController : Controller
     {
         private readonly DbContextMediwatch _context;
-        public CheckoutController(DbContextMediwatch context)
+        private IConfiguration _configuration;
+        public CheckoutController(DbContextMediwatch context,
+        IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
+
         }
         public class localBody
         {
@@ -36,6 +41,8 @@ namespace Mediwatch.Server.Controllers
             request.Prefer("return=representation");
             request.RequestBody(PayPal.OrderBuilder.Build(formFind));
             // Call PayPal to set up a transaction
+            PayPal.PayPalClient.SandboxClientId  = _configuration["Authentication:PayPal:SandboxClientId"];
+            PayPal.PayPalClient.SandboxClientSecret = _configuration["Authentication:PayPal:SandboxClientSecret"];
             var response = await PayPal.PayPalClient.Client().Execute(request);
             // Create a response, with an order id.
             var result = response.Result<PayPalCheckoutSdk.Orders.Order>();
