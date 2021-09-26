@@ -27,11 +27,19 @@ jobs:
       #     deployment_mode: docker-compose
       #     args: up --build -d
       #     deploy_path: /home/mediwatch/solution.mediwatch.fr
-      - name: Removing dangling images
-        uses: appleboy/ssh-action@master
+      - name: ls -a via ssh
+        uses: garygrossgarten/github-action-ssh@release
         with:
+          command: ls -a
           host: mediwatch@52.143.185.15
-          key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-          fingerprint: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-          # script: yes | docker image prune
-          script: whoami
+          username: clementchanal
+          passphrase: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+          privateKey: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+      # - name: Removing dangling images
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: mediwatch@52.143.185.15
+      #     key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+      #     fingerprint: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+      #     # script: yes | docker image prune
+      #     script: whoami
