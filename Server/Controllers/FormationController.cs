@@ -119,7 +119,7 @@ namespace Mediwatch.Server.Controllers
                 if (!string.IsNullOrEmpty(former))
                 {
                     query = query.Where(e => e.Former.Contains(former));
-                }                
+                }
                 var resultSearch = await query.ToListAsync();
                 if (resultSearch.Any())
                     return Ok(resultSearch);
