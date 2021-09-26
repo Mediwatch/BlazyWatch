@@ -32,6 +32,7 @@ jobs:
         with:
           command: ls -a
           host: x2022mediwatch2829101214000.francecentral.cloudapp.azure.com
+          port: 63941
           username: clementchanal
           passphrase: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
           privateKey: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
