@@ -11,21 +11,21 @@ namespace Mediwatch.Server.PayPal
     public class PayPalClient
     {
         // Place these static properties into a settings area.
-        public IConfiguration Configuration { get; }
 
-        public static string SandboxClientId { get; set; } = "AS60MoczPXk40sTYAtzCr41h2BgSmUNk4RxhPndZ-Ajz0Ic7hKQRWMd7JWNtB-OhT0C55MtweuBTSJmF";
-        public static string SandboxClientSecret { get; set; } = "EKTgyoFFtjyQO-ER3hpHbMLxxajmmj7UKbmWBFcU32sywynOYDs7QRi9cLOG4Yv4lyilUab2m0uwZKbe";
+        public static string SandboxClientId { get; set; } = "";
+        public static string SandboxClientSecret { get; set; } = "";
 
         public static string LiveClientId { get; set; }
         public static string LiveClientSecret { get; set; }
 
 
-        // public PayPalClient(IConfiguration configuration){
-        //     Configuration = configuration;
-        //     SandboxClientId = Configuration["Authentication:PayPal:SandboxClientId"];
-        //     SandboxClientSecret = Configuration["Authentication:PayPal:SandboxClientSecret"];
+        public PayPalClient(IConfiguration configuration){
 
-        // }
+            SandboxClientId = configuration["Authentication:PayPal:SandboxClientId"];
+            SandboxClientSecret = configuration["Authentication:PayPal:SandboxClientSecret"];
+            System.Console.WriteLine(SandboxClientId);
+             System.Console.WriteLine(SandboxClientSecret);
+        }
 
         ///<summary>
         /// Set up PayPal environment with sandbox credentials.
