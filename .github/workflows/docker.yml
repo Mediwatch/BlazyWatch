@@ -31,7 +31,7 @@ jobs:
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: ls -a
-          host: mediwatch@52.143.185.15
+          host: x2022mediwatch2829101214000.francecentral.cloudapp.azure.com
           username: clementchanal
           passphrase: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
           privateKey: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
