@@ -6,8 +6,7 @@ var searchData=
   ['server_117',['Server',['../namespace_server.html',1,'']]],
   ['services_118',['Services',['../namespace_server_1_1_services.html',1,'Server']]],
   ['setuser_119',['SetUser',['../class_mediwatch_1_1_server_1_1_controllers_1_1_users_controller.html#a414ca2854bf71701319b3c34dbda03ab',1,'Mediwatch::Server::Controllers::UsersController']]],
-  ['shared_120',['Shared',['../namespace_shared.html',1,'']]],
-  ['smartbuttonhttpresponse_121',['SmartButtonHttpResponse',['../class_mediwatch_1_1_server_1_1_pay_pal_1_1_smart_button_http_response.html',1,'Mediwatch::Server::PayPal']]],
-  ['startup_122',['Startup',['../class_mediwatch_1_1_server_1_1_startup.html',1,'Mediwatch::Server']]],
-  ['utils_123',['Utils',['../namespace_server_1_1_utils.html',1,'Server']]]
+  ['smartbuttonhttpresponse_120',['SmartButtonHttpResponse',['../class_mediwatch_1_1_server_1_1_pay_pal_1_1_smart_button_http_response.html',1,'Mediwatch::Server::PayPal']]],
+  ['startup_121',['Startup',['../class_mediwatch_1_1_server_1_1_startup.html',1,'Mediwatch::Server']]],
+  ['utils_122',['Utils',['../namespace_server_1_1_utils.html',1,'Server']]]
 ];
