@@ -6,7 +6,7 @@
 <header class="navbar navbar-expand-lg border-bottom">
     <a class="navbar-brand text-secondary" href="/"><img src="./ressources/logo.png" alt="mediwatch logo" width="30"
             height="30" /> Mediwatch</a>
-    <div class="navbar-nav-scroll ml-auto d-none d-sm-block">
+    <div class="navbar-nav-scroll ml-auto">
         <ul class="navbar-nav flex-row">
             @if (Info == null || !Info.IsAuthenticated)
             {
@@ -20,29 +20,27 @@
             else if (Info.IsAuthenticated)
             {
                 <li class="px-3 nav-item dropdown">
-                    <!-- Example single danger button -->
-                <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <DropDownMenu DropDownButtonClass="my-btn my-btn-primary dropdown-toggle">
+                        <DropDownButton>
                             Bienvenue @Info.UserName
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
+                        </DropDownButton>
+                        <Content>
                             <a class="dropdown-item selected reload" href="/utilisateur/moi">Mes informations</a>
-                            <a class="dropdown-item selected reload" href="/utilisateur/calendrier">Mon calendrier</a>
-                            <a class="dropdown-item selected reload" href="/utilisateur/achat">Accéder à mon panier</a>
-                            <AuthorizeView Roles="Admin, Tutor">
+                                <a class="dropdown-item selected reload" href="/utilisateur/calendrier">Mon calendrier</a>
+                                <a class="dropdown-item selected reload" href="/utilisateur/achat">Accéder à mon panier</a>
+                                <AuthorizeView Roles="Admin, Tutor">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item selected reload" href="/formations/creation">Créer une formation</a>
+                                </AuthorizeView>
+                                <AuthorizeView Roles="Admin">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item selected reload" href="/Admin">Panneau d'administration</a>
+                                </AuthorizeView>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item selected reload" href="/formations/creation">Créer une formation</a>
-                            </AuthorizeView>
-                            <AuthorizeView Roles="Admin">
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item selected reload" href="/Admin">Panneau d'administration</a>
-                            </AuthorizeView>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item selected reload" href="/formations/recherche">Chercher une formation</a>
-                            <a class="dropdown-item selected reload" href="#" @onclick="Logout">Déconnexion</a>
-                        </div>
-                    </div>
+                                <a class="dropdown-item selected reload" href="/formations/recherche">Chercher une formation</a>
+                                <a class="dropdown-item selected reload" href="#" @onclick="Logout">Déconnexion</a>
+                        </Content>
+                    </DropDownMenu>
                 </li>
             }
         </ul>

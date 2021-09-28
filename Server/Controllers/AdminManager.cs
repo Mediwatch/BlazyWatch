@@ -3,20 +3,20 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Server.Services;
 using Server.Services.Interface;
-using Shared;
+using Mediwatch.Shared;
 
 namespace Server.Controllers
 {
     [ApiController]
     [Route("/[controller]/[action]")]
-    public class AdminManager : ControllerBase
+    public class AdminManagerController : ControllerBase
     {
         private AdminService adminService;
-        AdminManager(IAdminServiceAccessor accessor) {
+        public AdminManagerController(IAdminServiceAccessor accessor) {
             adminService = accessor.Service;
         }
 
-        [HttpPut]
+        [HttpPost]
         [Authorize(Roles = "Admin")]
          public IActionResult SetAdmin(AdminInfo info) {
             adminService.isInDemo = info.isInDemo;
@@ -30,7 +30,7 @@ namespace Server.Controllers
             info.canPay= adminService.canPay;
             return info;
         }
-        [HttpPut]
+        [HttpPost]
         [Authorize(Roles = "Admin")]
          public IActionResult SetArctileNews(string[] article) {
             adminService.articleNew = article; 
@@ -38,7 +38,9 @@ namespace Server.Controllers
         }
         [HttpGet]
          public string[] GetArctileNews() {
-            return adminService.articleNew;
+            if (adminService.articleNew != null)
+                return adminService.articleNew;
+            else return new string[1];
         }
 
     }

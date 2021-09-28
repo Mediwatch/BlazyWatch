@@ -37,7 +37,6 @@
         if(firstRender && articleName != "NO_ID") {
             Console.WriteLine("yolo: " +articleName);
             _article = await Http.GetFromJsonAsync<Article>($"api/Articles/GetArticle?name={articleName}");
-            //Console.WriteLine(article.Content)
             await JsRuntime.InvokeVoidAsync("display", _article);
             if (_article != null && _article.Title != null && _article.Content != null)
             {

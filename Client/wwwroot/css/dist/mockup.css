@@ -1,11 +1,18 @@
-body {
-  background-color: #fff;
-}
-
 * {
   margin: 0;
   margin-bottom: 0;
   padding: 0;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 body {
@@ -131,4 +138,18 @@ body {
   position: relative;
   height: 100px;
   width: 100%;
+}
+
+.hr {
+  align-items: center;
+  display: flex;
+  text-align: center;
+}
+
+.hr::before,
+.hr::after {
+  border-top: 0.0625em solid;
+  content: "";
+  flex: 1;
+  margin: 0 0.5em;
 }

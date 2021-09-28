@@ -28,12 +28,17 @@
         <BlazEditor returnFunction="ValidateContent"/>
     </div>
 
+    @if (Key != null) {
+    <div>Votre clef est : @Key</div>
+    }
+
     <button class="btn btn-lg btn-primary btn-block" type="submit">@Localizer["Add"]</button>
 
 </EditForm>
 
 @code {
     private Article article {get;set;} = new Article{Tags = new List<string>()};
+    private string Key;
     
     string ValidateContent(string content)
     {
@@ -41,6 +46,7 @@
     }
     
     async Task OnSubmit() {
-        await Http.PostAsJsonAsync("api/Articles/CreateArticle", article);
+         var result = await Http.PostAsJsonAsync("api/Articles/CreateArticle", article);
+         Key = await result.Content.ReadAsStringAsync();
     }
 }

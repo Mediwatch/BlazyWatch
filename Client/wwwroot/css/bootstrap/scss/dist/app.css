@@ -2,53 +2,76 @@
   display: flex;
   flex-direction: column;
 }
-.cards-container :nth-child(3n+1) .high-color {
+.cards-container > :nth-child(3n+1) .high-color {
   background-color: #b8e994;
   color: #079992;
 }
-.cards-container :nth-child(3n+1) .mid-color {
+.cards-container > :nth-child(3n+1) .mid-color {
   background-color: #78e08f;
   color: #38ada9;
 }
-.cards-container :nth-child(3n+1) .low-color {
+.cards-container > :nth-child(3n+1) .low-color {
   background-color: #38ada9;
   color: #78e08f;
 }
-.cards-container :nth-child(3n+1) .dark-color {
+.cards-container > :nth-child(3n+1) .dark-color {
   background-color: #079992;
   color: #b8e994;
 }
-.cards-container :nth-child(3n+2) .high-color {
+.cards-container > :nth-child(3n+2) .high-color {
   background-color: #82ccdd;
   color: #0a3d62;
 }
-.cards-container :nth-child(3n+2) .mid-color {
+.cards-container > :nth-child(3n+2) .mid-color {
   background-color: #60a3bc;
   color: #3c6382;
 }
-.cards-container :nth-child(3n+2) .low-color {
+.cards-container > :nth-child(3n+2) .low-color {
   background-color: #3c6382;
   color: #60a3bc;
 }
-.cards-container :nth-child(3n+2) .dark-color {
+.cards-container > :nth-child(3n+2) .dark-color {
   background-color: #0a3d62;
   color: #82ccdd;
 }
-.cards-container :nth-child(3n+3) .high-color {
+.cards-container > :nth-child(3n+3) .high-color {
   background-color: #6a89cc;
   color: #0c2461;
 }
-.cards-container :nth-child(3n+3) .mid-color {
+.cards-container > :nth-child(3n+3) .mid-color {
   background-color: #4a69bd;
   color: #1e3799;
 }
-.cards-container :nth-child(3n+3) .low-color {
+.cards-container > :nth-child(3n+3) .low-color {
   background-color: #1e3799;
   color: #4a69bd;
 }
-.cards-container :nth-child(3n+3) .dark-color {
+.cards-container > :nth-child(3n+3) .dark-color {
   background-color: #0c2461;
   color: #6a89cc;
+}
+.cards-container .text-card {
+  width: 100%;
+  margin-bottom: 4.5vh;
+  border-radius: 3vh;
+  overflow: hidden;
+  position: relative;
+  text-align: justify;
+  font-size: 3vh;
+  padding: 1.5vh;
+}
+.cards-container .image-card-container {
+  width: 100%;
+  height: 80vh;
+  margin-bottom: 4.5vh;
+  border-radius: 3vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+.cards-container .image-card-container img {
+  object-fit: cover;
+  width: 100%;
 }
 .cards-container .presentation-card {
   width: 100%;
@@ -56,6 +79,7 @@
   margin-bottom: 4.5vh;
   border-radius: 3vh;
   overflow: hidden;
+  position: relative;
 }
 .cards-container .presentation-card .presentation-card-triangle {
   -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
@@ -64,13 +88,13 @@
   width: 100%;
 }
 .cards-container .presentation-card .presentation-card-image-container {
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
   border-radius: 3vh;
   width: calc(100% - 9vh);
   height: calc(100% - 9vh);
-  top: calc(-100% + 4.5vh);
+  bottom: 4.5vh;
   margin-left: 4.5vh;
   border-radius: 3vh;
   overflow: hidden;
@@ -80,10 +104,10 @@
   width: 100%;
 }
 .cards-container .presentation-card .presentation-card-text {
-  position: relative;
+  position: absolute;
   width: calc(100% - 9vh);
   height: calc(100% - 9vh);
-  top: calc(-100% + 4.5vh);
+  bottom: 0;
   margin-left: 4.5vh;
   padding: 10%;
   font-weight: 500;
@@ -93,10 +117,11 @@
   font-size: 3vh;
 }
 .cards-container .presentation-card .presentation-card-buton {
-  position: relative;
-  top: calc(-90% - 15vh);
-  height: 7.5vh;
-  max-width: 20%;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  min-height: 4.5vh;
+  min-width: 20%;
   margin-left: 72%;
   text-align: center;
   padding: 1%;
@@ -177,4 +202,76 @@
 .cards-container .little-cards-container .little-card-image-container img {
   object-fit: cover;
   width: 100%;
+}
+
+.top-bar-header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  background-color: #0c2461;
+  color: #6a89cc;
+  height: 6.75vh;
+  font-size: 4.5vh;
+  font-weight: 600;
+}
+.top-bar-header .high-color {
+  background-color: #6a89cc;
+  color: #0c2461;
+}
+.top-bar-header .mid-color {
+  background-color: #4a69bd;
+  color: #1e3799;
+}
+.top-bar-header .low-color {
+  background-color: #1e3799;
+  color: #4a69bd;
+}
+.top-bar-header .dark-color {
+  background-color: #0c2461;
+  color: #6a89cc;
+}
+.top-bar-header .button {
+  width: 100%;
+  height: 4.5vh;
+  font-size: 3vh;
+  border: none;
+  margin: 1.125vh;
+  border-radius: 0.3vh;
+}
+.top-bar-header .button:hover {
+  filter: saturate(150%);
+}
+.top-bar-header .button:active {
+  filter: saturate(50%);
+  user-select: none;
+}
+.top-bar-header .logo-in-text {
+  height: 3.9vh;
+  margin-top: -0.9vh;
+}
+
+.top-bar-logo {
+  font-size: 4.5vh;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  color: #6a89cc;
+  margin-left: 3vh;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.top-bar-logo:hover {
+  text-decoration: none;
+  color: #6a89cc;
+}
+
+.top-bar-dropbox {
+  font-size: 4.5vh;
+  height: 6.075vh;
+  font-weight: 600;
+  margin-right: 3vh;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }

@@ -13,7 +13,7 @@
                 <div class = "presentation-card-image-container">
                     <image src="images/palpatine.jpg"/>
                 </div>
-                <div class = "presentation-card-buton high-color">@Localizer["FormationsInvite"]</div>
+                <div class = "presentation-card-buton high-color" @onclick="navigateToArticle">@Localizer["FormationsInvite"]</div>
             </div>
         </div>
         @* <SharedComponent.LocalizationButton.LocalizationButton />
@@ -29,6 +29,9 @@
                     int val = 0;
                     @foreach (var f in _formations)
                     {
+                        if ((_info.isInDemo && val > 8) || (!_info.isInDemo && val < 8)){
+                            continue;
+                        }
                         <div @onclick="@(e => clickfunc("formations/" + f.id))">
                             @if (val++ % 2 == 0)
                             {
@@ -65,10 +68,17 @@
 @* <PaymentComponent price="0.01"></PaymentComponent> *@
 
 @code {
+    AdminInfo _info = null;
+    string _article;
     private List<formation> _formations = null;
 
     protected override async Task OnInitializedAsync()
     {
+        var test = await Client.GetFromJsonAsync<string[]>("/AdminManager/GetArctileNews") as string[];
+        Console.WriteLine("hey :" + test);
+        if (test != null)
+            _article = test[0];
+        _info = await Client.GetFromJsonAsync<AdminInfo>("/AdminManager/GetAdmin") as AdminInfo;
         _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
         await JsRuntime.InvokeVoidAsync("display", await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation"));
     }
@@ -80,5 +90,11 @@
     private void affichage_formation(int id)
     {
         JsRuntime.InvokeAsync<object>("open", "/formations/" + id.ToString(), "_blank");
+    }
+
+    private void navigateToArticle() {
+        if (_article == null)
+            return;
+        NavManager.NavigateTo($"/article/vue?Name={_article}");
     }
 }

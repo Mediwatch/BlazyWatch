@@ -3,7 +3,7 @@
 @using Microsoft.AspNetCore.WebUtilities;
 @using Newtonsoft.Json;
 @using BlazingBlog.Shared
-
+@using BlazingEditor.BasicBlazeEditComponent;
 
 @inject HttpClient Http
 @inject IJSRuntime JsRuntime
@@ -37,6 +37,7 @@
         if(firstRender) {
             _url = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
             if (QueryHelpers.ParseQuery(_url.Query).TryGetValue("Name", out var articleName)){
+                Console.WriteLine(articleName);
                 
                 _article = await Http.GetFromJsonAsync<Article>($"api/Articles/GetArticle?name={articleName}");
                 Console.WriteLine(_article);

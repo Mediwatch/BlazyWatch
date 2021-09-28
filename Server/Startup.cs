@@ -16,6 +16,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Server;
+using Server.Services;
+using Server.Services.Interface;
 
 namespace Mediwatch.Server {
     public class Startup {
@@ -38,6 +40,9 @@ namespace Mediwatch.Server {
              services.AddIdentity<UserCustom, IdentityRole<Guid>> (options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<IdentityDataContext> ()
                 .AddDefaultTokenProviders ();
+
+            services.AddHostedService<AdminService>();
+            services.AddTransient<IAdminServiceAccessor, AdminServiceAccessor>();
 
             services.AddAuthentication ()
                 .AddCookie ("CustomClaimsCookie")

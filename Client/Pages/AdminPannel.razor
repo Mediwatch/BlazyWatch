@@ -1,6 +1,7 @@
 @page "/Admin"
 @inject HttpClient Client
 @inject IStringLocalizer<AdminPannel> Localizer
+@inject NavigationManager NavigationManager
 
 
 @if (_users == null) {
@@ -22,13 +23,79 @@
         }
         </tbody>
     </table>
+
+    @if (_info != null)
+    {
+        <table class="table table-striped container container-fluid">
+            <thead>
+                <tr>
+                    <th class="text-center">Nom de l'option</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">En démonstration</td>
+                    <td>
+                        <input type="checkbox" @bind="_info.isInDemo">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center">Possibilité de paiment</td>
+                    <td>
+                        <input type="checkbox" @bind="_info.canPay">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button @onclick="OnOptionUpdate" class="btn btn-primary">Sauvegarder</button>
+                    </td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+
+        <table class="table table-striped container container-fluid">
+            <thead>
+                <tr>
+                    <th class="text-center">Clef De l'article</th>
+                    <th class="text-center"><input @bind="_artcleKey" class="form-control"/></th>
+                    <th>
+                        <button @onclick="OnArticleUpdate" class="btn btn-primary">Sauvegarder</button>
+                    </th>
+                    <th>
+                        <button @onclick="@(e=>NavigationManager.NavigateTo("/article/creation", true))" class="btn btn-primary">creation d'article</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>        
+    }
+
+    
 }
 
 @code {
     private List<UserPublic> _users = null;
+    AdminInfo _info = null;
+    string _artcleKey = null;
 
     protected override async Task OnInitializedAsync()
     {
         _users = await Client.GetFromJsonAsync<IEnumerable<UserPublic>>("/Users/listUser") as List<UserPublic>;
+        _info = await Client.GetFromJsonAsync<AdminInfo>("/AdminManager/GetAdmin") as AdminInfo;
+    }
+
+    private async Task OnOptionUpdate() {
+        await Client.PostAsJsonAsync<AdminInfo>("/AdminManager/SetAdmin", _info);
+    }
+    private async Task OnArticleUpdate() {
+        if (_artcleKey == null)
+            return;
+        var dest = new string[1];
+        dest[0] = _artcleKey;
+        await Client.PostAsJsonAsync<string[]>("/AdminManager/SetArctileNews", dest);
     }
 }
