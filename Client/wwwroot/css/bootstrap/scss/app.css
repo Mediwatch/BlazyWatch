@@ -341,4 +341,58 @@
   }
 }
 
+@keyframes play148 {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: -164576px 0px;
+  }
+}
+.shapeshifter {
+  animation-duration: 2460ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(148);
+  width: 1112px;
+  height: 1112px;
+  transform: scale(50%);
+  background-repeat: no-repeat;
+}
+@media (max-width: 539px) {
+  .shapeshifter {
+    transform: scale(10%);
+  }
+}
+@media (max-width: 767px) and (min-width: 540px) {
+  .shapeshifter {
+    transform: scale(20%);
+  }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .shapeshifter {
+    transform: scale(30%);
+  }
+}
+@media (max-width: 1199px) and (min-width: 992px) {
+  .shapeshifter {
+    transform: scale(50%);
+  }
+}
+
+.loadingContainer {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shapeshifter.play {
+  animation-name: play148;
+}
+
 /*# sourceMappingURL=app.css.map */
