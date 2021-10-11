@@ -9,6 +9,7 @@
     <option value="location">Localisation</option>
     <option value="organizationName">Organisme</option>
     <option value="former">Formateur</option>
+    <option value="tag">Tag</option>
 </select>
 <label for="searchBar">Rechercher : </label>
 <input id="searchBar" @oninput=@Filter placeholder="Entrez votre recherche" />
@@ -46,14 +47,16 @@
     string Search { get; set; } = "";
 
     string _option = "name";
+    List<tag> _tags = null;
     List<formation> _formations = null;
     //List<formation> _filtered = null;
 
     protected override async Task OnInitializedAsync()
     {
         _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
+        _tags = await Client.GetFromJsonAsync<IEnumerable<tag>>("Tag") as List<tag>;
         //_filtered = _formations;
-        await JsRuntime.InvokeVoidAsync("display", _formations);
+        JsRuntime.InvokeVoidAsync("display", _formations);
     }
 
     private async void Filter(ChangeEventArgs e)
@@ -62,14 +65,23 @@
         {
             //_filtered = _formations.Where(f => f.Name.ToLower().Contains(e.Value.ToString().ToLower())).ToList();
             // Voir pour utiliser le cache si le navigateur ne le fait pas lui-m�me ?
-            _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation/search?" + _option + "=" +
-            e.Value.ToString()) as List<formation>;
+            if (_option == "tag") {
+                var tag = _tags.Find(t => t.tag_name.Equals(e.Value.ToString()));
+
+                if (tag == null)
+                    return;
+
+                _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation?idtag=" +
+                tag.id) as List<formation>;
+            } else {
+                _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation/search?" + _option + "=" +
+                e.Value.ToString()) as List<formation>;
+            }
         }
-        catch (Exception _)
+        catch (Exception q_)
         {
             _formations.Clear();
         }
         StateHasChanged();
-
     }
 }

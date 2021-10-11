@@ -6,7 +6,7 @@ namespace Server.Services
 {
     public class AdminServiceAccessor : IAdminServiceAccessor
     {
-        public AdminServiceAccessor(IEnumerable<AdminService> hostedServices)
+        public AdminServiceAccessor(IEnumerable<IHostedService> hostedServices)
         {
             foreach (var service in hostedServices)
             {

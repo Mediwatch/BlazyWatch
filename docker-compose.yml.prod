@@ -1,0 +1,21 @@
+version : "3.0"
+
+services :
+  server_production :
+    image: "server_production"
+    build:
+      context: "." 
+      dockerfile : "Server/Dockerfile"
+    ports:
+      - "8081:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    volumes: 
+      - data:/app/Data
+      - media_volume:/app/Ressources/Images
+      - factures:/app/invoice_archive
+volumes: 
+  data:
+  media_volume:
+  factures: 

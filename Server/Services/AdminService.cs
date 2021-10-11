@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -14,8 +15,11 @@ namespace Server.Services {
         public AdminService (IServiceScopeFactory scopeFactory) {
             this.scopeFactory = scopeFactory;
         }
-        protected override Task ExecuteAsync (CancellationToken stoppingToken) {
-            throw new System.NotImplementedException ();
+        protected override async Task ExecuteAsync (CancellationToken stoppingToken) {
+            while (!stoppingToken.IsCancellationRequested)
+            {
+                await Task.Delay(1000 * 5);
+            }
         }
     }
 }

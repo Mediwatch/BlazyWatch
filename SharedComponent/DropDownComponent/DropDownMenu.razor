@@ -1,27 +1,28 @@
 @using DropDownCompenent
 
+@inject IJSRuntime JSRuntime
+
 @implements IDisposable
 
 
-<div class="dropdown @Class">
-    <div class="@DropDownButtonClass" @onclick="UpdateOnclickShow">
+<div @ref=element class="dropdown @Class">
+    <div class="@DropDownButtonClass" @onfocusout="UpdateOnclickShow" @onclick="UpdateOnclickShow">
         @DropDownButton
     </div>
-
     @if(dropdownState.Content.Count < 1) {
-    <div class="dropdown-menu @ShowCSS">
-        <CascadingValue Value="dropdownState" Name="DropdownState">
-            @Content
-        </CascadingValue>
-    </div>
+        <div class="my-dropdown dropdown-menu-right @ShowCSS">
+            <CascadingValue Value="dropdownState" Name="DropdownState">
+                @Content
+            </CascadingValue>
+        </div>
     } else {
-    <div class="dropdown-menu @ShowCSS">
-        <a class="dropdown-item" @onclick="Previous">@ReturnButton</a>
-        <div class="dropdown-divider"></div>
-        <CascadingValue Value="dropdownState" Name="DropdownState">
-            @dropdownState.Content.Peek()
-        </CascadingValue>
-    </div>
+        <div  class="my-dropdown dropdown-menu-right @ShowCSS">
+            <a class="dropdown-item" @onclick="Previous">@ReturnButton</a>
+            <div class="dropdown-divider"></div>
+            <CascadingValue Value="dropdownState" Name="DropdownState">
+                @dropdownState.Content.Peek()
+            </CascadingValue>
+        </div>
     }
 </div>
 
@@ -41,6 +42,8 @@
     
     private string ShowCSS => Show ? "show" : null;
     public DropdownState dropdownState = new DropdownState();
+
+    ElementReference element;
 
      protected override void OnInitialized()
     {

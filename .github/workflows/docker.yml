@@ -27,3 +27,11 @@ jobs:
           deployment_mode: docker-compose
           args: up --build -d
           deploy_path: /home/mediwatch/solution.mediwatch.fr
+      # Limits memory usage in exchange for slower deployment
+      - name: Prune unused containers and images
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: yes | docker container prune && yes | docker image prune
+          host: ${{ secrets.SSH_HOST }}
+          username: mediwatch
+          password: ${{ secrets.SSH_PASSWORD }}

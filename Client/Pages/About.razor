@@ -1,0 +1,185 @@
+@page "/about"
+
+@inject HttpClient Http
+@using BlazingBlog.Shared
+@inject IStringLocalizer<Article_creation> Localizer
+
+    <div class="container">
+        <h1>Mediwatch</h1>
+       <div class="row">
+           <div class="col-md-4">
+               <div class="imgAbt">
+                   <img width="220" height="220" src="./ressources/logo.png" />
+               </div>
+           </div>
+           <div class="col-md-8">
+               <p>Mediwatch est une plateforme web et mobile visant à compiler les formations disponibles pour les professionnels de santé en un outil permettant une meilleure visibilité et un meilleur tri des offres disponibles en partenariat avec les organismes de formation existants.</p>
+           </div>
+       </div>
+   </div>
+   <div class="container mt-5 mb-5">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<h4>Latest News</h4>
+			<ul class="timeline">
+				<li>
+					<a href="#">Choix du projet</a>
+					<a href="#" class="float-right">Septembre 2019</a>
+					<p>Choix du projet</p>
+				</li>
+				<li>
+					<a href="#">Lancement de la beta</a>
+					<a href="#" class="float-right">Juillet 2021</a>
+					<p>Lancement de la beta</p>
+				</li>
+				<li>
+					<a href="#">Lancement de la version définitive</a>
+					<a href="#" class="float-right">Decembre 2021</a>
+					<p>Lancement de la version définitive</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+      <div class="container">
+          <h3>Présentation du groupe</h3>
+          <div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://cdn.discordapp.com/avatars/312889819296432129/9f63ab06a26891a658175562457d8588.webp" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title">Hugo Frugier</h5>
+                    <p class="card-text">Chef de projet</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://cdn.discordapp.com/avatars/265114060255789056/5d503d106f9356d404e1d920691fd586.webp" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title">Thomas Bouvier</h5>
+                    <p class="card-text">Developpeur Front-End</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://cdn.discordapp.com/avatars/247119854849622017/4f8905d19079ea6b0fd6dfd88b91840d.webp" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title">Alexandre Lefevre</h5>
+                    <p class="card-text">Developpeur Front-End</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://cdn.discordapp.com/avatars/178476259645456385/c4e204d400c993c1b63ba1e1a7d38691.webp" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title">Alexandre Tahery</h5>
+                    <p class="card-text">Developpeur Back-End</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://cdn.discordapp.com/avatars/151425222304595968/3a3eeb7d7ea6aecfdecd0cb420ae42cd.webp" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title">Paul Gaston</h5>
+                    <p class="card-text">Developpeur Back-End</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://cdn.discordapp.com/avatars/368414038075637762/746873572bbb6411613b52ce81163174.webp" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title">Alexis Auriac</h5>
+                    <p class="card-text">Developpeur Full-Stack</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://cdn.discordapp.com/avatars/170979106463285248/afc314e52d2deabf9f314bd791632df0.webp" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title">Clément Chanal</h5>
+                    <p class="card-text">Devops</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+          </div>
+      </div>
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-md-offset-3">
+            <div class="well well-sm">
+              <form class="form-horizontal" action="" method="post">
+              <fieldset>
+                <legend class="text-center">Contactez nous</legend>
+        
+                <!-- Name input-->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="name">Nom</label>
+                  <div class="col-md-9">
+                    <input id="name" name="name" type="text" placeholder="Votre nom" class="form-control">
+                  </div>
+                </div>
+        
+                <!-- Email input-->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="email">E-mail</label>
+                  <div class="col-md-9">
+                    <input id="email" name="email" type="text" placeholder="Votre email" class="form-control">
+                  </div>
+                </div>
+        
+                <!-- Message body -->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="message">Message</label>
+                  <div class="col-md-9">
+                    <textarea class="form-control" id="message" name="message" placeholder="Merci d'entrer votre message ici" rows="5"></textarea>
+                  </div>
+                </div>
+        
+                <!-- Form actions -->
+                <div class="form-group">
+                  <div class="col-md-12 text-right">
+                    <button type="submit" class="btn btn-primary btn-lg">validé</button>
+                  </div>
+                </div>
+              </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    

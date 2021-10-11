@@ -20,7 +20,7 @@ namespace Mediwatch.Shared.Models
     public string Former { get; set; }
     public string Description { get; set; }
     public string Target { get; set; }
-    public string ArticleID {get; set;} 
+    public string ArticleID {get; set;}
     public int QuantityCurrent{get; set;}
     public int QuantityMax{get; set;}
     // public bool IsRegistered { get; set; }
