@@ -14,5 +14,6 @@ namespace Mediwatch.Shared.Models
         public bool confirmed {get; set;}
         public bool payed {get; set;}
         public DateTime createdAt{get; set;}
+        public string idPayPal {get;set;}
     }
 }

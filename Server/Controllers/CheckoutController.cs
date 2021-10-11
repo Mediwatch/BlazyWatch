@@ -54,7 +54,7 @@ namespace Mediwatch.Server.Controllers
                 idFormation = formFind.id,
                 confirmed = false,
                 payed = false,
-                // idUser = result.Id
+                idPayPal = result.Id
             };
             await _appSessionController.PostApplicantSession(applicantSession);
             return payPalHttpResponse;

@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Server;
 
 namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
 {
     [DbContext(typeof(DbContextMediwatch))]
-    partial class DbContextMediwatchModelSnapshot : ModelSnapshot
+    [Migration("20210929191008_paypalMigration")]
+    partial class paypalMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
