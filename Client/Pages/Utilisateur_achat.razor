@@ -30,6 +30,10 @@ else
 
     private List<string> fs = null;
 
+    /// <summary>
+    /// Permet de récupérer les formations depuis le stockage local de l'utilisateur et de les afficher ensuite sur la page.
+    /// </summary>
+    /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
         fs = await Storage.GetItemAsync<List<string>>("formations");
@@ -55,6 +59,11 @@ else
         }
     }
 
+    /// <summary>
+    /// Permet de supprimer une formation du panier d'achat et du stockage local.
+    /// </summary>
+    /// <param name="f">La formation à supprimer</param>
+    /// <returns></returns>
     private async void SuppressionFormation(formation f)
     {
         Console.WriteLine("Suppression de la formation du panier.");
@@ -67,6 +76,10 @@ else
         });
     }
 
+    /// <summary>
+    /// Permet de payer les différentes formations dans le panier, de créer les factures associées et d'inscrire l'utilisateur aux formations.
+    /// </summary>
+    /// <returns></returns>
     private async void Payer()
     {
         orderInfo info = new orderInfo();

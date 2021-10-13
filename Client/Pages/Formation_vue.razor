@@ -77,6 +77,10 @@ else
 
     private bool found = false;
 
+    /// <summary>
+    /// Permet de voir une formation depuis la base de données en fonction de l'id dans l'url.
+    /// </summary>
+    /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
         try
@@ -90,6 +94,12 @@ else
             _erreur = true;
         }
     }
+
+    /// <summary>
+    /// Permet d'initialiser le bouton Paypal et les fonctions associées.
+    /// </summary>
+    /// <param name="firstRender"></param>
+    /// <returns></returns>
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (!firstRender && !found){

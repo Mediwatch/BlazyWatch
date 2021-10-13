@@ -5,7 +5,7 @@
 @inject NavigationManager NavManager
 
 <main>
-    <div class= "cards-container">
+    <div class="cards-container">
         <div align="center">
             <div class="little-cards-container">
                 @if (_formations == null)
@@ -58,23 +58,43 @@
 @code {
     private List<formation> _formations = null;
 
+    /// <summary>
+    /// Permet de récupérer l'ensemble des formations depuis la base de données.
+    /// </summary>
+    /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
         _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
         await JsRuntime.InvokeVoidAsync("display", await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation"));
     }
 
-    private void clickfunc(string path) {
+    /// <summary>
+    /// Permet de rediriger l'utilisateur vers un chemin spécifique.
+    /// </summary>
+    /// <param name="path">Le chemin vers lequel rediriger l'utilisateur</param>
+    private void clickfunc(string path)
+    {
         NavManager.NavigateTo(path);
     }
 
+    /// <summary>
+    /// Permet d'afficher une formation selon l'id passé en paramètre dans l'url.
+    /// </summary>
+    /// <param name="id">L'id de la formation</param>
     private void affichage_formation(Guid id)
     {
         JsRuntime.InvokeAsync<object>("open", "/formations/" + id.ToString(), "_blank");
-    } 
+    }
+
+    /// <summary>
+    /// Permet d'initialiser Paypal et les fonctions associées.
+    /// </summary>
+    /// <param name="firstRender"></param>
+    /// <returns></returns>
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (firstRender){
+        if (firstRender)
+        {
             await JsRuntime.InvokeVoidAsync("init_paypal");
             StateHasChanged();
         }

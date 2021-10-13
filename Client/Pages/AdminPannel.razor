@@ -4,9 +4,11 @@
 @inject NavigationManager NavigationManager
 
 
-@if (_users == null) {
+@if (_users == null)
+{
     <p>@Localizer["Loading"]</p>
-} else
+}
+else
 {
     <table class="table table-striped container container-fluid">
         <thead>
@@ -18,9 +20,10 @@
             </tr>
         </thead>
         <tbody>
-        @foreach (var u in _users){
-            <AdminItem user=u></AdminItem>
-        }
+            @foreach (var u in _users)
+            {
+                <AdminItem user=u></AdminItem>
+            }
         </tbody>
     </table>
 
@@ -52,7 +55,7 @@
                     </td>
                     <td></td>
                 </tr>
-                
+
             </tbody>
         </table>
 
@@ -60,21 +63,22 @@
             <thead>
                 <tr>
                     <th class="text-center">Clef De l'article</th>
-                    <th class="text-center"><input @bind="_artcleKey" class="form-control"/></th>
+                    <th class="text-center"><input @bind="_artcleKey" class="form-control" /></th>
                     <th>
                         <button @onclick="OnArticleUpdate" class="btn btn-primary">Sauvegarder</button>
                     </th>
                     <th>
-                        <button @onclick="@(e=>NavigationManager.NavigateTo("/article/creation", true))" class="btn btn-primary">creation d'article</button>
+                        <button @onclick="@(e=>NavigationManager.NavigateTo("/article/creation", true))"
+                    class="btn btn-primary">creation d'article</button>
                     </th>
                 </tr>
             </thead>
             <tbody>
             </tbody>
-        </table>        
+        </table>
     }
 
-    
+
 }
 
 @code {
@@ -82,16 +86,31 @@
     AdminInfo _info = null;
     string _artcleKey = null;
 
+    /// <summary>
+    /// Permet de récupérer l'ensemble des utilisateurs pour les gérer.
+    /// </summary>
+    /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
         _users = await Client.GetFromJsonAsync<IEnumerable<UserPublic>>("/Users/listUser") as List<UserPublic>;
         _info = await Client.GetFromJsonAsync<AdminInfo>("/AdminManager/GetAdmin") as AdminInfo;
     }
 
-    private async Task OnOptionUpdate() {
+    /// <summary>
+    /// Permet de changer le mode d'affichage du site.
+    /// </summary>
+    /// <returns></returns>
+    private async Task OnOptionUpdate()
+    {
         await Client.PostAsJsonAsync<AdminInfo>("/AdminManager/SetAdmin", _info);
     }
-    private async Task OnArticleUpdate() {
+
+    /// <summary>
+    /// Permet de créer un nouvel article.
+    /// </summary>
+    /// <returns></returns>
+    private async Task OnArticleUpdate()
+    {
         if (_artcleKey == null)
             return;
         var dest = new string[1];

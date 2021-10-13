@@ -9,27 +9,31 @@
 <EditForm class="form-article" OnValidSubmit="OnSubmit" Model="article">
     <DataAnnotationsValidator />
     <label for="inputTitle">@Localizer["Title"]</label>
-        <InputText id="inputTitle" class="form-control" placeholder="Title" autofocus @bind-Value="@article.Title" />
-    <ValidationMessage For="@(() => article.Title)"/>
-    
+    <InputText id="inputTitle" class="form-control" placeholder="Title" autofocus @bind-Value="@article.Title" />
+    <ValidationMessage For="@(() => article.Title)" />
+
     <label for="inputUrlImage">@Localizer["UrlImage"]</label>
-        <InputText id="inputUrlImage" class="form-control" placeholder="UrlImage" autofocus @bind-Value="@article.PreviewImageURL" />
-    <ValidationMessage For="@(() => article.PreviewImageURL)"/>
+    <InputText id="inputUrlImage" class="form-control" placeholder="UrlImage" autofocus
+        @bind-Value="@article.PreviewImageURL" />
+    <ValidationMessage For="@(() => article.PreviewImageURL)" />
 
     <label for="inputPreviewTitle">@Localizer["Preview"]</label>
-        <InputText id="inputPreviewTitle" class="form-control" placeholder="PreviewTitle" autofocus @bind-Value="@article.PreviewTitle" />
-    <ValidationMessage For="@(() => article.PreviewTitle)"/>
+    <InputText id="inputPreviewTitle" class="form-control" placeholder="PreviewTitle" autofocus
+        @bind-Value="@article.PreviewTitle" />
+    <ValidationMessage For="@(() => article.PreviewTitle)" />
 
     <label for="inputParagraph">@Localizer["Paragraph"]</label>
-        <InputTextArea id="inputParagraph" class="form-control" placeholder="Paragraph" autofocus @bind-Value="@article.PreviewParagraph" />
-    <ValidationMessage For="@(() => article.PreviewParagraph)"/>
- 
+    <InputTextArea id="inputParagraph" class="form-control" placeholder="Paragraph" autofocus
+        @bind-Value="@article.PreviewParagraph" />
+    <ValidationMessage For="@(() => article.PreviewParagraph)" />
+
     <div class="blazing-editor">
-        <BlazEditor returnFunction="ValidateContent"/>
+        <BlazEditor returnFunction="ValidateContent" />
     </div>
 
-    @if (Key != null) {
-    <div>Votre clef est : @Key</div>
+    @if (Key != null)
+    {
+        <div>Votre clef est : @Key</div>
     }
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">@Localizer["Add"]</button>
@@ -37,16 +41,26 @@
 </EditForm>
 
 @code {
-    private Article article {get;set;} = new Article{Tags = new List<string>()};
+    private Article article { get; set; } = new Article { Tags = new List<string>() };
     private string Key;
-    
+
+    /// <summary>
+    /// Permet de vérifier que le contenu est correct
+    /// </summary>
+    /// <param name="content">Le contenu à vérifier</param>
+    /// <returns></returns>
     string ValidateContent(string content)
     {
         return article.Content = content;
     }
-    
-    async Task OnSubmit() {
-         var result = await Http.PostAsJsonAsync("api/Articles/CreateArticle", article);
-         Key = await result.Content.ReadAsStringAsync();
+
+    /// <summary>
+    /// Permet de créer un article dans la base de données.
+    /// </summary>
+    /// <returns></returns>
+    async Task OnSubmit()
+    {
+        var result = await Http.PostAsJsonAsync("api/Articles/CreateArticle", article);
+        Key = await result.Content.ReadAsStringAsync();
     }
 }

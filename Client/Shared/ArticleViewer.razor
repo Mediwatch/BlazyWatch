@@ -7,19 +7,20 @@
 @inject HttpClient Http
 
 
-@if(_article != null) {
+@if (_article != null)
+{
     <h1 class="article-viewer-title">@_article.Title</h1>
 }
 
 @if (_render != null)
 {
     <div class="cards-container">
-    <BlazeEditViewer @bind-Render="_render">
-        <BlazEditParagraph Class="text-card mid-color"/>
-        <BlazEditImage ClassImageContainer="image-card-container mid-color" ClassImage="article-viewer-image"/>
-        <BlazeEditHeader/>
-        <BlazEditSpacer Content=@Spacer></BlazEditSpacer>
-    </BlazeEditViewer>
+        <BlazeEditViewer @bind-Render="_render">
+            <BlazEditParagraph Class="text-card mid-color" />
+            <BlazEditImage ClassImageContainer="image-card-container mid-color" ClassImage="article-viewer-image" />
+            <BlazeEditHeader />
+            <BlazEditSpacer Content=@Spacer></BlazEditSpacer>
+        </BlazeEditViewer>
     </div>
 }
 
@@ -29,13 +30,20 @@
     private const string Spacer = "<hr\\>";
 
     [Parameter]
-    public string articleName {get;set;}
+    public string articleName { get; set; }
 
     private BlazingRender _render = null;
 
-    protected override async Task OnAfterRenderAsync(bool firstRender) {
-        if(firstRender && articleName != "NO_ID") {
-            Console.WriteLine("yolo: " +articleName);
+    /// <summary>
+    /// Permet de récupérer un article d'une formation grâce au nom de l'article et de l'afficher.
+    /// </summary>
+    /// <param name="firstRender"></param>
+    /// <returns></returns>
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && articleName != "NO_ID")
+        {
+            Console.WriteLine("yolo: " + articleName);
             _article = await Http.GetFromJsonAsync<Article>($"api/Articles/GetArticle?name={articleName}");
             await JsRuntime.InvokeVoidAsync("display", _article);
             if (_article != null && _article.Title != null && _article.Content != null)

@@ -31,9 +31,11 @@
 
     private string NavMenuCssClass => _collapseNavMenu ? "collapse" : null;
 
+    /// <summary>
+    /// Permet d'afficher ou non le menu déroulant.
+    /// </summary>
     private void ToggleNavMenu()
     {
         _collapseNavMenu = !_collapseNavMenu;
     }
 }
-
