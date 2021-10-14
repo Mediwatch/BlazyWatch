@@ -40,11 +40,20 @@ else
     private UserPublic _info = null;
 
     private bool active = false;
+
+    /// <summary>
+    /// Permet de récupérer les informations de l'utilisateur depuis la base de données.
+    /// </summary>
+    /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
         _info = await Client.GetFromJsonAsync<UserPublic>("Users/info");
     }
 
+    /// <summary>
+    /// Permet de supprimer les données de l'utilisateur de la base de données, de le déconnecter et de rediriger vers la page d'accueil.
+    /// </summary>
+    /// <returns></returns>
     public async Task deleteUser()
     {
         await Client.GetAsync("Users/deleteUser?id=" + _info.Id.ToString());
@@ -52,11 +61,17 @@ else
         NavManager.NavigateTo("/", true);
     }
 
+    /// <summary>
+    /// Permet de confirmer la validation de la suppression du code.
+    /// </summary>
     public void EraseAccount()
     {
         active = true;
     }
 
+    /// <summary>
+    /// Permet d'infirmer la validation de la suppression du code.
+    /// </summary>
     public void CancelErase()
     {
         active = false;

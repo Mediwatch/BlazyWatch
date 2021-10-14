@@ -10,17 +10,19 @@
 
 @if (info_user != null)
 {
-    <a href=@("Users/exportCalendar/" + info_user.Id.ToString() + "/calendar.ics") download target="_blank" class="btn btn-info">Exporter le calendrier</a>
-    <input type="text" class="input-lg" readonly value="Lien du calendrier : @(Client.BaseAddress + "Users/exportCalendar/" + info_user.Id.ToString() + "/calendar.ics")" />
+    <a href=@("Users/exportCalendar/" + info_user.Id.ToString() + "/calendar.ics") download target="_blank"
+    class="btn btn-info">Exporter le calendrier</a>
+    <input type="text" class="input-lg" readonly
+    value="Lien du calendrier : @(Client.BaseAddress + "Users/exportCalendar/" + info_user.Id.ToString() + "/calendar.ics")" />
 }
 else
 {
     <p>En attente d'acquisitions des informations de l'utilisateur...</p>
 }
 
-<RadzenScheduler @ref=@scheduler style="height: 768px;" TItem="Appointment" Data=@appointments StartProperty="Data.Start" EndProperty="Data.End"
-                 TextProperty="Data.Text" SelectedIndex="2"
-                 SlotSelect=@OnSlotSelect AppointmentSelect=@OnAppointmentSelect AppointmentRender=@OnAppointmentRender>
+<RadzenScheduler @ref=@scheduler style="height: 768px;" TItem="Appointment" Data=@appointments
+    StartProperty="Data.Start" EndProperty="Data.End" TextProperty="Data.Text" SelectedIndex="2"
+    SlotSelect=@OnSlotSelect AppointmentSelect=@OnAppointmentSelect AppointmentRender=@OnAppointmentRender>
     <RadzenDayView />
     <RadzenWeekView />
     <RadzenMonthView />
@@ -34,12 +36,19 @@ else
     List<formation> _formations = new List<formation>();
     public UserPublic info_user = null;
 
+    /// <summary>
+    /// Permet de récupérer l'ensemble des formations auxquelles l'utilsateur est inscrit et de les formater correctement
+    /// pour les afficher dans le calendrier.
+    /// </summary>
+    /// <param name="firstRender"></param>
+    /// <returns></returns>
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             info_user = await Client.GetFromJsonAsync<UserPublic>("Users/info");
-            _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Users/formation/" + info_user.Id) as List<formation>;
+            _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Users/formation/" + info_user.Id) as
+            List<formation>;
 
             this.StateHasChanged();
 
@@ -59,17 +68,31 @@ else
         }
     }
 
-    // Juste parce que.
+    /// <summary>
+    /// Inutilisée.
+    /// </summary>
+    /// <param name="args"></param>
+    /// <returns></returns>
     async Task OnSlotSelect(SchedulerSlotSelectEventArgs args)
     {
         await scheduler.Reload();
     }
 
+    /// <summary>
+    /// Inutilisée.
+    /// </summary>
+    /// <param name="args"></param>
+    /// <returns></returns>
     async Task OnAppointmentSelect(SchedulerAppointmentSelectEventArgs<Appointment> args)
     {
         await scheduler.Reload();
     }
 
+    /// <summary>
+    /// Inutilisée.
+    /// </summary>
+    /// <param name="args"></param>
+    /// <returns></returns>
     void OnAppointmentRender(SchedulerAppointmentRenderEventArgs<Appointment> args)
     {
         // Never call StateHasChanged in AppointmentRender - would lead to infinite loop

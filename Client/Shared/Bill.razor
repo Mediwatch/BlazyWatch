@@ -9,7 +9,7 @@
 else
 {
     <ul>
-    @foreach (var facture in factures)
+        @foreach (var facture in factures)
         {
             <li><a href=@("/Order/Archived/" + facture)>@facture</a></li>
         }
@@ -20,6 +20,10 @@ else
 
     private List<string> factures = null;
 
+    /// <summary>
+    /// Permet de récupérer l'ensemble des factures de l'utilisateur depuis la base de données.
+    /// </summary>
+    /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
         factures = await Client.GetFromJsonAsync<List<string>>("/Order/Archived");

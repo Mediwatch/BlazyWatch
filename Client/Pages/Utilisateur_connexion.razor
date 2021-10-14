@@ -72,6 +72,11 @@
   LoginForm loginForm { get; set; } = new LoginForm();
   string error { get; set; }
 
+  /// <summary>
+  /// Permet de valider ou non la connexion d'un utilisateur, redirige vers la page d'accueil si la connexion est réussie.
+  /// </summary>
+  /// <returns></returns>
+
   async Task OnSubmit()
   {
     error = null;

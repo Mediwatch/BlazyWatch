@@ -51,21 +51,31 @@
     List<formation> _formations = null;
     //List<formation> _filtered = null;
 
+    /// <summary>
+    /// Permet de récupérer l'ensemble des formations depuis la base de données.
+    /// </summary>
+    /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
         _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
         _tags = await Client.GetFromJsonAsync<IEnumerable<tag>>("Tag") as List<tag>;
         //_filtered = _formations;
-        JsRuntime.InvokeVoidAsync("display", _formations);
+        await JsRuntime.InvokeVoidAsync("display", _formations);
     }
 
+    /// <summary>
+    /// Permet de filtrer les formations selon l'événement reçu.
+    /// </summary>
+    /// <param name="e">L'événement reçu, cela est généralement une modification d'un champ texte.</param>
+    /// <returns></returns>
     private async void Filter(ChangeEventArgs e)
     {
         try
         {
             //_filtered = _formations.Where(f => f.Name.ToLower().Contains(e.Value.ToString().ToLower())).ToList();
             // Voir pour utiliser le cache si le navigateur ne le fait pas lui-m�me ?
-            if (_option == "tag") {
+            if (_option == "tag")
+            {
                 var tag = _tags.Find(t => t.tag_name.Equals(e.Value.ToString()));
 
                 if (tag == null)
@@ -73,7 +83,9 @@
 
                 _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation?idtag=" +
                 tag.id) as List<formation>;
-            } else {
+            }
+            else
+            {
                 _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation/search?" + _option + "=" +
                 e.Value.ToString()) as List<formation>;
             }

@@ -16,30 +16,32 @@
             <DataAnnotationsValidator />
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">@Localizer["Name"]</span>
+                    <span class="input-group-text" id="basic-addon1">@Localizer["Name"]</span>
                 </div>
-                <InputText type="text" class="form-control" id="Name" placeholder="Veuillez entrer un nom." @bind-Value="formTab1.Name" />
+                <InputText type="text" class="form-control" id="Name" placeholder="Veuillez entrer un nom."
+                @bind-Value="formTab1.Name" />
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">@Localizer["Date"]</span>
                 </div>
-                <InputDate id="startDate" @bind-Value="formTab1.StartDate" Min="2020-01-01" class="form-control"/>
+                <InputDate id="startDate" @bind-Value="formTab1.StartDate" Min="2020-01-01" class="form-control" />
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">~</span>
                 </div>
-                <InputDate id="endDate" @bind-Value="formTab1.EndDate" Min="2020-01-01" class="form-control"/>
+                <InputDate id="endDate" @bind-Value="formTab1.EndDate" Min="2020-01-01" class="form-control" />
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">@Localizer["Description"]</span>
                 </div>
-                <InputTextArea id="Description" placeholder="Veuillez entrer une description." @bind-Value="formTab1.Description" class="form-control"></InputTextArea>
+                <InputTextArea id="Description" placeholder="Veuillez entrer une description."
+                @bind-Value="formTab1.Description" class="form-control"></InputTextArea>
             </div>
-        @if (_validation == 0)
-        {
-            <button type="submit" class="btn btn-primary">@Localizer["Next"]</button>
-        }
+            @if (_validation == 0)
+            {
+                <button type="submit" class="btn btn-primary">@Localizer["Next"]</button>
+            }
         </EditForm>
     }
 
@@ -51,7 +53,8 @@
                 <div class="input-group-prepend">
                     <span for="Former" class="input-group-text" id="basic-addon1">@Localizer["FName"]</span>
                 </div>
-                <InputText id="Former" type="text" class="form-control" placeholder="Veuillez entrer un nom." @bind-Value="formTab2.Former" />
+                <InputText id="Former" type="text" class="form-control" placeholder="Veuillez entrer un nom."
+                @bind-Value="formTab2.Former" />
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -66,7 +69,8 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">@Localizer["OName"]</span>
                 </div>
-                <InputText id="OrganizationName" type="text" class="form-control" placeholder="Veuillez entrer le nom de l'organisme." @bind-Value="formTab2.OrganizationName" />
+                <InputText id="OrganizationName" type="text" class="form-control"
+                placeholder="Veuillez entrer le nom de l'organisme." @bind-Value="formTab2.OrganizationName" />
             </div>
             @if (_validation == 1)
             {
@@ -83,13 +87,15 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">@Localizer["Contact"]</span>
                 </div>
-                <InputText id="Contact" class="form-control" placeholder="Veuillez entrer un contact." @bind-Value="formTab3.Contact" />
-            </div>            
+                <InputText id="Contact" class="form-control" placeholder="Veuillez entrer un contact."
+                @bind-Value="formTab3.Contact" />
+            </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">@Localizer["Location"]</span>
                 </div>
-                <InputText id="Location" class="form-control" placeholder="Veuillez entrer la localisation de la formation." @bind-Value="formTab3.Location" />
+                <InputText id="Location" class="form-control" placeholder="Veuillez entrer la localisation de la formation."
+                @bind-Value="formTab3.Location" />
             </div>
             @if (_validation == 2)
             {
@@ -100,42 +106,48 @@
 
     @if (_validation == 3)
     {
-        <button class="btn btn-lg btn-primary btn-block" type="submit" @onclick=@NoArticle>Valider la formation</button> 
-        <button class="btn btn-lg btn-primary btn-block" type="submit" @onclick=@PostFormation>Créer un article et valider la formation</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" @onclick=@NoArticle>Valider la formation</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" @onclick=@PostFormation>Créer un article et valider
+            la formation</button>
     }
 
-    @if(_validation == 4) {
+    @if (_validation == 4)
+    {
         <EditForm class="form-article" OnValidSubmit="OnSubmit" Model="_article">
-    <DataAnnotationsValidator />
-    <label for="inputTitle">@Localizer["Title"]</label>
-        <InputText id="inputTitle" class="form-control" placeholder="Title" autofocus @bind-Value="@_article.Title" />
-    <ValidationMessage For="@(() => _article.Title)"/>
-    
-    <label for="inputUrlImage">@Localizer["UrlImage"]</label>
-        <InputText id="inputUrlImage" class="form-control" placeholder="UrlImage" autofocus @bind-Value="@_article.PreviewImageURL" />
-    <ValidationMessage For="@(() => _article.PreviewImageURL)"/>
+            <DataAnnotationsValidator />
+            <label for="inputTitle">@Localizer["Title"]</label>
+            <InputText id="inputTitle" class="form-control" placeholder="Title" autofocus @bind-Value="@_article.Title" />
+            <ValidationMessage For="@(() => _article.Title)" />
 
-    <label for="inputPreviewTitle">@Localizer["Preview"]</label>
-        <InputText id="inputPreviewTitle" class="form-control" placeholder="PreviewTitle" autofocus @bind-Value="@_article.PreviewTitle" />
-    <ValidationMessage For="@(() => _article.PreviewTitle)"/>
+            <label for="inputUrlImage">@Localizer["UrlImage"]</label>
+            <InputText id="inputUrlImage" class="form-control" placeholder="UrlImage" autofocus
+            @bind-Value="@_article.PreviewImageURL" />
+            <ValidationMessage For="@(() => _article.PreviewImageURL)" />
 
-    <label for="inputParagraph">@Localizer["Paragraph"]</label>
-        <InputTextArea id="inputParagraph" class="form-control" placeholder="Paragraph" autofocus @bind-Value="@_article.PreviewParagraph" />
-    <ValidationMessage For="@(() => _article.PreviewParagraph)"/>
- 
-    <div class="blazing-editor">
-        <BlazEditor returnFunction="ValidateContent"/>
-    </div>
+            <label for="inputPreviewTitle">@Localizer["Preview"]</label>
+            <InputText id="inputPreviewTitle" class="form-control" placeholder="PreviewTitle" autofocus
+            @bind-Value="@_article.PreviewTitle" />
+            <ValidationMessage For="@(() => _article.PreviewTitle)" />
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">@Localizer["Add"]</button>
-    
-    </EditForm>
+            <label for="inputParagraph">@Localizer["Paragraph"]</label>
+            <InputTextArea id="inputParagraph" class="form-control" placeholder="Paragraph" autofocus
+            @bind-Value="@_article.PreviewParagraph" />
+            <ValidationMessage For="@(() => _article.PreviewParagraph)" />
+
+            <div class="blazing-editor">
+                <BlazEditor returnFunction="ValidateContent" />
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">@Localizer["Add"]</button>
+
+        </EditForm>
     }
 
     @if (_validation == 5)
     {
         <p>@Localizer["SubmitSuccess"]</p>
-        <button type="submit" class="btn btn-lg btn-primary btn-block" @onclick=@PostFormation>@Localizer["CreateNew"]</button>
+        <button type="submit" class="btn btn-lg btn-primary btn-block"
+        @onclick=@PostFormation>@Localizer["CreateNew"]</button>
         <button type="submit" class="btn btn-lg btn-primary btn-block" @onclick=@GoBack>@Localizer["Home"]</button>
     }
 </div>
@@ -152,31 +164,53 @@
     private string _id = "NO_ID";
 
     public Article _article = new Article();
-    
+
+    /// <summary>
+    /// Permet de vérifier le contenu de l'article.
+    /// </summary>
+    /// <param name="content">Le contenu à vérifier</param>
+    /// <returns></returns>
     string ValidateContent(string content)
     {
         return _article.Content = content;
     }
-    
-    async Task OnSubmit() {
+
+    /// <summary>
+    /// Permet de créer un article dans la base de données.
+    /// </summary>
+    /// <returns></returns>
+    async Task OnSubmit()
+    {
         var test = (await Http.PostAsJsonAsync("api/Articles/CreateArticle", _article));
         _id = (await test.Content.ReadFromJsonAsync<Guid>()).ToString();
         _validation = 4;
         PostFormation();
     }
 
+    /// <summary>
+    /// Permet d'initialiser la vue pour afficher la première page de création d'une formation.
+    /// </summary>
+    /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
         await JsRuntime.InvokeVoidAsync("display", _validation);
         _validation = 0;
     }
 
+    /// <summary>
+    /// Permet de passer à la page suivante pour la création d'une formation.
+    /// </summary>
+    /// <returns></returns>
     private void NoArticle()
     {
         _validation++;
         PostFormation();
     }
-    
+
+    /// <summary>
+    /// Permet de créer une formation selon l'avancement et l'envoie dans la base de données si besoin.
+    /// </summary>
+    /// <returns></returns>
     private async void PostFormation()
     {
         _validation++;
@@ -198,6 +232,10 @@
         }
     }
 
+    /// <summary>
+    /// Permet de retourner sur la page principale.
+    /// </summary>
+    /// <returns></returns>
     private void GoBack()
     {
         _validation = 0;

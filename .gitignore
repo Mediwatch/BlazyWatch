@@ -39,3 +39,6 @@ msbuild.wrn
 
 # Generated files
 invoice_archive
+
+# Documentation
+docs

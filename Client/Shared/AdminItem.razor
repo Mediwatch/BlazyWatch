@@ -3,10 +3,10 @@
 
 <tr>
     <td>
-        <input @bind="user.Name" class="form-control"/>
+        <input @bind="user.Name" class="form-control" />
     </td>
     <td>
-        <input @bind="user.Email" class="form-control"/>
+        <input @bind="user.Email" class="form-control" />
     </td>
     <td>
         <select @bind="user.Role" class="form-control">
@@ -25,9 +25,14 @@
     string[] _roleNames = { "Admin", "Tutor", "Member" };
 
     [Parameter]
-    public UserPublic user {get; set;}
+    public UserPublic user { get; set; }
 
-    private async void ChangeUser() {
-        await Client.PostAsJsonAsync("/Users/setInfo/",user);
-    }    
+    /// <summary>
+    /// Permet de modifier les informations d'un utilisateur (son rôle, son adresse mail et son nom, par exemple).
+    /// </summary>
+    /// <returns></returns>
+    private async void ChangeUser()
+    {
+        await Client.PostAsJsonAsync("/Users/setInfo/", user);
+    }
 }
