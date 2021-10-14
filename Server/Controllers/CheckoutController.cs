@@ -37,12 +37,20 @@ namespace Mediwatch.Server.Controllers
             ApplicantSessionController _appSessionController = new ApplicantSessionController(_context);
             var formFind = _formationCtr.GetFormation(Guid.Parse(body.formationId)).Result.Value;
 
-            var request = new PayPalCheckoutSdk.Orders.OrdersCreateRequest();
+            OrdersCreateRequest request = new PayPalCheckoutSdk.Orders.OrdersCreateRequest();
             request.Prefer("return=representation");
             request.RequestBody(PayPal.OrderBuilder.Build(formFind));
             // Call PayPal to set up a transaction
             PayPal.PayPalClient.SandboxClientId  = _configuration["Authentication:PayPal:SandboxClientId"];
             PayPal.PayPalClient.SandboxClientSecret = _configuration["Authentication:PayPal:SandboxClientSecret"];
+
+            if (string.IsNullOrEmpty(PayPal.PayPalClient.SandboxClientId)
+            || string.IsNullOrEmpty(PayPal.PayPalClient.SandboxClientSecret))
+            {
+                System.Console.WriteLine("Key MISSING");
+                return null;
+            }
+            System.Console.WriteLine(PayPal.PayPalClient.SandboxClientId);
             var response = await PayPal.PayPalClient.Client().Execute(request);
             // Create a response, with an order id.
             var result = response.Result<PayPalCheckoutSdk.Orders.Order>();

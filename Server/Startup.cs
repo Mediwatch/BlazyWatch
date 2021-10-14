@@ -95,6 +95,13 @@ namespace Mediwatch.Server {
                                 .AllowAnyMethod()
                                 .AllowAnyHeader();
                         });
+                        options.AddPolicy("ProdCorsPolicy", builder =>
+                        {
+                            builder
+                                .AllowAnyOrigin()
+                                .AllowAnyMethod()
+                                .AllowAnyHeader();
+                        });
                     });
         }
 
