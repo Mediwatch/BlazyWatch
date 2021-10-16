@@ -13,7 +13,7 @@
                 <div class="presentation-card-image-container">
                     <image src="images/palpatine.jpg" />
                 </div>
-                <div class="presentation-card-buton high-color" @onclick="navigateToArticle">
+                <div class="presentation-card-buton high-color" @onclick="navigateToFormations">
                     @Localizer["FormationsInvite"]</div>
             </div>
         </div>
@@ -115,5 +115,13 @@
         if (_article == null)
             return;
         NavManager.NavigateTo($"/article/vue?Name={_article}");
+    }
+
+    /// <summary>
+    /// Permet de rediriger l'utilisateur vers l'ensemble des formations.
+    /// </summary>
+    private void navigateToFormations()
+    {
+        NavManager.NavigateTo($"/formations/recherche");
     }
 }

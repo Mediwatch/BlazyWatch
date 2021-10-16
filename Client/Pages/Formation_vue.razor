@@ -21,6 +21,7 @@
 }
 else
 {
+    <div class="container">
     <FormationItemView f=_formation></FormationItemView>
 
     @if (_formation.ArticleID != null)
@@ -57,6 +58,7 @@ else
     <PopUp @bind-Activate="popupActivated">
         <PopupBeta></PopupBeta>
     </PopUp>
+    </div>
 }
 
 @code {
