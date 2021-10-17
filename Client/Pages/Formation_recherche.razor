@@ -26,15 +26,15 @@
             @foreach (var f in _formations)
             {
                 <div>
-                    <div class="presentation-card mid-color">
-                        <div class="low-color presentation-card-triangle " />
-                        <div class="presentation-card-text dark-color">
+                    <div class="search-card mid-color">
+                        <div class="low-color search-card-triangle " />
+                        <div class="search-card-text dark-color">
                             <h3>@f.Name</h3>
                             <p>Du @f.StartDate au @f.EndDate</p>
                             <p>Localisation : @f.Location</p>
                             <p>Audience : @f.Target</p>
                         </div>
-                        <a class="presentation-card-buton high-color" href=@($"/formations/{f.id}")>En savoir plus</a>
+                        <a class="search-card-buton high-color" href=@($"/formations/{f.id}")>En savoir plus</a>
                     </div>
                 </div>
             }

@@ -5,32 +5,62 @@
 
 <EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="registerForm">
     <DataAnnotationsValidator/>
-    <h4 class="font-weight-normal text-center">Créer un compte</h4>
+    <div class="container-fluid ">
+        <div class="row d-flex justify-content-center">
+            <div class="mb-3 w-50">
+                <div class="row h-100 d-flex align-items-center justify-content-center m-3 p-3">
+                    <h4 class="font-weight-normal text-center">Créer un compte</h4>
+                    <div>
+                        <ValidationMessage For="@(() => registerForm.UserName)" />
+                        <div class="input-group col-sm-12 mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Nom d'utilisateur</span>
+                            </div>
+                            <InputText id="inputUsername" class="form-control" autofocus @bind-Value="@registerForm.UserName" />
+                        </div>
 
-    <label for="inputUsername" class="sr-only">Nom d'utilisateur</label>
-    <InputText id="inputUsername" class="form-control" placeholder="Nom d'utilisateur" autofocus @bind-Value="@registerForm.UserName" />
-    <ValidationMessage For="@(() => registerForm.UserName)" />
+                        <ValidationMessage For="@(() => registerForm.EmailAddress)" />
+                        <div class="input-group col-sm-12 mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Email</span>
+                            </div>
+                            <InputText id="inputEmail" class="form-control" placeholder="" autofocus @bind-Value="@registerForm.EmailAddress" />
+                        </div>
 
-    <label for="inputEmail" class="sr-only">Email</label>
-    <InputText id="inputEmail" class="form-control" placeholder="Email" autofocus @bind-Value="@registerForm.EmailAddress" />
-    <ValidationMessage For="@(() => registerForm.EmailAddress)" />
-
-    <label for="inputPassword" class="sr-only">Mot de passe</label>
-    <InputText type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" @bind-Value="@registerForm.Password" />
-    <ValidationMessage For="@(() => registerForm.Password)" />
-
-    <label for="inputPasswordConfirm" class="sr-only">Confirmation du mot de passe</label>
-    <InputText type="password" id="inputPasswordConfirm" class="form-control" placeholder="Confirmation de mot de passe" @bind-Value="@registerForm.PasswordConfirm" />
-    <ValidationMessage For="@(() => registerForm.PasswordConfirm)" />
-
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Créer un compte</button>
-
-    <label class="text-danger">@error</label>
-    <NavLink href="login">
-        <h6 class="font-weight-normal text-center">Vous possédez déjà un compte ? Cliquez ici.</h6>
-    </NavLink>
-
-    <a class="btn btn-primary btn-lg text-center" href="Account/LoginExternal">Google</a>
+                        <ValidationMessage For="@(() => registerForm.Password)" />
+                        <div class="input-group col-sm-12 mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Mot de passe</span>
+                            </div> 
+                            <InputText type="password" id="inputPassword" class="form-control" placeholder="" @bind-Value="@registerForm.Password" />
+                        </div>
+                        
+                        <ValidationMessage For="@(() => registerForm.PasswordConfirm)" />
+                        <div class="input-group col-sm-12 mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Confirmation de mot de passe</span>
+                            </div> 
+                            <InputText type="password" id="inputPasswordConfirm" class="form-control" placeholder="" @bind-Value="@registerForm.PasswordConfirm" />
+                        </div>
+                    </div>
+                        <label class="text-danger">@error</label>
+                        <div class="form-group row col-sm-12">
+                            <button class="btn btn-primary w-100" type="submit">Créer un compte</button>
+                        </div>
+                    <div class="w-100">
+                        <h4 class="hr">ou</h4>
+                    </div>
+                        <a class="text-white text-decoration-none center-block col-sm-12" href="Account/LoginExternal">
+                            <button type="button" class="btn btn-danger font-weight-bold w-100"><i class="fab fa-google pr-2"
+                            aria-hidden="true"></i>Créer un compte avec Google</button>
+                        </a>
+                    <NavLink class="mt-3" href="/utilisateur/connexion">
+                            <h6 class="font-weight-normal text-center">Vous possédez déjà un compte ? Cliquez ici.</h6>
+                        </NavLink>
+                </div>
+            </div>
+        </div>
+    </div>
 </EditForm>
 
 @functions

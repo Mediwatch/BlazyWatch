@@ -67,7 +67,7 @@
                 position: absolute;
                 width: calc(100% - #{2 * $big-unit});
                 height: calc(100% - #{2 * $big-unit});
-                bottom: 0;
+                bottom: $big-unit;
                 margin-left: $big-unit;
                 padding: 10%;
                 font-weight: 500;
@@ -76,6 +76,8 @@
                 overflow: hidden;
                 font-size: $one-unit;
             }
+
+            
             
             .presentation-card-buton{
                 position: absolute;
@@ -170,5 +172,81 @@
                 }
             }
         }
-        
+
+        .search-card {
+            width: 100%;
+            height: 25vh;
+            margin: auto;
+            margin-bottom: ($big-unit/4);
+            margin-top: ($big-unit/4);
+            border-radius: $one-unit;
+            overflow: hidden;
+            position: relative;
+            
+            
+            .search-card-triangle{
+                -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+                clip-path: polygon(0 0, 0% 100%, 100% 100%);
+                height: 100%;
+                width: 100%;
+            }
+
+            .search-card-image-container{
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                border-radius: 3vh;
+                width: calc(100% - #{2 * ($big-unit/2)});
+                height: calc(100% - #{2 * ($big-unit/2)});
+                bottom: ($big-unit/2);
+                margin-left: ($big-unit/2);
+                border-radius: $one-unit;
+                overflow: hidden;
+                img{
+                    object-fit: cover;
+                    width: 100%;
+                }
+            }
+
+            .search-card-text{
+                position: absolute;
+                width: calc(100% - #{2 * ($big-unit/2)});
+                height: calc(100% - #{2 * ($big-unit/2)});
+                bottom: ($big-unit/2);
+                margin-left: ($big-unit/2);
+                padding: 3%;
+                font-weight: 100;
+                border-radius: $one-unit;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-size: $one-unit;
+            }
+
+            
+            
+            .search-card-buton{
+                position: absolute;
+                bottom: 12%;
+                right: 10%;
+                min-height: ($big-unit/2);
+                min-width: 20%;
+                margin-left: 72%;
+                text-align: center;
+                padding: 1%;
+                font-weight: 500;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                border-radius: $one-unit / 2;
+                font-size: $one-unit;
+
+                &:hover {
+                    filter: saturate(150%);
+                }
+                
+                &:active {
+                    filter: saturate(50%);
+                    user-select: none; 
+                }
+            }
+        }
 }

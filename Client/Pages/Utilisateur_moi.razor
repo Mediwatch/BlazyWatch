@@ -13,27 +13,46 @@
 }
 else
 {
-    <h2>Gestion utilisateur</h2>
-    <h3>Vos informations</h3>
-    <h4>Nom d'utilisateur</h4>
-    <p>@_info.Name</p>
-    <h4>Addresse mail principale</h4>
-    <p>@_info.Email</p>
-    <h4>Type de compte</h4>
-    <p>@_info.Role</p>
-    <Bill></Bill>
-    <h3>Modification de vos informations</h3>
-
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="h-100 d-flex align-items-center justify-content-center m-3 p-3 border border-dark rounded">
+                    <div class="w-100">                   
+                        <h2>Gestion utilisateur</h2>
+                        <h3>Vos informations</h3>
+                        <h4>Nom d'utilisateur</h4>
+                        <p>@_info.Name</p>
+                        <h4>Addresse mail principale</h4>
+                        <p>@_info.Email</p>
+                        <h4>Type de compte</h4>
+                        <p>@_info.Role</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="h-100 d-flex align-items-center justify-content-center m-3 p-3 border border-dark rounded">
+                    <div class="w-100">
+                        <h3>Modification de vos informations</h3>
+                        <ClientItem user=_info></ClientItem>
+                        <button @onclick="EraseAccount" class="btn btn-outline-danger">Effacer votre compte</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-center mx-1 my-3 border border-dark rounded flex-column">
+            <Bill></Bill>
+    </div>
     <PopUp @bind-Activate="active">
-        <div>
-            Voulez vous vraiment effacer votre compte ?
-            <button @onclick="deleteUser" class="btn btn-primary">Effacer votre compte</button>
-            <button @onclick="CancelErase" class="btn btn-primary">Non</button>
+        <div class="d-flex align-items-center">
+            <h2>Voulez vous vraiment effacer votre compte ?</h2>
+            <div class="w-100">
+                <button @onclick="CancelErase" class="btn btn-primary">Non</button>
+                <button @onclick="deleteUser" class="btn btn-outline-danger">Effacer votre compte</button>
+            </div>
         </div>
     </PopUp>
 
-    <ClientItem user=_info></ClientItem>
-    <button @onclick="EraseAccount" class="btn btn-primary">Effacer votre compte</button>
 }
 
 @code {
