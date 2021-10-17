@@ -12,8 +12,6 @@
 {
     <a href=@("Users/exportCalendar/" + info_user.Id.ToString() + "/calendar.ics") download target="_blank"
     class="btn btn-info">Exporter le calendrier</a>
-    <input type="text" class="input-lg" readonly
-    value="Lien du calendrier : @(Client.BaseAddress + "Users/exportCalendar/" + info_user.Id.ToString() + "/calendar.ics")" />
 }
 else
 {

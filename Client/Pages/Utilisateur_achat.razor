@@ -5,6 +5,7 @@
 
 <h2>Votre panier</h2>
 
+<div class="container">
 @if (formations.Count == 0)
 {
     <p>Votre panier est vide.</p>
@@ -14,14 +15,16 @@ else
     @foreach (var f in formations)
     {
         var tmp_f = @f;
-        <h4>@f.Name</h4>
+        <div class="achat-formation">
+        <h4>@f.Name <i class="fas fa-trash" @onclick="@(() => SuppressionFormation(tmp_f))"></i></h4>
         <p>Du @f.StartDate au @f.EndDate, par @f.Former</p>
         <br />
         <p>Coût : @f.Price €</p>
-        <input type="button" @onclick="@(() => SuppressionFormation(tmp_f))" value="Enlever du panier" />
+        </div>
     }
-    <input type="button" @onclick="(() => Payer())" value="Payer" />
+    <input type="button" class="btn btn-primary" @onclick="(() => Payer())" value="Payer mon panier" />
 }
+</div>
 
 
 @code {
