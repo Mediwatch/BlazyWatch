@@ -41,9 +41,11 @@ namespace Mediwatch.Server.Controllers
             request.Prefer("return=representation");
             request.RequestBody(PayPal.OrderBuilder.Build(formFind));
             // Call PayPal to set up a transaction
-            PayPal.PayPalClient.SandboxClientId  = _configuration["Authentication:PayPal:SandboxClientId"];
-            PayPal.PayPalClient.SandboxClientSecret = _configuration["Authentication:PayPal:SandboxClientSecret"];
+            // PayPal.PayPalClient.SandboxClientId  = _configuration["Authentication:PayPal:SandboxClientId"];
+            // PayPal.PayPalClient.SandboxClientSecret = _configuration["Authentication:PayPal:SandboxClientSecret"];
 
+            PayPal.PayPalClient.SandboxClientId  = "AS60MoczPXk40sTYAtzCr41h2BgSmUNk4RxhPndZ-Ajz0Ic7hKQRWMd7JWNtB-OhT0C55MtweuBTSJmF";
+            PayPal.PayPalClient.SandboxClientSecret = "EPqnAd3wjI4-O9Jlq3z4TeiRElVU_qTBPGKOZAEUN_3ngf7YWJrvm1xrv2U_WcpflhgmT3_paPYUhwHu";
             if (string.IsNullOrEmpty(PayPal.PayPalClient.SandboxClientId)
             || string.IsNullOrEmpty(PayPal.PayPalClient.SandboxClientSecret))
                 System.Console.WriteLine("Key MISSING");
