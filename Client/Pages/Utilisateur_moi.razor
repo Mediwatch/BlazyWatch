@@ -44,11 +44,11 @@ else
             <Bill></Bill>
     </div>
     <PopUp @bind-Activate="active">
-        <div class="d-flex align-items-center">
-            <h2>Voulez vous vraiment effacer votre compte ?</h2>
-            <div class="w-100">
+        <div class="d-flex align-items-center flex-column">
+            <h2 class="text-center">Voulez vous vraiment effacer votre compte ?</h2>
+            <div class="w-100  d-flex align-items-stretch justify-content-center">
                 <button @onclick="CancelErase" class="btn btn-primary">Non</button>
-                <button @onclick="deleteUser" class="btn btn-outline-danger">Effacer votre compte</button>
+                <button @onclick="deleteUser" class="btn btn-outline-danger ml-1">Effacer votre compte</button>
             </div>
         </div>
     </PopUp>
