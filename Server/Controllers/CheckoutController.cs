@@ -24,7 +24,6 @@ namespace Mediwatch.Server.Controllers
         {
             public string formationId { get; set; }
             public string orderId { get; set; }
-            public string Client {get; set;}
         }
 
         /// <summary>
@@ -44,9 +43,11 @@ namespace Mediwatch.Server.Controllers
             // Call PayPal to set up a transaction
             PayPal.PayPalClient.LiveClientId  = _configuration["Authentication:PayPal:SandboxClientId"];
             PayPal.PayPalClient.LiveClientSecret = _configuration["Authentication:PayPal:SandboxClientSecret"];
+            PayPal.PayPalClient.SandboxClientId  = _configuration["Authentication:PayPal:SandboxClientId"];
+            PayPal.PayPalClient.SandboxClientSecret = _configuration["Authentication:PayPal:SandboxClientSecret"];
             // PayPal.PayPalClient.SandboxClientId  ="";
             // PayPal.PayPalClient.SandboxClientSecret ="";
-             
+
             if (string.IsNullOrEmpty(PayPal.PayPalClient.LiveClientId)
             || string.IsNullOrEmpty(PayPal.PayPalClient.LiveClientSecret))
                 System.Console.WriteLine("Key MISSING");
