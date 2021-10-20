@@ -175,7 +175,7 @@ namespace Mediwatch.Server.Controllers
         // DELETE: Formation/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin,Tutor")]
-        public async Task<ActionResult<formation>> DeleteFormation(int id)
+        public async Task<ActionResult<formation>> DeleteFormation(Guid id)
         {
             /// <summary>
             /// Supprimer la formation par ID
