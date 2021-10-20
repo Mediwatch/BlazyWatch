@@ -11,10 +11,10 @@
         <image src="images/pagedegardedoctorHD.jpg"/>
         <div class="page-de-garde-header-search-formation-container">
           <div class="centered-header-container-box">
-            <button class="btn btn-primary w-100 center-item" type="submit">@Localizer["Voir la liste des formations"]</button>
-            <h4 class="center-item">ou</h4>
+            <a class="btn btn-primary w-100 center-item" href="/formations/recherche" >@Localizer["Voir la liste des formations"]</a>
+            @* <h4 class="center-item">ou</h4>
             <h3 class="center-item">Trouver une formation proche de chez moi</h3>
-            <button class="btn btn-primary w-100 center-item" type="submit">@Localizer["Remplacer ça par search bar svp"]</button>
+            <button class="btn btn-primary w-100 center-item" type="submit">@Localizer["Remplacer ça par search bar svp"]</button> *@
           </div>
         </div>
       </div>
@@ -32,29 +32,39 @@
         <h2>@Localizer["Popular"]</h2> *@
         <div class="cards-container">
           <div class="little-cards-container">
-            <div class="little-card">
-              <div class="little-card-image-container">
-                <image src="https://picsum.photos/468/280" />
+            @if (_formations == null)
+                {
+                    <p>@Localizer["Unavaillable"]</p>
+            }
+            else
+            {
+              @for (int i = 0; i < 3; i++)
+              {
+              <div class="little-card" @onclick="@(e => clickfunc("formations/" + _formations[i].id))">
+                <div class="little-card-image-container">
+                  <image src="https://picsum.photos/468/280" />
+                </div>
+                <h3>@_formations[i].Name</h3>
+                <div class="rating-box">
+                  @* <embed class="rating-star-first" src="images/star.svg" type="" />
+                  <embed class="rating-star" src="images/star.svg" type="" />
+                  <embed class="rating-star" src="images/star.svg" type="" />
+                  <embed class="rating-star" src="images/emptyStar.svg" type="" />
+                  <embed class="rating-star" src="images/emptyStar.svg" type="" /> *@
+                </div>
+                <div class="former-icon">
+                  <img src="https://sunrift.com/wp-content/uploads/2014/12/Blake-profile-photo-square.jpg" />
+                </div>
+                <div class="little-card-title">
+                  <h4 class="former-and-hour">@_formations[i].Former | 12h</h4>
+                  <h4>ㅤ</h4>
+                  <h4>ㅤ</h4>
+                  <h4>@_formations[i].Description</h4>
+                </div>
               </div>
-              <h3>NAAAAAME</h3>
-              <div class="rating-box">
-                <embed class="rating-star-first" src="images/star.svg" type="" />
-                <embed class="rating-star" src="images/star.svg" type="" />
-                <embed class="rating-star" src="images/star.svg" type="" />
-                <embed class="rating-star" src="images/emptyStar.svg" type="" />
-                <embed class="rating-star" src="images/emptyStar.svg" type="" />
-              </div>
-              <div class="former-icon">
-                <img src="https://sunrift.com/wp-content/uploads/2014/12/Blake-profile-photo-square.jpg" />
-              </div>
-              <div class="little-card-title">
-                <h4 class="former-and-hour">Former | 12h</h4>
-                <h4>avec XXXXX XXXXX</h4>
-                <h4>ㅤ</h4>
-                <h4>ㅤ</h4>
-                <h4>Formation details bla bla bla bla bla bla bla bla bla</h4>
-              </div>
-            </div>
+              }
+            }
+
           </div>
         </div>
         <div class="separation-line">
@@ -71,8 +81,8 @@
             </div>
             <div class="details-left-container-text-side">
               <h2>Pourquoi nous faire confiance ?</h2>
-              <h4>Write something here blablablabla  blablablabla  blablablabla  blablablabla  blablablabla  blablablabla  blablablabla  blablablabla  blablablabla</h4>
-              <button class="btn btn-primary w-100 center-item" type="submit">@Localizer["Voir la liste des formations"]</button>
+              <h4>Connaisez vous les organismes DPC nos formations viennent à 80% de ces mêmes organismes</h4>
+              <button class="btn btn-primary w-100 center-item" type="submit">Organismes DPC</button>
             </div>
           </div>
           <div class="details-right-container">
@@ -82,7 +92,7 @@
             <div class="details-right-container-text-side">
               <h2>Trouver une formation qui vous intéresse</h2>
               <h4>Découvrir toutes les formations autour de vous et qui vous intéressent</h4>
-              <button class="btn btn-primary w-100 center-item" type="submit">@Localizer["Voir la liste des formations"]</button>
+              <a class="btn btn-primary w-100 center-item" href="/formations/recherche">@Localizer["Voir la liste des formations"]</a>
             </div>
           </div>
         </div>
@@ -107,11 +117,11 @@
                                     <div class="little-card-title low-color">
                                         <h3>@f.Name</h3>
                                         <h4>@f.Former, @f.OrganizationName</h4>
-                                        <embed width="16" height="16" src="images/star.svg" type="" />
+                                        @* <embed width="16" height="16" src="images/star.svg" type="" />
                                         <embed width="16" height="16" src="images/star.svg" type="" />
                                         <embed width="16" height="16" src="images/star.svg" type="" />
                                         <embed width="16" height="16" src="images/emptyStar.svg" type="" />
-                                        <embed width="16" height="16" src="images/emptyStar.svg" type="" />
+                                        <embed width="16" height="16" src="images/emptyStar.svg" type="" /> *@
                                     </div>
                                 </div>
                             }
@@ -124,11 +134,11 @@
                                     <div class="little-card-title mid-color">
                                         <h3>@f.Name</h3>
                                         <h4>@f.Former, @f.OrganizationName</h4>
-                                        <embed width="16" height="16" src="images/star.svg" type="" />
+                                        @* <embed width="16" height="16" src="images/star.svg" type="" />
                                         <embed width="16" height="16" src="images/star.svg" type="" />
                                         <embed width="16" height="16" src="images/star.svg" type="" />
                                         <embed width="16" height="16" src="images/emptyStar.svg" type="" />
-                                        <embed width="16" height="16" src="images/emptyStar.svg" type="" />
+                                        <embed width="16" height="16" src="images/emptyStar.svg" type="" /> *@
                                     </div>
                                 </div>
                             }
