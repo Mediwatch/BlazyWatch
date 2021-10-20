@@ -42,15 +42,16 @@ namespace Mediwatch.Server.Controllers
             request.Prefer("return=representation");
             request.RequestBody(PayPal.OrderBuilder.Build(formFind));
             // Call PayPal to set up a transaction
-            PayPal.PayPalClient.SandboxClientId  = _configuration["Authentication:PayPal:SandboxClientId"];
-            PayPal.PayPalClient.SandboxClientSecret = _configuration["Authentication:PayPal:SandboxClientSecret"];
+            PayPal.PayPalClient.LiveClientId  = _configuration["Authentication:PayPal:SandboxClientId"];
+            PayPal.PayPalClient.LiveClientSecret = _configuration["Authentication:PayPal:SandboxClientSecret"];
             // PayPal.PayPalClient.SandboxClientId  ="";
             // PayPal.PayPalClient.SandboxClientSecret ="";
-            if (string.IsNullOrEmpty(PayPal.PayPalClient.SandboxClientId)
-            || string.IsNullOrEmpty(PayPal.PayPalClient.SandboxClientSecret))
+             
+            if (string.IsNullOrEmpty(PayPal.PayPalClient.LiveClientId)
+            || string.IsNullOrEmpty(PayPal.PayPalClient.LiveClientSecret))
                 System.Console.WriteLine("Key MISSING");
-            System.Console.WriteLine(PayPal.PayPalClient.SandboxClientId);
-            System.Console.WriteLine(PayPal.PayPalClient.SandboxClientSecret);
+            System.Console.WriteLine(PayPal.PayPalClient.LiveClientId);
+            System.Console.WriteLine(PayPal.PayPalClient.LiveClientSecret);
 
             var response = await PayPal.PayPalClient.Client().Execute(request);
             // Create a response, with an order id.
