@@ -24,6 +24,7 @@ namespace Mediwatch.Server.Controllers
         {
             public string formationId { get; set; }
             public string orderId { get; set; }
+            public string Client {get; set;}
         }
 
         /// <summary>

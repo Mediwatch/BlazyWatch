@@ -24,7 +24,10 @@ namespace Mediwatch.Server.PayPal
             SandboxClientId = configuration["Authentication:PayPal:SandboxClientId"];
             SandboxClientSecret = configuration["Authentication:PayPal:SandboxClientSecret"];
             System.Console.WriteLine(SandboxClientId);
-             System.Console.WriteLine(SandboxClientSecret);
+            System.Console.WriteLine(SandboxClientSecret);
+            
+            LiveClientId  = configuration["Authentication:PayPal:SandboxClientId"];
+            LiveClientSecret  = configuration["Authentication:PayPal:SandboxClientSecret"];
         }
 
         ///<summary>
