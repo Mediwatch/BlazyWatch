@@ -4,12 +4,14 @@ async function  init_paypal(id) {
     if (document.getElementById("paypal-button-container") != null){
         paypal.Buttons({
         // Set up the transaction
-        createOrder: function (data, actions) {
-            orderId = data.orderID
+        createOrder: function (data, actions) 
+        {
+            orderId = data.orderID;
             jsonObj = JSON.stringify({
                 formationId: id,
                 orderId : data.orderID
             })
+            console.log(jsonObj);
             return fetch('/api/paypal/checkout/order/create/', {
                 method: 'post',
                 headers: {
@@ -56,7 +58,8 @@ async function  init_paypal(id) {
         // An error occurred during the transaction
         onError: function (err) {
             console.log('Error');
-            httpGet('/api/paypal/checkout/order/error/' + orderId + '/' + encodeURIComponent(err));
+            console.log(err);
+            httpGet('/api/paypal/checkout/order/error/' + data.orderId + '/' + encodeURIComponent(err));
         }
 
     }).render('#paypal-button-container');

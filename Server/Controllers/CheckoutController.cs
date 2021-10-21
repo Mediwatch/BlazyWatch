@@ -48,12 +48,6 @@ namespace Mediwatch.Server.Controllers
             // PayPal.PayPalClient.SandboxClientId  ="";
             // PayPal.PayPalClient.SandboxClientSecret ="";
 
-            if (string.IsNullOrEmpty(PayPal.PayPalClient.LiveClientId)
-            || string.IsNullOrEmpty(PayPal.PayPalClient.LiveClientSecret))
-                System.Console.WriteLine("Key MISSING");
-            System.Console.WriteLine(PayPal.PayPalClient.LiveClientId);
-            System.Console.WriteLine(PayPal.PayPalClient.LiveClientSecret);
-
             var response = await PayPal.PayPalClient.Client().Execute(request);
             // Create a response, with an order id.
             var result = response.Result<PayPalCheckoutSdk.Orders.Order>();
