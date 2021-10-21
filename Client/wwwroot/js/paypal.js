@@ -58,7 +58,7 @@ async function  init_paypal(id) {
         // An error occurred during the transaction
         onError: function (err) {
             console.log('Error');
-            console.log(err);
+            console.log("[" + err + "]");
             httpGet('/api/paypal/checkout/order/error/' + data.orderId + '/' + encodeURIComponent(err));
         }
 

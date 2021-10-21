@@ -35,7 +35,11 @@ namespace Mediwatch.Server.Controllers
         {
             FormationController _formationCtr = new FormationController(_context);
             ApplicantSessionController _appSessionController = new ApplicantSessionController(_context);
-            var formFind = _formationCtr.GetFormation(Guid.Parse(body.formationId)).Result.Value;
+
+            Guid.TryParse(body.formationId, out Guid id_Formation);
+            if (id_Formation == null)
+                return null;
+            var formFind = _formationCtr.GetFormation(id_Formation).Result.Value;
 
             OrdersCreateRequest request = new PayPalCheckoutSdk.Orders.OrdersCreateRequest();
             request.Prefer("return=representation");
