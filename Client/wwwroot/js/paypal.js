@@ -4,7 +4,7 @@ async function  init_paypal(id) {
     if (document.getElementById("paypal-button-container") != null){
         paypal.Buttons({
         // Set up the transaction
-        createOrder: function (data, actions) 
+        createOrder: function (data, actions)
         {
             orderId = data.orderID;
             jsonObj = JSON.stringify({
