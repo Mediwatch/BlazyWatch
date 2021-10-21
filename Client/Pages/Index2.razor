@@ -42,7 +42,7 @@
               {
               <div class="little-card" @onclick="@(e => clickfunc("formations/" + _formations[i].id))">
                 <div class="little-card-image-container">
-                  <image src="https://picsum.photos/468/280" />
+                  <image src="https://picsum.photos/468/28" + i />
                 </div>
                 <h3>@_formations[i].Name</h3>
                 <div class="rating-box">
@@ -58,8 +58,7 @@
                 <div class="little-card-title">
                   <h4 class="former-and-hour">@_formations[i].Former | 12h</h4>
                   <h4>ㅤ</h4>
-                  <h4>ㅤ</h4>
-                  <h4>@_formations[i].Description</h4>
+                  <h4 class="card-description">@_formations[i].Description</h4>
                 </div>
               </div>
               }

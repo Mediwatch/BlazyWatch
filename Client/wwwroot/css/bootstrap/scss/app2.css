@@ -482,6 +482,16 @@
 .little-card-title .former-and-hour {
   margin-top: -5vh;
 }
+.little-card .former-and-hour {
+  font-size: 20px;
+}
+.little-card-title .card-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  height: 6vh;
+  width: 90%;
+}
 .cards-container .little-cards-container .little-card-image-container {
   overflow: hidden;
   display: flex;
@@ -498,14 +508,15 @@
 .little-card h3 {
   margin-top: -26vh;
   margin-right: 4vh;
-  font-size: 40px;
+  height: 20vh;
+  font-size: 25px;
   text-align: right;
   color: white;
   text-shadow: 2px 2px 0 rgb(0, 0, 0);
 }
 .rating-box {
   z-index: 10;
-  margin-top: 18.5vh;
+  margin-top: 2.7vh;
   position: relative;
   margin-left:auto;
   margin-right: auto;
