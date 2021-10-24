@@ -6,6 +6,8 @@ using Server;
 using System;
 using Mediwatch.Shared.Models;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity;
+using Mediwatch.Server.Areas.Identity.Data;
 
 namespace Mediwatch.Server.Controllers
 {
@@ -13,11 +15,15 @@ namespace Mediwatch.Server.Controllers
     {
         private readonly DbContextMediwatch _context;
         private IConfiguration _configuration;
+        private readonly UserManager<UserCustom> userManager;
+
         public CheckoutController(DbContextMediwatch context,
-        IConfiguration configuration)
+        IConfiguration configuration,
+        UserManager<UserCustom> _userManager)
         {
             _context = context;
             _configuration = configuration;
+            this.userManager = _userManager;
 
         }
         public class localBody
@@ -33,6 +39,9 @@ namespace Mediwatch.Server.Controllers
         [HttpPost("api/paypal/checkout/order/create")]
         public async Task<PayPal.SmartButtonHttpResponse> Create([FromBody] localBody body)
         {
+            // AcountCountroller
+            // Console.WriteLine((await userManager.FindByNameAsync(User.Identity.Name)).Id);
+            Guid idUserDB =  (await userManager.FindByNameAsync(User.Identity.Name)).Id;
             FormationController _formationCtr = new FormationController(_context);
             ApplicantSessionController _appSessionController = new ApplicantSessionController(_context);
 
@@ -60,6 +69,7 @@ namespace Mediwatch.Server.Controllers
                 orderID = result.Id
             };
             applicant_session applicantSession = new applicant_session(){
+                idUser = idUserDB,
                 idFormation = formFind.id,
                 confirmed = false,
                 payed = false,
