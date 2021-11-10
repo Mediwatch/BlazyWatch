@@ -6,42 +6,56 @@
 
 <div id="editorjs"></div>
 
-@if (message != null){
-    
-<h6>@message</h6>
+@if (message != null)
+{
+
+    <h6>@message</h6>
 
 }
 
 @if (render != null)
 {
     <BlazeEditViewer @bind-Render="render">
-        <BlazEditParagraph/>
-        <BlazEditImage/>
-        <BlazeEditHeader/>
-        <BlazEditSpacer Content="<b>*****<b>"/>
+        <BlazEditParagraph />
+        <BlazEditImage />
+        <BlazeEditHeader />
+        <BlazEditSpacer Content="<b>*****<b>" />
     </BlazeEditViewer>
 }
 
 <button @onclick=save>save</button>
 @code {
+    /// <summary>
+    /// Correspond à une action qui doit être réalisée après une sauvegarde effective de l'article.
+    /// </summary>
+    /// <value></value>
     [Parameter]
-    public Func <string, string> returnFunction {get;set;} = null;
+    public Func<string, string> returnFunction { get; set; } = null;
+
+    /// <summary>
+    /// Correspond à l'article sauvegardé.
+    /// </summary>
     public string message = null;
 
     public BlazingRender render = null;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if(firstRender)
+        if (firstRender)
             await JSRuntime.InvokeAsync<object>(
-                "BlazeEdit.configureEditor");
+            "BlazeEdit.configureEditor");
     }
 
-    public async Task save() {
+    /// <summary>
+    /// Permet de sauvegarder un article dans la base de données.
+    /// </summary>
+    /// <returns></returns>
+    public async Task save()
+    {
         var article = await JSRuntime.InvokeAsync<string>(
-                "BlazeEdit.saveEdited");
+        "BlazeEdit.saveEdited");
         message = article;
         render = JsonConvert.DeserializeObject<BlazingRender>(article);
         returnFunction?.Invoke(article);
         this.StateHasChanged();
-    } 
+    }
 }

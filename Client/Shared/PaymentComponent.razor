@@ -7,9 +7,15 @@
 <div id="paypal-button-container"></div>
 
 @code {
-    [Parameter] 
-    public string price {get;set;}
+    [Parameter]
+    public string price { get; set; }
     private static Action _action;
+
+    /// <summary>
+    /// Permet d'initialiser Paypal et toutes les fonctions associées.
+    /// </summary>
+    /// <param name="firstRender"></param>
+    /// <returns></returns>
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -19,11 +25,17 @@
         }
     }
 
+    /// <summary>
+    /// Permet de rediriger l'utilisateur vers la page d'accueil.
+    /// </summary>
     private void UpdateMessage()
     {
         NavigationManager.NavigateTo("/");
     }
 
+    /// <summary>
+    /// Permet de réaliser une action spécifique après la fin d'utilisation de Paypal.
+    /// </summary>
     [JSInvokable]
     public static void OnPaypalDone()
     {
@@ -32,4 +44,3 @@
 
 
 }
-  

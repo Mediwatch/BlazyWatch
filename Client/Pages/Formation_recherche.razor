@@ -3,18 +3,28 @@
 @inject HttpClient Client
 @inject IJSRuntime JsRuntime
 
-<label for="filterOption">Filtrer : </label>
-<select id="filterOption" @bind="_option">
-    <option value="name" selected>Nom</option>
-    <option value="location">Localisation</option>
-    <option value="organizationName">Organisme</option>
-    <option value="former">Formateur</option>
-    <option value="tag">Tag</option>
-</select>
-<label for="searchBar">Rechercher : </label>
-<input id="searchBar" @oninput=@Filter placeholder="Entrez votre recherche" />
 
-<div class="cards-container">
+<div class="row mb-3">
+    <div class="align-self-center">
+        <label for="filterOption">Filtrer: </label>
+    </div>
+    <div class="align-self-center col-md-3 ">
+        <select id="filterOption" class="form-control" @bind="_option">
+            <option class="dropdown-item" value="name"  selected>Nom</option>
+            <option class="dropdown-item" value="location">Localisation</option>
+            <option class="dropdown-item" value="organizationName">Organisme</option>
+            <option class="dropdown-item" value="former">Formateur</option>
+            <option class="dropdown-item" value="tag">Tag</option>
+        </select>
+    </div>
+    <div class="align-self-center">
+        <label for="searchBar">Rechercher: </label>
+    </div>
+    <div class="align-self-center col-md-4">
+            <input id="searchBar" class="form-control w-20" @oninput=@Filter placeholder="Entrez votre recherche" />
+    </div>
+</div>
+<div class="container">
     <div class="cards-container">
         @if (_formations == null)
         {
@@ -26,15 +36,33 @@
             @foreach (var f in _formations)
             {
                 <div>
-                    <div class="presentation-card mid-color">
-                        <div class="low-color presentation-card-triangle " />
-                        <div class="presentation-card-text dark-color">
-                            <h3>@f.Name</h3>
-                            <p>Du @f.StartDate au @f.EndDate</p>
-                            <p>Localisation : @f.Location</p>
-                            <p>Audience : @f.Target</p>
+                    <div class="search-card mid-color">
+                        <div class="low-color search-card-triangle " />
+                        <div class="search-card-text dark-color d-flex flex-row">
+                            <div class="w-70">
+                                <div class="d-flex flex-row info">
+                                    <div class="w-25 d-flex flex-row align-self-center">
+                                        <img class="align-self-center mr-2" src="./ressources/logo.png" alt="mediwatch logo" width="20" height="20"/>
+                                        <h6 class="align-self-center">@f.OrganizationName</h6>
+                                    </div>
+                                    <h6 class="w-50 align-self-center">@f.StartDate 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                    </svg> 
+                                    @f.EndDate</h6>
+                                    <div class="location ml-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                                            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                        <h6>@f.Location</h6>
+                                    </div>
+                                </div>
+                                <h3>@f.Name</h3>
+                                <p>@f.Description</p>
+                            </div>
                         </div>
-                        <a class="presentation-card-buton high-color" href=@($"/formations/{f.id}")>En savoir plus</a>
+                        <a class="search-card-buton high-color" href=@($"/formations/{f.id}")>En savoir plus</a>
                     </div>
                 </div>
             }
@@ -51,21 +79,31 @@
     List<formation> _formations = null;
     //List<formation> _filtered = null;
 
+    /// <summary>
+    /// Permet de récupérer l'ensemble des formations depuis la base de données.
+    /// </summary>
+    /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
         _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
         _tags = await Client.GetFromJsonAsync<IEnumerable<tag>>("Tag") as List<tag>;
         //_filtered = _formations;
-        JsRuntime.InvokeVoidAsync("display", _formations);
+        await JsRuntime.InvokeVoidAsync("display", _formations);
     }
 
+    /// <summary>
+    /// Permet de filtrer les formations selon l'événement reçu.
+    /// </summary>
+    /// <param name="e">L'événement reçu, cela est généralement une modification d'un champ texte.</param>
+    /// <returns></returns>
     private async void Filter(ChangeEventArgs e)
     {
         try
         {
             //_filtered = _formations.Where(f => f.Name.ToLower().Contains(e.Value.ToString().ToLower())).ToList();
             // Voir pour utiliser le cache si le navigateur ne le fait pas lui-m�me ?
-            if (_option == "tag") {
+            if (_option == "tag")
+            {
                 var tag = _tags.Find(t => t.tag_name.Equals(e.Value.ToString()));
 
                 if (tag == null)
@@ -73,7 +111,9 @@
 
                 _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation?idtag=" +
                 tag.id) as List<formation>;
-            } else {
+            }
+            else
+            {
                 _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation/search?" + _option + "=" +
                 e.Value.ToString()) as List<formation>;
             }

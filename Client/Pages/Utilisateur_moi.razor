@@ -13,38 +13,66 @@
 }
 else
 {
-    <h2>Gestion utilisateur</h2>
-    <h3>Vos informations</h3>
-    <h4>Nom d'utilisateur</h4>
-    <p>@_info.Name</p>
-    <h4>Addresse mail principale</h4>
-    <p>@_info.Email</p>
-    <h4>Type de compte</h4>
-    <p>@_info.Role</p>
-    <Bill></Bill>
-    <h3>Modification de vos informations</h3>
-
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="h-100 d-flex align-items-center justify-content-center m-3 p-3 border border-dark rounded">
+                    <div class="w-100">                   
+                        <h2>Gestion utilisateur</h2>
+                        <h3>Vos informations</h3>
+                        <h4>Nom d'utilisateur</h4>
+                        <p>@_info.Name</p>
+                        <h4>Addresse mail principale</h4>
+                        <p>@_info.Email</p>
+                        <h4>Type de compte</h4>
+                        <p>@_info.Role</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="h-100 d-flex align-items-center justify-content-center m-3 p-3 border border-dark rounded">
+                    <div class="w-100">
+                        <h3>Modification de vos informations</h3>
+                        <ClientItem user=_info></ClientItem>
+                        <button @onclick="EraseAccount" class="btn btn-outline-danger">Effacer votre compte</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-100 d-flex align-items-center justify-content-center mx-1 my-3 border border-dark rounded flex-column">
+            <Bill></Bill>
+    </div>
     <PopUp @bind-Activate="active">
-        <div>
-            Voulez vous vraiment effacer votre compte ?
-            <button @onclick="deleteUser" class="btn btn-primary">Effacer votre compte</button>
-            <button @onclick="CancelErase" class="btn btn-primary">Non</button>
+        <div class="d-flex align-items-center flex-column">
+            <h2 class="text-center">Voulez vous vraiment effacer votre compte ?</h2>
+            <div class="w-100  d-flex align-items-stretch justify-content-center">
+                <button @onclick="CancelErase" class="btn btn-primary">Non</button>
+                <button @onclick="deleteUser" class="btn btn-outline-danger ml-1">Effacer votre compte</button>
+            </div>
         </div>
     </PopUp>
 
-    <ClientItem user=_info></ClientItem>
-    <button @onclick="EraseAccount" class="btn btn-primary">Effacer votre compte</button>
 }
 
 @code {
     private UserPublic _info = null;
 
     private bool active = false;
+
+    /// <summary>
+    /// Permet de récupérer les informations de l'utilisateur depuis la base de données.
+    /// </summary>
+    /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
         _info = await Client.GetFromJsonAsync<UserPublic>("Users/info");
     }
 
+    /// <summary>
+    /// Permet de supprimer les données de l'utilisateur de la base de données, de le déconnecter et de rediriger vers la page d'accueil.
+    /// </summary>
+    /// <returns></returns>
     public async Task deleteUser()
     {
         await Client.GetAsync("Users/deleteUser?id=" + _info.Id.ToString());
@@ -52,11 +80,17 @@ else
         NavManager.NavigateTo("/", true);
     }
 
+    /// <summary>
+    /// Permet de confirmer la validation de la suppression du code.
+    /// </summary>
     public void EraseAccount()
     {
         active = true;
     }
 
+    /// <summary>
+    /// Permet d'infirmer la validation de la suppression du code.
+    /// </summary>
     public void CancelErase()
     {
         active = false;

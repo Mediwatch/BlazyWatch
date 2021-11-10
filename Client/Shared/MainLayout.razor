@@ -26,19 +26,19 @@
                         </DropDownButton>
                         <Content>
                             <a class="dropdown-item selected reload" href="/utilisateur/moi">Mes informations</a>
-                                <a class="dropdown-item selected reload" href="/utilisateur/calendrier">Mon calendrier</a>
-                                <a class="dropdown-item selected reload" href="/utilisateur/achat">Accéder à mon panier</a>
-                                <AuthorizeView Roles="Admin, Tutor">
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item selected reload" href="/formations/creation">Créer une formation</a>
-                                </AuthorizeView>
-                                <AuthorizeView Roles="Admin">
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item selected reload" href="/Admin">Panneau d'administration</a>
-                                </AuthorizeView>
+                            <a class="dropdown-item selected reload" href="/utilisateur/calendrier">Mon calendrier</a>
+                            <a class="dropdown-item selected reload" href="/utilisateur/achat">Accéder à mon panier</a>
+                            <AuthorizeView Roles="Admin, Tutor">
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item selected reload" href="/formations/recherche">Chercher une formation</a>
-                                <a class="dropdown-item selected reload" href="#" @onclick="Logout">Déconnexion</a>
+                                <a class="dropdown-item selected reload" href="/formations/creation">Créer une formation</a>
+                            </AuthorizeView>
+                            <AuthorizeView Roles="Admin">
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item selected reload" href="/Admin">Panneau d'administration</a>
+                            </AuthorizeView>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item selected reload" href="/formations/recherche">Chercher une formation</a>
+                            <a class="dropdown-item selected reload" href="#" @onclick="Logout">Déconnexion</a>
                         </Content>
                     </DropDownMenu>
                 </li>
@@ -132,12 +132,21 @@
 </footer>
 @code {
     public UserInformation Info = null;
+
+    /// <summary>
+    /// Permet de récupérer les informations de base de l'utilisateur à afficher sur toutes les pages.
+    /// </summary>
+    /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
         Info = await Client.GetFromJsonAsync<UserInformation>("Account/UserInfo");
         //await JSRuntime.InvokeVoidAsync("display", info);
     }
 
+    /// <summary>
+    /// Permet à l'utilisateur de se déconnecter depuis n'importe quelle page.
+    /// </summary>
+    /// <returns></returns>
     private async void Logout()
     {
         await AuthStateProvider.Logout();

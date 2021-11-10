@@ -66,7 +66,7 @@ namespace Mediwatch.Server {
 
                 // User settings.
                 options.User.AllowedUserNameCharacters =
-                    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+ ";
+                    @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+ /\&é-èçà)(=+][|$£€";
                 options.User.RequireUniqueEmail = false;
             });
 
@@ -89,6 +89,13 @@ namespace Mediwatch.Server {
             services.AddCors(options =>
                     {
                         options.AddPolicy("DevCorsPolicy", builder =>
+                        {
+                            builder
+                                .AllowAnyOrigin()
+                                .AllowAnyMethod()
+                                .AllowAnyHeader();
+                        });
+                        options.AddPolicy("ProdCorsPolicy", builder =>
                         {
                             builder
                                 .AllowAnyOrigin()

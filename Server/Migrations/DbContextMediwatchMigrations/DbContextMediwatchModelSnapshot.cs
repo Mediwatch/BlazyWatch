@@ -77,6 +77,9 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
                     b.Property<Guid>("idFormation")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("idPayPal")
+                        .HasColumnType("TEXT");
+
                     b.Property<Guid>("idUser")
                         .HasColumnType("TEXT");
 
@@ -140,6 +143,12 @@ namespace Mediwatch.Server.Migrations.DbContextMediwatchMigrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("QuantityCurrent")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("QuantityMax")
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("TEXT");

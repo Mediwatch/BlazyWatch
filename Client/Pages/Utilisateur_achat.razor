@@ -5,6 +5,7 @@
 
 <h2>Votre panier</h2>
 
+<div class="container">
 @if (formations.Count == 0)
 {
     <p>Votre panier est vide.</p>
@@ -14,14 +15,16 @@ else
     @foreach (var f in formations)
     {
         var tmp_f = @f;
-        <h4>@f.Name</h4>
+        <div class="achat-formation">
+        <h4>@f.Name <i class="fas fa-trash" @onclick="@(() => SuppressionFormation(tmp_f))"></i></h4>
         <p>Du @f.StartDate au @f.EndDate, par @f.Former</p>
         <br />
         <p>Coût : @f.Price €</p>
-        <input type="button" @onclick="@(() => SuppressionFormation(tmp_f))" value="Enlever du panier" />
+        </div>
     }
-    <input type="button" @onclick="(() => Payer())" value="Payer" />
+    <input type="button" class="btn btn-primary" @onclick="(() => Payer())" value="Payer mon panier" />
 }
+</div>
 
 
 @code {
@@ -30,6 +33,10 @@ else
 
     private List<string> fs = null;
 
+    /// <summary>
+    /// Permet de récupérer les formations depuis le stockage local de l'utilisateur et de les afficher ensuite sur la page.
+    /// </summary>
+    /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
         fs = await Storage.GetItemAsync<List<string>>("formations");
@@ -55,6 +62,11 @@ else
         }
     }
 
+    /// <summary>
+    /// Permet de supprimer une formation du panier d'achat et du stockage local.
+    /// </summary>
+    /// <param name="f">La formation à supprimer</param>
+    /// <returns></returns>
     private async void SuppressionFormation(formation f)
     {
         Console.WriteLine("Suppression de la formation du panier.");
@@ -67,6 +79,10 @@ else
         });
     }
 
+    /// <summary>
+    /// Permet de payer les différentes formations dans le panier, de créer les factures associées et d'inscrire l'utilisateur aux formations.
+    /// </summary>
+    /// <returns></returns>
     private async void Payer()
     {
         orderInfo info = new orderInfo();

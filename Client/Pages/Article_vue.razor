@@ -10,7 +10,8 @@
 @inject NavigationManager NavigationManager
 
 
-@if(_article != null) {
+@if (_article != null)
+{
     <h1 class="article-viewer-title">@_article.Title</h1>
 }
 
@@ -18,9 +19,9 @@
 {
     <div class="cards-container">
         <BlazeEditViewer @bind-Render="_render">
-            <BlazEditParagraph Class="text-card"/>
-            <BlazEditImage ClassImageContainer="image-card-container" ClassImage="article-viewer-image"/>
-            <BlazeEditHeader/>
+            <BlazEditParagraph Class="text-card" />
+            <BlazEditImage ClassImageContainer="image-card-container" ClassImage="article-viewer-image" />
+            <BlazeEditHeader />
             <BlazEditSpacer Content=@Spacer></BlazEditSpacer>
         </BlazeEditViewer>
     </div>
@@ -33,12 +34,20 @@
 
     private const string Spacer = "<div class=\"spacer\"></div>";
 
-    protected override async Task OnAfterRenderAsync(bool firstRender) {
-        if(firstRender) {
+    /// <summary>
+    /// Permet de récupérer un article depuis la base de données selon le nom fourni dans l'url.
+    /// </summary>
+    /// <param name="firstRender"></param>
+    /// <returns></returns>
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
             _url = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
-            if (QueryHelpers.ParseQuery(_url.Query).TryGetValue("Name", out var articleName)){
+            if (QueryHelpers.ParseQuery(_url.Query).TryGetValue("Name", out var articleName))
+            {
                 Console.WriteLine(articleName);
-                
+
                 _article = await Http.GetFromJsonAsync<Article>($"api/Articles/GetArticle?name={articleName}");
                 Console.WriteLine(_article);
                 await JsRuntime.InvokeVoidAsync("display", _article);

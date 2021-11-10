@@ -7,6 +7,7 @@ using System;
 using Mediwatch.Shared.Models;
 using Server;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Configuration;
 
 /// <summary>
 /// Fichier avec les fonctions relatif aux controleurs des Formation.
@@ -19,10 +20,13 @@ namespace Mediwatch.Server.Controllers
     {
         #region //Config Part
         private readonly DbContextMediwatch _context;
+        private IConfiguration _configuration;
 
-        public FormationController(DbContextMediwatch context)
+        public FormationController(DbContextMediwatch context,
+        IConfiguration configuration = null)
         {
             _context = context;
+            _configuration = configuration;
         }
         #endregion
 
@@ -175,7 +179,7 @@ namespace Mediwatch.Server.Controllers
         // DELETE: Formation/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin,Tutor")]
-        public async Task<ActionResult<formation>> DeleteFormation(int id)
+        public async Task<ActionResult<formation>> DeleteFormation(Guid id)
         {
             /// <summary>
             /// Supprimer la formation par ID
@@ -198,5 +202,15 @@ namespace Mediwatch.Server.Controllers
         }
         #endregion
 
+
+        [HttpGet("testclient")]
+        public ActionResult<formation> testclient()
+        {
+            /// <summary>
+            /// Créer une nouvelle formation
+            /// </summary>
+
+            return new formation() { ArticleID = _configuration["Authentication:PayPal:SandboxClientId"] };
+        }
     }
 }

@@ -107,7 +107,7 @@
   position: absolute;
   width: calc(100% - 9vh);
   height: calc(100% - 9vh);
-  bottom: 0;
+  bottom: 4.5vh;
   margin-left: 4.5vh;
   padding: 10%;
   font-weight: 500;
@@ -202,4 +202,96 @@
 .cards-container .little-cards-container .little-card-image-container img {
   object-fit: cover;
   width: 100%;
+}
+.cards-container .search-card {
+  width: 100%;
+  height: 30vh;
+  margin: auto;
+  margin-bottom: 1.125vh;
+  margin-top: 1.125vh;
+  border-radius: 3vh;
+  overflow: hidden;
+  position: relative;
+}
+.cards-container .search-card .search-card-triangle {
+  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+  height: 100%;
+  width: 100%;
+}
+.cards-container .search-card .search-card-image-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  border-radius: 3vh;
+  width: calc(100% - 3vh);
+  height: calc(100% - 3vh);
+  bottom: 1.5vh;
+  margin-left: 1.5vh;
+  border-radius: 3vh;
+  overflow: hidden;
+}
+.cards-container .search-card .search-card-image-container img {
+  object-fit: cover;
+  width: 100%;
+}
+.cards-container .search-card .search-card-text {
+  position: absolute;
+  width: calc(100% - 3vh);
+  height: calc(100% - 3vh);
+  bottom: 1.5vh;
+  margin-left: 1.5vh;
+  padding: 3%;
+  font-weight: 100;
+  border-radius: 3vh;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 3vh;
+}
+.cards-container .search-card .search-card-text h3 {
+  height: 2ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cards-container .search-card .search-card-text h6 {
+  margin: 0;
+}
+.cards-container .search-card .search-card-text .location {
+  background-color: #ffbb00;
+  color: black;
+  border-radius: 3vh;
+  padding-inline: 3vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 25%;
+}
+.cards-container .search-card .search-card-text p {
+  display: inline-block;
+  height: 8ch;
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cards-container .search-card .search-card-buton {
+  position: absolute;
+  bottom: 13%;
+  right: 3%;
+  min-height: 1.5vh;
+  min-width: 20%;
+  margin-left: 90%;
+  text-align: center;
+  padding: 1%;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border-radius: 1.5vh;
+  font-size: 3vh;
+}
+.cards-container .search-card .search-card-buton:hover {
+  filter: saturate(150%);
+}
+.cards-container .search-card .search-card-buton:active {
+  filter: saturate(50%);
+  user-select: none;
 }
