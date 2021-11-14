@@ -1,97 +1,97 @@
 <!DOCTYPE html>
 <html style="position: relative; min-height: 100%;">
 
-<head>
-    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Mediwatch</title>
-    <base href="/" />
+    <head>
+        <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>Mediwatch</title>
+        <base href="/" />
 
-    <link rel="shortcut icon" href="css/images/MediwatchIcone.ico">
+        <link rel="shortcut icon" href="css/images/MediwatchIcone.ico">
 
-    <link href="_content/SharedComponent/styles.css" rel="stylesheet" />
-    <link href="css/app.css" rel="stylesheet" />
-    <link href="css/bootstrap/scss/app.css" rel="stylesheet" />
-    <link href="css/bootstrap/scss/app2.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/mockup.css" />
+        <link href="_content/SharedComponent/styles.css" rel="stylesheet" />
+        <link href="css/app.css" rel="stylesheet" />
+        <link href="css/bootstrap/scss/app.css" rel="stylesheet" />
+        <link href="css/bootstrap/scss/app2.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/mockup.css" />
 
-    <!-- CSS Bootstrap. -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-    <link href="_content/Blazorise/blazorise.css" rel="stylesheet" />
-    <link href="_content/Blazorise.Bootstrap/blazorise.bootstrap.css" rel="stylesheet" />
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+        <!-- CSS Bootstrap. -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+        <link href="_content/Blazorise/blazorise.css" rel="stylesheet" />
+        <link href="_content/Blazorise.Bootstrap/blazorise.bootstrap.css" rel="stylesheet" />
+        <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- CSS Calendrier -->
-    <link rel="stylesheet" href="_content/Radzen.Blazor/css/default-base.css">
+        <!-- CSS Calendrier -->
+        <link rel="stylesheet" href="_content/Radzen.Blazor/css/default-base.css">
 
-    <!-- FA -->
-    <script src="https://kit.fontawesome.com/917d8c2292.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
-</head>
+        <!-- FA -->
+        <script src="https://kit.fontawesome.com/917d8c2292.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+    </head>
 
-<body>
+    <body>
 
-    <app>
-        <div class="loadingContainer">
-            <div class="shapeshifter play" style="background-image: url(sprite_60fps.svg); min-width: 1100px"></div>
+        <app>
+            <div class="loadingContainer">
+                <div class="shapeshifter play" style="background-image: url(sprite_60fps.svg); min-width: 1100px"></div>
+            </div>
+        </app>
+
+        <!-- Affichage en cas d'erreur. Voir pour ajouter un bouton pour envoyer un rapport d'erreurs ?-->
+        <div id="blazor-error-ui">
+            Une erreur est survenue.
+            <a href="" class="reload">Recharger la page ?</a>
+            <a class="dismiss">x</a>
         </div>
-    </app>
 
-    <!-- Affichage en cas d'erreur. Voir pour ajouter un bouton pour envoyer un rapport d'erreurs ?-->
-    <div id="blazor-error-ui">
-        Une erreur est survenue.
-        <a href="" class="reload">Recharger la page ?</a>
-        <a class="dismiss">x</a>
-    </div>
-
-    <script>
-        window.blazorCulture = {
-            get: () => window.localStorage['BlazorCulture'],
-            set: (value) => window.localStorage['BlazorCulture'] = value
-        };
-    </script>
+        <script>
+            window.blazorCulture = {
+                get: () => window.localStorage['BlazorCulture'],
+                set: (value) => window.localStorage['BlazorCulture'] = value
+            };
+        </script>
 
 
-    <!-- JS Blazing Editor -->
-    <script src="_content/BlazingEditor/editor.js"></script>
-    <script src="_content/BlazingEditor/editorHeader.js"></script>
-    <script src="_content/BlazingEditor/editorList.js"></script>
-    <script src="_content/BlazingEditor/editorEmbed.js"></script>
-    <script src="_content/BlazingEditor/editorInlineCode.js"></script>
-    <script src="_content/BlazingEditor/editorRaw.js"></script>
-    <script src="_content/BlazingEditor/editorDelimiter.js"></script>
-    <script src="_content/BlazingEditor/editorImage.js"></script>
-    <script src="_content/BlazingEditor/editorLink.js"></script>
-    <script src="_content/BlazingEditor/editorCodebox.js"></script>
-    <script src="_content/BlazingEditor/editorParagraph.js"></script>
-    <script src="_content/BlazingEditor/blazedit.js"></script>
+        <!-- JS Blazing Editor -->
+        <script src="_content/BlazingEditor/editor.js"></script>
+        <script src="_content/BlazingEditor/editorHeader.js"></script>
+        <script src="_content/BlazingEditor/editorList.js"></script>
+        <script src="_content/BlazingEditor/editorEmbed.js"></script>
+        <script src="_content/BlazingEditor/editorInlineCode.js"></script>
+        <script src="_content/BlazingEditor/editorRaw.js"></script>
+        <script src="_content/BlazingEditor/editorDelimiter.js"></script>
+        <script src="_content/BlazingEditor/editorImage.js"></script>
+        <script src="_content/BlazingEditor/editorLink.js"></script>
+        <script src="_content/BlazingEditor/editorCodebox.js"></script>
+        <script src="_content/BlazingEditor/editorParagraph.js"></script>
+        <script src="_content/BlazingEditor/blazedit.js"></script>
 
-    <!-- JS Blazorise -->
-    <script src="_content/Blazorise/blazorise.js"></script>
-    <script src="_content/Blazorise.Bootstrap/blazorise.bootstrap.js"></script>
+        <!-- JS Blazorise -->
+        <script src="_content/Blazorise/blazorise.js"></script>
+        <script src="_content/Blazorise.Bootstrap/blazorise.bootstrap.js"></script>
 
-    <!-- JS Bootstrap. -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <!-- JS Bootstrap. -->
+        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-    <!-- JS Calendrier-->
-    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+        <!-- JS Calendrier-->
+        <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
 
-    <!-- DEBUG -->
-    <!-- <script src="https://www.paypal.com/sdk/js?client-id=AS60MoczPXk40sTYAtzCr41h2BgSmUNk4RxhPndZ-Ajz0Ic7hKQRWMd7JWNtB-OhT0C55MtweuBTSJmF&currency=EUR&disable-funding=credit,card&debug=true"></script> -->
-    <!-- PROD -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AZItd4zy21X2GzYkiEOYYZY_9IeuD-rLCkVZwFZZ5HxvWF8Q8HZapFkb1zNdpMREbF7ojvTEEy1el71J&currency=EUR&disable-funding=credit,card&debug=true"></script>
-    <script src="js/paypal.js"></script>
+        <!-- DEBUG -->
+        <!-- <script src="https://www.paypal.com/sdk/js?client-id=AS60MoczPXk40sTYAtzCr41h2BgSmUNk4RxhPndZ-Ajz0Ic7hKQRWMd7JWNtB-OhT0C55MtweuBTSJmF&currency=EUR&disable-funding=credit,card&debug=true"></script> -->
+        <!-- PROD -->
+        <script src="https://www.paypal.com/sdk/js?client-id=AZItd4zy21X2GzYkiEOYYZY_9IeuD-rLCkVZwFZZ5HxvWF8Q8HZapFkb1zNdpMREbF7ojvTEEy1el71J&currency=EUR&disable-funding=credit,card&debug=true"></script>
+        <script src="js/paypal.js"></script>
 
-    <!-- JS Blazor -->
-    <script src="_framework/blazor.webassembly.js"></script>
+        <!-- JS Blazor -->
+        <script src="_framework/blazor.webassembly.js"></script>
 
-    <script>function display(o) { console.log(o); }</script>
-</body>
+        <script>function display(o) { console.log(o); }</script>
+    </body>
 
 </html>
