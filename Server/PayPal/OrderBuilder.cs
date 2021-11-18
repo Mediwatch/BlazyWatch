@@ -13,6 +13,7 @@ namespace Mediwatch.Server.PayPal
         /// <returns></returns>
         public static OrderRequest Build(formation currentForm)
         {
+            #region testRegion
             // OrderRequest orderRequest = new OrderRequest()
             // {
             //     CheckoutPaymentIntent = CheckoutPaymentIntent.CAPTURE,
@@ -81,7 +82,9 @@ namespace Mediwatch.Server.PayPal
             //                     Category = PayPal.Values.Item.Category.DIGITAL_GOODS
             //                 });
             // }
-            string priceStr = currentForm.Price.ToString().Replace(",", ".");
+            #endregion
+
+            string priceStr = FormatPrice(currentForm.Price);
             var order = new OrderRequest()
             {
                 CheckoutPaymentIntent = "CAPTURE",
@@ -98,6 +101,68 @@ namespace Mediwatch.Server.PayPal
                 }
             };
             return order;
+        }
+
+        public static OrderRequest Build(List<formation> listCurrentForm)
+        {
+            var priceGet = GetPrice(listCurrentForm);
+            var order = new OrderRequest()
+            {
+                CheckoutPaymentIntent = "CAPTURE",
+                PurchaseUnits = new List<PurchaseUnitRequest>()
+                {
+                    new PurchaseUnitRequest()
+                    {
+                        // AmountWithBreakdown = new AmountWithBreakdown()
+                        // {
+                        //     CurrencyCode = PayPal.Values.CurrencyCode.EUR,
+                        //     Value = priceGet
+                        // }
+                        AmountWithBreakdown = new AmountWithBreakdown()
+                        {
+                            CurrencyCode = PayPal.Values.CurrencyCode.EUR,
+                            Value = priceGet,
+                            AmountBreakdown = new AmountBreakdown
+                            {
+                                ItemTotal = new Money
+                                {
+                                    CurrencyCode = PayPal.Values.CurrencyCode.EUR,
+                                    Value = priceGet
+                                }
+                            },
+                        },
+                        Items = GetItems(listCurrentForm)
+                    }
+                }
+            };
+            return order;
+        }
+
+        private static List<Item> GetItems(List<formation> listCurrentForm)
+        {
+            var ListItems = new List<Item>();
+            foreach (var itForm in listCurrentForm)
+            {
+                var newItem = new Item(){
+                    Name = itForm.Name,
+                    Quantity = "1",
+                    Description = itForm.Description
+                };
+            }
+            return ListItems;
+        }
+        private static string FormatPrice(decimal input)
+        {
+            return input.ToString().Replace(",", ".");
+        }
+        private static string GetPrice(List<formation> listCurrentForm)
+        {
+            decimal TotalPrice = 0;
+            foreach (var curForm in listCurrentForm)
+            {
+                TotalPrice += curForm.Price;
+            }
+            return FormatPrice(TotalPrice);
         }
     }
 }

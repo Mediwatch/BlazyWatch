@@ -6,12 +6,14 @@ async function  init_paypal(id) {
         // Set up the transaction
         createOrder: function (data, actions)
         {
+            let listId = [];
+            listId.push(id);
+            console.log(listId);
             orderId = data.orderID;
             jsonObj = JSON.stringify({
-                formationId: id,
+                formationId: listId,
                 orderId : data.orderID
             })
-            console.log(jsonObj);
             return fetch('/api/paypal/checkout/order/create/', {
                 method: 'post',
                 headers: {

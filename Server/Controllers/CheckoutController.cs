@@ -8,6 +8,7 @@ using Mediwatch.Shared.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Mediwatch.Server.Areas.Identity.Data;
+using System.Collections.Generic;
 
 namespace Mediwatch.Server.Controllers
 {
@@ -28,7 +29,7 @@ namespace Mediwatch.Server.Controllers
         }
         public class localBody
         {
-            public string formationId { get; set; }
+            public List<string> formationId { get; set; }
             public string orderId { get; set; }
         }
 
@@ -41,42 +42,50 @@ namespace Mediwatch.Server.Controllers
         {
             // AcountCountroller
             // Console.WriteLine((await userManager.FindByNameAsync(User.Identity.Name)).Id);
-            Guid idUserDB =  (await userManager.FindByNameAsync(User.Identity.Name)).Id;
+            Guid idUserDB = (await userManager.FindByNameAsync(User.Identity.Name)).Id;
             FormationController _formationCtr = new FormationController(_context);
             ApplicantSessionController _appSessionController = new ApplicantSessionController(_context);
 
-            Guid.TryParse(body.formationId, out Guid id_Formation);
-            if (id_Formation == null)
-                return null;
-            var formFind = _formationCtr.GetFormation(id_Formation).Result.Value;
-
-            OrdersCreateRequest request = new PayPalCheckoutSdk.Orders.OrdersCreateRequest();
-            request.Prefer("return=representation");
-            request.RequestBody(PayPal.OrderBuilder.Build(formFind));
-            // Call PayPal to set up a transaction
-            PayPal.PayPalClient.LiveClientId  = _configuration["Authentication:PayPal:LiveClientId"];
-            PayPal.PayPalClient.LiveClientSecret = _configuration["Authentication:PayPal:LiveClientSecret"];
-            PayPal.PayPalClient.SandboxClientId  = _configuration["Authentication:PayPal:SandboxClientId"];
-            PayPal.PayPalClient.SandboxClientSecret = _configuration["Authentication:PayPal:SandboxClientSecret"];
-            // PayPal.PayPalClient.SandboxClientId  ="";
-            // PayPal.PayPalClient.SandboxClientSecret ="";
-
-            var response = await PayPal.PayPalClient.Client().Execute(request);
-            // Create a response, with an order id.
-            var result = response.Result<PayPalCheckoutSdk.Orders.Order>();
-            var payPalHttpResponse = new PayPal.SmartButtonHttpResponse(response)
+            var ListFormFind = new List<formation>();
+            foreach (var it in body.formationId)
             {
-                orderID = result.Id
-            };
-            applicant_session applicantSession = new applicant_session(){
-                idUser = idUserDB,
-                idFormation = formFind.id,
-                confirmed = false,
-                payed = false,
-                idPayPal = result.Id
-            };
-            await _appSessionController.PostApplicantSession(applicantSession);
-            return payPalHttpResponse;
+                Guid.TryParse(it, out Guid id_Formation);
+                ListFormFind.Add(_formationCtr.GetFormation(id_Formation).Result.Value);
+            }
+
+
+                OrdersCreateRequest request = new PayPalCheckoutSdk.Orders.OrdersCreateRequest();
+                request.Prefer("return=representation");
+                request.RequestBody(PayPal.OrderBuilder.Build(ListFormFind));
+
+
+
+
+                // Call PayPal to set up a transaction
+                PayPal.PayPalClient.LiveClientId = _configuration["Authentication:PayPal:LiveClientId"];
+                PayPal.PayPalClient.LiveClientSecret = _configuration["Authentication:PayPal:LiveClientSecret"];
+                PayPal.PayPalClient.SandboxClientId = _configuration["Authentication:PayPal:SandboxClientId"];
+                PayPal.PayPalClient.SandboxClientSecret = _configuration["Authentication:PayPal:SandboxClientSecret"];
+
+
+
+                var response = await PayPal.PayPalClient.Client().Execute(request);
+                // Create a response, with an order id.
+                var result = response.Result<PayPalCheckoutSdk.Orders.Order>();
+                var payPalHttpResponse = new PayPal.SmartButtonHttpResponse(response)
+                {
+                    orderID = result.Id
+                };
+                applicant_session applicantSession = new applicant_session()
+                {
+                    idUser = idUserDB,
+                    // idFormation = formFind.id,
+                    confirmed = false,
+                    payed = false,
+                    idPayPal = result.Id
+                };
+                await _appSessionController.PostApplicantSession(applicantSession);
+                return payPalHttpResponse;
         }
 
 
@@ -109,7 +118,7 @@ namespace Mediwatch.Server.Controllers
         //     @"+++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
         //     return Ok();
         // }
-        
+
         [HttpGet("api/paypal/checkout/order/complete/{orderId}")]
         public IActionResult Complete(string orderId)
         {
