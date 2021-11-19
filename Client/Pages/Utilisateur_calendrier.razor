@@ -1,6 +1,7 @@
 @page "/utilisateur/calendrier"
 @inject HttpClient Client
 @inject IJSRuntime JsRuntime
+@inject NavigationManager navman
 
 @inject DialogService DialogService
 
@@ -15,10 +16,10 @@
 }
 else
 {
-    <p>En attente d'acquisitions des informations de l'utilisateur...</p>
+    <p>En attente d'acquisition des informations de l'utilisateur...</p>
 }
 
-<RadzenScheduler @ref=@scheduler style="height: 768px;" TItem="Appointment" Data=@appointments
+<RadzenScheduler @ref=@scheduler style="height: 768px;" TItem="MyAppointment" Data=@appointments
     StartProperty="Data.Start" EndProperty="Data.End" TextProperty="Data.Text" SelectedIndex="2"
     SlotSelect=@OnSlotSelect AppointmentSelect=@OnAppointmentSelect AppointmentRender=@OnAppointmentRender>
     <RadzenDayView />
@@ -28,8 +29,13 @@ else
 
 @code {
 
-    RadzenScheduler<Appointment> scheduler;
-    IList<Appointment> appointments = new List<Appointment>();
+    class MyAppointment : Appointment
+    {
+        public formation formation;
+    }
+
+    RadzenScheduler<MyAppointment> scheduler;
+    IList<MyAppointment> appointments = new List<MyAppointment>();
 
     List<formation> _formations = new List<formation>();
     public UserPublic info_user = null;
@@ -52,7 +58,7 @@ else
 
             foreach (var f in _formations)
             {
-                appointments.Add(new Appointment()
+                appointments.Add(new MyAppointment()
                 {
                     Data = new AppointmentData()
                     {
@@ -60,6 +66,7 @@ else
                         End = f.EndDate,
                         Text = f.Name,
                     },
+                    formation = f,
                 });
             }
             await scheduler.Reload();
@@ -81,8 +88,9 @@ else
     /// </summary>
     /// <param name="args"></param>
     /// <returns></returns>
-    async Task OnAppointmentSelect(SchedulerAppointmentSelectEventArgs<Appointment> args)
+    async Task OnAppointmentSelect(SchedulerAppointmentSelectEventArgs<MyAppointment> args)
     {
+        await JsRuntime.InvokeAsync<object>("open", "/formations/" + args.Data.formation.id, "_blank");
         await scheduler.Reload();
     }
 
@@ -91,7 +99,7 @@ else
     /// </summary>
     /// <param name="args"></param>
     /// <returns></returns>
-    void OnAppointmentRender(SchedulerAppointmentRenderEventArgs<Appointment> args)
+    void OnAppointmentRender(SchedulerAppointmentRenderEventArgs<MyAppointment> args)
     {
         // Never call StateHasChanged in AppointmentRender - would lead to infinite loop
     }
