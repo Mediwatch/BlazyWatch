@@ -22,42 +22,53 @@
 else
 {
     <div class="container">
-    <FormationItemView f=_formation></FormationItemView>
+        <FormationItemView f=_formation></FormationItemView>
 
-    @if (_formation.ArticleID != null)
-    {
-        <ArticleViewer articleName=@_formation.ArticleID></ArticleViewer>
-    }
+        @if (_formation.ArticleID != null)
+        {
+            <ArticleViewer articleName=@_formation.ArticleID></ArticleViewer>
+        }
 
-    @if (_info == null || !_info.IsAuthenticated)
-    {
-        <button class="btn btn-primary" @onclick="@Registration" disabled>
-            S'inscrire à la formation
-        </button>
-        <button class="btn btn-primary" @onclick="@Ajout" disabled>
-            Ajouter la formation à mon panier
-        </button>
-    }
-    else
-    {
-        @* <button class="btn btn-primary" @onclick="@Registration">
-            S'inscrire à la formation
-        </button> *@
-        <div id="paypal-button-container"></div>
-        <button class="btn btn-primary" @onclick="@Ajout">
-            Ajouter la formation à mon panier
-        </button>
-    }
+        @if (_info == null || !_info.IsAuthenticated)
+        {
+            <div id="paypal-button-container" aria-disabled="true"></div>
+            <button class="btn btn-primary" disabled>
+                Ajouter la formation à mon panier
+            </button>
+        }
+        else
+        {
+            <div id="paypal-button-container"></div>
+            <button class="btn btn-primary" @onclick="@Ajout" data-toggle="modal" data-target="#exampleModalCenter">
+                Ajouter la formation à mon panier
+            </button>
+        }
 
-    <div id="notif" style="border-style: dashed; visibility: @visibility">
-        <p>Formation ajoutée correctement au panier.</p>
-        <button class="btn btn-secondary" @onclick="@Redirection">Voir mon panier</button>
-        <Button class="btn btn-secondary" @onclick="@Disparition">Réduire</Button>
-    </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        @if (added)
+                        {
+                            <span>Formation déjà ajoutée au panier.</span>
+                        }
+                        else
+                        {
+                            <span>Formation correctement ajoutée au panier.</span>
+                        }
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Réduire</button>
+                        <button type="button" class="btn btn-primary" @onclick="@Redirection">Voir mon panier</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <PopUp @bind-Activate="popupActivated">
-        <PopupBeta></PopupBeta>
-    </PopUp>
+        <PopUp @bind-Activate="popupActivated">
+            <PopupBeta></PopupBeta>
+        </PopUp>
     </div>
 }
 
@@ -73,11 +84,11 @@ else
 
     private UserPublic user = null;
 
-    private string visibility = "hidden";
-
     private bool popupActivated = false;
 
     private bool found = false;
+
+    bool added = false;
 
     /// <summary>
     /// Permet de voir une formation depuis la base de données en fonction de l'id dans l'url.
@@ -104,42 +115,16 @@ else
     /// <returns></returns>
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (!firstRender && !found){
-
+        if (!firstRender && !found)
+        {
             await JsRuntime.InvokeVoidAsync("init_paypal", Id);
             found = true;
             StateHasChanged();
         }
     }
 
-    private async Task Registration()
-    {
-        Console.WriteLine("Inscription à la formation en elle-même, passer par Paypal directement ?");
-        // Enregistrer ici l'utilisateur à la formation !
-        //JSRuntime.InvokeVoidAsync("display", e);
-
-        Console.WriteLine("Inscription à la formation " + Id);
-        applicant_session session = new applicant_session();
-        session.confirmed = true;
-        session.idFormation = Guid.Parse(Id); // string plutôt ?
-        session.idUser = user.Id;
-        session.payed = true;
-        await Client.PostAsJsonAsync("/Users/registeruserformation", session);
-        Console.WriteLine("Inscription réussie, devrait être après le Paypal");
-
-        Console.WriteLine("Ici, on crée un faux orderInfo, histoire de pouvoir montrer le fonctionnement des factures avec un achat spécifique.");
-        orderInfo info = new orderInfo();
-        info.invoiceId = Guid.NewGuid().ToString();
-        info.price = (float) _formation.Price;
-        await Client.PostAsJsonAsync("Order", info);
-        popupActivated = true;
-        Console.WriteLine("Facture créée !");
-
-    }
-
     private async void Ajout()
     {
-        Console.WriteLine(("ajout !"));
 
         var formations = await Storage.GetItemAsync<List<string>>("formations");
 
@@ -151,20 +136,14 @@ else
         if (formations.Contains(Id))
         {
             Console.WriteLine("Impossible d'ajouter la formation, déjà présente.");
+            added = true;
             return;
         }
 
-        Console.WriteLine(formations);
-        Console.WriteLine(formations.Count);
-
         formations.Add(Id);
 
-        Console.WriteLine(formations);
-        Console.WriteLine(formations.Count);
-
         await Storage.SetItemAsync<List<string>>("formations", formations);
-
-        visibility = "visible";
+        added = true;
 
         StateHasChanged();
     }
@@ -173,11 +152,4 @@ else
     {
         JsRuntime.InvokeAsync<object>("open", "/utilisateur/achat", "_blank");
     }
-
-    private void Disparition()
-    {
-        visibility = "hidden";
-        StateHasChanged();
-    }
-
 }

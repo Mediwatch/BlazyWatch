@@ -1,70 +1,71 @@
-var orderId;
+let orderId;
+let listId = [];
 
-async function  init_paypal(id) {
-    if (document.getElementById("paypal-button-container") != null){
+async function init_paypal(id) {
+    if (document.getElementById("paypal-button-container") != null) {
         paypal.Buttons({
-        // Set up the transaction
-        createOrder: function (data, actions)
-        {
-            let listId = [];
-            listId.push(id);
-            console.log(listId);
-            orderId = data.orderID;
-            jsonObj = JSON.stringify({
-                formationId: listId,
-                orderId : data.orderID
-            })
-            return fetch('/api/paypal/checkout/order/create/', {
-                method: 'post',
-                headers: {
-                    'Content-Type': 'application/json',
-                  },
-                body : jsonObj
-            }).then(function (res) {
-                return res.json();
-            }).then(function (data) {
-                return data.orderID;
-            });
-        },
+            // Set up the transaction
+            createOrder: function (data, actions) {
+                listId = [];
+                listId.push(id);
+                console.log(listId);
+                orderId = data.orderID;
+                jsonObj = JSON.stringify({
+                    formationId: listId,
+                    orderId: data.orderID
+                })
+                return fetch('/api/paypal/checkout/order/create/', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: jsonObj
+                }).then(function (res) {
+                    return res.json();
+                }).then(function (data) {
+                    return data.orderID;
+                });
+            },
 
-        // Finalise the transaction
-        onApprove: function (data, actions) {
-            return fetch('/api/paypal/checkout/order/approved/' + data.orderID, {
-                method: 'post'
-            }).then(function (res) {
-                return actions.order.capture();
-            }).then(function (details) {
+            // Finalise the transaction
+            onApprove: function (data, actions) {
+                return fetch('/api/paypal/checkout/order/approved/' + data.orderID, {
+                    method: 'post'
+                }).then(function (res) {
+                    return actions.order.capture();
+                }).then(function (details) {
 
-                // (Preferred) Notify the server that the transaction id complete and have a option to display an order completed screen.
-                // httpGet('/api/paypal/checkout/order/complete/' +  data.orderID);
-                // httpPost('/api/paypal/checkout/order/complete/' +  data.orderID,
-                // {
-                //     formationId: id,
-                //     orderId: data.orderID
-                // })
-                // OR
-                // Notify the server that the transaction id complete
-                httpGet('/api/paypal/checkout/order/complete/' + data.orderID);
+                    // (Preferred) Notify the server that the transaction id complete and have a option to display an order completed screen.
+                    // httpGet('/api/paypal/checkout/order/complete/' +  data.orderID);
+                    // httpPost('/api/paypal/checkout/order/complete/' +  data.orderID,
+                    // {
+                    //     formationId: id,
+                    //     orderId: data.orderID
+                    // })
+                    // OR
+                    // Notify the server that the transaction id complete
+                    httpGet('/api/paypal/checkout/order/complete/' + data.orderID);
 
-                // Show a success message to the buyer
-                alert('Transaction completed by ' + details.payer.name.given_name + '!');
-            });
-        },
+                    window.location.href = '/formations/fin?ids=' + listId.join(',') + '&details=' + JSON.stringify(details);
+                    // Show a success message to the buyer
+                    console.log('Transaction completed by ' + details.payer.name.given_name + '!');
+                });
+            },
 
-        // Buyer cancelled the payment
-        onCancel: function (data, actions) {
-            httpGet('/api/paypal/checkout/order/cancel/' + data.orderID);
-            alert('Transaction cancel by ' + details.payer.name.given_name + '!');
-        },
+            // Buyer cancelled the payment
+            onCancel: async function (data, actions) {
+                httpGet('/api/paypal/checkout/order/cancel/' + data.orderID);
+                console.error('Transaction cancel by ' + details.payer.name.given_name + '!');
+            },
 
-        // An error occurred during the transaction
-        onError: function (err) {
-            console.log('Error');
-            console.log("[" + err + "]");
-            httpGet('/api/paypal/checkout/order/error/' + data.orderId + '/' + encodeURIComponent(err));
-        }
+            // An error occurred during the transaction
+            onError: function (err) {
+                console.log('Error');
+                console.log("[" + err + "]");
+                httpGet('/api/paypal/checkout/order/error/' + orderId + '/' + encodeURIComponent(err));
+            }
 
-    }).render('#paypal-button-container');
+        }).render('#paypal-button-container');
     }
 }
 
@@ -75,7 +76,7 @@ function httpGet(url) {
     return xmlHttp.responseText;
 }
 
-function httpPost(url, payload){
+function httpPost(url, payload) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("POST", url, false);
     xmlHttp.send(JSON.stringify(payload));

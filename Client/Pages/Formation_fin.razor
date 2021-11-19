@@ -1,0 +1,77 @@
+@page "/formations/fin"
+
+@inject NavigationManager navManager
+@inject HttpClient Client
+
+<div class="container">
+
+    <h1>Merci pour votre achat !</h1>
+
+    <h2>Récapitulatif :</h2>
+
+    <a href=@(facture)>Voir la facture</a>
+
+    <hr>
+
+    @if (Formations == null)
+    {
+        <p>Formations en cours de récupération...</p>
+    }
+    else if (Formations.Count == 1)
+    {
+        <p>Voir la formation à laquelle vous êtes inscrit(e) <a href=@("/formations/" + Formations[0].id)
+            target="_blank">ici</a></p>
+    }
+    else
+    {
+        <p>Voir les formations auxquelles vous êtes inscrit(e) :</p>
+        <ul>
+            @foreach (var f in Formations)
+            {
+                <li><a href=@("/formations/" + f.id) target="_blank">@f.Name</a></li>
+            }
+        </ul>
+    }
+
+    <hr>
+
+    <a class="btn btn-primary center-item" href="/">Retourner à la Page d'accueil</a>
+    <a class="btn btn-primary center-item" href="/formations/recherche">Retourner à la recherche d'une
+        formation</a>
+
+</div>
+
+@code {
+
+    public List<string> Ids { get; set; }
+    public List<formation> Formations { get; set; } = null;
+
+    public string facture;
+
+
+    protected override void OnInitialized()
+    {
+        var uri = new Uri(navManager.Uri);
+        facture = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query).TryGetValue("facture", out var
+        facture_url) ? facture_url.First() : "#";
+        var ids = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query).TryGetValue("ids", out var ids_url) ?
+        ids_url.First() : "";
+
+        Ids = ids.Split(',').ToList();
+        Formations = new List<formation>();
+        Ids.ForEach(async id =>
+        {
+            Console.WriteLine(id);
+            Formations.Add(await Client.GetFromJsonAsync<formation>("Formation/" + id));
+            Console.WriteLine(Formations.Count);
+            StateHasChanged();
+        });
+        Console.WriteLine(">>>>>> " + Formations.Count);
+        foreach (var f in Formations)
+        {
+            Console.WriteLine(f.Name);
+        }
+        StateHasChanged();
+    }
+
+}

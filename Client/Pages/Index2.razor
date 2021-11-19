@@ -38,13 +38,13 @@
             }
             else
             {
-              @for (int i = 0; i < 3; i++)
+              @foreach (var item in _square_formations.Select((f, idx) => new { idx, f }))
               {
-              <div class="little-card" @onclick="@(e => clickfunc("formations/" + _formations[i].id))">
+              <div class="little-card" @onclick="@(e => clickfunc("formations/" + item.f.id))">
                 <div class="little-card-image-container">
-                  <image src="https://picsum.photos/468/28" + i />
+                  <img src=@("https://picsum.photos/468/28" + item.idx) />
                 </div>
-                <h3>@_formations[i].Name</h3>
+                <h3>@item.f.Name</h3>
                 <div class="rating-box">
                   @* <embed class="rating-star-first" src="images/star.svg" type="" />
                   <embed class="rating-star" src="images/star.svg" type="" />
@@ -56,9 +56,9 @@
                   <img src="https://sunrift.com/wp-content/uploads/2014/12/Blake-profile-photo-square.jpg" />
                 </div>
                 <div class="little-card-title">
-                  <h4 class="former-and-hour">@_formations[i].Former | 12h</h4>
+                  <h4 class="former-and-hour">@item.f.Former | 12h</h4>
                   <h4>ㅤ</h4>
-                  <h4 class="card-description">@_formations[i].Description</h4>
+                  <h4 class="card-description">@item.f.Description</h4>
                 </div>
               </div>
               }
@@ -153,10 +153,12 @@
 
 @code {
     private List<formation> _formations = null;
+      private List<formation> _square_formations = null;
 
     protected override async Task OnInitializedAsync()
     {
         _formations = await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation") as List<formation>;
+          _square_formations = _formations.Take(3).ToList();
         await JsRuntime.InvokeVoidAsync("display", await Client.GetFromJsonAsync<IEnumerable<formation>>("Formation"));
     }
 
