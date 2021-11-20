@@ -1,9 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-
-namespace Mediwatch.Server.PayPal.Values
+namespace PayPal.Values
 {
     public static class CurrencyCode
     {
+
         /// <summary>
         /// Great British Pounds
         /// </summary>
@@ -17,6 +21,6 @@ namespace Mediwatch.Server.PayPal.Values
         /// <summary>
         /// Euros
         /// </summary>
-        public static string EUR { get; private set; } = "EUR"; 
+        public static string EUR { get; private set; } = "EUR";
     }
 }

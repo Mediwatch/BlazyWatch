@@ -1,7 +1,16 @@
-namespace Mediwatch.Server.PayPal.Values.Items
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace PayPal.Values.Item
 {
+    /// <summary>
+    /// The item category type.
+    /// </summary>
     public static class Category
     {
+
         /// <summary>
         /// Goods that are stored, delivered, and
         /// used in their electronic format.

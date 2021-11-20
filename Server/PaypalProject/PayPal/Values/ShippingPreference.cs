@@ -1,12 +1,12 @@
-namespace Mediwatch.Server.PayPal.Values
+﻿namespace PayPal.Values
 {
     /// <summary>
     /// The shipping preference:
-    ///
-    /// * Displays the shipping address to the customer.
-    /// * Enables the customer to choose an address on the PayPal site.
-    /// * Restricts the customer from changing the address during the payment-approval process.
-    ///
+    /// <ul>
+    /// <li>Displays the shipping address to the customer.</li>
+    /// <li>Enables the customer to choose an address on the PayPal site.</li>
+    /// <li>Restricts the customer from changing the address during the payment-approval process.</li>
+    /// </ul>
     /// Default: GET_FROM_FILE.
     /// Source: https://developer.paypal.com/docs/api/orders/v2/
     /// </summary>

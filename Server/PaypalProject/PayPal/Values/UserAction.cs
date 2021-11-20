@@ -1,12 +1,17 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mediwatch.Server.PayPal.Values
+namespace PayPal.Values
 {
+    /// <summary>
+    /// Configures a Continue or Pay Now checkout flow.
+    /// Source: https://developer.paypal.com/docs/api/orders/v2/
+    /// </summary>
     public static class UserAction
     {
+
         /// <summary>
         /// After you redirect the customer to the PayPal payment page,
         /// a Continue button appears. Use this option when the final amount is not known

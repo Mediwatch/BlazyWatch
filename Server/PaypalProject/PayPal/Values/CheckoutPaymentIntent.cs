@@ -1,4 +1,9 @@
-namespace Mediwatch.Server.PayPal
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace PayPal.Values
 {
     /// <summary>
     /// The intent to either capture payment immediately or

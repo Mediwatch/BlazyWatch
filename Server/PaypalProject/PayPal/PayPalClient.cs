@@ -1,32 +1,22 @@
-using System;
+﻿using System;
 using PayPalCheckoutSdk.Core;
 
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization.Json;
-using Microsoft.Extensions.Configuration;
 
-namespace Mediwatch.Server.PayPal
+namespace PayPal
 {
     public class PayPalClient
     {
         // Place these static properties into a settings area.
+        public static string SandboxClientId { get; set; } = "AS60MoczPXk40sTYAtzCr41h2BgSmUNk4RxhPndZ-Ajz0Ic7hKQRWMd7JWNtB-OhT0C55MtweuBTSJmF";
+        public static string SandboxClientSecret { get; set; } = "EPqnAd3wjI4-O9Jlq3z4TeiRElVU_qTBPGKOZAEUN_3ngf7YWJrvm1xrv2U_WcpflhgmT3_paPYUhwHu";
 
-        public static string SandboxClientId { get; set; } = "";
-        public static string SandboxClientSecret { get; set; } = "";
-
-        public static string LiveClientId { get; set; }
-        public static string LiveClientSecret { get; set; }
+        public static string LiveClientId { get; set; } = "AZItd4zy21X2GzYkiEOYYZY_9IeuD-rLCkVZwFZZ5HxvWF8Q8HZapFkb1zNdpMREbF7ojvTEEy1el71J";
+        public static string LiveClientSecret { get; set; } = "EF51AHws8qrjIeEtweN05qJyEtePI-BIuU23z-gyrg8kQN7QsHdplkIK4G6y7RSiZhbB4gjbWe4TNboB";
 
 
-        public PayPalClient(IConfiguration configuration){
-
-            SandboxClientId = configuration["Authentication:PayPal:SandboxClientId"];
-            SandboxClientSecret = configuration["Authentication:PayPal:SandboxClientSecret"];
-
-            LiveClientId  = configuration["Authentication:PayPal:SandboxClientId"];
-            LiveClientSecret  = configuration["Authentication:PayPal:SandboxClientSecret"];
-        }
 
         ///<summary>
         /// Set up PayPal environment with sandbox credentials.

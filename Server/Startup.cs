@@ -103,6 +103,8 @@ namespace Mediwatch.Server {
                                 .AllowAnyHeader();
                         });
                     });
+            services.AddSingleton<Services.Data.Core.IUnitOfWork, Services.Data.Persistence.UnitOfWork>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,7 +1,7 @@
-using System.Net;
+﻿using System.Net;
 using System.Net.Http.Headers;
 
-namespace Mediwatch.Server.PayPal
+namespace PayPal
 {
     public class SmartButtonHttpResponse
     {
@@ -12,12 +12,15 @@ namespace Mediwatch.Server.PayPal
             StatusCode = httpResponse.StatusCode;
             _result = httpResponse.Result<PayPalCheckoutSdk.Orders.Order>();
         }
+
         public HttpHeaders Headers { get; }
         public HttpStatusCode StatusCode { get; }
+
         public PayPalCheckoutSdk.Orders.Order Result()
         {
             return _result;
         }
+
         public string orderID { get; set; }
     }
 }

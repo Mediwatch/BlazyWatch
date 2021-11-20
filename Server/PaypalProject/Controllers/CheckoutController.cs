@@ -9,8 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Mediwatch.Server.Areas.Identity.Data;
 using System.Collections.Generic;
+using Mediwatch.Server.Controllers;
+using Services.Data.Persistence;
+using PayPal;
 
-namespace Mediwatch.Server.Controllers
+namespace Controllers
 {
     public class CheckoutController : Controller
     {
@@ -46,17 +49,21 @@ namespace Mediwatch.Server.Controllers
             FormationController _formationCtr = new FormationController(_context);
             ApplicantSessionController _appSessionController = new ApplicantSessionController(_context);
 
-            var ListFormFind = new List<formation>();
-            foreach (var it in body.formationId)
+            // var ListFormFind = new List<formation>();
+            // foreach (var it in body.formationId)
+            // {
+            //     Guid.TryParse(it, out Guid id_Formation);
+            //     ListFormFind.Add(_formationCtr.GetFormation(id_Formation).Result.Value);
+            // }
+
+
+            var unitTest = new UnitOfWork()
             {
-                Guid.TryParse(it, out Guid id_Formation);
-                ListFormFind.Add(_formationCtr.GetFormation(id_Formation).Result.Value);
-            }
-
-
+                
+            };
                 OrdersCreateRequest request = new PayPalCheckoutSdk.Orders.OrdersCreateRequest();
                 request.Prefer("return=representation");
-                request.RequestBody(PayPal.OrderBuilder.Build(ListFormFind));
+                request.RequestBody(PayPal.OrderBuilder.Build(unitTest));
 
 
 
