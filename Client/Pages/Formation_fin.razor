@@ -61,17 +61,20 @@
         Formations = new List<formation>();
         Ids.ForEach(async id =>
         {
-            Console.WriteLine(id);
-            Formations.Add(await Client.GetFromJsonAsync<formation>("Formation/" + id));
-            Console.WriteLine(Formations.Count);
-            StateHasChanged();
+            if (id.Count() == 0)
+            {
+                return;
+            }
+            try
+            {
+                Formations.Add(await Client.GetFromJsonAsync<formation>("Formation/" + id));
+                StateHasChanged();
+            }
+            catch
+            {
+                Console.WriteLine("Id " + id + " invalide.");
+            }
         });
-        Console.WriteLine(">>>>>> " + Formations.Count);
-        foreach (var f in Formations)
-        {
-            Console.WriteLine(f.Name);
-        }
-        StateHasChanged();
     }
 
 }
