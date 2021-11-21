@@ -17,7 +17,7 @@ namespace Mediwatch.Server.Controllers
         private readonly DbContextMediwatch _context;
         private IConfiguration _configuration;
         private readonly UserManager<UserCustom> userManager;
-
+        private static List<formation> ListFormFind; 
         public CheckoutController(DbContextMediwatch context,
         IConfiguration configuration,
         UserManager<UserCustom> _userManager)
@@ -98,9 +98,8 @@ namespace Mediwatch.Server.Controllers
         {
             UserCustom userCustom = (await userManager.FindByNameAsync(User.Identity.Name));
             FormationController _formationCtr = new FormationController(_context);
-            ApplicantSessionController _appSessionController = new ApplicantSessionController(_context);
 
-            var ListFormFind = new List<formation>();
+            ListFormFind = new List<formation>();
             foreach (var it in body.formationId)
             {
                 Guid.TryParse(it, out Guid id_Formation);
@@ -110,8 +109,6 @@ namespace Mediwatch.Server.Controllers
 
             var request = new PayPalCheckoutSdk.Orders.OrdersCreateRequest();
             request.Prefer("return=representation");
-            // request.RequestBody(PayPal.OrderBuilder.Build(ListFormFind));
-            // request.RequestBody(PayPal.OrderBuilder.Build());
             request.RequestBody(PayPal.OrderBuilder.Build(ListFormFind, userCustom));
 
 
@@ -135,16 +132,7 @@ namespace Mediwatch.Server.Controllers
                     orderID = result.Id
             };
 
-            // CREATE APPLICANT SESSION
-            // applicant_session applicantSession = new applicant_session()
-            // {
-            //     idUser = idUserDB,
-            //     // idFormation = formFind.id,
-            //     confirmed = false,
-            //     payed = false,
-            //     idPayPal = result.Id
-            // };
-            // await _appSessionController.PostApplicantSession(applicantSession);
+
             return payPalHttpResponse;
         }
 
@@ -179,12 +167,30 @@ namespace Mediwatch.Server.Controllers
         // }
 
         [HttpGet("api/paypal/checkout/order/complete/{orderId}")]
-        public IActionResult Complete(string orderId)
+        public async Task<IActionResult> CompleteAsync(string orderId)
         {
+            var userCustom = (await userManager.FindByNameAsync(User.Identity.Name)); 
+            ApplicantSessionController _appSessionController = new ApplicantSessionController(_context);
+
             System.Console.WriteLine(
             @"+++++++++++++++++++++++++++++++++++++++++++++++++++++\n" +
-            orderId +
-            @"+++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+            orderId +"[ " + userCustom.Id + "] " +
+            @"\n+++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+
+            // CREATE APPLICANT SESSION
+            foreach (var item in ListFormFind)
+            {
+                applicant_session applicantSession = new applicant_session()
+                {
+                    idUser = userCustom.Id,
+                    idFormation = item.id,
+                    confirmed = false,
+                    payed = false,
+                    idPayPal = orderId
+                };
+                await _appSessionController.PostApplicantSession(applicantSession);   
+            }
+            ListFormFind = null;
             return Ok();
         }
 

@@ -32,6 +32,7 @@ async function init_paypal(listId) {
 
             // Finalise the transaction
             onApprove: function (data, actions) {
+
                 return fetch('/api/paypal/checkout/order/approved/' + data.orderID, {
                     method: 'post'
                 }).then(function (res) {

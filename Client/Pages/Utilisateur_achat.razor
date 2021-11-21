@@ -3,8 +3,6 @@
 @inject HttpClient Client
 @inject IJSRuntime JsRuntime
 
-
-
 <h2>Votre panier</h2>
 
 <div class="container">
@@ -24,13 +22,14 @@ else
         <p>Coût : @f.Price €</p>
         </div>
     }
-    <input type="button" class="btn btn-primary" @onclick="(() => Payer())" value="Payer mon panier" />
+    @* <input type="button" class="btn btn-primary" @onclick="(() => Payer())" value="Payer mon panier" /> *@
+    <div id="paypal-button-container"></div>
 }
 </div>
 
 
 @code {
-
+    private bool found = false;
     private List<formation> formations = new List<formation>();
 
     private List<string> fs = null;
@@ -50,17 +49,23 @@ else
         else
         {
             Console.WriteLine(">>>>" + fs.Count);
-
             foreach (var id in fs)
             {
                 formations.Add(await Client.GetFromJsonAsync<formation>("Formation/" + id));
             }
-
             await InvokeAsync(() =>
             {
                 StateHasChanged();
             });
-
+            
+            ///
+            var listId = new List<string>();
+            foreach (var it in formations)
+            {
+                listId.Add(it.id.ToString()); 
+            }
+            await JsRuntime.InvokeVoidAsync("init_paypal", listId);
+            ///
         }
     }
 
@@ -122,12 +127,16 @@ else
             Console.WriteLine("Inscription réussie, devrait être après le Paypal");
             Console.WriteLine("Chaque formation devrait être ajoutée ici au fur et à mesure dans info, afin de générer correctement la facture");
         });
-        
-        await JsRuntime.InvokeVoidAsync("init_paypal", "");
         Console.WriteLine("Ici, on crée un faux orderInfo, histoire de pouvoir montrer le fonctionnement des factures avec un achat spécifique.");
         info.invoiceId = Guid.NewGuid().ToString();
         await Client.PostAsJsonAsync("Order", info);
         Console.WriteLine("Facture créée !");
     }
+
+    /// <summary>
+    /// Permet d'initialiser le bouton Paypal et les fonctions associées.
+    /// </summary>
+    /// <param name="firstRender"></param>
+    /// <returns></returns>
 
 }
