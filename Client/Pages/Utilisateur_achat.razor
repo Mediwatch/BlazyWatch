@@ -2,6 +2,7 @@
 @inject Blazored.LocalStorage.ILocalStorageService Storage
 @inject HttpClient Client
 @inject IJSRuntime JsRuntime
+@inject NavigationManager navman
 
 <h2>Votre panier</h2>
 
@@ -16,7 +17,7 @@ else
     {
         var tmp_f = @f;
         <div class="achat-formation">
-        <h4>@f.Name <i class="fas fa-trash" @onclick="@(() => SuppressionFormation(tmp_f))"></i></h4>
+        <h4><span @onclick="@(() => VoirFormation(tmp_f))">@f.Name</span> <i class="fas fa-trash" @onclick="@(() => SuppressionFormation(tmp_f))"></i></h4>
         <p>Du @f.StartDate au @f.EndDate, par @f.Former</p>
         <br />
         <p>Coût : @f.Price €</p>
@@ -86,6 +87,11 @@ else
         });
     }
 
+    private async void VoirFormation(formation f)
+    {
+        await JsRuntime.InvokeAsync<object>("open", "/formations/" + f.id.ToString(), "_blank");
+    }
+    
     /// <summary>
     /// Permet de payer les différentes formations dans le panier, de créer les factures associées et d'inscrire l'utilisateur aux formations.
     /// </summary>

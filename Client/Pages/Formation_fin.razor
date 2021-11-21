@@ -1,5 +1,6 @@
 @page "/formations/fin"
 
+@inject Blazored.LocalStorage.ILocalStorageService Storage
 @inject NavigationManager navManager
 @inject HttpClient Client
 
@@ -49,8 +50,9 @@
     public string facture;
 
 
-    protected override void OnInitialized()
+    protected async override void OnInitialized()
     {
+        List<string> fs = await Storage.GetItemAsync<List<string>>("formations");
         var uri = new Uri(navManager.Uri);
         facture = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query).TryGetValue("facture", out var
         facture_url) ? facture_url.First() : "#";
@@ -68,6 +70,8 @@
             try
             {
                 Formations.Add(await Client.GetFromJsonAsync<formation>("Formation/" + id));
+                fs.Remove(id);
+                await Storage.SetItemAsync<List<string>>("formations", fs);
                 StateHasChanged();
             }
             catch
