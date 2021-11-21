@@ -217,6 +217,7 @@
   -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
   clip-path: polygon(0 0, 0% 100%, 100% 100%);
   height: 100%;
+  
   width: 100%;
 }
 .cards-container .search-card .search-card-image-container {
@@ -256,16 +257,6 @@
 .cards-container .search-card .search-card-text h6 {
   margin: 0;
 }
-.cards-container .search-card .search-card-text .location {
-  background-color: #ffbb00;
-  color: black;
-  border-radius: 3vh;
-  padding-inline: 3vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  max-width: 25%;
-}
 .cards-container .search-card .search-card-text p {
   display: inline-block;
   height: 8ch;
@@ -273,21 +264,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.cards-container .search-card .search-card-buton {
-  position: absolute;
-  bottom: 13%;
-  right: 3%;
-  min-height: 1.5vh;
-  min-width: 20%;
-  margin-left: 90%;
-  text-align: center;
-  padding: 1%;
-  font-weight: 500;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  border-radius: 1.5vh;
-  font-size: 3vh;
-}
+
 .cards-container .search-card .search-card-buton:hover {
   filter: saturate(150%);
 }
@@ -411,6 +388,95 @@
   box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
+@media only screen and (min-width: 769px) {
+  /* Computer */
+  .date-top {
+    width: 50%;
+  }
+  .organization-top {
+    width: 25%;
+  }
+  .info-box {
+    -ms-flex-direction: row;
+    flex-direction: row ;
+  }
+  .align-top-info-box {
+    -ms-flex-item-align: center;
+    align-self: center;
+  }
+  .cards-container .search-card .search-card-buton {
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    min-height: 1.5vh;
+    min-width: 20%;
+    margin-left: 90%;
+    text-align: center;
+    padding: 4px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border-radius: 1.5vh;
+    font-size: 3vh;
+  }
+  .cards-container .search-card .search-card-text .location {
+    background-color: #ffbb00;
+    color: black;
+    border-radius: 3vh;
+    padding-inline: 3vh;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* Phone */
+  .date-top {
+    width: 100%;
+  }
+  .organization-top {
+    width: 100%;
+  }
+  .info-box {
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .align-top-info-box {
+    -ms-flex-item-align: start;
+    align-self: start;
+  }
+  .cards-container .search-card .search-card-buton {
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    min-height: 1.5vh;
+    min-width: 90%;
+    margin-left: 0%;
+    text-align: center;
+    padding: 0px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border-radius: 1.5vh;
+    font-size: 2.5vh;
+  }
+  .cards-container .search-card .search-card-text .location {
+    background-color: #ffbb00;
+    color: black;
+    border-radius: 3vh;
+    padding-inline: 3vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .cards-container .search-card .search-card-text .location h6 {
+    margin: 0;
+    text-align: center;
+  }
+}
 .my-btn {
   display: inline-block;
   font-weight: 400;
