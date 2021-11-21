@@ -48,9 +48,12 @@ async function init_paypal(listId) {
                     // })
                     // OR
                     // Notify the server that the transaction id complete
-                    httpGet('/api/paypal/checkout/order/complete/' + data.orderID);
+                    const invoiceId = httpGet('/api/paypal/checkout/order/complete/' + data.orderID);
 
-                    window.location.href = '/formations/fin?ids=' + listId.join(',') + '&details=' + JSON.stringify(details);
+                    console.log('================================')
+                    console.log(invoiceId)
+
+                    window.location.href = '/formations/fin?ids=' + listId.join(',') + '&facture=' + invoiceId;
                     // Show a success message to the buyer
                     console.log('Transaction completed by ' + details.payer.name.given_name + '!');
                 });

@@ -7,17 +7,14 @@ using System;
 using Mediwatch.Shared.Models;
 using Server;
 using Newtonsoft.Json;
-using Server.Utils;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
-using Mediwatch.Shared;
 using Mediwatch.Server.Areas.Identity.Data;
 using System.IO;
 
 using System.Linq;
-using Microsoft.Extensions.Logging;
 
 public class InvoiceGenerator
 {
@@ -102,10 +99,7 @@ public class InvoiceArchiver
             Directory.CreateDirectory(Root + "/" + client);
         }
 
-        // facture_NOM_DATE.pdf
-        File.Move(filePath,
-            Root + "/" + client + "/"
-                + "facture_" + client + "_" + DateTime.Now.ToString(TimeFormat) + ".pdf");
+        File.Move(filePath, Root + "/" + client + "/" + filename);
     }
 
     public string[] Search(string client)
@@ -161,17 +155,18 @@ namespace Mediwatch.Server.Controllers
         //POST /Order/
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult<orderInfo>> PostOrder(orderInfo orderBody)
+        public async Task<ActionResult<string>> PostOrder(orderInfo orderBody)
         {
             var userInfo = await _userManager.FindByIdAsync(orderBody.userId);
 
-            var price = orderBody
+            var forms = orderBody
                 .formationId
                 .Split(";")
                 .ToList()
                 .Select(id => _context.formations.FindAsync(Guid.Parse(id)))
-                .Select(res => res.Result.Price)
-                .Sum();
+                .Select(res => res.Result);
+            var price = forms.Select(form => form.Price).Sum();
+            var nbForms = forms.Count();
 
             orderBody.invoiceId = Guid.NewGuid().ToString();
             orderBody.createAt = DateTime.Now;
@@ -180,25 +175,17 @@ namespace Mediwatch.Server.Controllers
                 .SetData(new
                 {
                     envoyeur = "Mediwatch",
-                    envoyeur_addresse_1 = "24 rue Pasteur",
-                    envoyeur_addresse_2 = "94270 Le Kremlin-Bicêtre",
-                    envoyeur_addresse_3 = "France",
                     destinataire = userInfo.UserName,
-                    destinataire_addresse = orderBody.billingAdress,
                     numéro_facture = orderBody.invoiceId,
                     date_facture = orderBody.createAt.ToString("dd/MM/yyyy"),
                     description = "Formation",
                     // description = formationInfo.Name,
-                    quantité = "1",
-                    unité = "pce.",
+                    quantité = nbForms,
                     // prix_unitaire_HT = "100",
                     prix_unitaire_HT = price.ToString(),
                     // prix_unitaire_HT = formationInfo.Price,
-                    total_TTC = "-1.00",
-                    // total_TTC = formationInfo.Price,
-                    téléphone = "+33 X XX XX XX XX",
-                    email = "contact@mediwatch.com",
-                    IBAN = "XXXXXXXXXX"
+                    prix_total = price.ToString(),
+                    email = "contact@mediwatch.fr"
                 })
                 .SetOuput("./InvoiceGenerator/" + orderBody.invoiceId)
                 .SetOverwrite(true)
@@ -212,13 +199,17 @@ namespace Mediwatch.Server.Controllers
 
             // EmailUtils.SendMail(email, _configuration);
 
+            string archivedFilename = "facture_" + userInfo.UserName + "_" + orderBody.createAt.ToString("dd-MM-yyyy_HH\\h-mm-ss") + ".pdf";
             new InvoiceArchiver(_configuration)
-                .ArchiveInvoice("./InvoiceGenerator/" + orderBody.invoiceId, orderBody.invoiceId, userInfo.UserName);
+                .ArchiveInvoice(
+                    "./InvoiceGenerator/" + orderBody.invoiceId,
+                    archivedFilename,
+                    userInfo.UserName);
 
             orderBody.createAt = DateTime.Now;
             _context.orderInfos.Add(orderBody);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetOrder), new { id = orderBody.id }, orderBody);
+            return archivedFilename;
         }
 
         //GET /Order/Archived

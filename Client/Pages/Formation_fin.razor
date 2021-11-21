@@ -55,7 +55,7 @@
         List<string> fs = await Storage.GetItemAsync<List<string>>("formations");
         var uri = new Uri(navManager.Uri);
         facture = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query).TryGetValue("facture", out var
-        facture_url) ? facture_url.First() : "#";
+        facture_url) ? "/Order/Archived/" + facture_url.First() : "#";
         var ids = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query).TryGetValue("ids", out var ids_url) ?
         ids_url.First() : "";
 
