@@ -196,7 +196,6 @@ namespace Mediwatch.Server {
                     queryTag = queryTag.Where(e => e.tag_name.Equals(demoTag));
                     var resultSearchTag = queryTag.ToList();
 
-                    Console.WriteLine("hello");
                     if (resultSearchTag.Any())
                         continue;
 

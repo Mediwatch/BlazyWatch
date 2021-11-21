@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using System.Linq;
 
 using PayPalCheckoutSdk.Orders;
 using Server;
@@ -9,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Mediwatch.Server.Areas.Identity.Data;
 using System.Collections.Generic;
+
+
 
 namespace Mediwatch.Server.Controllers
 {
@@ -167,10 +170,16 @@ namespace Mediwatch.Server.Controllers
         // }
 
         [HttpGet("api/paypal/checkout/order/complete/{orderId}")]
-        public async Task<IActionResult> CompleteAsync(string orderId)
+        public async Task<ActionResult<orderInfo>> CompleteAsync(string orderId)
         {
             var userCustom = (await userManager.FindByNameAsync(User.Identity.Name)); 
             ApplicantSessionController _appSessionController = new ApplicantSessionController(_context);
+
+            OrderController _orderController = new OrderController(_context, userManager, _configuration);
+            orderInfo info = new orderInfo() {
+                userId = userCustom.Id.ToString(),
+                formationId = String.Join(";", ListFormFind.Select(f => f.id.ToString())),
+            };
 
             System.Console.WriteLine(
             @"+++++++++++++++++++++++++++++++++++++++++++++++++++++\n" +
@@ -190,8 +199,10 @@ namespace Mediwatch.Server.Controllers
                 };
                 await _appSessionController.PostApplicantSession(applicantSession);   
             }
+
             ListFormFind = null;
-            return Ok();
+            var completedInfo = await _orderController.PostOrder(info);
+            return completedInfo;
         }
 
         /// <summary>

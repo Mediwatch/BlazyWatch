@@ -163,8 +163,18 @@ namespace Mediwatch.Server.Controllers
         [Authorize]
         public async Task<ActionResult<orderInfo>> PostOrder(orderInfo orderBody)
         {
-            var userInfo = await _userManager.FindByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            // var formationInfo = await _context.formations.FindAsync(orderBody.formationId);
+            var userInfo = await _userManager.FindByIdAsync(orderBody.userId);
+
+            var price = orderBody
+                .formationId
+                .Split(";")
+                .ToList()
+                .Select(id => _context.formations.FindAsync(Guid.Parse(id)))
+                .Select(res => res.Result.Price)
+                .Sum();
+
+            orderBody.invoiceId = Guid.NewGuid().ToString();
+            orderBody.createAt = DateTime.Now;
 
             new InvoiceGenerator("./InvoiceGenerator/invoice_template.docx")
                 .SetData(new
@@ -176,12 +186,13 @@ namespace Mediwatch.Server.Controllers
                     destinataire = userInfo.UserName,
                     destinataire_addresse = orderBody.billingAdress,
                     numéro_facture = orderBody.invoiceId,
-                    date_facture = DateTime.Now.ToString("dd/MM/yyyy"),
+                    date_facture = orderBody.createAt.ToString("dd/MM/yyyy"),
                     description = "Formation",
                     // description = formationInfo.Name,
                     quantité = "1",
                     unité = "pce.",
-                    prix_unitaire_HT = orderBody.price.ToString(),
+                    // prix_unitaire_HT = "100",
+                    prix_unitaire_HT = price.ToString(),
                     // prix_unitaire_HT = formationInfo.Price,
                     total_TTC = "-1.00",
                     // total_TTC = formationInfo.Price,
@@ -204,7 +215,6 @@ namespace Mediwatch.Server.Controllers
             new InvoiceArchiver(_configuration)
                 .ArchiveInvoice("./InvoiceGenerator/" + orderBody.invoiceId, orderBody.invoiceId, userInfo.UserName);
 
-            // orderInfo info = new orderInfo();
             orderBody.createAt = DateTime.Now;
             _context.orderInfos.Add(orderBody);
             await _context.SaveChangesAsync();
