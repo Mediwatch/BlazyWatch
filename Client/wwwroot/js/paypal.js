@@ -1,14 +1,17 @@
 let orderId;
 let listId = [];
 
-async function init_paypal(id) {
+async function init_paypal(listId) {
     if (document.getElementById("paypal-button-container") != null) {
         paypal.Buttons({
+            style: {
+                layout:  'vertical',
+                color:   'blue',
+                shape:   'rect',
+                label:   'checkout'
+              },
             // Set up the transaction
             createOrder: function (data, actions) {
-                listId = [];
-                listId.push(id);
-                console.log(listId);
                 orderId = data.orderID;
                 jsonObj = JSON.stringify({
                     formationId: listId,

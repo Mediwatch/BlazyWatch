@@ -1,6 +1,8 @@
 ﻿@page "/utilisateur/achat"
 @inject Blazored.LocalStorage.ILocalStorageService Storage
 @inject HttpClient Client
+@inject IJSRuntime JsRuntime
+
 
 
 <h2>Votre panier</h2>
@@ -120,7 +122,8 @@ else
             Console.WriteLine("Inscription réussie, devrait être après le Paypal");
             Console.WriteLine("Chaque formation devrait être ajoutée ici au fur et à mesure dans info, afin de générer correctement la facture");
         });
-
+        
+        await JsRuntime.InvokeVoidAsync("init_paypal", "");
         Console.WriteLine("Ici, on crée un faux orderInfo, histoire de pouvoir montrer le fonctionnement des factures avec un achat spécifique.");
         info.invoiceId = Guid.NewGuid().ToString();
         await Client.PostAsJsonAsync("Order", info);

@@ -117,7 +117,9 @@ else
     {
         if (!firstRender && !found)
         {
-            await JsRuntime.InvokeVoidAsync("init_paypal", Id);
+            var listId = new List<string>();
+            listId.Add(Id);
+            await JsRuntime.InvokeVoidAsync("init_paypal", listId);
             found = true;
             StateHasChanged();
         }
