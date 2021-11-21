@@ -4,7 +4,7 @@ var searchData=
   ['checkoutcontroller_24',['CheckoutController',['../class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller.html',1,'Mediwatch::Server::Controllers']]],
   ['compagny_25',['compagny',['../class_mediwatch_1_1_shared_1_1_models_1_1compagny.html',1,'Mediwatch::Shared::Models']]],
   ['compagnycontroller_26',['CompagnyController',['../class_mediwatch_1_1_server_1_1_controllers_1_1_compagny_controller.html',1,'Mediwatch::Server::Controllers']]],
-  ['complete_27',['Complete',['../class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller.html#ac9b7162603e1ea82b10106a5be76c348',1,'Mediwatch::Server::Controllers::CheckoutController']]],
+  ['completeasync_27',['CompleteAsync',['../class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller.html#ae98f3a1b0041d703f93485d943893550',1,'Mediwatch::Server::Controllers::CheckoutController']]],
   ['create_28',['Create',['../class_mediwatch_1_1_server_1_1_controllers_1_1_checkout_controller.html#a76be1fec719f0643eb5c207b3b696dcf',1,'Mediwatch::Server::Controllers::CheckoutController']]],
   ['createarticle_29',['CreateArticle',['../class_blazing_blog_1_1_server_1_1_controllers_1_1_articles_controller.html#a9569853c2a94646215f6bb863cb07be2',1,'BlazingBlog::Server::Controllers::ArticlesController']]]
 ];
