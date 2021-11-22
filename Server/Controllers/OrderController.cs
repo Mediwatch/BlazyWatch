@@ -178,12 +178,10 @@ namespace Mediwatch.Server.Controllers
                     destinataire = userInfo.UserName,
                     numéro_facture = orderBody.invoiceId,
                     date_facture = orderBody.createAt.ToString("dd/MM/yyyy"),
-                    description = "Formation",
-                    // description = formationInfo.Name,
-                    quantité = nbForms,
-                    // prix_unitaire_HT = "100",
-                    prix_unitaire_HT = price.ToString(),
-                    // prix_unitaire_HT = formationInfo.Price,
+                    formations = forms.Select(form => new {
+                        nom = form.Name,
+                        prix = form.Price
+                    }),
                     prix_total = price.ToString(),
                     email = "contact@mediwatch.fr"
                 })
