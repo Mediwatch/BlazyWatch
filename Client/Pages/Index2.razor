@@ -45,15 +45,15 @@
                   <img src=@("https://picsum.photos/468/28" + item.idx) />
                 </div>
                 <h3>@item.f.Name</h3>
-                <div class="rating-box">
+                @*<div class="rating-box">
                   @* <embed class="rating-star-first" src="images/star.svg" type="" />
                   <embed class="rating-star" src="images/star.svg" type="" />
                   <embed class="rating-star" src="images/star.svg" type="" />
                   <embed class="rating-star" src="images/emptyStar.svg" type="" />
-                  <embed class="rating-star" src="images/emptyStar.svg" type="" /> *@
-                </div>
+                  <embed class="rating-star" src="images/emptyStar.svg" type="" /> * @
+                </div>*@
                 <div class="former-icon">
-                  <img src="https://sunrift.com/wp-content/uploads/2014/12/Blake-profile-photo-square.jpg" />
+                  <img src="https://picsum.photos/512/512") />
                 </div>
                 <div class="little-card-title">
                   <h4 class="former-and-hour">@item.f.Former | 12h</h4>
@@ -80,8 +80,8 @@
             </div>
             <div class="details-left-container-text-side">
               <h2>Pourquoi nous faire confiance ?</h2>
-              <h4>Connaisez vous les organismes DPC nos formations viennent à 80% de ces mêmes organismes</h4>
-              <button class="btn btn-primary w-100 center-item" type="submit">Organismes DPC</button>
+              <h4>Nous proposons les formations fournies par les organismes DPC mais de manière plus centralisée et intuitive</h4>
+              <a class="btn btn-primary w-100 center-item" href="/formations/recherche">Voir les formations des organismes DPC</a>
             </div>
           </div>
           <div class="details-right-container">
@@ -90,11 +90,12 @@
             </div>
             <div class="details-right-container-text-side">
               <h2>Trouver une formation qui vous intéresse</h2>
-              <h4>Découvrir toutes les formations autour de vous et qui vous intéressent</h4>
+              <h4>Découvrez toutes les formations autour de vous et qui vous intéressent</h4>
               <a class="btn btn-primary w-100 center-item" href="/formations/recherche">@Localizer["Voir la liste des formations"]</a>
             </div>
           </div>
         </div>
+        <!--
         <div>
             <div class="little-cards-container">
                 @if (_formations == null)
@@ -146,6 +147,7 @@
                 }
             </div>
         </div>
+        -->
     </div>
 </main>
 

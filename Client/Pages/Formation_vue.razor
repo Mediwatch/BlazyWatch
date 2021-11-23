@@ -29,19 +29,14 @@ else
             <ArticleViewer articleName=@_formation.ArticleID></ArticleViewer>
         }
 
-        @if (_info == null || !_info.IsAuthenticated)
+        @if (_info != null && _info.IsAuthenticated)
         {
-            <div id="paypal-button-container" aria-disabled="true"></div>
-            <button class="btn btn-primary" disabled>
-                Ajouter la formation à mon panier
-            </button>
-        }
-        else
-        {
-            <div id="paypal-button-container"></div>
-            <button class="btn btn-primary" @onclick="@Ajout" data-toggle="modal" data-target="#exampleModalCenter">
-                Ajouter la formation à mon panier
-            </button>
+            <div class="w-50 center-item" id="paypal-button-container"></div>
+            <div class="w-50 center-item">
+                <button class="btn btn-primary" @onclick="@Ajout" data-toggle="modal" data-target="#exampleModalCenter">
+                    Ajouter la formation à mon panier
+                </button>
+            </div>
         }
 
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
