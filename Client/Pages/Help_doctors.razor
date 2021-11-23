@@ -1,9 +1,143 @@
-@page "/help/doctors"
+@page "/help/index"
 
 @inject HttpClient Http
 @using BlazingBlog.Shared
 @inject IStringLocalizer<Article_creation> Localizer
 
 <div class="container">
-    <p>Ce guide est en cours de rédaction et sera disponible lors du lancement de la Bêta.</p>
+    <h1>Chapitre I : Gestion du compte</h1>
+
+    <h2>Inscription à la plateforme</h2>
+    <p>Le site Mediwatch nécessite une inscription afin d’accéder ou créer du contenu sur la
+plateforme. Vous devez donc créer un compte avant de pouvoir profiter du site.
+Afin de créer un compte vous devez cliquer sur le lien
+suivant <a href="https://beta.mediwatch.fr/utilisateur/enregistrement">inscription</a> et remplir les champs
+suivants :</p>
+
+<img src="images/new_account.png">
+
+<p>1. Votre nom d’utilisateur<br/>
+2. Votre adresse mail<br/>
+3. Votre mot de passe<br/>
+4. Une confirmation du mot de passe</p>
+
+<p>Une fois les champs complétés et valides, vous pouvez cliquer sur le bouton « créer un
+compte » pour créer le compte, vous serez alors connecté automatiquement et redirigé vers
+le site.</p>
+
+<h2>Connexion à la plateforme</h2>
+
+<p>La plateforme Mediwatch nécessite que l’utilisateur soit connecté pour être utilisée. Vous
+pouvez accéder à la page de connexion grâce au lien suivant <a href="https://beta.mediwatch.fr/utilisateur/connexion.
+">connexion.</a></p>
+
+
+<img src="images/register.png">
+
+<p>1. Votre nom d’utilisateur<br/>
+2. Votre mot de passe<br/>
+Une case à cocher indiquant la persistance de la connexion ou non.<br/>
+
+Lorsque les informations sont validées et correctes, vous pouvez vous connecter en
+appuyant sur le bouton « Connexion » qui vous redirigera automatiquement vers le site.<br/>
+Il est possible d’accéder à la page de réinitialisation du mot de passe en appuyant sur le
+bouton « Mot de passe oublié ».<br/>
+Il est possible de créer un compte en appuyant sur le bouton « Inscription ».
+</p>
+
+<h2>Déconnexion du site</h2>
+
+<p>Si vous souhaiter vous déconnecter d’un compte utilisateur, vous devez appuyer sur le
+bouton bleu qui indique « Bienvenue » suivi de votre nom d’utilisateur (1) et appuyer
+ensuite sur « Déconnexion » (2).
+</p>
+
+<img src="images/navbar.png">
+
+<h2>Modification de vos données utilisateur</h2>
+
+<p>Vous pouvez accéder et modifier vos données personnelles en cliquant sur le lien
+suivant <a href="https://beta.mediwatch.fr/utilisateur/moi">données</a>.
+</p>
+
+<img src="images/account_info.png">
+
+<p>Vous retrouverez dans l’encadré rouge vos informations personnelles ainsi que vos
+factures.
+Pour le moment, vous pouvez mettre à jour votre nom d’utilisateur (1) et votre adresse
+électronique (2). Afin de sauvegarder vos modifications, vous devrez appuyer sur le bouton
+bleu « Sauvegarder » (3).</p>
+
+<h2>Suppression du compte</h2>
+
+<p>Vous pouvez supprimer votre compte ainsi que vos données personnelles en cliquant sur le
+lien suivant <a href="https://beta.mediwatch.fr/utilisateur/moi">Suppression</a> et en appuyant sur le bouton
+« Effacer votre compte » (4), sur l’image ci-avant.</p>
+
+<h1>Chapitre II : Formations</h1>
+
+<p>Vous pouvez effectuer une recherche de formation en cliquant sur le lien
+suivant <a href="https://beta.mediwatch.fr/formations/recherche">recherche</a>, puis en entrant votre recherche
+dans le champ « Recherche » (2). Il est possible d’affiner la recherche en choisissant une
+option parmi celles proposées dans le menu déroulant (1).</p>
+
+<img src="inmages/search.png">
+
+<h2>Inscription</h2>
+
+<p>Pour vous inscrire à une formation, vous devez vous rendre sur sa page de présentation.
+Depuis le menu de recherche, vous devez cliquer sur « En savoir plus » à la formation
+recherchée.
+Sur cette page vous retrouverez le titre de la formation, les dates, le lieu, une description du
+contenu dispensé, le public visé ainsi que le prix et le nom du formateur.
+Si vous désirez participer à cette formation vous devez cliquer au choix sur :
+• « S’inscrire à la formation » si vous souhaitez payer immédiatement
+• « Ajouter la formation à mon panier » si vous souhaitez continuer vos recherches ou
+payer plus tard.</p>
+
+<h2>Création (comptes formateurs uniquement)</h2>
+
+<p>Vous pouvez crée une formation en cliquant sur le lien
+suivant <a href="https://beta.mediwatch.fr/formations/creation">creation</a>. Seuls les utilisateurs connus
+comme formateurs par le site sont en mesure de créer des formations.</p>
+
+<img src="images/formation_creation.png">
+
+<img src="images/price.png">
+
+<img src="images/contact.png">
+
+<p>1. Nom de la formation<br/>
+2. Date de début de la formation<br/>
+3. Date de fin de la formation<br/>
+4. Description du contenu de la formation<br/>
+5. Passage à la page d’après<br/>
+6. Nom du formateur<br/>
+7. Prix de la formation<br/>
+8. Nom de l’organisme de formation<br/>
+9. Passage à la page suivante<br/>
+10. Contact pour appeler le formateur ou l’organisme<br/>
+11. Lieu de dispense de la formation<br/>
+12. Passage à la page finale de validation des différents éléments<br/>
+Une formation est créée dès lors que tous les éléments ont été validés et vérifiées et que le
+formateur a validé en appuyant sur le bouton « créer la formation ».
+</p>
+
+<h2>Visualisation du calendrier et exportation</h2>
+
+<p>Vous pouvez consulter votre calendrier personnel de formation en cliquant sur le lien cidessous : <a href="https://beta.mediwatch.fr/utilisateur/calendrier">calendrier</a>. Ce calendrier permet de voir les
+formations auquel vous êtes inscrit. Par défaut, l’affichage est sélectionné en mode mois sur
+le mois en cours. Vous pouvez changer le mois affiché grâce au bouton 1 (avancer/reculer)
+et réinitialiser l’affichage sur le mois en cours grâce au bouton « Today » (2). Vous pouvez
+également passer en mode affichage « Jour/Semaine » sur le groupe de bouton 3.
+Les formations enregistrées sont marquées sur le calendrier (ex ci-dessous (4)).</p>
+
+<img src="images/calendar.png">
+
+<p>Au-dessus du calendrier vous avez un bouton « Exporter le calendrier ». Ce dernier vous
+permet de synchroniser le calendrier Mediwatch avec vos calendriers Google, Outlook, etc.,
+du moment que ces calendriers acceptant le format ical.</p>
+
+<img src="images/export_calendar.png">
+
 </div>
