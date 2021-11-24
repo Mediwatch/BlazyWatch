@@ -6,6 +6,22 @@
   background-color: #b8e994;
   color: #079992;
 }
+.header-opinion {
+  margin-bottom: 0px !important;
+}
+.big-row-annoy-me {
+  margin-top: 2vh;
+}
+.fix-row-search {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.fix-row {
+  margin-left: 15vw;
+}
+.main-content { 
+  padding-top: 0px;
+}
 .cards-container > :nth-child(3n+1) .mid-color {
   background-color: #78e08f;
   color: #38ada9;
@@ -432,6 +448,12 @@
 
 @media only screen and (max-width: 768px) {
   /* Phone */
+  .fix-row {
+    margin-left: 6vw;
+  }
+  .searchbar-text {
+    margin-left: 5vw;
+  }
   .date-top {
     width: 100%;
   }

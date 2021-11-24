@@ -273,6 +273,9 @@
 
 @media only screen and (max-width: 768px) {
   /* For phone: */  
+  .details-container {
+    margin-left: 5vw;
+  }
   .cards-container .little-cards-container .little-card {
     overflow: hidden;
     border-radius: 3vh;
@@ -288,11 +291,11 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: left;
-    padding-left: 3vw;
+    padding-left: 7vw;
   }
   .cards-container .little-cards-container .little-card {
     height: 40%;
-    width: 83vw;
+    width: 86vw;
     margin: 0;
     margin-right: 1.5rem;
     margin-bottom: 2vh;
@@ -388,6 +391,7 @@
     display: flex;
     flex-direction: row;
     height: 100%;
+    margin-left: 5.5vw;
     width: 86vw;
   }
   .centered-header-container-box {
@@ -404,8 +408,7 @@
     flex-direction: row;
     width: 100vw;
     height: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 5vw;
   }
   .line-left{
     width: 20vw;
@@ -596,6 +599,7 @@
 .former-icon {
   width: 5vh;
   float: right;
+  margin-top: 2vh;
   margin-right: 5vh;
   height: 5vh;
 }
