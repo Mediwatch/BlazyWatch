@@ -403,7 +403,13 @@
 .my-btn-primary :focus {
   box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
-
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;
+}
 @media only screen and (min-width: 769px) {
   /* Computer */
   .date-top {
